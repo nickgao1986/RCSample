@@ -53,7 +53,7 @@ public class MainActivity extends Activity {
 				if (mState == RestSessionState.AUTHORIZED) {
 					long mailboxId = GeneralSettings.getSettings()
 							.getCurrentMailboxId();
-					MktLog.d(TAG, "=====mailboxId=" + mailboxId);
+					MktLog.d(TAG, "==mailboxId=" + mailboxId);
 					restClientInfo();
 				}
 			}
