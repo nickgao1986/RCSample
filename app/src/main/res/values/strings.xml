@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">androidSample11</string>
+    <string name="noContacts">No Contacts</string>
+    <string name="contact_no_name">Unknown</string>
+</resources>

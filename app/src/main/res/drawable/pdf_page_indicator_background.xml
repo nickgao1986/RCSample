@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/pdf_page_indicator_background" />
+    <corners android:radius="@dimen/pdf_page_indicator_radius" />
+    <padding
+        android:bottom="@dimen/pdf_page_indicator_padding"
+        android:left="@dimen/pdf_page_indicator_padding"
+        android:right="@dimen/pdf_page_indicator_padding"
+        android:top="@dimen/pdf_page_indicator_padding" />
+</shape>

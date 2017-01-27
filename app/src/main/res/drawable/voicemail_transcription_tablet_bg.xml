@@ -1,0 +1,5 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:right="@dimen/default_button_margin_left_right"
+        android:left="@dimen/default_button_margin_left_right"
+        android:drawable="@drawable/btn_mainnav_background_nor"/>
+</layer-list>

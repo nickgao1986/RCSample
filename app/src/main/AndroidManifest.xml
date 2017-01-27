@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.nickgao.androidsample11" >
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="com.ringcentral.android.INTERNAL_PERMISSION" />
+
+    <!--
+    Allows an application to initiate a phone call without going through the Dialer user interface for the user to confirm the call being placed.
+    Used for RingOut procedure.
+    -->
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- uses-permission android:name="android.permission.CALL_PRIVILEGED" / -->
+    <!-- Allows an application to read the user's contacts data. -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!-- Allows an application to write (but not read) the user's contacts data. -->
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <!-- Allows applications to open network sockets and connect to server. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Allows an application to write to external storage. For messages and for storing other application data. -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- Allows applications to access information about networks -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Allows an application to modify global audio settings. Used for messages playing. -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <!--
+     Allows an application to get information about the currently or recently running tasks: a thumbnail representation of the tasks, what activities are running in it, etc.
+     Used for detection of application state (Foreground / Background / OnTop / etc.)
+    -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- Allows get logcat logs (logging and troubleshooting) -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.DUMP" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- Needed for changing Settings.System.WIFI_SLEEP_POLICY during VOIP call -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- Needed for AudioManager.start/stop BluetoothSco starting from android ICS 4.0 -->
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <!-- Allows application to read external storage. -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- EMAIL -->
+    <uses-permission android:name="com.android.email.permission.ACCESS_PROVIDER" />
+    <uses-permission android:name="com.android.email.permission.READ_ATTACHMENT" />
+    <uses-permission android:name="android.permission.SET_PREFERRED_APPLICATIONS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+
+    <!-- Read logs -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+
+    <!-- Floating window -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!-- call interception -->
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <application
+        android:name="com.example.nickgao.rcproject.RingCentralApp"
+        android:icon="@drawable/rc_apps_glip"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity android:name=".ContactsList" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:authorities="com.example.nickgao.database.RCMProvider"
+            android:name="com.example.nickgao.database.RCMProvider"
+            android:exported="false"/>
+
+        <provider
+            android:authorities="com.example.nickgao.database.RCMSettingsProvider"
+            android:name="com.example.nickgao.database.RCMSettingsProvider"
+            android:exported="false"/>
+    </application>
+
+</manifest>

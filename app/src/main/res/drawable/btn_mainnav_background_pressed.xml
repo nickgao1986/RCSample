@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/btn_mainnav_bg_pressed" />
+    <corners android:radius="@dimen/default_button_radius" />
+    <padding
+        android:right="@dimen/default_button_padding"
+        android:bottom="@dimen/default_button_padding"
+        android:top="@dimen/default_button_padding"
+        android:left="@dimen/default_button_padding" />
+</shape>

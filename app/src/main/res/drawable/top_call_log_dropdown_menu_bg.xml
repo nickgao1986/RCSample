@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@drawable/bg_pop_up_dimmer"
+        android:top="@dimen/call_log_dropdown_filter_margin_top" />
+</layer-list>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="drag-sort-listview-master">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/drag-sort-listview-master.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

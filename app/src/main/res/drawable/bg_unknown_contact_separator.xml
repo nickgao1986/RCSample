@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:left="@dimen/contact_separator_margin_left"
+        android:right="@dimen/contact_separator_margin_right">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/bg_unknown_contact_separator_color" />
+        </shape>
+    </item>
+</layer-list>

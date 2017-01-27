@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/nick.gao/Desktop/RCSample/app/libs/Pubnub-Android-3.6.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="233808689f7015c4e7b79f975774ead52abba081">
+        <dex dex="/Users/nick.gao/Desktop/RCSample/app/build/intermediates/pre-dexed/debug/Pubnub-Android-3.6.0_c49b331b7153e1565cbeaa58f063b23a09feb0fa.jar" />
+    </item>
+    <item
+        jar="/Users/nick.gao/Desktop/RCSample/app/libs/Volley.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="2dd908289a096a92b5f266cefb6c1bda32762cef">
+        <dex dex="/Users/nick.gao/Desktop/RCSample/app/build/intermediates/pre-dexed/debug/Volley_cc383b29d811a084e192b56a0cbd1005089845c3.jar" />
+    </item>
+    <item
+        jar="/Users/nick.gao/Desktop/RCSample/app/libs/drag-sort-listview-master.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c77537d051f7652fcdcfccfa19d7778813d8ae61">
+        <dex dex="/Users/nick.gao/Desktop/RCSample/app/build/intermediates/pre-dexed/debug/drag-sort-listview-master_9e62fbd96cae1cc11ccc1f4d0675eda274126124.jar" />
+    </item>
+    <item
+        jar="/Users/nick.gao/Desktop/RCSample/app/libs/GetJarAndroidSDK.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="dd85b60e033bd56d091cfa8f362e11c1996f3810">
+        <dex dex="/Users/nick.gao/Desktop/RCSample/app/build/intermediates/pre-dexed/debug/GetJarAndroidSDK_fac1b227b2363b151ca23fedaffd5731fb974a13.jar" />
+    </item>
+    <item
+        jar="/Users/nick.gao/Desktop/RCSample/app/libs/android-support-v4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="efec67655f6db90757faa37201efcee2a9ec3507">
+        <dex dex="/Users/nick.gao/Desktop/RCSample/app/build/intermediates/pre-dexed/debug/android-support-v4_c09825cc3a88f7ad5abb0fefa96e18ac1d434cfb.jar" />
+    </item>
+    <item
+        jar="/Users/nick.gao/Desktop/RCSample/app/libs/com.radaee.pdfex_view.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="2584b70cde168662274f92a2dc4b94e0c545676d">
+        <dex dex="/Users/nick.gao/Desktop/RCSample/app/build/intermediates/pre-dexed/debug/com.radaee.pdfex_view_2849b327d601fcd884ebf5ce7da9bae22134811d.jar" />
+    </item>
+    <item
+        jar="/Users/nick.gao/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.6.1/86b122e640af09b0723e1fa44083c354ba6d9089/glide-3.6.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="86b122e640af09b0723e1fa44083c354ba6d9089">
+        <dex dex="/Users/nick.gao/Desktop/RCSample/app/build/intermediates/pre-dexed/debug/glide-3.6.1_d1192d8f6034958d50ac1fb356c7f87ea0ee15fb.jar" />
+    </item>
+    <item
+        jar="/Users/nick.gao/Desktop/RCSample/app/libs/Leanplum.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3e7a5e59354ad0e21460373e48dcb3002da6dd08">
+        <dex dex="/Users/nick.gao/Desktop/RCSample/app/build/intermediates/pre-dexed/debug/Leanplum_93bb4fa1cab2d75bb64485c5fdc917dfbc70d7b3.jar" />
+    </item>
+    <item
+        jar="/Users/nick.gao/android project/android studio2.2/Android Studio 2.app/Contents/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="/Users/nick.gao/Desktop/RCSample/app/build/intermediates/pre-dexed/debug/gson-2.2.4_db747ba2ec3152d3b8b2d9783855dbf22cdb9a45.jar" />
+    </item>
+    <item
+        jar="/Users/nick.gao/Desktop/RCSample/app/libs/jackson-annotations-2.0.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="f0b06a31fa1bb8f9081013e242bcf7a31416470c">
+        <dex dex="/Users/nick.gao/Desktop/RCSample/app/build/intermediates/pre-dexed/debug/jackson-annotations-2.0.0_c8ff13c054f4236fd51aedcb35305cfbd73446ac.jar" />
+    </item>
+    <item
+        jar="/Users/nick.gao/Desktop/RCSample/app/libs/httpclient-4.5.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="733db77aa8d9b2d68015189df76ab06304406e50">
+        <dex dex="/Users/nick.gao/Desktop/RCSample/app/build/intermediates/pre-dexed/debug/httpclient-4.5.2_2d028f971c27777dcce333e73580bc968f74dae2.jar" />
+    </item>
+    <item
+        jar="/Users/nick.gao/Desktop/RCSample/app/libs/jackson-core-2-1.0.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="dd4d5637f6baac7a6286594c0236e2e59b824c88">
+        <dex dex="/Users/nick.gao/Desktop/RCSample/app/build/intermediates/pre-dexed/debug/jackson-core-2-1.0.0_eeae6a816b44f5cc781a673051a82cbfb478618c.jar" />
+    </item>
+    <item
+        jar="/Users/nick.gao/Desktop/RCSample/app/libs/commons-lang.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="4763ecc9d78781c915c07eb03e90572c7ff04205">
+        <dex dex="/Users/nick.gao/Desktop/RCSample/app/build/intermediates/pre-dexed/debug/commons-lang_2db54b6c97bacd579d3f25f9afbcd08a3bff226e.jar" />
+    </item>
+    <item
+        jar="/Users/nick.gao/Desktop/RCSample/app/libs/agson-2.2.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="4d08d3d9ee84f0a4160f93746e50104cc310dab3">
+        <dex dex="/Users/nick.gao/Desktop/RCSample/app/build/intermediates/pre-dexed/debug/agson-2.2.2_9300db79c134f7b9ed575bf1f4dd2a6c14b75c4f.jar" />
+    </item>
+    <item
+        jar="/Users/nick.gao/Desktop/RCSample/app/libs/json_simple-1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5e303a03d04e6788dddfa3655272580ae0fc13bb">
+        <dex dex="/Users/nick.gao/Desktop/RCSample/app/build/intermediates/pre-dexed/debug/json_simple-1.1_d991b93c9820f0b5b5a744726aa5be96d0c22a93.jar" />
+    </item>
+    <item
+        jar="/Users/nick.gao/Desktop/RCSample/app/libs/bcprov-jdk15on-1.47.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b6f5d9926b0afbde9f4dbe3db88c5247be7794bb">
+        <dex dex="/Users/nick.gao/Desktop/RCSample/app/build/intermediates/pre-dexed/debug/bcprov-jdk15on-1.47_f1c2a43be3d2b4dedaec71e6f391cea1a21788ea.jar" />
+    </item>
+    <item
+        jar="/Users/nick.gao/Desktop/RCSample/app/libs/BoxJavaLibraryV2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8052f4682283b77e97b22196f591eaf893ea58c6">
+        <dex dex="/Users/nick.gao/Desktop/RCSample/app/build/intermediates/pre-dexed/debug/BoxJavaLibraryV2_fadf26a9e16ce4ec6b1a08c9ae507cc053cedc7f.jar" />
+    </item>
+    <item
+        jar="/Users/nick.gao/Desktop/RCSample/app/libs/FlurryAnalytics-6.1.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="bed3029996f255004cb891ab61bd3a85a108f014">
+        <dex dex="/Users/nick.gao/Desktop/RCSample/app/build/intermediates/pre-dexed/debug/FlurryAnalytics-6.1.0_16744b23bdc5c8339e962358d9a680f750165866.jar" />
+    </item>
+    <item
+        jar="/Users/nick.gao/Desktop/RCSample/app/libs/dropbox-android-sdk-1.5.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="2e7a56b4f6e226c233195ba0c9417a9b28183ce5">
+        <dex dex="/Users/nick.gao/Desktop/RCSample/app/build/intermediates/pre-dexed/debug/dropbox-android-sdk-1.5.4_0830f9115d5fa0d42e0787a64fc4167c0760bd9d.jar" />
+    </item>
+    <item
+        jar="/Users/nick.gao/Desktop/RCSample/app/libs/jackson-databind-2-1.0.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6452d956c9a3a35ae611ef7ef2963ec42638bded">
+        <dex dex="/Users/nick.gao/Desktop/RCSample/app/build/intermediates/pre-dexed/debug/jackson-databind-2-1.0.0_a568cf1cba939c2daad3ca88a78ee7a331c3de32.jar" />
+    </item>
+
+</items>

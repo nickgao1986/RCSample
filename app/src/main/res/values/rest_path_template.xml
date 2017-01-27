@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- common  -->
+    <string name="page_template">page=%1$d&#38;perPage=%2$d</string>
+
+    <!-- extension -->
+    <string name="rest_path_extension_list">account/~/extension</string>
+
+    <string name="rest_path_get_client_info">client-info</string>
+
+    <string name="rest_path_create_ring_out">account/~/extension/~/ringout</string>
+
+    <string name="rest_path_create_direct_ring_out">account/~/extension/~/ringout/direct</string>
+
+    <string name="rest_path_get_account">account/~</string>
+
+    <string name="rest_path_get_dialing_plans">account/~/dialing-plan</string>
+
+    <string name="rest_path_get_tier_type">dictionary/service-plan/%1$s</string>
+
+    <string name="rest_path_get_service_number_rule">client-info/special-number-rule%1$s</string>
+
+    <string name="rest_path_get_phone_number">account/~/extension/~/phone-number</string>
+
+    <string name="rest_path_get_api_version"></string>
+
+    <string name="rest_path_get_extension_info">account/~/extension/~</string>
+
+    <string name="rest_path_get_presence">account/~/extension/%1$s/presence</string>
+
+    <string name="rest_path_get_language_list">dictionary/language</string>
+
+    <string name="rest_path_http_register">client-info/sip-provision</string>
+
+    <string name="rest_personal_contacts_fsync">account/~/extension/~/address-book-sync?syncType=FSync</string>
+
+    <string name="rest_personal_contacts_isync">account/~/extension/~/address-book-sync?syncType=ISync</string>
+    <string name="rest_path_get_conference">account/~/extension/~/conferencing</string>
+
+    <string name="rest_path_get_conference_with_countryid">account/~/extension/~/conferencing?countryId=%1$s</string>
+
+    <string name="rest_path_subscribe_incoming_call">subscription</string>
+</resources>
