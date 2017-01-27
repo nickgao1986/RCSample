@@ -15,7 +15,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
 import org.apache.http.entity.StringEntity;
 
 import java.io.ByteArrayOutputStream;
@@ -46,7 +45,7 @@ public class GetDataViaVolley {
 	
 	public  void fetchData() {
 		String url = "http://2.novelread.sinaapp.com/framework-sae/index.php";
-		
+
 //		String body = "";
 //		try {
 //			mEntity = new StringEntity(body);

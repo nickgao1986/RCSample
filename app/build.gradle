@@ -1,27 +1,249 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 15
-    buildToolsVersion "23.0.2"
+    useLibrary 'org.apache.http.legacy'
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.example.nickgao.androidsample11"
-        minSdkVersion 19
-        targetSdkVersion 24
+        compileSdkVersion rootProject.ext.compileSdkVersion
+        buildToolsVersion rootProject.ext.buildToolsVersion
         versionCode 1
         versionName "1.0"
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    signingConfigs {
+        us_production {
+            storeFile file('src/brands/us/production/keys/market.keystore')
+            storePassword 'ringcentral'
+            keyAlias 'rcmandroid'
+            keyPassword 'ringcentral'
         }
+        telus_production {
+            storeFile file('src/brands/telus/production/keys/market_telus.keystore')
+            storePassword 'telus123'
+            keyAlias 'telusandroid'
+            keyPassword 'telus123'
+        }
+
+    }
+
+    productFlavors.whenObjectAdded { flavor ->
+        flavor.extensions.create("buildInfo", BuildInfo);
+    }
+
+    productFlavors {
+
+        us_production {
+            flavorDimension "brand"
+            applicationId 'com.example.nickgao.androidsample11'
+            buildInfo.brandName "RCMobile"
+            buildInfo.env "Production"
+            versionName getVersionName(1, defaultConfig.versionName)
+            buildInfo.releaseVersion getVersionName(1, defaultConfig.versionName)
+
+            buildConfigField "String", "RCMOBILE_SCHEME", "\"rcmobile\""
+            buildConfigField "String", "RCLAUNCH_SCHEME", "\"rcmobile\""
+
+            manifestPlaceholders = [rcmobile   : "rcmobile", rclaunch: "rcmobile",
+                                    dropbox_key: "kssqscjxly0l18w"]
+        }
+
+        telus_production {
+            flavorDimension "brand"
+            applicationId 'com.example.telus.androidsample11'
+            versionName getVersionName(4, defaultConfig.versionName)
+            buildInfo.brandName "TELUS"
+            buildInfo.env "Production"
+            buildInfo.releaseVersion getVersionName(4, defaultConfig.versionName)
+
+            buildConfigField "String", "RCMOBILE_SCHEME", "\"telusvoip\""
+            buildConfigField "String", "RCLAUNCH_SCHEME", "\"rctelus\""
+
+            manifestPlaceholders = [rcmobile   : "telusvoip", rclaunch: "rctelus",
+                                    dropbox_key: "g7jk8x1d1qd2b8k"]
+        }
+
+
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+            minifyEnabled true
+            proguardFiles 'proguard_debug.cfg'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles 'proguard_release.cfg'
+        }
+
+    }
+
+    dexOptions {
+        jumboMode true
+        javaMaxHeapSize "2g"
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+
+    sourceSets {
+
+        us_production {
+            java.srcDirs = ['src/brands/us/production/java']
+            res.srcDirs = ['src/brands/us/production/res']
+            manifest.srcFile 'src/brands/us/production/AndroidManifest.xml'
+        }
+
+
+        telus_production {
+            java.srcDirs = ['src/brands/telus/production/java', 'src/brands/base_resources/java']
+            res.srcDirs = ['src/brands/telus/production/res']
+            manifest.srcFile 'src/brands/telus/production/AndroidManifest.xml'
+
+        }
+
+    }
+
+}
+
+int getVersionCodeCustom(String str) {
+    String[] array = str.split("\\.").toList();
+    int major = array[0].toInteger()
+    int minor = array[1].toInteger()
+    int release = array[2].toInteger()
+    int buildID = getJenkinsBuild().toInteger();
+
+    int code = major * 100000000 + minor * 1000000 + release * 100000 + buildID
+    return code
+}
+
+
+String getVersionName(int brandId, String vName) {
+    int buildID = getJenkinsBuild().toInteger();
+    String vn = vName + "." + brandId;
+    vn = vn + "." + buildID;
+    return vn
+}
+
+
+boolean isServer() {
+    Map<String, String> map = System.getenv()
+
+    if (map == null) {
+        return false
+    }
+    String str = map.get("Path")
+    if (str != null) {
+        //it's windows
+        if (str.contains("jenkins") || str.contains("JENKINS")) {
+            return true;
+        }
+        return false;
+    } else {
+        str = ""
+        Iterator it = map.iterator();
+        while (it.hasNext()) {
+            str += it.next();
+        }
+        if (str.contains("jenkins") || str.contains("JENKINS")) {
+            return true
+        } else {
+            return false;
+        }
+    }
+    return false
+}
+
+def getGitBrand() {
+    boolean flag = isServer();
+    if (flag) {
+        return 'git rev-parse --short HEAD'.execute().text.trim()
+    } else {
+        return 0
     }
 }
 
+def getGitBranch() {
+    boolean flag = isServer();
+    if (flag) {
+        return 'git rev-parse --abbrev-ref HEAD'.execute().text.trim()
+    } else {
+        return 0
+    }
+}
+
+int getBrandId(String str) {
+    int brandId = 1;
+    if ("RC_US".equals(str)) {
+        brandId = 1;
+    } else if ("TELUS".equals(str)) {
+        brandId = 4;
+    } else if ("ATT".equals(str)) {
+        brandId = 3;
+    } else if ("RC_UK".equals(str)) {
+        brandId = 2;
+    } else if ("BT".equals(str)) {
+        brandId = 5;
+    }
+    return brandId
+}
+
+def getJenkinsBuild() {
+    boolean flag = isServer();
+    if (flag) {
+        ext.env = System.getenv()
+        ext.buildNumber = env.BUILD_NUMBER?.toInteger()
+        return "$buildNumber"
+    } else {
+        return 0
+    }
+
+}
+
+repositories {
+    flatDir {
+        dirs 'aars'
+    }
+}
+
+
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile "com.google.android.gms:play-services-gcm:8.1.0"
+    compile 'com.google.android.gms:play-services-analytics:8.1.0'
+
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.android.support:recyclerview-v7:21.0.0'
+
+    compile group: 'commons-io', name: 'commons-io', version: '2.4'
+
     compile 'com.github.bumptech.glide:glide:3.6.1'
+
+    compile 'com.android.support:multidex:1.0.0'
+
     compile 'com.google.code.gson:gson:2.2.4'
+}
+
+
+class BuildInfo {
+    String brandName;
+    String releaseVersion
+    String env
+
+    BuildInfo() {
+        brandName = ""
+        releaseVersion = ""
+        env = ""
+    }
+
+    BuildInfo(String brandName, String releaseVersion, String env) {
+        this.brandName = brandName
+        this.releaseVersion = releaseVersion
+        this.env = env
+    }
 }

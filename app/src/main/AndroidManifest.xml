@@ -67,7 +67,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <application
         android:name="com.example.nickgao.rcproject.RingCentralApp"
-        android:icon="@drawable/rc_apps_glip"
+        android:icon="@drawable/app_icon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity android:name=".ContactsList" >
@@ -79,12 +79,12 @@
         </activity>
 
         <provider
-            android:authorities="com.example.nickgao.database.RCMProvider"
+            android:authorities="${applicationId}.database.RCMProvider"
             android:name="com.example.nickgao.database.RCMProvider"
             android:exported="false"/>
 
         <provider
-            android:authorities="com.example.nickgao.database.RCMSettingsProvider"
+            android:authorities="${applicationId}.database.RCMSettingsProvider"
             android:name="com.example.nickgao.database.RCMSettingsProvider"
             android:exported="false"/>
     </application>
