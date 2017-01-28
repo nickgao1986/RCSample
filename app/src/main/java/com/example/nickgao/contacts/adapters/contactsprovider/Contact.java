@@ -3,9 +3,10 @@ package com.example.nickgao.contacts.adapters.contactsprovider;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.location.Address;
 import android.net.Uri;
 import android.text.TextUtils;
+
+import com.example.nickgao.service.model.Address;
 
 import java.util.ArrayList;
 import java.util.List;

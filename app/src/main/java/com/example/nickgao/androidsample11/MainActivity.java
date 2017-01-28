@@ -35,6 +35,9 @@ public class MainActivity extends Activity {
 		restIntentFilterPhoneState
 				.addAction(RestSessionStateChange.REST_SESSION_STATE_CHANGE_NOTIFICATION);
 		registerReceiver(mRestNotificationReceiver, restIntentFilterPhoneState);
+
+
+
 	}
 
 	private class RestNotificationReceiver extends BroadcastReceiver {
