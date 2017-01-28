@@ -1,11 +1,9 @@
 package com.example.nickgao.database;
 
-import java.net.URLEncoder;
-
-import com.example.nickgao.logging.EngLog;
-
 import android.net.Uri;
 import android.net.Uri.Builder;
+
+import com.example.nickgao.logging.EngLog;
 
 
 public class UriHelper {
@@ -45,6 +43,18 @@ public class UriHelper {
                 .build();
     }
 
+    public static Uri getSettingsUri(final String path, long mailboxId) {
+        final Builder builder = new Builder().scheme("content")
+                .authority(RCMSettingsProvider.AUTHORITY)
+                .path(path)
+                .query("")
+                .fragment("")
+                .appendPath("");
+        if (mailboxId >= 0) {
+            builder.appendQueryParameter(RCMDataStore.RCMColumns.MAILBOX_ID, String.valueOf(mailboxId));
+        }
+        return builder.build();
+    }
     
     
 //    public static Uri getSearchUri(String path){
