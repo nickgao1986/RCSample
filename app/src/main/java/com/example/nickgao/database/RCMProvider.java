@@ -17,6 +17,7 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 import android.text.TextUtils;
 
+import com.example.nickgao.BuildConfig;
 import com.example.nickgao.database.RCMDataStore.RCMColumns;
 import com.example.nickgao.logging.EngLog;
 import com.example.nickgao.logging.LogSettings;
@@ -30,7 +31,7 @@ public class RCMProvider extends ContentProvider {
     static final String TAG = "[RC]RCMProvider";
 
     /* URI authority string */
-    public static final String AUTHORITY = "com.example.nickgao.database.RCMProvider";
+    public static final String AUTHORITY =  buildAuthority();
 
     /* URI paths names */
     public static final String MAILBOX_CURRENT = "mailbox_current";
@@ -107,7 +108,11 @@ public class RCMProvider extends ContentProvider {
     
     private RCMDbHelper dbHelper;
 
-    
+    private static String buildAuthority() {
+        return BuildConfig.APPLICATION_ID + ".provider.RCMProvider";
+    }
+
+
     @Override
     public boolean onCreate() {
         if (RCMProvider.DEBUG_ENBL) {

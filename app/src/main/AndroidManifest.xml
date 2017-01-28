@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.nickgao.androidsample11" >
+    package="com.example.nickgao" >
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
     <uses-permission android:name="com.ringcentral.android.INTERNAL_PERMISSION" />
 
@@ -70,7 +70,7 @@
         android:icon="@drawable/app_icon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity android:name=".ContactsList" >
+        <activity android:name=".androidsample11.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -79,13 +79,13 @@
         </activity>
 
         <provider
-            android:authorities="${applicationId}.database.RCMProvider"
-            android:name="com.example.nickgao.database.RCMProvider"
+            android:authorities="${applicationId}.provider.RCMProvider"
+            android:name=".database.RCMProvider"
             android:exported="false"/>
 
         <provider
-            android:authorities="${applicationId}.database.RCMSettingsProvider"
-            android:name="com.example.nickgao.database.RCMSettingsProvider"
+            android:authorities="${applicationId}.provider.settings"
+            android:name=".database.RCMSettingsProvider"
             android:exported="false"/>
     </application>
 

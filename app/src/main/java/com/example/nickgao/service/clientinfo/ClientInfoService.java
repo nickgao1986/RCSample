@@ -1,19 +1,16 @@
 package com.example.nickgao.service.clientinfo;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
+import com.example.nickgao.logging.LogSettings;
 import com.example.nickgao.logging.MktLog;
 import com.example.nickgao.rcproject.RingCentralApp;
 import com.example.nickgao.service.AbstractService;
 import com.example.nickgao.service.IRequestFactory;
 import com.example.nickgao.service.RcRestRequest;
 import com.example.nickgao.service.response.ClientInfoResponse;
-import com.example.nickgao.service.response.*;
+import com.example.nickgao.service.response.Hints;
+import com.example.nickgao.service.response.WebUris;
 
 /**
  * Created by nick.gao on 2014/7/16.
@@ -32,6 +29,14 @@ public class ClientInfoService extends AbstractService {
     public static final int TPYE_FOR_TELL_FRIEND = 35;
     public static final int TPYE_FOR_RESET_PASSWORD = 36;
     public static final int TPYE_FOR_REPORT = 37;
+    public static final int TPYE_CHANGE_PASSWORD = 38;
+
+    public static final int TPYE_FOR_USERS = 39;
+    public static final int TPYE_FOR_TRAIL_ACCOUNT = 40;
+
+    public static final int TPYE_FOR_EULA = 41;
+
+
     public ClientInfoService(IRequestFactory requestFactory) {
         super(requestFactory);
     }
@@ -49,17 +54,23 @@ public class ClientInfoService extends AbstractService {
                 if(mResponseData.getProvisioning() != null) {
                     Hints hints = mResponseData.getProvisioning().getHints();
                     WebUris webUri = mResponseData.getProvisioning().getWebUris();
-                    MktLog.i(TAG, "===webUri="+webUri.getMobileWebPhoneSystem());
+                    MktLog.i(TAG,"====webUri="+webUri.getMobileWebResetPassword());
+                    if (LogSettings.MARKET) {
+                        MktLog.i(TAG, "on success");
+                    }
+                    ClientInfoDataStore.storeClientInfoData(hints, webUri);
                 }
 
                 if (mListener != null) {
                     mListener.onRequestSuccess();
                 }
-
             }
 
             @Override
             public void onFail(RcRestRequest<ClientInfoResponse> request, int errorCode) {
+                if (LogSettings.MARKET) {
+                    MktLog.e(TAG, "onFail errorCode=" + errorCode);
+                }
                 if (mListener != null) {
                     mListener.onRequestFailure(errorCode);
                 }
@@ -68,6 +79,9 @@ public class ClientInfoService extends AbstractService {
 
             @Override
             public void onComplete(RcRestRequest<ClientInfoResponse> request) {
+                if (LogSettings.MARKET) {
+                    MktLog.i(TAG, "on onComplete send broadcast");
+                }
 
             }
         });
@@ -79,6 +93,7 @@ public class ClientInfoService extends AbstractService {
     public void unRegisterListener() {
         mListener = null;
     }
+
 
 
 }

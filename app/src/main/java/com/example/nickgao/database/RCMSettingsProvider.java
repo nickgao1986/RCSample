@@ -1,7 +1,13 @@
 package com.example.nickgao.database;
 
 
-import android.content.*;
+import android.content.ContentProvider;
+import android.content.ContentProviderOperation;
+import android.content.ContentProviderResult;
+import android.content.ContentUris;
+import android.content.ContentValues;
+import android.content.OperationApplicationException;
+import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,12 +17,13 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 import android.text.TextUtils;
 
+import com.example.nickgao.BuildConfig;
+import com.example.nickgao.logging.EngLog;
+import com.example.nickgao.logging.MktLog;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import com.example.nickgao.logging.EngLog;
-import com.example.nickgao.logging.MktLog;
 
 /**
  * Created by Antonenko Viacheslav on 02/10/14.
@@ -42,7 +49,7 @@ public class RCMSettingsProvider extends ContentProvider {
     private Map<String, String> mInMemoryStorage;
 
     private static String buildAuthority() {
-        return "com.example.nickgao.database.RCMSettingsProvider";
+        return BuildConfig.APPLICATION_ID + ".provider.settings";
     }
 
     @Override

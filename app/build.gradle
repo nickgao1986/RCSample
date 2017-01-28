@@ -35,7 +35,7 @@ android {
 
         us_production {
             flavorDimension "brand"
-            applicationId 'com.example.nickgao.androidsample11'
+            applicationId 'com.example.nickgao'
             buildInfo.brandName "RCMobile"
             buildInfo.env "Production"
             versionName getVersionName(1, defaultConfig.versionName)
@@ -50,7 +50,7 @@ android {
 
         telus_production {
             flavorDimension "brand"
-            applicationId 'com.example.telus.androidsample11'
+            applicationId 'com.example.telus'
             versionName getVersionName(4, defaultConfig.versionName)
             buildInfo.brandName "TELUS"
             buildInfo.env "Production"

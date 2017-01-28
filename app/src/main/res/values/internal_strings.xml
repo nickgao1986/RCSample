@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Call Log Internal strings - CallType - Returned from server -->
+    <string name="calllog_calltype_159_unknown">Unknown</string>
+    <string name="calllog_calltype_160_phone_call">Phone Call</string>
+    <string name="calllog_calltype_161_phone_login">Phone Login</string>
+    <string name="calllog_calltype_162_fax_receive">Incoming Fax</string>
+    <string name="calllog_calltype_163_accept_call">Accept Call</string>
+    <string name="calllog_calltype_164_findme">FindMe</string>
+    <string name="calllog_calltype_165_followme">FollowMe</string>
+    <string name="calllog_calltype_166_putgoing_fax">Outgoing Fax</string>
+    <string name="calllog_calltype_167_call_return">Call Return</string>
+    <string name="calllog_calltype_168_calling_card">Calling Card</string>
+    <string name="calllog_calltype_169_ring_directly">Ring Directly</string>
+    <string name="calllog_calltype_170_ringout_web">RingOut Web</string>
+    <string name="calllog_calltype_171_sip_call">VoIP Call</string>
+    <string name="calllog_calltype_172_ringout_pc">RingOut PC</string>
+    <string name="calllog_calltype_173_ringme">RingMe</string>
+    <string name="calllog_calltype_174_transfer_call">Transfer</string>
+    <string name="calllog_calltype_265_ringOut_mobile">RingOut Mobile</string>
+    <string name="calllog_calltype_198_e911_update">E911 Update</string>
+    <string name="calllog_calltype_197_emergency">Emergency</string>
+    <string name="calllog_calltype_199_support">Support</string>
+    <string name="calllog_calltype_196_411_info">411 Info</string>
+
+    <!-- Call Log Detail - Status -->
+    <string name="calllog_status_175_unknown">Unknown</string>
+    <string name="calllog_status_177_missed">Missed</string>
+    <string name="calllog_status_178_accept_call">Call accepted</string>
+    <string name="calllog_status_179_voicemail">Voicemail</string>
+    <string name="calllog_status_180_reject">Rejected</string>
+    <string name="calllog_status_182_reply">Reply</string>
+    <string name="calllog_status_183_fax_received">Received</string>
+    <string name="calllog_status_184_fax_receive_error">Receive Error</string>
+    <string name="calllog_status_185_fax_on_demand">Fax On Demand</string>
+    <string name="calllog_status_186_fax_partial_receive">Partial Receive</string>
+    <string name="calllog_status_187_blocked">Blocked</string>
+    <string name="calllog_status_188_connected">Call connected</string>
+    <string name="calllog_status_189_no_answer">No Answer</string>
+    <string name="calllog_status_190_international_disabled">International Disabled</string>
+    <string name="calllog_status_191_busy">Busy</string>
+    <string name="calllog_status_192_fax_send_error">Send Error</string>
+    <string name="calllog_status_193_fax_sent">Sent</string>
+    <string name="calllog_status_194_no_fax_machine">No fax machine</string>
+    <string name="calllog_status_203_suspended_account">Account Suspended</string>
+    <string name="calllog_status_204_call_failed">Call Failed</string>
+    <string name="calllog_status_205_call_failure">Call Failure</string>
+    <string name="calllog_status_206_internal_error">Internal Error</string>
+    <string name="calllog_status_207_ip_phone_offline">IP Phone Offline</string>
+    <string name="calllog_status_208_no_calling_credit">No Calling Credit</string>
+    <string name="calllog_status_209_restricted_number">Restricted Number</string>
+    <string name="calllog_status_210_wrong_number">Wrong Number</string>
+    <string name="calllog_status_211_answered_not_accepted">Answered - Not Accepted</string>
+    <string name="calllog_status_237_force_stopped">Stopped</string>
+    <string name="calllog_status_252_abandoned">Abandoned</string>
+    <string name="calllog_status_253_declined">Declined</string>
+    <string name="calllog_status_269_fax_send_error">Fax Send Error</string>
+    <string name="calllog_status_239_hang_up">Hang Up</string>
+    <string name="calllog_status_267_fax_receipt_error">Fax Receipt Error</string>
+    <string name="calllog_status_250_international_restriction">International Restriction</string>
+    <string name="calllog_status_244_partially_sent">Partially Sent</string>
+    <string name="calllog_status_242_poor_line_quality">Poor Line Quality</string>
+
+    <!-- Caller Id type strings: will be compared with server strings -->
+    <string name="callerid_type_main_number">MainNumber</string>
+    <string name="callerid_type_main_company_number">MainCompanyNumber</string>
+    <string name="callerid_type_additional_company_number">AdditionalCompanyNumber</string>
+    <string name="callerid_type_company_number">CompanyNumber</string>
+    <string name="callerid_type_company_fax_number">CompanyFaxNumber</string>
+    <string name="callerid_type_direct_number">DirectNumber</string>
+    <string name="callerid_type_forwarded_number">ForwardedNumber</string>
+
+    <!-- URL addresses -->
+    <string name="settings_about_market_link">market://details?id=</string>
+    <string name="url_start_chars1">https://</string>
+    <string name="url_start_chars2">http://</string>
+    <string name="url_start_chars3">mailto:</string>
+
+    <!-- =================      Pattens   ======================= -->
+    <string name="status_notification_calls_all">%1$s, %2$s</string>
+
+    <!-- Group filter -->
+    <string-array name="config_group_filter">
+        <item>com.outlook.Z7.eas</item>
+        <item>com.osp.app.signin</item>
+        <item>com.skype.contacts.sync</item>
+        <item>com.android.exchange</item>
+        <item>com.yahoo.mobile.client.share.account</item>
+        <item>com.sec.android.app.sns3.facebook</item>
+        <item>com.google</item>
+    </string-array>
+
+    <string-array name="brand_array">
+        <item>RC</item>
+        <item>UK</item>
+        <item>ATT</item>
+        <item>TELUS</item>
+        <item>BT</item>
+        <item></item>
+    </string-array>
+
+    <string-array name="brand_array_for_reset_password">
+        <item>1210</item>
+        <item>3710</item>
+        <item>3420</item>
+        <item>7310</item>
+        <item>7710</item>
+        <item></item>
+    </string-array>
+
+    <!-- Group titile -->
+    <string-array name="config_group_title">
+        <item>@string/config_group_title_outlook</item>
+        <item>@string/config_group_title_samsung</item>
+        <item>@string/config_group_title_skype</item>
+        <item>@string/config_group_title_microsoft</item>
+        <item>@string/config_group_title_yahoo</item>
+        <item>@string/config_group_title_facebook</item>
+        <item>@string/config_group_title_google</item>
+    </string-array>
+
+
+    <!-- Extra Name -->
+    <string name="call_flip_request_code">result_code</string>
+
+    <string name="company_name_in_email">RingCentral Inc</string>
+
+    <string name="fcc_number_city_toronto">Toronto, ON</string>
+    <string name="fcc_number_city_montreal">Montreal, QC</string>
+    <string name="fcc_number_city_saskatoon">Saskatoon, SK</string>
+    <string name="fcc_number_city_calgary">Calgary, AB</string>
+    <string name="fcc_number_city_winnipeg">Winnipeg, MB</string>
+    <string name="fcc_number_city_vancouver">Vancouver, BC</string>
+
+    <string name="flip_number_compare_tag_home">Home</string>
+    <string name="flip_number_compare_tag_work">Work</string>
+    <string name="flip_number_compare_tag_mobile">Mobile</string>
+
+    <!-- Cover Page Name -->
+    <!--All legacy templates-->
+    <string name="cover_page_ancient">Ancient</string>
+    <string name="cover_page_birthday">Birthday</string>
+    <string name="cover_page_blank">Blank</string>
+    <string name="cover_page_clasmod">ClasMod</string>
+    <string name="cover_page_classic">Classic</string>
+    <string name="cover_page_confidential">Confidential</string>
+    <string name="cover_page_contempo">Contempo</string>
+    <string name="cover_page_elegant">Elegant</string>
+    <string name="cover_page_express">Express</string>
+    <string name="cover_page_formal">Formal</string>
+    <string name="cover_page_jazzy">Jazzy</string>
+    <string name="cover_page_modern">Modern</string>
+    <string name="cover_page_urgent">Urgent</string>
+
+    <string name="cover_page_america_english">English (U.S.)</string>
+    <string name="cover_page_britain_english">English (U.K.)</string>
+    <string name="cover_page_france_french">Français (FR)</string>
+    <string name="cover_page_canada_french">Français (CA)</string>
+    <string name="cover_page_germany_deutsch">Deutsche (DE)</string>
+
+    <string name="cloud_contact_char_limit">0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM</string>
+
+    <string name="park_to_info">prk%1$s</string>
+    <string name="public_park_number">*%1$s</string>
+
+    <array name="event_alert_0">
+        <item>-1</item>
+        <item>@string/calendar_setting_event_alert_0</item>
+        <item>None</item>
+    </array>
+    <array name="event_alert_1">
+        <item>30</item>
+        <item>@string/calendar_setting_event_alert_1</item>
+        <item>30 seconds before</item>
+    </array>
+    <array name="event_alert_2">
+        <item>60</item>
+        <item>@string/calendar_setting_event_alert_2</item>
+        <item>1 minute before</item>
+    </array>
+    <array name="event_alert_3">
+        <item>120</item>
+        <item>@string/calendar_setting_event_alert_3</item>
+        <item>2 minutes before</item>
+    </array>
+    <array name="event_alert_4">
+        <item>300</item>
+        <item>@string/calendar_setting_event_alert_4</item>
+        <item>5 minutes before</item>
+    </array>
+    <array name="event_alert_5">
+        <item>600</item>
+        <item>@string/calendar_setting_event_alert_5</item>
+        <item>10 minutes before</item>
+    </array>
+    <array name="event_alert_6">
+        <item>900</item>
+        <item>@string/calendar_setting_event_alert_6</item>
+        <item>15 minutes before</item>
+    </array>
+    <array name="event_alert_array">
+        <item>@array/event_alert_0</item>
+        <item>@array/event_alert_1</item>
+        <item>@array/event_alert_2</item>
+        <item>@array/event_alert_3</item>
+        <item>@array/event_alert_4</item>
+        <item>@array/event_alert_5</item>
+        <item>@array/event_alert_6</item>
+    </array>
+</resources>

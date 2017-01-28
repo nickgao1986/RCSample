@@ -20,6 +20,23 @@ public class WebUris extends AbstractModel {
     String appDownload;
     long expiresIn;
     String mobileWebResetPassword;
+    String mobileWebChangePassword;
+    String mobileWebUsers;
+
+    String mobileWebTrialUpgrade;
+
+    String eula;
+    String emergencyDisclaimer;
+
+    String mobileAssetsHome;
+
+    public String getMobileWebChangePassword() {
+        return mobileWebChangePassword;
+    }
+
+    public void setMobileWebChangePassword(String mobileWebChangePassword) {
+        this.mobileWebChangePassword = mobileWebChangePassword;
+    }
 
     public String getMobileWebResetPassword() {
         return mobileWebResetPassword;
@@ -36,6 +53,16 @@ public class WebUris extends AbstractModel {
     public void setExpressSetupMobile(String expressSetupMobile) {
         this.expressSetupMobile = expressSetupMobile;
     }
+
+
+    public String getMobileWebTrialUpgrade() {
+        return mobileWebTrialUpgrade;
+    }
+
+    public void setMobileWebTrialUpgrade(String mobileWebTrialUpgrade) {
+        this.mobileWebTrialUpgrade = mobileWebTrialUpgrade;
+    }
+
 
     public String getMobileWebBilling() {
         return mobileWebBilling;
@@ -147,5 +174,33 @@ public class WebUris extends AbstractModel {
 
     public void setExpiresIn(long expiresIn) {
         this.expiresIn = expiresIn;
+    }
+
+
+    public String getMobileWebUsers() {
+        return mobileWebUsers;
+    }
+
+    public void setMobileWebUsers(String mobileWebUsers) {
+        this.mobileWebUsers = mobileWebUsers;
+    }
+
+    public String getEULA() {
+        return eula;
+    }
+
+    public String getEmergencyDisclaimer() {
+        return emergencyDisclaimer;
+    }
+
+    public void setMobileAssetsHome(String mobileAssetsHome) { this.mobileAssetsHome = mobileAssetsHome; }
+
+    public String getMobileAssetsHome() {
+        if (mobileAssetsHome == null || mobileAssetsHome.isEmpty())
+        {
+            return "https://downloads.ringcentral.com";
+        }
+
+        return mobileAssetsHome;
     }
 }

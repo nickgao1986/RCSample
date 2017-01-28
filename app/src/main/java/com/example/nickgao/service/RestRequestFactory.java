@@ -1,10 +1,11 @@
 package com.example.nickgao.service;
 
-import com.example.nickgao.androidsample11.R;
+import com.example.nickgao.R;
 import com.example.nickgao.network.RestRequest;
 import com.example.nickgao.service.response.ClientInfoResponse;
-import java.lang.reflect.Type;
 import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 
 /**
  * Created by steve.chen on 6/30/14.

@@ -1,15 +1,6 @@
 package com.example.nickgao.androidsample11;
 
 
-import java.lang.ref.SoftReference;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Locale;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.AsyncQueryHandler;
 import android.content.Context;
@@ -31,7 +22,18 @@ import android.widget.ProgressBar;
 import android.widget.ResourceCursorAdapter;
 import android.widget.SectionIndexer;
 import android.widget.TextView;
-import com.example.nickgao.androidsample11.Projections.*;
+
+import com.example.nickgao.R;
+import com.example.nickgao.androidsample11.Projections.Personal;
+
+import java.lang.ref.SoftReference;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ContactsList extends ListActivity{
 	/**
