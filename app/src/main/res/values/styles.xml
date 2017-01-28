@@ -1,8 +1,24 @@
-<resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Base application theme. -->
-    <style name="AppTheme">
+    <style name="WhiteTitleBackground">
+        <item name="android:background">@color/white_title</item>
+    </style>
 
+
+    <!-- Recents  -->
+
+    <style name="RCMRadioButton" parent="android:Widget.CompoundButton.RadioButton">
+        <item name="android:button">@drawable/btn_radio</item>
+    </style>
+
+    <style name="RCMRadioButtonDialog" parent="android:Widget.CompoundButton.RadioButton">
+        <item name="android:button">@drawable/btn_dialog_radio</item>
+    </style>
+
+    <!-- Recents  -->
+    <style name="TallTitleBarTheme" parent="android:Theme.NoTitleBar">
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
     <style name="RCMProgressBar" parent="android:Widget.ProgressBar">
@@ -11,5 +27,316 @@
         <item name="android:maxWidth">76dip</item>
         <item name="android:minHeight">76dip</item>
         <item name="android:maxHeight">76dip</item>
+    </style>
+
+    <style name="RCMSmallProgressBar" parent="android:Widget.ProgressBar">
+        <item name="android:indeterminateDrawable">@drawable/progress_small</item>
+        <item name="android:minWidth">37dip</item>
+        <item name="android:maxWidth">37dip</item>
+        <item name="android:minHeight">37dip</item>
+        <item name="android:maxHeight">37dip</item>
+    </style>
+
+    <style name="CustomDialogTheme" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/transparentColor</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:layoutAnimation">@null</item>
+    </style>
+
+    <style name="EditMessageCheckBox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/icon_check_selector</item>
+        <item name="android:paddingLeft">15.0dip</item>
+        <item name="android:maxHeight">10.0dip</item>
+    </style>
+
+    <style name="TextMessageTitleProgress" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:maxHeight">15dip</item>
+        <item name="android:minHeight">10dip</item>
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/text_message_title_progress</item>
+    </style>
+
+    <style name="TextMessageSendProgress" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:maxHeight">15dip</item>
+        <item name="android:minHeight">10dip</item>
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/text_message_send_progress</item>
+    </style>
+
+    <style name="ImportingFileProgressBar" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/faxout_importing_flash_screen_progress</item>
+    </style>
+
+    <!-- open mode -->
+    <style name="OpenModeDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+    </style>
+
+    <style name="Theme.Boxandroidlibv2.DialogNoTitle" parent="android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="ButtonAsFakeContextMenuItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="quick_search_phone_wrapper">
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center_vertical|right</item>
+        <item name="android:paddingRight">@dimen/default_padding_to_side</item>
+    </style>
+
+    <style name="quick_search_phone_type">
+        <item name="android:gravity">center|left</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/font_size_small</item>
+        <item name="android:maxWidth">@dimen/search_item_phone_max_width</item>
+    </style>
+
+    <style name="conference_table">
+        <item name="android:gravity">top</item>
+        <item name="android:paddingLeft">@dimen/default_padding_to_side</item>
+    </style>
+
+    <style name="conference_table_line">
+        <item name="android:gravity">top</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingRight">@dimen/default_padding_to_side</item>
+    </style>
+
+    <style name="conference_table_row_label">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingRight">@dimen/conference_label_padding</item>
+        <item name="android:paddingTop">@dimen/conference_label_padding_top</item>
+        <item name="android:textSize">@dimen/fcc_participate_number_text_size_medium</item>
+        <item name="android:textColor">@color/known_contact_phone_label_text</item>
+    </style>
+
+    <style name="conference_table_row_large_label" parent="conference_table_row_label">
+        <item name="android:textSize">@dimen/fcc_participate_number_text_size_large</item>
+    </style>
+
+    <style name="conference_table_row_value">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/conference_label_padding_top</item>
+        <item name="android:paddingBottom">@dimen/conference_label_padding_top</item>
+        <item name="android:textSize">@dimen/select_default_dial_in_number_dialog_title_size</item>
+        <item name="android:textColor">@color/text_color_main</item>
+    </style>
+
+    <style name="faxout_documents_edit_date">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">middle</item>
+        <item name="android:textSize">@dimen/font_size_small</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:gravity">right</item>
+    </style>
+
+    <style name="faxout_documents_edit_name">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">middle</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/text_color_main</item>
+        <item name="android:textSize">@dimen/font_size_medium</item>
+    </style>
+
+    <style name="message_details_info_table">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">15dp</item>
+    </style>
+
+    <style name="player_playback_controls">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginBottom">@dimen/voicemail_play_button_margin_top</item>
+    </style>
+
+    <style name="player_playback_seekbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:progressDrawable">@drawable/rc_player_seekbar_progress_horizontal</item>
+        <item name="android:thumb">@drawable/rc_player_seekbar_seek_thumb</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:paddingLeft">@dimen/default_button_margin_left_right</item>
+        <item name="android:paddingRight">@dimen/default_button_margin_left_right</item>
+    </style>
+
+    <style name="player_playback_seekbar_no_trans">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingLeft">@dimen/default_padding_to_side</item>
+        <item name="android:paddingRight">@dimen/default_padding_to_side</item>
+        <item name="android:progressDrawable">@drawable/rc_player_seekbar_progress_horizontal</item>
+        <item name="android:thumb">@drawable/rc_player_seekbar_seek_thumb</item>
+    </style>
+
+    <style name="player_playback_txtTotalDuration_no_trans">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">@dimen/default_padding_to_side</item>
+        <item name="android:textColor">@color/text_color_main</item>
+        <item name="android:textSize">@dimen/font_size_small</item>
+    </style>
+
+    <style name="player_playback_txtTotalDuration">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">@dimen/default_button_margin_left_right</item>
+        <item name="android:textColor">@color/voicemail_message_duration_text</item>
+        <item name="android:textSize">@dimen/font_size_small</item>
+    </style>
+
+    <style name="messages_detail_container">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="voicemail_controls_container">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <style name="voicemail_text">
+        <item name="android:textSize">@dimen/font_size_vmt_transcription_text</item>
+        <item name="android:layout_marginTop">15dp</item>
+    </style>
+
+    <style name="message_details_view_delimiter">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/list_items_divider</item>
+        <item name="android:layout_marginTop">15dp</item>
+    </style>
+
+
+    <style name="call_reply_custom_time_promt">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/default_button_padding</item>
+        <item name="android:textColor">@color/voip_call_reply_prompt</item>
+        <item name="android:textSize">@dimen/font_size_medium</item>
+    </style>
+
+    <style name="call_reply_message_divider">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:background">@color/call_reply_message_layout_divider</item>
+    </style>
+
+    <style name="call_reply_time_prompt">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/default_button_padding</item>
+        <item name="android:textColor">@color/voip_call_reply_prompt</item>
+        <item name="android:textSize">@dimen/font_size_medium</item>
+    </style>
+
+    <style name="voip_call_info_option_msg">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/default_button_height</item>
+        <item name="android:layout_marginLeft">@dimen/default_button_margin_left_right</item>
+        <item name="android:layout_marginRight">@dimen/default_button_margin_left_right</item>
+        <item name="android:background">@drawable/btn_reply_message_background</item>
+        <item name="android:textColor">@color/voip_call_info_option</item>
+        <item name="android:textSize">@dimen/font_size_large</item>
+    </style>
+
+    <style name="privacy_policy_description">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:autoLink">email|web</item>
+        <item name="android:textColor">@color/text_color_main</item>
+        <item name="android:textSize">@dimen/font_size_medium</item>
+        <item name="android:textColorLink">@color/text_link</item>
+    </style>
+
+    <style name="list_item_text_ellipsize_style">
+        <item name="android:ellipsize">marquee</item>
+    </style>
+
+    <style name="button_text_ellipsize_style">
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="transcription_text_view">
+        <item name="android:lineSpacingMultiplier">1.5</item>
+        <item name="android:textColor">@color/text_color_main</item>
+        <item name="android:textSize">@dimen/font_size_vmt_transcription_text</item>
+    </style>
+
+    <style name="floatDialogTheme" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/transparentColor</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="popupAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/pop_up</item>
+        <item name="android:windowExitAnimation">@anim/pop_down</item>
+    </style>
+
+    <style name="DropdownFilterDialogStyle" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowSoftInputMode">stateUnchanged|adjustResize</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="accountSetupPhoneNumberStyle">
+        <item name="android:textSize">23sp</item>
+        <item name="android:textColor">@color/account_setup_phone_number_color</item>
+    </style>
+
+    <style name="full_screen_dialog">
+          <item name="android:windowFrame">@null</item>
+          <item name="android:windowIsFloating">true</item>
+          <item name="android:windowContentOverlay">@null</item>
+          <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+          <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+    </style>
+
+    <style name="voip_9_button_group_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">@dimen/active_call_dialpad_min_height</item>
+        <item name="android:background">@color/transparentColor</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center_horizontal|top</item>
+        <item name="android:textColor">@color/active_call_key_pad_text_color</item>
+        <item name="android:textSize">@dimen/active_call_dialpad_text_size</item>
+        <item name="android:layout_marginTop">@dimen/active_call_dialpad_text_margin_top</item>
     </style>
 </resources>

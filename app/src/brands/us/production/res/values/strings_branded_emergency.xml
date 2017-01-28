@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- ============================== -->
+    <!-- =============911 ToS========== -->
+    <!-- ============================== -->
+    <string name="branded_emergency_disclaimer_title"><b>Emergency Services Disclaimer</b></string>
+    <string name="branded_emergency_disclaimer_dlg_voip_calling_title">VoIP Calling</string>
+    <string name="branded_emergency_disclaimer_dlg_voip_calling_message">VoIP calling capabilities will be disabled until you acknowledge that emergency calling may not be available when using RingCentral.</string>
+</resources>

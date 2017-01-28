@@ -368,7 +368,7 @@ public class ContactsList extends ListActivity{
 			viewToUse.setTag(new PhotoInfo(position, photoId));
 
 			if (photoId == 0) {
-				viewToUse.setImageResource(R.drawable.avatar);
+				//viewToUse.setImageResource(R.drawable.avatar);
 			} else {
 
 				Bitmap photo = null;
@@ -385,7 +385,7 @@ public class ContactsList extends ListActivity{
 				if (photo != null) {
 					viewToUse.setImageBitmap(photo);
 				} else {
-					viewToUse.setImageResource(R.drawable.avatar);
+					//viewToUse.setImageResource(R.drawable.avatar);
 					mItemsMissingImages.add(viewToUse);
 					if (mScrollState != OnScrollListener.SCROLL_STATE_FLING) {
 						sendFetchImageMessage(viewToUse);

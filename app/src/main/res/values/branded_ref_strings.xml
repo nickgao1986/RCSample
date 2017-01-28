@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ==================================================================== -->
+    <!-- ========================= Application label ======================== -->
+    <!-- ===================================================================== -->
+
+
+    <!-- This is the EXTERNAL application name -->
+    <!-- as seen in the App Store, on the Android desktop etc. -->
+    <string name="app_label">@string/brand_AppLabel</string>
+
+    <!-- This is the INTERNAL application name used inside the application UI -->
+    <string name="app_name">@string/brand_AppName</string>
+
+    <!-- ===================================================================== -->
+    <!-- ========================= Login Screen ============================== -->
+    <!-- ===================================================================== -->
+    <string name="loginscreen_setup_dialog_msg">@string/branded_loginscreen_setup_dialog_msg</string>
+    <string name="loginscreen_trial_dlg_msg_admin_expired">@string/branded_loginscreen_trial_dlg_msg_admin_expired</string>
+    <string name="loginscreen_trial_dlg_msg_admin_expireinxdays">@string/branded_loginscreen_trial_dlg_msg_admin_expireinxdays</string>
+    <string name="loginscreen_trial_dlg_msg_admin_expirein1day">@string/branded_loginscreen_trial_dlg_msg_admin_expirein1day</string>
+    <string name="loginscreen_trial_dlg_msg_admin_expiretoday">@string/branded_loginscreen_trial_dlg_msg_admin_expiretoday</string>
+    <string name="loginscreen_trial_dlg_msg_user_expired">@string/branded_loginscreen_trial_dlg_msg_user_expired</string>
+    <string name="loginscreen_trial_dlg_ok">@string/dialog_btn_ok</string>
+    <string name="loginscreen_trial_dlg_cancel">@string/dialog_btn_cancel</string>
+
+    <!-- RingOut -->
+    <string name="ringout_status_mid_label_text_2line">@string/branded_ringout_status_mid_label_text_2line</string>
+
+    <!-- Messages Activity -->
+    <string name="messages_notification_ticker">@string/branded_messages_notification_ticker</string>
+
+
+    <!-- ===================================================================== -->
+    <!-- ================= SETTINGS ============================== -->
+    <!-- ===================================================================== -->
+    <string name="settings_header_about_title">@string/branded_settings_header_about_title</string>
+    <string name="settings_item_tell_a_friend_title">@string/branded_settings_item_tell_a_friend_title</string>
+    <string name="settings_feedback_subject_value">@string/branded_settings_feedback_subject_value</string>
+    <string name="settings_about_feedback_email">@string/branded_settings_about_feedback_email</string>
+
+    <string name="PDF_viewer_could_not_be_detected">@string/branded_PDF_viewer_could_not_be_detected</string>
+
+    <!-- ===================================================================== -->
+    <!-- =================      INTERNAL PERMISSIONS   ======================= -->
+    <!-- ===================================================================== -->
+    <string name="internal_permission_label">@string/branded_internal_permission_label</string>
+    <string name="internal_permission_description">@string/branded_internal_permission_description</string>
+
+    <string name="conference_email_content_for_muti_fcc_number">@string/brand_conference_email_content_for_muti_fcc_number</string>
+    <string name="conference_email_content_for_muti_rcc_number">@string/brand_conference_email_content_for_muti_rcc_number</string>
+    <string name="conference_email_content_for_muti_fcc_number_with_tap_join_uri">@string/brand_conference_email_content_for_muti_fcc_number_with_tap_join_uri</string>
+    <string name="conference_email_content_for_muti_rcc_number_with_tap_join_uri">@string/brand_conference_email_content_for_muti_rcc_number_with_tap_join_uri</string>
+
+    <string name="rc_documents_dialog_content">@string/branded_rc_documents_dialog_content</string>
+    <string name="faxout_save_fax_as_draft_toast">@string/branded_faxout_save_fax_as_draft_toast</string>
+
+    <string name="brand_name_for_user_agent">@string/brand_user_agent_name</string>
+
+    <string name="about_copyright">@string/branded_settings_about_copyright</string>
+
+    <string name="group_top_left_select_all">@string/select_all</string>
+
+</resources>

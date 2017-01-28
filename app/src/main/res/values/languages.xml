@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="language_fr_CA">Français (Canada)</string>
+    <string name="language_en_GB">English (U.K.)</string>
+    <string name="language_en_US">English</string>
+    <string name="language_fr_FR">Français</string>
+    <string name="language_es_ES">Español</string>
+    <string name="language_es_MX">Español (México)</string>
+    <string name="language_pt">Português</string>
+    <string name="language_pt_PT">Português (Portugal)</string>
+    <string name="language_pt_BR">Português (Brasil)</string>
+    <string name="language_bg">български</string>
+    <string name="language_ca">Català</string>
+    <string name="language_be">беларускі</string>
+    <string name="language_cs">Čeština</string>
+    <string name="language_de">Deutsch</string>
+    <string name="language_da">Dansk</string>
+    <string name="language_el">Ελληνικά</string>
+    <string name="language_et">Eesti</string>
+    <string name="language_it">Italiano</string>
+    <string name="language_it_CH">Italiano (Svizzera)</string>
+    <string name="language_is">íslenska</string>
+    <string name="language_lv">Latviešu</string>
+    <string name="language_pl">Polski</string>
+    <string name="language_ro">Română</string>
+    <string name="language_sk">Slovenčina</string>
+    <string name="language_sl">Slovenščina</string>
+    <string name="language_sr">Српски</string>
+    <string name="language_sv">Svenska</string>
+    <string name="language_fi">Suomi</string>
+    <string name="language_ga">Gaeilge</string>
+    <string name="language_hr">Hrvatski</string>
+    <string name="language_hu">Magyar</string>
+    <string name="language_ru">Русской</string>
+    <string name="language_tr">Türkçe</string>
+    <string name="language_uk">Українська</string>
+    <string name="language_ar">العربية</string>
+    <string name="language_ja">日本語</string>
+    <string name="language_ko">한국어</string>
+    <string name="language_nl">Nederlands</string>
+    <string name="language_zh_CN">中文 (中国)</string>
+    <string name="language_zh_HK">中文 (香港)</string>
+    <string name="language_zh_TW">中文 (台灣)</string>
+</resources>

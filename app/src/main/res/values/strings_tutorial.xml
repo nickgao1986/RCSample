@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2010-2013, RingCentral, Inc. All Rights Reserved. --><!--
+=====================================================================
+  IMPORTANT!!!
+
+  This file MUST NOT contain any brand-dependent string definitions,
+  including but not limited to any strings containing the application or
+  company name like 'RingCentral', 'RingCentral Mobile', etc.
+
+  All brand-dependent string definitions must be defined in the 'strings_branded.xml' files
+  separately for each brand.
+  The 'strings.xml' file must contain only references to the actual branded definitions.
+=====================================================================
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="tip_for_profile_layout">Hi there! This is where you can change your settings, photo and more. <b>Tap to try it out.</b></string>
+    <string name="tip_for_profile_photo_setting">Try adding a profile picture. It’s easy, just tap this icon and choose a photo.</string>
+    <string name="tip_for_drop_down_filter">View more filters here.</string>
+    <string name="tip_for_more_if_has_join_now">Use Join Now to call into your meetings with one tap.</string>
+    <string name="device_contact_translate_to_cloud_tip">Tap to import this contact from your Android phone to %s cloud, so you can see it in other devices automatically.</string>
+</resources>

@@ -9,6 +9,8 @@
 
     <string name="rest_path_get_client_info">client-info</string>
 
+    <string name="rest_path_get_permission">account/~/extension/~/authz-profile</string>
+
     <string name="rest_path_create_ring_out">account/~/extension/~/ringout</string>
 
     <string name="rest_path_create_direct_ring_out">account/~/extension/~/ringout/direct</string>
@@ -39,6 +41,24 @@
     <string name="rest_path_get_conference">account/~/extension/~/conferencing</string>
 
     <string name="rest_path_get_conference_with_countryid">account/~/extension/~/conferencing?countryId=%1$s</string>
+    <string name="rest_path_download_phone_data">number-parser/phonedata.xml</string>
 
+    <string name="rest_path_subscribe_incoming_call_event_filter">/restapi/v1.0/account/~/extension/~/incoming-call-pickup</string>
+    <string name="rest_path_subscribe_message_store_event_filter">/restapi/v1.0/account/~/extension/~/message-store</string>
+    <string name="rest_path_subscribe_missed_calls_event_filter">/restapi/v1.0/account/~/extension/~/missed-calls</string>
+    <string name="rest_path_subscribe_blf_list_event_filter">/restapi/v1.0/account/~/extension/~/presence/line</string>
+    <string name="rest_path_subscribe_blf_list_presence_event_filter">/restapi/v1.0/account/~/extension/~/presence/line/presence?detailedTelephonyState=true&amp;sipData=true</string>
     <string name="rest_path_subscribe_incoming_call">subscription</string>
+    <string name="rest_path_unSubscribe_incoming_call">subscription/%1$s</string>
+    <string name="rest_path_renewSubscribe_info">subscription/%1$s/renew</string>
+
+    <string name="rest_create_single_contact">account/~/extension/~/address-book/contact</string>
+
+    <string name="rest_update_delete_single_contact">account/~/extension/~/address-book/contact/%1$s</string>
+
+    <string name="rest_path_cloud_favorite">account/~/extension/~/favorite</string>
+
+    <string name="rest_path_blf_list">account/~/extension/~/presence/line</string>
+
+    <string name="rest_path_blf_list_presence">account/~/extension/%1$s/presence?detailedTelephonyState=true&amp;sipData=true </string>
 </resources>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    Copyright (C) 2010-2013, RingCentral, Inc. All Rights Reserved.
+  -->
+
+<!-- ===================================================================
+  Brand-dependent string resources for the RingCentral brand.
+=====================================================================-->
+
+<!-- ===================================================================
+  IMPORTANT!!!
+
+  This file MUST contain ALL brand-dependent string definitions.
+  All other project resources (XML files) MUST NOT contain any brand-dependent strings
+  but only references to this file.
+
+  Don't reference strings from this file directly in the Java code.
+  Use references from 'strings.xml'.
+=====================================================================-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- =====================================================================-->
+    <!-- ===================== Brand definition ==============================-->
+    <!-- =====================================================================-->
+
+    <!-- This is the EXTERNAL application name -->
+    <!-- as seen in the App Store, on the Android desktop etc. -->
+    <string name="brand_AppLabel">RingCentral</string>
+
+    <!-- This is the INTERNAL application name used inside the application UI -->
+    <string name="brand_AppName">RingCentral</string>
+
+    <!-- =====================================================================-->
+    <!-- ========================= Login Screen ==============================-->
+    <!-- =====================================================================-->
+    <string name="branded_loginscreen_setup_dialog_msg">Please finish express setup to fully take advantage of your RingCentral phone system and send activation emails to your extension users.</string>
+
+    <string name="branded_loginscreen_trial_dlg_msg_admin_expired">Your free trial has expired. To upgrade to a paid account and continue enjoying the RingCentral features you love, click Upgrade Now below.</string>
+    <string name="branded_loginscreen_trial_dlg_msg_admin_expireinxdays">Your free trial expires in %d days. To upgrade to a paid account and continue enjoying the RingCentral features you love, click Upgrade Now below.</string>
+    <string name="branded_loginscreen_trial_dlg_msg_admin_expirein1day">Your free trial expires in 1 day. To upgrade to a paid account and continue enjoying the RingCentral features you love, click Upgrade Now below.</string>
+    <string name="branded_loginscreen_trial_dlg_msg_admin_expiretoday">Your free trial expires today. To upgrade to a paid account and continue enjoying the RingCentral features you love, click Upgrade Now below.</string>
+    <string name="branded_loginscreen_trial_dlg_msg_user_expired">Your free trial has expired. To upgrade to a paid account and continue enjoying the RingCentral features you love, please ask an administrator to login and upgrade your account.</string>
+    <string name="branded_user_account_is_disabled">Your RingCentral account is currently disabled. Please contact customer support to re-activate your account.</string>
+
+    <!-- =====================================================================-->
+    <!-- ================= RING OUT ==========================================-->
+    <!-- =====================================================================-->
+
+    <!-- RingOut Status screen -->
+    <string name="branded_ringout_status_mid_label_text_2line">The other party will see your RingCentral \nnumber as caller ID:</string>
+
+
+    <!-- =====================================================================-->
+    <!-- ================= MESSAGES ========================================= -->
+    <!-- =====================================================================-->
+
+    <string name="branded_messages_notification_ticker">New RingCentral Message.</string>
+
+    <string name="branded_PDF_viewer_could_not_be_detected">Your Android device does not have a PDF viewer installed. To view RingCentral faxes, RingCentral recommends you download the free Adobe Reader from Google Play.</string>
+
+
+    <!-- =====================================================================-->
+    <!-- ================= SETTINGS ============================== -->
+    <!-- =====================================================================-->
+
+    <string name="branded_settings_tell_a_friend_body_value_us">
+        \n<xliff:g id="user_name">%1$s</xliff:g> thought you should know about business phone service from RingCentral.
+        \n\nYou get an instantly activated toll free or local number with advanced call forwarding, a professional auto-receptionist that answers and directs calls to virtual extensions, Internet fax and a whole lot more. Turn your Android phone into feature-rich mobile office with this free app from RingCentral.
+        \n\nSo go ahead. Port your existing numbers to RingCentral, or get an entirely new number for your business. Either way, you’ll soon be converting callers into customers.
+        \n\nTo learn more about RingCentral service, please visit: www.ringcentral.com
+    </string>
+    <string name="branded_settings_tell_a_friend_body_value_uk">
+        \n<xliff:g id="user_name">%1$s</xliff:g> thought you should know about business phone service from RingCentral.
+        \n\nYou get an instantly activated free phone or local number with advanced call forwarding,
+        a professional auto-receptionist that answers and directs calls to virtual extensions,
+        Internet fax and a whole lot more. Turn your Android phone into feature-rich mobile office with this free app from RingCentral.
+        \n\nSo go ahead. Port your existing numbers to RingCentral, or get an entirely new number for your business.
+        Either way, you’ll soon be converting callers into customers.
+        \n\nTo learn more about RingCentral service, please visit: www.ringcentral.com
+	</string>
+
+    <string name="branded_settings_tell_a_friend_subject_value"><xliff:g id="user_name">%1$s</xliff:g> has sent you a recommendation</string>
+    <string name="branded_settings_header_about_title">About</string>
+    <string name="branded_settings_about_feedback_email">rcmobilefeedback&#64;ringcentral.com</string>
+
+    <string name="branded_settings_noname_user_name">RingCentral User</string>
+
+    <string name="branded_ringcentral_calls_place">Choose where you would like to take your RingOut calls:</string>
+
+    <string name="branded_settings_item_tell_a_friend_title">Tell a Friend</string>
+    <string name="branded_settings_feedback_subject_value"><xliff:g id="app_name">%1$s</xliff:g> <xliff:g id="app_version">%2$s</xliff:g> Android Feedback <xliff:g id="user_account">%3$s</xliff:g> , <xliff:g id="device_manufactory">%4$s</xliff:g>/<xliff:g id="device_sdk_version">%5$s</xliff:g></string>
+
+    <string name="branded_settings_item_privacy_policy_content_us">To view RingCentral\'s privacy policy, visit http://www.ringcentral.com/legal/privacy-policy.html</string>
+    <string name="branded_settings_item_privacy_policy_content_uk">To view RingCentral\'s privacy policy, visit http://www.ringcentral.co.uk/legal/privacy-policy.html</string>
+    <string name="branded_settings_about_copyright">© %1$s RingCentral, Inc. All rights reserved.</string>
+
+    <!-- =====================================================================-->
+    <!-- ================= OUTGOING CALL ACTIVITY ==================-->
+    <!-- =====================================================================-->
+
+    <string name="branded_voip_call_incoming">Incoming Call</string>
+
+    <!-- =====================================================================-->
+    <!-- =================      INTERNAL PERMISSIONS   =======================-->
+    <!-- =====================================================================-->
+    <string name="branded_internal_permission_label">Internal RingCentral service actions</string>
+    <string name="branded_internal_permission_description">Allows the application to use internal RingCentral service actions</string>
+
+    <!-- =====================================================================-->
+    <!-- ======================= conference ===========================-->
+    <!-- =====================================================================-->
+    <string name="branded_conference_email_content_us_with_tap_to_join">Please join the RingCentral conference. The Conference will start immediately.\n\nDial-in Number: <xliff:g id="dial_in_number">%1$s</xliff:g>\nParticipant Access: <xliff:g id="participant_access">%2$s</xliff:g>\n\nTo join the conference from your iPhone, click this link:<xliff:g id="tap_to_join_uri">%3$s</xliff:g>\n\nConferencing Tips:\n\n</string>
+
+
+    <string name="brand_conference_email_content_for_muti_fcc_number">Please join my meeting that is currently in progress.\n\nDial-in Numbers: \n<xliff:g id="dial_in_number">%1$s</xliff:g>\n\nParticipant Access:\n<xliff:g id="participant_access">%2$s</xliff:g>\n\nConferencing Tips:\n\nNeed an international dial-in phone number? Please visit http://rcconf.net/1L06Hd5\nTo mute your line, press *#6 on your keypad.\n\nThis conference call is brought to you by RingCentral Conferencing.</string>
+    <string name="brand_conference_email_content_for_muti_fcc_number_with_tap_join_uri">Please join my meeting that is currently in progress.\n\nDial-in Numbers: \n<xliff:g id="dial_in_number">%1$s</xliff:g>\n\nParticipant Access:\n<xliff:g id="participant_access">%2$s</xliff:g>\n\nTo join the conference from your iPhone, click this link:<xliff:g id="tap_to_join_uri">%3$s</xliff:g>\n\nConferencing Tips:\n\nNeed an international dial-in phone number? Please visit http://rcconf.net/1L06Hd5\nTo mute your line, press *#6 on your keypad.\n\nThis conference call is brought to you by RingCentral Conferencing.</string>
+    <string name="brand_conference_email_content_for_muti_rcc_number">Please join my meeting that is currently in progress.\n\nDial-in Numbers: \n<xliff:g id="dial_in_number">%1$s</xliff:g>\n\nParticipant Access:\n<xliff:g id="participant_access">%2$s</xliff:g>\n\nConferencing Tips:\n\nTo mute your line, press *#6 on your keypad.\n\nThis conference call is brought to you by RingCentral Conferencing.</string>
+    <string name="brand_conference_email_content_for_muti_rcc_number_with_tap_join_uri">Please join my meeting that is currently in progress.\n\nDial-in Numbers: \n<xliff:g id="dial_in_number">%1$s</xliff:g>\n\nParticipant Access:\n<xliff:g id="participant_access">%2$s</xliff:g>\n\nTo join the conference from your iPhone, click this link:<xliff:g id="tap_to_join_uri">%3$s</xliff:g>\n\nConferencing Tips:\n\nTo mute your line, press *#6 on your keypad.\n\nThis conference call is brought to you by RingCentral Conferencing.</string>
+
+    <!-- =====================================================================-->
+    <!-- ======================= FaxOut ===========================-->
+    <!-- =====================================================================-->
+    <string name="branded_faxout_save_fax_as_draft_toast">Your fax has been saved as draft in Documents.</string>
+    <string name="branded_rc_documents_dialog_content">RingCentral does not support preview for this file. Would you like to import it into \"Documents\"?</string>
+
+    <string name="brand_ringout_alert_login_using_direct_number_us">RingOut cannot be completed when logged in using your toll free number. To complete a RingOut call, log in using your Direct Number or go to settings and change your RingOut mode to \"Another Phone\".</string>
+    <string name="brand_ringout_alert_login_using_direct_number_uk">RingOut cannot be completed when logged in using your free phone number. To complete a RingOut call, log in using your Direct Number or go to settings and change your RingOut mode to \"Another Phone\".</string>
+    <string name="brand_user_agent_name">RingCentral</string>
+
+    <string name="branded_conference_email_content_us">Please join the RingCentral conference. The Conference will start immediately.\n\nDial-in Number: <xliff:g id="dial_in_number">%1$s</xliff:g>\nParticipant Access: <xliff:g id="participant_access">%2$s</xliff:g>\n\nConferencing Tips:\n\nNeed an international dial-in phone number? Please visit http://rcconf.net/1L06Hd5\nTo mute your line, press *#6 on your keypad.\n\nThis conference call is brought to you by RingCentral Conferencing.</string>
+    <string name="branded_conference_email_content_us_rcc">Please join the RingCentral conference. The Conference will start immediately.\n\nDial-in Number: <xliff:g id="dial_in_number">%1$s</xliff:g>\nParticipant Access: <xliff:g id="participant_access">%2$s</xliff:g>\n\nConferencing Tips:\n\nTo mute your line, press *#6 on your keypad.\n\nThis conference call is brought to you by RingCentral Conferencing.</string>
+    <string name="branded_conference_email_content_uk">Please join my meeting that is currently in progress.\n\nDial-in Number: <xliff:g id="dial_in_number">%1$s</xliff:g>\nParticipant Access: <xliff:g id="participant_access">%2$s</xliff:g>\n\nConferencing Tips:\n\nNeed an international dial-in phone number? Please visit http://rcconf.net/1L06Hd5\nTo mute your line, press *#6 on your keypad.\n\nThis conference call is brought to you by RingCentral Conferencing.</string>
+    <string name="branded_conference_email_content_uk_rcc">Please join my meeting that is currently in progress.\n\nDial-in Number: <xliff:g id="dial_in_number">%1$s</xliff:g>\nParticipant Access: <xliff:g id="participant_access">%2$s</xliff:g>\n\nConferencing Tips:\n\nTo mute your line, press *#6 on your keypad.\n\nThis conference call is brought to you by RingCentral Conferencing.</string>
+
+    <string name="brand_sso_oauth_error_content">Service is temporarily unavailable. Please have your company administrator contact RingCentral Support.</string>
+    <string name="brand_sso_token_expired_content">Log in again from the Login screen to continue using RingCentral.</string>
+
+    <string name="branded_meeting_app_name">RingCentral Meetings</string>
+
+    <!-- whats new text-->
+    <string name="whatsnew_page_1_title_text">Team Collaboration</string> 
+    <string name="whatsnew_page_1_content_text"><![CDATA[Get work done faster with one tap access to <b>RingCentral Glip</b>.]]></string>
+
+    <string name="whatsnew_page_2_title_text">Streamlined Calling</string> 
+    <string name="whatsnew_page_2_content_text">Call your recents and dial out easily from one place with the new Keypad.</string> 
+      
+    <string name="whatsnew_page_3_title_text">RingCentral® Global Office™</string> 
+    <string name="whatsnew_page_3_content_text"><![CDATA[Unify and connect your international workforce. Now supporting <b>Argentina</b>, <b>Brazil</b>, <b>Chile</b>,
+    <b>New Zealand</b>, <b>Poland</b>, <b>Slovakia</b>.]]></string>
+
+</resources>

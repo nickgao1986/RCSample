@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    Copyright (C) 2011-2013, RingCentral, Inc. All Rights Reserved.
+  -->
+<resources>
+    <string name="config_menu_configure_URL_label">URL Settings</string>
+    <string name="config_menu_configure_VOIP_label">VOIP Settings</string>
+    <string name="config_menu_configure_encryption_label">Encryption Settings</string>
+    <string name="config_menu_more_freq_ext_info_label">More frequent ext.info check</string>
+    <string name="config_menu_sso_enable_label">SSO enable</string>
+    <string name="config_menu_configure_send_log_label">Send Log</string>
+    <string name="config_menu_configure_webrtc_label">WebRTC Audio Processing</string>
+    <string name="config_menu_configure_opus_label">OPUS</string>
+    <string name="config_menu_configure_route_label">Route phone number</string>
+    <string name="config_menu_configure_version">Version</string>
+
+    <!-- ************************************ URL Settings  *****************************************************- -->
+    <string name="config_screen_configure_label">Configure environment</string>
+    <string name="config_screen_configure_encryption_label">Configure encryption settings</string>
+    <string name="config_screen_save_button_label">Save</string>
+    <string name="config_screen_url_launch_signup_setup_settings_button_label">Launch SignUp/Setup Settings URL</string>
+    <string name="config_screen_url_set_default_button_label">Set default values</string>
+    <string name="config_screen_option_setup_url_overriding_enabled_name">Get SetupURL from server</string>
+
+
+    <string name="default_envirnment_name">RC Production</string>
+    <string name="config_screen_url_env">Environment</string>
+
+    <string name="config_screen_url_rest">REST URL</string>
+    <string-array name="config_screen_url_rest_names">
+        <item>RC Production</item>
+        <item>DEV-UP</item>
+        <item>STG-ATT-SV7</item>
+        <item>DEV-PLA-50X</item>
+        <item>XIA-UP</item>
+        <item>SWT-UP-SPB</item>
+        <item>OPS</item>
+        <item>MOD-SPH-SV7</item>
+        <item>RLZ-DEV-XIA</item>
+        <item>PLA-INT-SPB</item>
+        <item>GCI environment</item>
+        <item>DEV-ATT-511</item>
+        <item>STRESS_STAGE</item>
+        <item>RND-TAP-SV7</item>
+        <item>TM3-DEV-XIA</item>
+        <item>TM2-DEV-XIA</item>
+        <item>EDI-ATT-SV7</item>
+        <item>DEV-MOB-SV7</item>
+        <item>AMS-UP</item>
+        <item>DEV-BLF-SPB</item>
+        <item>PLA-RDP-AMS</item>
+        <item>SSS-PLA-SPB</item>
+        <item>PLA-INT-SPB</item>
+        <item>DEV-PLA-SPB</item>
+        <item>PLA-FNC-SPB</item>
+        <item>PLA-INF-SPB</item>
+        <item>PLA-SWT-SPB</item>
+        <item>PLA-COR-AMS</item>
+        <item>PLA-RDP-AMS</item>
+        <item>PLA-INT-AMS</item>
+        <item>SBC-MOB-SV7</item>
+        <item>DEV-HQP-SV7</item>
+        <item>PLA-FUN-AMS</item>
+        <item>DEV-FRE-XIA</item>
+        <item>DEV-MOB-AMS</item>
+        <item>GCI-AQA-AMS</item>
+        <item>QOS-DEV-AMS</item>
+    </string-array>
+    <string-array name="config_screen_url_rest_values">
+        <item>https://api.ringcentral.com</item>
+        <item>http://api.dev.up.dins.ru</item>
+        <item>http://api-attstg.stage.ringcentral.com</item>
+        <item>http://spb01-t04-jws02.dins.ru</item>
+        <item>https://api-up.lab.rcch.ringcentral.com</item>
+        <item>http://api-swtup.lab.nordigy.ru</item>
+        <item>https://api.ops.ringcentral.com</item>
+        <item>http://api-modsph.lab.nordigy.ru</item>
+        <item>http://api-rlzdev.lab.rcch.ringcentral.com</item>
+        <item>http://api-plaint.lab.nordigy.ru</item>
+        <item>http://api-gci2.lab.nordigy.ru</item>
+        <item>http://api-att511.lab.nordigy.ru:8080</item>
+        <item>https://api.stage.ringcentral.com</item>
+        <item>http://10.15.17.136</item>
+        <item>http://api-tm3dev.lab.rcch.ringcentral.com</item>
+        <item>http://api-tm2dev.lab.rcch.ringcentral.com</item>
+        <item>http://api-ediatt.lab.nordigy.ru</item>
+        <item>http://api-devmob.lab.nordigy.ru</item>
+        <item>https://api-amsup.lab.nordigy.ru</item>
+        <item>https://api-devblf.lab.nordigy.ru</item>
+        <item>http://10.62.2.26:8080</item>
+        <item>http://api-ssspla.lab.nordigy.ru</item>
+        <item>http://api-plaint.lab.nordigy.ru</item>
+        <item>http://api-devplaspb.lab.nordigy.ru</item>
+        <item>http://api-plafnc.lab.nordigy.ru</item>
+        <item>http://api-plainf.lab.nordigy.ru</item>
+        <item>http://api-plaswt.lab.nordigy.ru</item>
+        <item>http://api-placor.lab.nordigy.ru</item>
+        <item>http://api-plardp.lab.nordigy.ru</item>
+        <item>https://api-plaintams.lab.nordigy.ru</item>
+        <item>http://api-sbcmob.lab.nordigy.ru</item>
+        <item>http://api-devhqpsv7.lab.nordigy.ru</item>
+        <item>http://api-plafun.lab.nordigy.ru</item>
+        <item>http://api-devfre.lab.rcch.ringcentral.com</item>
+        <item>http://api-devmobams.lab.nordigy.ru</item>
+        <item>https://api-gci3.lab.nordigy.ru</item>
+        <item>http://api-qosdevams.lab.nordigy.ru</item>
+    </string-array>
+
+    <string name="config_screen_url_messaging">Messaging Sync URL</string>
+    <string-array name="config_screen_url_messaging_names">
+        <item>RC Production</item>
+        <item>ATT Production (VIIPFR)</item>
+        <item>ATT Production (Old)</item>
+        <item>DEV-UP</item>
+        <item>QA-UP (LED)</item>
+        <item>QA-UP (SWT)</item>
+        <item>UP-DEV-U01</item>
+        <item>STG-ATT-SV7</item>
+        <item>XIA-UP</item>
+        <item>DEV-PLA-50X</item>
+        <item>SWT-UP-SPB</item>
+        <item>OPS</item>
+        <item>MOD-SPH-SV7</item>
+        <item>RLZ-DEV-XIA</item>
+        <item>PLA-INT-SPB</item>
+        <item>GCI environment</item>
+        <item>DEV-ATT-511</item>
+        <item>STRESS_STAGE</item>
+        <item>RND-TAP-SV7</item>
+        <item>TM3-DEV-XIA</item>
+        <item>TM2-DEV-XIA</item>
+        <item>EDI-ATT-SV7</item>
+        <item>DEV-MOB-SV7</item>
+        <item>AMS-UP</item>
+        <item>DEV-BLF-SPB</item>
+        <item>PLA-RDP-AMS</item>
+        <item>SSS-PLA-SPB</item>
+        <item>PLA-INT-SPB</item>
+        <item>DEV-PLA-SPB</item>
+        <item>PLA-FNC-SPB</item>
+        <item>PLA-INF-SPB</item>
+        <item>PLA-SWT-SPB</item>
+        <item>PLA-COR-AMS</item>
+        <item>PLA-RDP-AMS</item>
+        <item>PLA-INT-AMS</item>
+        <item>SBC-MOB-SV7</item>
+        <item>DEV-HQP-SV7</item>
+        <item>PLA-FUN-AMS</item>
+        <item>DEV-FRE-XIA</item>
+        <item>DEV-MOB-AMS</item>
+        <item>GCI-AQA-AMS</item>
+    </string-array>
+    <string-array name="config_screen_url_messaging_values">
+        <item>https://sync.ringcentral.com/localstorage/msgmanager.dll</item>
+        <item>https://sync.ringcentral.com/localstorage/msgmanager.dll</item>
+        <item>https://sync03.ringcentral.com/localstorage/msgmanager.dll</item>
+        <item>http://sync.dev.up.dins.ru/localstorage/msgmanager.dll</item>
+        <item>http://sync.qa.up.dins.ru/localstorage/msgmanager.dll</item>
+        <item>http://spb01-t07-sws01.dins.ru/localstorage/msgmanager.dll</item>
+        <item>http://led1-r01-web01.dins.ru/localstorage/msgmanager.dll</item>
+        <item>http://sync-attstg.stage.ringcentral.com/localstorage/msgmanager.dll</item>
+        <item>https://sync-up.lab.rcch.ringcentral.com/localstorage/msgmanager.dll</item>
+        <item>http://sync.pax.up.dins.ru/localstorage/msgmanager.dll</item>
+        <item>http://sync-swtup.lab.nordigy.ru/localstorage/msgmanager.dll</item>
+        <item>https://sync.ops.ringcentral.com/localstorage/msgmanager.dll</item>
+        <item>http://sync-modsph.lab.nordigy.ru</item>
+        <item>http://sync-rlzdev.lab.rcch.ringcentral.com/localstorage/msgmanager.dll</item>
+        <item>http://sync.plaint.lab.nordigy.ru/localstorage/msgmanager.dll</item>
+        <item>http://sync-gci2.lab.nordigy.ru/localstorage/msgmanager.dll</item>
+        <item>http://sync-att511.lab.nordigy.ru/localstorage/msgmanager.dll</item>
+        <item>https://sync.stage.ringcentral.com/localstorage/msgmanager.dll</item>
+        <item>http://sync-rndtap.stage.ringcentral.com/localstorage/msgmanager.dll</item>
+        <item>http://sync-tm3dev.lab.rcch.ringcentral.com/localstorage/msgmanager.dll</item>
+        <item>http://sync-tm2dev.lab.rcch.ringcentral.com/localstorage/msgmanager.dll</item>
+        <item>http://sync-ediatt.lab.nordigy.ru/localstorage/msgmanager.dll</item>
+        <item>http://sync-devmob.lab.nordigy.ru/localstorage/msgmanager.dll</item>
+        <item>http://sync-amsup.lab.nordigy.ru/localstorage/msgmanager.dll</item>
+        <item>http://sync-devblf.lab.nordigy.ru/localstorage/msgmanager.dll</item>
+        <item>http://sync-plardp.lab.nordigy.ru/LocalStorage/MsgManager.dll</item>
+        <item>http://sync-ssspla.lab.nordigy.ru/localstorage/msgmanager.dll</item>
+        <item>http://sync-plaint.lab.nordigy.ru/localstorage/msgmanager.dll</item>
+        <item>http://sync-devplaspb.lab.nordigy.ru/localstorage/msgmanager.dll</item>
+        <item>http://sync-plafnc.lab.nordigy.ru/localstorage/msgmanager.dll</item>
+        <item>http://sync-plainf.lab.nordigy.ru/LocalStorage/MsgManager.dll</item>
+        <item>http://sync-plaswt.lab.nordigy.ru/localstorage/msgmanager.dll</item>
+        <item>http://sync-placor.lab.nordigy.ru/localstorage/msgmanager.dll</item>
+        <item>http://sync-plardp.lab.nordigy.ru/localstorage/msgmanager.dll</item>
+        <item>http://sync-plaintams.lab.nordigy.ru/localstorage/msgmanager.dll</item>
+        <item>http://sync-sbcmob.lab.nordigy.ru/LocalStorage/MsgManager.dll</item>
+        <item>http://sync-devhqpsv7.lab.nordigy.ru/LocalStorage/MsgManager.dll</item>
+        <item>http://sync-plafun.lab.nordigy.ru/LocalStorage/MsgManager.dll</item>
+        <item>http://sync-devfre.lab.rcch.ringcentral.com/LocalStorage/MsgManager.dll</item>
+        <item>http://sync-devmobams.lab.nordigy.ru/LocalStorage/MsgManager.dll</item>
+        <item>http://sync-gci3.lab.nordigy.ru/LocalStorage/MsgManager.dll</item>
+    </string-array>
+
+    <string name="config_screen_url_signup">Signup URL</string>
+    <string-array name="config_screen_url_signup_names">
+        <item>RC Production</item>
+        <item>ATT Production (VIIPFR)</item>
+        <item>DEV-UP</item>
+        <item>QA-UP (LED)</item>
+        <item>QA-UP (SWT)</item>
+        <item>ATT Vanity URL</item>
+        <item>STG-ATT-SV7</item>
+        <item>ATT Production (OLD)</item>
+        <item>DEV-SBX-STG</item>
+        <item>SWT-UP-SPB</item>
+        <item>PLA-INT-SPB</item>
+        <item>STRESS_STAGE</item>
+        <item>DEV-MOB-AMS</item>
+        <item>GCI-AQA-AMS</item>
+    </string-array>
+    <string-array name="config_screen_url_signup_values">
+        <item>https://m.ringcentral.com/</item>
+        <item>https://officeathand.att.com/mobile/signup/app-signup.html</item>
+        <item>http://service.dev.up.dins.ru</item>
+        <item>http://servicesite2.m.dins.ru/</item>
+        <item>http://servicesite3.m.dins.ru/</item>
+        <item>https://officeathand.att.com/mobile/signup/app-signup.html</item>
+        <item>http://service-attstg-att.stage.ringcentral.com/mobile/signup/app-signup.html</item>
+        <item>https://rc-officeathand.att.com/web/signup/</item>
+        <item>https://service-stgrc.ringcentral.com/</item>
+        <item>http://m.service-swtup-us.lab.nordigy.ru/</item>
+        <item>http://service-plaint.lab.nordigy.ru</item>
+        <item>https://service.stage.ringcentral.com/mobile/signup/app-signup.html</item>
+        <item>https://service-devmobams.lab.nordigy.ru/mobile/signup/app-signup.html</item>
+        <item>https://service-gci3.lab.nordigy.ru /mobile/signup/app-signup.html</item>
+    </string-array>
+
+    <string name="config_screen_url_setup">Setup URL</string>
+    <string-array name="config_screen_url_setup_names">
+        <item>RC Production</item>
+        <item>ATT Production (VIIPFR)</item>
+        <item>DEV-UP</item>
+        <item>QA-UP (LED)</item>
+        <item>QA-UP (SWT)</item>
+        <item>STG-ATT-SV7</item>
+        <item>ATT Production (OLD)</item>
+        <item>STRESS_STAGE</item>
+    </string-array>
+    <string-array name="config_screen_url_setup_values">
+        <item>https://secure.ringcentral.com/rc-setup/mobile/</item>
+        <item>https://officeathand.att.com/mobile/setup/</item>
+        <item>http://service.dev.up.dins.ru/rc-setup/mobile/index.html</item>
+        <item>http://servicesite2.m.dins.ru/rc-setup/mobile/index.html</item>
+        <item>http://servicesite3.m.dins.ru/rc-setup/mobile/index.html</item>
+        <item>http://service-attstg-att.stage.ringcentral.com/mobile/setup/</item>
+        <item>https://rc-officeathand.att.com/mobile/setup/</item>
+        <item>https://secure.stage.ringcentral.com/rc-setup/mobile/</item>
+    </string-array>
+
+    <string name="config_screen_url_setup_signup">Setup Signup URL</string>
+    <string-array name="config_screen_url_setup_signup_names">
+        <item>QA-UP (LED)</item>
+        <item>QA-UP (SWT)</item>
+        <item>STG-ATT-SV7</item>
+        <item>ATT Production(OLD)</item>
+        <item>STRESS_STAGE</item>
+    </string-array>
+    <string-array name="config_screen_url_setup_signup_values">
+        <item>http://servicesite2.dins.ru/api/projects/gwmobile/jediset.php</item>
+        <item>http://servicesite3.dins.ru/api/projects/gwmobile/jediset.php</item>
+        <item>http://service-attstg-att.stage.ringcentral.com/mobile/setup/</item>
+        <item>https://rc-officeathand.att.com/mobile/setup/</item>
+        <item>https://secure.stage.ringcentral.com/rc-setup/mobile/</item>
+    </string-array>
+
+    <string name="config_screen_url_mobile_settings_base">Mobile Settings Base URL</string>
+    <string-array name="config_screen_url_mobile_settings_base_names">
+        <item>RC Production</item>
+        <item>ATT Production (VIIPFR)</item>
+        <item>DEV-UP</item>
+        <item>QA-UP (LED)</item>
+        <item>QA-UP (SWT)</item>
+        <item>STG-ATT-SV7</item>
+        <item>XIA-UP</item>
+        <item>ATT Production (OLD)</item>
+        <item>ATU-DEV-XIA</item>
+        <item>SWT-UP-SPB</item>
+        <item>OPS</item>
+        <item>MOD-SPH-SV7</item>
+        <item>RLZ-DEV-XIA</item>
+        <item>GCI environment</item>
+        <item>STRESS_STAGE</item>
+        <item>TM3-DEV-XIA</item>
+        <item>TM2-DEV-XIA</item>
+        <item>RND-TAP-SV7</item>
+        <item>DEV-MOB-SV7</item>
+        <item>DEV-BLF-SPB</item>
+        <item>PLA-RDP-AMS</item>
+        <item>AMS-UP</item>
+        <item>SSS-PLA-SPB</item>
+        <item>PLA-INT-SPB</item>
+        <item>DEV-PLA-SPB</item>
+        <item>PLA-FNC-SPB</item>
+        <item>PLA-INF-SPB</item>
+        <item>PLA-SWT-SPB</item>
+        <item>PLA-COR-AMS</item>
+        <item>PLA-RDP-AMS</item>
+        <item>PLA-INT-AMS</item>
+        <item>SBC-MOB-SV7</item>
+        <item>DEV-HQP-SV7</item>
+        <item>PLA-FUN-AMS</item>
+        <item>DEV-FRE-XIA</item>
+        <item>DEV-MOB-AMS</item>
+        <item>GCI-AQA-AMS</item>
+        <item>QOS-DEV-AMS</item>
+    </string-array>
+
+    <string-array name="config_screen_url_mobile_settings_base_values">
+        <item>https://service.ringcentral.com/mobileweb/app.html</item>
+        <item>https://service-officeathand.att.com/mobileweb/app.html</item>
+        <item>http://service.dev.up.dins.ru/mobileweb/app.html</item>
+        <item>http://service.qa.up.dins.ru/mobileweb/app.html</item>
+        <item>http://spb01-t07-jws01.dins.ru/mobileweb/app.html</item>
+        <item>http://service-attstg.stage.ringcentral.com/mobileweb/app.html</item>
+        <item>https://service-up.lab.rcch.ringcentral.com/mobileweb/app.html</item>
+        <item>http://rc-service-officeathand.att.com/mobileweb/app.html</item>
+        <item>http://service-atudev.lab.rcch.ringcentral.com/mobileweb/app.html</item>
+        <item>http://service-swtup.lab.nordigy.ru/mobileweb/app.html</item>
+        <item>https://service.ops.ringcentral.com/mobileweb/app.html</item>
+        <item>http://service-modsph.lab.nordigy.ru/mobileweb/app.html</item>
+        <item>http://service-rlzdev.lab.rcch.ringcentral.com/mobileweb/app.html</item>
+        <item>http://service-gci2.lab.nordigy.ru/mobileweb/app.html</item>
+        <item>https://service.stage.ringcentral.com/mobileweb/app.html</item>
+        <item>http://service-tm3dev.lab.rcch.ringcentral.com/mobileweb/app.html</item>
+        <item>http://service-tm2dev.lab.rcch.ringcentral.com/mobileweb/app.html</item>
+        <item>http://service-rndtap.stage.ringcentral.com/mobileweb/app.html</item>
+        <item>http://service-devmob.lab.nordigy.ru/mobileweb/app.html</item>
+        <item>https://service-devblf.lab.nordigy.ru/mobileweb/app.html</item>
+        <item>http://service-plardp.lab.nordigy.ru/mobileweb/app.html</item>
+        <item>https://service-amsup.lab.nordigy.ru/mobileweb/settings.html</item>
+        <item>http://service-ssspla.lab.nordigy.ru/mobileweb/app.html</item>
+        <item>http://service-plaint.lab.nordigy.ru/mobileweb/app.html</item>
+        <item>http://service-devplaspb.lab.nordigy.ru/mobileweb/app.html</item>
+        <item>http://service-plafnc.lab.nordigy.ru/mobileweb/app.html</item>
+        <item>http://service-plainf.lab.nordigy.ru/mobileweb/settings.html</item>
+        <item>http://service-plaswt.lab.nordigy.ru/mobileweb/app.html</item>
+        <item>http://service-placor.lab.nordigy.ru/mobileweb/app.html</item>
+        <item>http://service-plardp.lab.nordigy.ru/mobileweb/app.html</item>
+        <item>http://service-plaintams.lab.nordigy.ru/mobileweb/app.html</item>
+        <item>http://http://service-sbcmob.lab.nordigy.ru/mobileweb/settings.html</item>
+        <item>http://http://service-devhqpsv7.lab.nordigy.ru/mobileweb/settings.html</item>
+        <item>http://service-plafun.lab.nordigy.ru/mobileweb/settings.html</item>
+        <item>http://service-devfre.lab.rcch.ringcentral.com/mobileweb/settings.html</item>
+        <item>http://service-devmobams.lab.nordigy.ru/mobileweb/settings.html</item>
+        <item>http://service-gci3.lab.nordigy.ru/mobileweb/settings.html</item>
+        <item>http://service-qosdevams.lab.nordigy.ru/mobileweb/settings.html</item>
+    </string-array>
+
+    <string name="config_screen_url_mobile_settings_base_enhance">Mobile Settings Base Enhance URL</string>
+    <string-array name="config_screen_url_mobile_settings_base_enhance_names">
+        <item>RC Production</item>
+        <item>XIA-UP</item>
+        <item>MOD-SPH-SV7</item>
+        <item>RLZ-DEV-XIA</item>
+        <item>GCI environment</item>
+        <item>STRESS_STAGE</item>
+    </string-array>
+    <string-array name="config_screen_url_mobile_settings_base_enhance_values">
+        <item>https://service.ringcentral.com</item>
+        <item>http://service-up.lab.rcch.ringcentral.com</item>
+        <item>http://service-modsph.lab.nordigy.ru</item>
+        <item>http://service-rlzdev.lab.rcch.ringcentral.com</item>
+        <item>http://service-gci2.lab.nordigy.ru/</item>
+        <item>https://service.stage.ringcentral.com</item>
+    </string-array>
+
+    <string name="config_screen_url_httpreg">HTTPReg URL</string>
+
+    <string name="config_screen_url_fetch_app_version">Fetch App Version URL</string>
+
+    <string-array name="config_screen_url_fetch_app_version_names">
+        <item>RC Production</item>
+        <item>Other Environment</item>
+    </string-array>
+
+    <string-array name="config_screen_url_fetch_app_version_values">
+        <item>http://info.ringcentralmobile.net/%s/upgrade.json</item>
+        <item>http://10.32.52.30/android/lookup?release=%s</item>
+    </string-array>
+
+    <string-array name="config_screen_url_httpreg_names">
+        <item>RC Production</item>
+        <item>ATT Production (VIIPFR)</item>
+        <item>DEV-UP</item>
+        <item>UP-DEV-U01</item>
+        <item>SPB01-T07-SWS01</item>
+        <item>QA-UP (LED)</item>
+        <item>LED1-T01 (POD1)</item>
+        <item>LED2-T02 (POD1)</item>
+        <item>STG-ATT-SV7</item>
+        <item>XIA-UP</item>
+        <item>DEV-SBX-STG</item>
+        <item>DEV-PLA-50X</item>
+        <item>SWT-UP-SPB</item>
+        <item>OPS</item>
+        <item>MOD-SPH-SV7</item>
+        <item>RLZ-DEV-XIA</item>
+        <item>PLA-INT-SPB</item>
+        <item>GCI environment</item>
+        <item>DEV-ATT-511</item>
+        <item>STRESS_STAGE</item>
+        <item>RND-TAP-SV7</item>
+        <item>TM3-DEV-XIA</item>
+        <item>TM2-DEV-XIA</item>
+        <item>EDI-ATT-SV7</item>
+        <item>DEV-MOB-SV7</item>
+        <item>AMS-UP</item>
+        <item>DEV-BLF-SPB</item>
+        <item>PLA-RDP-AMS</item>
+        <item>SSS-PLA-SPB</item>
+        <item>PLA-INT-SPB</item>
+        <item>DEV-PLA-SPB</item>
+        <item>PLA-FNC-SPB</item>
+        <item>PLA-INF-SPB</item>
+        <item>PLA-SWT-SPB</item>
+        <item>PLA-COR-AMS</item>
+        <item>PLA-RDP-AMS</item>
+        <item>PLA-INT-AMS</item>
+        <item>SBC-MOB-SV7</item>
+        <item>DEV-HQP-SV7</item>
+        <item>PLA-FUN-AMS</item>
+        <item>DEV-FRE-XIA</item>
+        <item>DEV-MOB-AMS</item>
+        <item>GCI-AQA-AMS</item>
+    </string-array>
+    <string-array name="config_screen_url_httpreg_values">
+        <item>http://agentconnect.ringcentral.com/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect.ringcentral.com/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect.dev.up.dins.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://led1-r01-web01.dins.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://spb01-t07-sws01.dins.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect.qa.up.dins.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://led1-t01-web01.dins.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://led2-t02-web01.dins.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-attstg.stage.ringcentral.com/httpreg/rchttpreg.dll?Register</item>
+        <item>https://agentconnect-up.lab.rcch.ringcentral.com/httpreg/rchttpreg.dll?Register</item>
+        <item>http://199.255.120.32/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect.pax.up.dins.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-swtup.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>https://agentconnect.ops.ringcentral.com/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-modsph.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-rlzdev.lab.rcch.ringcentral.com/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-plaint.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-gci2.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-att511.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect.stage.ringcentral.com/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-rndtap.stage.ringcentral.com/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-tm3dev.lab.rcch.ringcentral.com/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-tm2dev.lab.rcch.ringcentral.com/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-ediatt.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-devmob.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-amsup.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-devblf.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-plardp.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-ssspla.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>https://pla01-p01-sws01.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-devplaspb.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-plafnc.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-plainf.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-plaswt.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>https://agentconnect-placor.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-plardp.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-plaintams.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-sbcmob.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-devhqpsv7.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-plafun.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-devfre.lab.rcch.ringcentral.com/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-devmobams.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+        <item>http://agentconnect-gci3.lab.nordigy.ru/httpreg/rchttpreg.dll?Register</item>
+    </string-array>
+
+    <!-- ************************************ VOIP Settings  *****************************************************- -->
+    <string name="config_screen_voip_3g">3G/4G Test mode</string>
+    <string name="config_screen_voip_wifi">WiFi Test mode</string>
+    <string name="config_screen_voip_3g_enabled">Supported</string>
+    <string name="config_screen_voip_3g_disabled">Unsupported</string>
+    <string name="config_screen_voip_wideband_codec_title">Wide-band codec</string>
+    <string name="config_screen_voip_narrowband_codec_title">Narrow-band codec</string>
+    <string name="config_screen_voip_codec_configuration_label">Configuration</string>
+
+    <string name="config_screen_voip_codec_wideband_header">Wide-band codec (tap to change priority):</string>
+    <string name="config_screen_voip_codec_narrowband_header">Narrow-band codec (tap to change priority):</string>
+    <string name="config_screen_voip_codec_action_header">Actions:</string>
+    <string name="config_screen_voip_codec_load_defaults_name">Load default priorities</string>
+    <string name="config_screen_voip_codec_save_name">Save priorities</string>
+    <string name="config_screen_voip_codec_save_label">Then switch off/on VoIP in Settings</string>
+    <string name="config_screen_voip_codec_disabled_label">Disabled</string>
+    <string name="config_screen_voip_codec_priority_label">Priority:</string>
+
+    <string name="config_screen_voip_codec_priority_set_title">Set codec priority</string>
+    <string name="config_screen_voip_codec_priority_set_message">Highest(255), Lowest(1), Disabled(0)</string>
+    <string name="config_screen_voip_codec_priority_set_button_label">Set</string>
+    <string name="config_screen_voip_codec_priority_set_loaded_prompt">Loaded</string>
+    <string name="config_screen_voip_codec_priority_set_saved_prompt">Saved</string>
+
+    <string name="config_screen_voip_include_edge_name">EDGE for 3G/4G</string>
+    <string name="config_screen_voip_include_edge_label">Allowed for Mobile VoIP</string>
+
+    <string name="config_screen_voip_always_use_cpu_lock_title">Always CPU lock for SIP</string>
+    <string name="config_screen_voip_always_use_cpu_lock_label">If incoming calls missed.</string>
+
+    <string name="config_screen_voip_kill_service_process_title">Kill signal</string>
+    <string name="config_screen_voip_kill_service_procees_label">Kill SIP process</string>
+
+    <string name="config_screen_voip_quit_service_process_title">Quit signal</string>
+    <string name="config_screen_voip_quit_service_process_label">Send QUIT signal to SIP process</string>
+
+    <string name="config_screen_voip_emulate_service_process_crash_title">Emulate crash</string>
+    <string name="config_screen_voip_emulate_service_process_crash_label">Emulating SIP process crash</string>
+
+    <string name="config_screen_voip_cleanup_title">Cleanup Logs</string>
+    <string name="config_screen_voip_cleanup_label">App+Service and Latest finished calls</string>
+
+    <string name="config_screen_voip_clear_button_title">Clear</string>
+    <string name="config_screen_voip_refresh_button_title">Refresh</string>
+    <string name="config_screen_voip_service_dump_header">SIP Service Dump</string>
+
+    <string name="config_screen_voip_commands_consistensy_check_numbers_title">Commands exceeded</string>
+    <string name="config_screen_voip_commands_consistensy_check_numbers_label">Restart Test</string>
+
+    <string name="config_screen_voip_commands_consistensy_check_execution_title">Commands execution timeout</string>
+    <string name="config_screen_voip_commands_consistensy_check_execution_label">Restart Test</string>
+
+
+    <!-- ************************************ Encryption Settings  *****************************************************- -->
+    <string name="config_screen_encrypted">Encrypted</string>
+    <string name="config_screen_message_forwarding_blocked">Message Forwarding Blocked</string>
+    <string name="config_screen_copy_database_to_sd_card">Copy database to SD card</string>
+
+    <!-- ************************************ OPUS Settings  *****************************************************- -->
+    <string name="config_screen_configure_opus_ap_label">OPUS Codec Settings</string>
+    <string name="config_screen_configure_opus_enable_label">Enable OPUS Codec</string>
+    <string name="config_screen_configure_outgoing_fec_enable_label">Enable Outgoing FEC</string>
+    <string name="config_screen_configure_incoming_fec_enable_label">Enable Incoming FEC</string>
+    <string name="config_screen_configure_vbr_enable_label">Enable VBR</string>
+    <string name="config_screen_configure_silk_only_enable_label">Enable Silk Only</string>
+    <string name="config_screen_expected_packet_loss_label_label">Outgoing Packet Loss(%)</string>
+    <string name="config_screen_expected_packet_loss_per">15</string>
+    <string name="config_screen_configure_vbr_UI_enable_label">VBR UI Log</string>
+
+
+    <!-- ************************************ WebRTC Audio Processing Settings  *****************************************************- -->
+    <string name="config_screen_configure_webrtc_ap_label">Configure WebRTC Audio Processing</string>
+
+    <string name="config_screen_configure_webrtc_agc_label">WebRTC AGC</string>
+    <string name="config_screen_configure_webrtc_ns_label">WebRTC NS</string>
+    <string name="config_screen_configure_webrtc_ec_label">WebRTC EC</string>
+    <string name="config_screen_configure_webrtc_rx_agc_label">WebRTC RxAGC</string>
+    <string name="config_screen_configure_webrtc_rx_ns_label">WebRTC RxNS</string>
+    <string name="config_screen_configure_webrtc_highpass_filter_label">Highpass filter</string>
+
+    <string-array name="config_screen_configure_webrtc_aecm_mode">
+        <item>Quiet Earpiece Or Headset</item>
+        <item>Earpiece</item>
+        <item>Loud Earpiece</item>
+        <item>Speakerphone</item>
+        <item>Loud Speakerphone</item>
+    </string-array>
+    <string-array name="config_screen_configure_webrtc_ec_mode">
+        <item>Agressive</item>
+        <item>Acoustic EC</item>
+        <item>AEC Mobile</item>
+    </string-array>
+    <string-array name="config_screen_configure_webrtc_ns_mode">
+        <item>Conference</item>
+        <item>Low Suppression</item>
+        <item>Moderate Suppression</item>
+        <item>High Suppression</item>
+        <item>Very High Suppression</item>
+    </string-array>
+    <string-array name="config_screen_configure_webrtc_agc_mode">
+        <item>Adaptive Digital</item>
+        <item>Fixed Digital</item>
+    </string-array>
+
+    <string name="config_screen_configure_logging_logcat_item_label">Debug logging</string>
+
+    <!-- ************************************ Show network quality report  *****************************************************- -->
+    <string name="config_menu_configure_network_quality_reports_label">Show Network Quality Reports</string>
+    <string name="network_quality_report_title">Network Quality Reports</string>
+</resources>

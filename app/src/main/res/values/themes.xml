@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="MyThemeCustomTitle" parent="android:Theme.Holo">
+        <item name="android:windowTitleSize">32dp</item>
+        <item name="android:windowTitleBackgroundStyle">@style/WhiteTitleBackground</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="RingCentral.Reskin" parent="@android:style/Theme.Holo.Light"></style>
+
+    <style name="RingCentral.Reskin.NoDisplay" parent="@android:style/Theme.NoDisplay"></style>
+
+    <style name="RingCentral.Reskin.NoActionAndTitleBar">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="RingCentral.Reskin.NoActionAndTitleBar.NoTranslucent">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+
+    <style name="RingCentralDialogTheme" parent="@android:style/Theme.Holo.Light.Dialog">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="RingCentral.Reskin.Translucent" parent="@android:style/Theme.Holo.Light.Dialog">
+        <item name="android:windowBackground">@color/transparentColor</item>
+    </style>
+
+    <style name="RingCentral.Reskin.Translucent.NoActionAndTitleBar">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="RingCentral.TipDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/tip_dialog_background</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="RingCentral.RunningLateDialog" parent="android:Theme.Holo.Dialog">
+        <item name="android:windowBackground">@color/textColorWhite</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+</resources>

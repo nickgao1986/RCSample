@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="VOICE_MESSAGE_DETAIL_SEEKBAR_THUMB_OFFSET">9</integer>
+    <integer name="message_details_name_lines">3</integer>
+
+    <!-- The platform's desired minimum size for a dialog's width when it
+     is along the minor axis (that is the screen is portrait).  This may
+     be either a fraction or a dimension. -->
+    <integer name="dialog_min_width_minor">95</integer>
+    <!-- The platform's desired minimum size for a dialog's width when it
+         is along the major axis (that is the screen is landscape).  This may
+         be either a fraction or a dimension. -->
+    <integer name="dialog_min_width_major">65</integer>
+    <integer name="gridview_duration">200</integer>
+
+    <integer name="contact_first_name_max_length">64</integer>
+    <integer name="contact_last_name_max_length">64</integer>
+    <integer name="contact_middle_name_max_length">32</integer>
+    <integer name="contact_nick_name_max_length">32</integer>
+    <integer name="contact_job_title_max_length">64</integer>
+    <integer name="contact_company_max_length">128</integer>
+    <integer name="contact_web_page_max_length">256</integer>
+    <integer name="contact_notes_max_length">2000</integer>
+
+    <integer name="contact_address_state_max_length">64</integer>
+    <integer name="contact_address_city_max_length">64</integer>
+    <integer name="contact_address_street_max_length">256</integer>
+    <integer name="contact_address_zip_code_max_length">32</integer>
+
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- US Start-->
+    <array name="whats_new_screens_us">
+        <item>@array/whats_new_screen_1</item>
+        <item>@array/whats_new_screen_2</item>
+        <item>@array/whats_new_screen_3</item>
+    </array>
+
+    <array name="whats_new_screen_1">
+        <item>@drawable/whatsnew_icon_1</item>
+        <item>@string/whatsnew_page_1_title_text</item>
+        <item>@string/whatsnew_page_1_content_text</item>
+    </array>
+
+    <array name="whats_new_screen_2">
+        <item>@drawable/whatsnew_icon_2</item>
+        <item>@string/whatsnew_page_2_title_text</item>
+        <item>@string/whatsnew_page_2_content_text</item>
+    </array>
+
+    <array name="whats_new_screen_3">
+        <item>@drawable/whatsnew_icon_3</item>
+        <item>@string/whatsnew_page_3_title_text</item>
+        <item>@string/whatsnew_page_3_content_text</item>
+    </array>
+
+
+
+
+</resources>

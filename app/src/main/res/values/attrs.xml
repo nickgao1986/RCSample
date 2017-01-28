@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LockerStyle">
+        <attr name="locker_height" format="integer" />
+        <!-- In percent's -->
+    </declare-styleable>
+
+    <declare-styleable name="RoundedCornerImageViewStyle">
+        <attr name="corner_radius" format="integer" />
+        <attr name="image_size" format="dimension" />
+        <attr name="default_image" format="reference" />
+        <attr name="border_width" format="dimension|integer" />
+    </declare-styleable>
+
+    <declare-styleable name="MainMenuButtonStyle">
+        <attr name="btn_image" format="integer"></attr>
+        <attr name="btn_text" format="integer"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="RefreshControlStyle">
+        <attr name="divider_color" format="integer" />
+        <attr name="cache_color_hint" format="integer" />
+        <attr name="backgroundOfRefreshControl" format="integer" />
+        <attr name="list_item_background" format="integer" />
+        <attr name="type" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="MessagesBar">
+        <attr name="mbc_background" format="integer" />
+        <attr name="mbc_text" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="HeaderBar">
+        <attr name="header_header_text" format="integer" />
+        <attr name="header_header_autosize" format="boolean" />
+        <attr name="header_right_button_label" format="integer" />
+        <attr name="header_left_button_label" format="integer" />
+        <attr name="header_right_first_button_drawable" format="integer" />
+
+        <attr name="header_left_button_drawable" format="integer" />
+        <attr name="header_right_button_drawable" format="integer" />
+
+        <attr name="header_menu_button_label" format="boolean" />
+        <attr name="header_title_text_color" format="integer" />
+        <attr name="header_is_need_background" format="boolean" />
+        <attr name="header_left_button_is_need_background" format="boolean" />
+
+    </declare-styleable>
+
+    <declare-styleable name="TitleBar">
+        <attr name="title_text" format="integer" />
+        <attr name="title_right_button_label" format="integer" />
+        <attr name="title_right_button_drawable" format="integer" />
+        <attr name="title_right_first_button_drawable" format="integer" />
+        <attr name="title_has_dropdown" format="boolean"/>
+        <attr name="is_message_titlebar" format="boolean"/>
+        <attr name="is_document_titlebar" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="ClickableTextView">
+        <attr name="text" format="string" />
+        <attr name="textStyle" format="string" />
+        <attr name="textSize" format="dimension" />
+        <attr name="textColor" format="color" />
+        <attr name="maxLines" format="integer" min="0" />
+        <attr name="textGravity" format="enum">
+            <enum name="left" value="0" />
+            <enum name="center" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="FaxOutSelectSourceItem">
+        <attr name="fax_out_select_source_type_icon" format="integer"></attr>
+        <attr name="fax_out_select_source_type_name" format="integer"></attr>
+        <attr name="fax_out_select_source_type_account" format="integer"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="MenuListItem">
+        <attr name="menu_list_type_icon" format="integer"></attr>
+        <attr name="menu_list_type_name" format="integer"></attr>
+        <attr name="menu_list_indicator_counter" format="integer"></attr>
+        <attr name="menu_list_show_divider" format="boolean"></attr>
+        <attr name="menu_list_show_toggle" format="boolean"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="RoundButtonWithText">
+        <attr name="RoundButtontext" format="string" />
+        <attr name="isVoipMutiCallRoundButton" format="boolean"/>
+        <attr name="isRoundButtonShouldHasSmallerFontSize" format="boolean"/>
+        <attr name="RoundButtonButtonSize" format="dimension" />
+        <attr name="RoundButtontextSize" format="dimension" />
+        <attr name="RoundButtonSize" format="dimension" />
+        <attr name="RoundButtontextColor" format="color" />
+        <attr name="image_background" format="integer"/>
+        <attr name="image_src" format="integer"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="VariableTextView">
+        <attr name="view_contact_text" format="string" />
+        <attr name="view_contact_textSize" format="dimension" />
+        <attr name="view_contact_textColor" format="color" />
+        <attr name="view_contact_textStyle" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="GroupsItem">
+        <attr name="groups_item_title" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="ExpandableEditText">
+        <attr name="titleText" format="string" />
+        <attr name="titleTextStyleOfEditText" format="string" />
+        <attr name="titleTextSize" format="dimension" />
+        <attr name="eTitleTextColor" format="color" />
+        <attr name="itemTextStyle" format="string" />
+        <attr name="itemTextSize" format="dimension" />
+        <attr name="itemTextColor" format="color" />
+        <attr name="maxRecipientsCount" format="integer" />
+        <attr name="itemPaddingOfEditText" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="WordsButton">
+        <attr name="textMaxLines" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="ActiveCallKeyPadView">
+        <attr name="keyPadText" format="string" />
+        <attr name="keyPadImage" format="reference"/>
+        <attr name="keyPadBackground" format="reference"/>
+    </declare-styleable>
+</resources>

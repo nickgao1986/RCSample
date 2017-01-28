@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ <string name="intro_page_1_us">
+          <![CDATA[
+                <div class="Title">Welcome</div>
+                <div class="Content">
+                With RingCentral, you can use your <span class="RC">business phone number</span> for calls, texts and faxes.
+                </div>
+        </body>
+        </html>
+          ]]>
+</string>
+
+<string name="intro_page_2_us">
+          <![CDATA[
+                <div class="Title">Manage</div>
+                <div class="Content">
+                Update phone settings, check <span class="RC">voicemails</span> and more—anywhere and anytime.
+                </div>
+            </body>
+            </html>
+          ]]>
+</string>
+
+<string name="intro_page_3_us">
+          <![CDATA[
+                <div class="Title">Connect</div>
+                <div class="Content">
+                <span class="RC">Text</span> clients and colleagues using your business number. Keep your personal number private.
+                </div>
+            </body>
+            </html>
+          ]]>
+</string>
+
+<string name="intro_page_4_us">
+          <![CDATA[
+                    <div class="Title">Fax</div>
+                    <div class="Content">
+                    Send and receive <span class="RC">faxes</span> from your mobile device—anytime, anywhere.
+                    </div>
+            </body>
+            </html>
+          ]]>
+</string>
+
+<string name="intro_page_5_us">
+          <![CDATA[
+                    <div class="Title">Meet</div>
+                    <div class="Content">
+                    Schedule, host or join a <span class="RC">meeting</span>, even when you\'re not in the office. Available on select Office plans.
+                    </div>
+            </body>
+            </html>
+          ]]>
+</string>
+
+<string name="intro_page_6_us">
+          <![CDATA[
+                    <div class="Title">Collaborate</div>
+                    <div class="Content">
+                    Message your team, assign tasks, share files, create events and more with <span class="RC">Glip</span>.
+                    </div>
+            </body>
+            </html>
+          ]]>
+</string>
+
+
+<string name="whatsnew_page_1_title">Join Now</string>
+<string name="whatsnew_page_1_content">Join a &lt;b>conference call&lt;/b> or &lt;b>online meeting&lt;/b> faster than ever. Get notifications of your upcoming meetings.</string>
+     
+<string name="whatsnew_page_2_title">Cloud Favorites</string> 
+<string name="whatsnew_page_2_content">Favorites are now &lt;b>synchronized&lt;/b> across RingCentral apps. Your most important contacts are only a tap away.</string>
+      
+<string name="whatsnew_page_3_title">RingCentral® Global Office™</string> 
+<string name="whatsnew_page_3_content">The simple, reliable, and affordable global business communications solution now supports &lt;b>Austria&lt;/b>, &lt;b>Belgium&lt;/b>, &lt;b>Italy&lt;/b>, &lt;b>Norway&lt;/b>, &lt;b>Portugal&lt;/b> and &lt;b>Taiwan&lt;/b>.</string>
+
+<string name="whatsnew_page_1_uk">
+    <![CDATA[
+                <div class="Title">
+                   Cloud contacts
+                </div>
+                <div class="Content">
+                   Synchronise <span class="RC">personal contacts</span> to RingCentral Cloud. Easily search for and access a contact across RingCentral apps.
+                </div>
+        </body>
+        </html>
+          ]]>
+</string>
+
+<string name="whatsnew_page_2_uk">
+        <![CDATA[
+                <div class="Title">
+                    Smart notifications
+                </div>
+                <div class="Content">
+                    Receive <span class="RC">instant notifications</span> for all incoming calls. Never miss a call, even when your device is in battery-saving mode.
+                </div>
+        </body>
+        </html>
+          ]]>
+</string>
+
+<string name="whatsnew_page_3_uk">
+        <![CDATA[
+                <div class="Title">
+                   RingCentral® Global Office™
+                </div>
+                <div class="Content">
+                    Connect your <span class="RC">global workforce </span> with a single communications system. Increase productivity while reducing your IT overhead. 
+        </html>
+          ]]>
+</string>
+<string name="intro_page_1_uk">
+          <![CDATA[
+                <div class="Title">Welcome</div>
+                <div class="Content">
+                With RingCentral, you can use your <span class="RC">business phone number</span> for calls, texts and faxes.
+                </div>
+        </body>
+        </html>
+          ]]>
+</string>
+
+<string name="intro_page_2_uk">
+          <![CDATA[
+                <div class="Title">Manage</div>
+                <div class="Content">
+                Update phone settings, check <span class="RC">voicemails</span> and more—anywhere and anytime.
+                </div>
+            </body>
+            </html>
+          ]]>
+</string>
+
+<string name="intro_page_3_uk">
+          <![CDATA[
+                <div class="Title">Connect</div>
+                <div class="Content">
+                <span class="RC">Text</span> clients and colleagues using your business number. Keep your personal number private.
+                </div>
+            </body>
+            </html>
+          ]]>
+</string>
+
+<string name="intro_page_4_uk">
+          <![CDATA[
+                    <div class="Title">Fax</div>
+                    <div class="Content">
+                    Send and receive <span class="RC">faxes</span> from your mobile device—anytime, anywhere.
+                    </div>
+            </body>
+            </html>
+          ]]>
+</string>
+
+<string name="intro_page_5_uk">
+          <![CDATA[
+                    <div class="Title">Meet</div>
+                    <div class="Content">
+                    Schedule, host or join a <span class="RC">meeting</span>, even when you\'re not in the office. Available on select Office plans.
+                    </div>
+            </body>
+            </html>
+          ]]>
+</string>
+
+<string name="intro_page_6_uk">
+          <![CDATA[
+                    <div class="Title">Collaborate</div>
+                    <div class="Content">
+                    Message your team, assign tasks, share files, create events and more with <span class="RC">Glip</span>.
+                    </div>
+            </body>
+            </html>
+          ]]>
+</string>
+
+
+<string name="whatsnew_page_1_ca">
+    <![CDATA[
+                <div class="Title">
+                   Cloud Contacts
+                </div>
+                <div class="Content">
+                   Synchronize <span class="RC">personal contacts</span> to RingCentral Cloud. Easily search for and access a contact across RingCentral apps.
+                </div>
+        </body>
+        </html>
+          ]]>
+</string>
+
+<string name="whatsnew_page_2_ca">
+        <![CDATA[
+                <div class="Title">
+                    Smart Notifications
+                </div>
+                <div class="Content">
+                    Receive <span class="RC">instant notifications</span> for all incoming calls. Never miss a call, even when your device is in battery-saving mode.
+                </div>
+        </body>
+        </html>
+          ]]>
+</string>
+
+<string name="whatsnew_page_3_ca">
+        <![CDATA[
+                <div class="Title">
+                   RingCentral® Global Office™
+                </div>
+                <div class="Content">
+                    Connect your global workforce with a single communications system. Support countries in <span class="RC">North America</span>, <span class="RC">Europe</span> and <span class="RC">Asia</span>.
+        </body>
+        </html>
+          ]]>
+</string>
+<string name="intro_page_1_ca">
+          <![CDATA[
+                <div class="Title">Welcome</div>
+                <div class="Content">
+                With RingCentral, you can use your <span class="RC">business phone number</span> for calls, texts and faxes.
+                </div>
+        </body>
+        </html>
+          ]]>
+</string>
+
+<string name="intro_page_2_ca">
+          <![CDATA[
+                <div class="Title">Manage</div>
+                <div class="Content">
+                Update phone settings, check <span class="RC">voicemails</span> and more—anywhere and anytime.
+                </div>
+            </body>
+            </html>
+          ]]>
+</string>
+
+<string name="intro_page_3_ca">
+          <![CDATA[
+                <div class="Title">Connect</div>
+                <div class="Content">
+                <span class="RC">Text</span> clients and colleagues using your business number. Keep your personal number private.
+                </div>
+            </body>
+            </html>
+          ]]>
+</string>
+
+<string name="intro_page_4_ca">
+          <![CDATA[
+                    <div class="Title">Fax</div>
+                    <div class="Content">
+                    Send and receive <span class="RC">faxes</span> from your mobile device—anytime, anywhere.
+                    </div>
+            </body>
+            </html>
+          ]]>
+</string>
+
+<string name="intro_page_5_ca">
+          <![CDATA[
+                    <div class="Title">Meet</div>
+                    <div class="Content">
+                    Schedule, host or join a <span class="RC">meeting</span>, even when you\'re not in the office. Available on select Office plans.
+                    </div>
+            </body>
+            </html>
+          ]]>
+</string>
+
+<string name="intro_page_6_ca">
+          <![CDATA[
+                    <div class="Title">Collaborate</div>
+                    <div class="Content">
+                    Message your team, assign tasks, share files, create events and more with <span class="RC">Glip</span>.
+                    </div>
+            </body>
+            </html>
+          ]]>
+</string>
+</resources>

@@ -16,7 +16,6 @@
     <!-- ===================================================================== -->
     <!-- ========================= Common dialogs ============================ -->
     <!-- ===================================================================== -->
-    <string name="app_name">Cloud Contact</string>
     <string name="dialog_btn_ok">OK</string>
     <string name="dialog_btn_cancel">Cancel</string>
     <string name="dialog_btn_retry">Retry</string>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    Copyright (C) 2013, RingCentral, Inc. All Rights Reserved.
+  -->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <color name="cloud_storage_explorer_file_name_color_unsupported">@color/text_secondary</color>
+
+    <dimen name="settings_cloud_storage_unlink_account_logo_height">180dp</dimen>
+    <dimen name="cloud_storage_file_loading_name_size_space">2dp</dimen>
+    <dimen name="cloud_storage_file_loading_icon_name_space">8dp</dimen>
+    <dimen name="cloud_storage_file_loading_name_text_size">16sp</dimen>
+    <dimen name="cloud_storage_file_loading_size_text_size">13sp</dimen>
+
+    <dimen name="cloud_storage_file_loading_info_progress_space">14dp</dimen>
+    <dimen name="cloud_storage_file_loading_progress_bar_value_space">3dp</dimen>
+    <dimen name="cloud_storage_file_loading_progress_value_min_size">28dp</dimen>
+
+    <dimen name="cloud_storage_file_loading_progress_bar_button_space">16dp</dimen>
+
+</resources>

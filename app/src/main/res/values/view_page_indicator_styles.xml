@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <color name="default_circle_indicator_fill_color">@color/whats_new_button_delim</color>
+    <color name="default_circle_indicator_page_color">@color/whatsnew_page_indicator_normal_state</color>
+    <dimen name="default_circle_indicator_radius">4dp</dimen>
+    <color name="default_circle_indicator_stroke_color">@color/whats_new_button_delim</color>
+    <dimen name="default_circle_indicator_stroke_width">1dp</dimen>
+    <integer name="default_circle_indicator_orientation">0</integer>
+    <bool name="default_circle_indicator_centered">true</bool>
+    <bool name="default_circle_indicator_snap">false</bool>
+
+</resources>

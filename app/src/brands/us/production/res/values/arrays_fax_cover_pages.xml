@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="fax_cover_pages_for_base">
+        <item>@array/fax_cover_page_none</item>
+        <item>@array/fax_cover_page_us_ancient</item>
+        <item>@array/fax_cover_page_us_birthday</item>
+        <item>@array/fax_cover_page_us_blank</item>
+        <item>@array/fax_cover_page_us_clasmod</item>
+        <item>@array/fax_cover_page_us_classic</item>
+        <item>@array/fax_cover_page_us_confidential</item>
+        <item>@array/fax_cover_page_us_contempo</item>
+        <item>@array/fax_cover_page_us_elegant</item>
+        <item>@array/fax_cover_page_us_express</item>
+        <item>@array/fax_cover_page_us_formal</item>
+        <item>@array/fax_cover_page_us_jazzy</item>
+        <item>@array/fax_cover_page_us_modern</item>
+        <item>@array/fax_cover_page_us_urgent</item>
+    </array>
+
+    <array name="fax_cover_pages_for_rc_foreign">
+        <item>@array/fax_cover_page_none</item>
+        <item>@array/fax_cover_page_britain_english</item>
+        <item>@array/fax_cover_page_american_english</item>
+        <item>@array/fax_cover_page_canada_french</item>
+        <item>@array/fax_cover_page_france_french</item>
+        <item>@array/fax_cover_page_germany</item>
+    </array>
+
+    <array name="fax_cover_pages_contains_none">
+        <item>@array/fax_cover_page_none</item>
+    </array>
+
+    <array name="fax_cover_page_none">
+        <item>0</item>
+        <item>@string/cover_page_none</item>
+        <item>-1</item>
+        <item>false</item>
+    </array>
+
+    <array name="fax_cover_page_us_ancient">
+        <item>1</item>
+        <item>@string/cover_page_ancient</item>
+        <item>@drawable/cover_page_ancient</item>
+        <item>false</item>
+    </array>
+
+    <array name="fax_cover_page_us_birthday">
+        <item>2</item>
+        <item>@string/cover_page_birthday</item>
+        <item>@drawable/cover_page_birthday</item>
+        <item>false</item>
+    </array>
+
+    <array name="fax_cover_page_us_blank">
+        <item>3</item>
+        <item>@string/cover_page_blank</item>
+        <item>@drawable/cover_page_blank</item>
+        <item>false</item>
+    </array>
+
+    <array name="fax_cover_page_us_clasmod">
+        <item>4</item>
+        <item>@string/cover_page_clasmod</item>
+        <item>@drawable/cover_page_clasmod</item>
+        <item>false</item>
+    </array>
+
+    <array name="fax_cover_page_us_classic">
+        <item>5</item>
+        <item>@string/cover_page_classic</item>
+        <item>@drawable/cover_page_classic</item>
+        <item>false</item>
+    </array>
+
+    <array name="fax_cover_page_us_confidential">
+        <item>6</item>
+        <item>@string/cover_page_confidential</item>
+        <item>@drawable/cover_page_confidential</item>
+        <item>false</item>
+    </array>
+
+    <array name="fax_cover_page_us_contempo">
+        <item>7</item>
+        <item>@string/cover_page_contempo</item>
+        <item>@drawable/cover_page_contempo</item>
+        <item>true</item>
+    </array>
+
+    <array name="fax_cover_page_us_elegant">
+        <item>8</item>
+        <item>@string/cover_page_elegant</item>
+        <item>@drawable/cover_page_elegant</item>
+        <item>false</item>
+    </array>
+
+    <array name="fax_cover_page_us_express">
+        <item>9</item>
+        <item>@string/cover_page_express</item>
+        <item>@drawable/cover_page_express</item>
+        <item>false</item>
+    </array>
+
+    <array name="fax_cover_page_us_formal">
+        <item>10</item>
+        <item>@string/cover_page_formal</item>
+        <item>@drawable/cover_page_formal</item>
+        <item>false</item>
+    </array>
+
+    <array name="fax_cover_page_us_jazzy">
+        <item>11</item>
+        <item>@string/cover_page_jazzy</item>
+        <item>@drawable/cover_page_jazzy</item>
+        <item>false</item>
+    </array>
+
+    <array name="fax_cover_page_us_modern">
+        <item>12</item>
+        <item>@string/cover_page_modern</item>
+        <item>@drawable/cover_page_modern</item>
+        <item>false</item>
+    </array>
+
+    <array name="fax_cover_page_us_urgent">
+        <item>13</item>
+        <item>@string/cover_page_urgent</item>
+        <item>@drawable/cover_page_urgent</item>
+        <item>false</item>
+    </array>
+
+    <array name="fax_cover_page_american_english">
+        <item>15</item>
+        <item>@string/cover_page_america_english</item>
+        <item>@drawable/cover_page_english</item>
+        <item>false</item>
+    </array>
+
+    <array name="fax_cover_page_canada_french">
+        <item>16</item>
+        <item>@string/cover_page_canada_french</item>
+        <item>@drawable/cover_page_french</item>
+        <item>false</item>
+    </array>
+
+    <array name="fax_cover_page_britain_english">
+        <item>17</item>
+        <item>@string/cover_page_britain_english</item>
+        <item>@drawable/cover_page_britain_english</item>
+        <item>false</item>
+    </array>
+
+    <array name="fax_cover_page_france_french">
+        <item>18</item>
+        <item>@string/cover_page_france_french</item>
+        <item>@drawable/cover_page_france_french</item>
+        <item>false</item>
+    </array>
+
+    <array name="fax_cover_page_germany">
+        <item>19</item>
+        <item>@string/cover_page_germany_deutsch</item>
+        <item>@drawable/cover_page_germany_deutsch</item>
+        <item>false</item>
+    </array>
+</resources>

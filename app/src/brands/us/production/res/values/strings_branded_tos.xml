@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- =====================================================================-->
+    <!-- ======================= Terms of Services ===========================-->
+    <!-- =====================================================================-->
+
+    <string name="branded_tos_title_us"><b>Legal Terms</b></string>
+    <string name="branded_tos_title_uk"><b>Legal Terms</b></string>
+    <string name="branded_tos_title_ca"><b>Legal Terms</b></string>
+
+</resources>

@@ -11,7 +11,7 @@
     </item>
     <item android:id="@android:id/progress">
         <scale
-            android:drawable="@drawable/playbar_back"
+            android:drawable="@drawable/playbar_for"
             android:scaleWidth="100%" />
     </item>
 

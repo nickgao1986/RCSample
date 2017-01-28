@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/call_interrupt_hold" android:state_pressed="true" />
-    <item android:drawable="@drawable/call_interrupt_hold" />
+    <item android:drawable="@drawable/ico_hold_and_answer_pressed" android:state_pressed="true" />
+    <item android:drawable="@drawable/ico_hold_and_answer_normal" />
 </selector>

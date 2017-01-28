@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="panel" />
+    <item type="id" name="btn_main_menu_action_call" />
+    <item type="id" name="btn_main_menu_action_sms" />
+    <item type="id" name="btn_main_menu_action_fax" />
+    <item type="id" name="btn_main_menu_action_conference" />
+    <item type="id" name="btn_main_menu_action_meeting" />
+
+    <item type="id" name="msg_details_add_to_contact" />
+    <item type="id" name="msg_details_add_to_existing_contact" />
+    <item type="id" name="msg_details_add_to_favorites" />
+    <item type="id" name="msg_details_remove_from_favorites" />
+    <item type="id" name="msg_details_change_read_status" />
+    <item type="id" name="msg_details_forward" />
+    <item type="id" name="msg_details_forward_as_email" />
+    <item type="id" name="msg_details_forward_as_fax" />
+
+    <item type="id" name="fax_preview_delete_fax" />
+    <item type="id" name="fax_preview_call" />
+    <item type="id" name="fax_preview_text" />
+    <item type="id" name="fax_preview_open_in_external_viewer" />
+    <item type="id" name="navigation_bar_bottom_more_item"/>
+</resources>

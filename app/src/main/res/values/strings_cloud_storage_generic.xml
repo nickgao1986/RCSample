@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="settings_cloud_storage_item_title">Cloud Storage</string>
+    <string name="settings_cloud_storage_list_title">Cloud Storage</string>
+    <string name="settings_cloud_storage_plase_wait_message">Please wait&#8230;</string>
+
+    <string name="settings_cloud_storage_unlink_account_title">Account Info</string>
+    <string name="settings_cloud_storage_unlink_account_item_name_text">Unlink</string>
+    <string name="settings_cloud_storage_unlink_account_comment_text">Your <xliff:g id="cloud_storage_name">%1$s</xliff:g> account had been linked.</string>
+
+    <string name="settings_cloud_storage_unlink_account_dialog_title">Unlink <xliff:g id="cloud_storage_name">%1$s</xliff:g></string>
+    <string name="settings_cloud_storage_unlink_account_dialog_content">Are you sure you want to unlink the application with <xliff:g id="cloud_storage_name">%1$s</xliff:g>?</string>
+    <string name="settings_cloud_storage_unlink_account_dialog_negative_button_title">Cancel</string>
+    <string name="settings_cloud_storage_unlink_account_dialog_positive_button_title">Unlink</string>
+
+    <string name="cloud_storage_explorer_up_to_folder_text">Up to <xliff:g id="cloud_storage_folder_name">%1$s</xliff:g></string>
+    <string name="cloud_storage_explorer_up_to_unknown_folder_text">Up</string>
+    <string name="cloud_storage_explorer_empty_folder_text">Empty Folder</string>
+    <string name="cloud_storage_explorer_loading_text">Loading</string>
+    <string name="cloud_storage_explorer_root_path_label">All</string>
+    <string name="cloud_storage_explorer_path_separator">&#62;</string>
+
+    <string name="cloud_storage_unsupported_file_dialog_title">Unsupported File</string>
+    <string name="cloud_storage_unsupported_file_dialog_ext_content">\"<xliff:g id="cloud_storage_file_extension">%1$s</xliff:g>\" file is not supported to be sent in a fax.</string>
+    <string name="cloud_storage_unsupported_file_dialog_content">The file is not supported to be sent in a fax.</string>
+    <string name="cloud_storage_unsupported_file_dialog_positive_btn_title">OK</string>
+
+    <string name="cloud_storage_check_file_size_dialog_title">Check File Size</string>
+    <string name="cloud_storage_check_file_size__dialog_content">Individual attachment cannot exceed %1$s MB. Please check that each file you are trying to send is less than %1$s MB.</string>
+    <integer name="cloud_storage_max_file_size_supported_in_mb">20</integer>
+    <string name="cloud_storage_check_file_size__dialog_positive_btn_title">OK</string>
+
+    <string name="cloud_storage_account_label_if_info_not_available">Linked</string>
+
+    <string name="cloud_storage_unauthorized_dialog_title">Authorization Expired</string>
+    <string name="cloud_storage_unauthorized_dialog_content">Sorry, your <xliff:g id="cloud_storage_folder_name">%1$s</xliff:g> authorization has been expired. Would you like to link your <xliff:g id="cloud_storage_folder_name">%1$s</xliff:g> account now?</string>
+    <string name="cloud_storage_unauthorized_dialog_content_noname">Sorry, your authorization has been expired. Would you like to link your account now?</string>
+    <string name="cloud_storage_unauthorized_dialog_positive_btn_title">Link</string>
+    <string name="cloud_storage_unauthorized_dialog_negative_btn_title">Cancel</string>
+
+    <string name="cloud_storage_unavailable_service_dialog_title">Error</string>
+    <string name="cloud_storage_unavailable_service_dialog_content">An error occurred while attempting to connect to <xliff:g id="cloud_storage_folder_name">%1$s</xliff:g>. Please try again later.</string>
+    <string name="cloud_storage_unavailable_service_dialog_content_noname">An error occurred while attempting to connect. Please try again later.</string>
+    <string name="cloud_storage_unavailable_service_positive_btn_title">OK</string>
+
+    <string name="cloud_storage_unavailable_network_dialog_title">Error</string>
+    <string name="cloud_storage_unavailable_network_dialog_content">An error occurred while attempting to complete your request (network error). Please try again later.</string>
+    <string name="cloud_storage_unavailable_network_positive_btn_title">OK</string>
+
+    <string name="cloud_storage_unavailable_airplane_dialog_title">Error</string>
+    <string name="cloud_storage_unavailable_airplane_dialog_content">An error occurred while attempting to complete your request (airplane mode). Please try again later.</string>
+    <string name="cloud_storage_unavailable_airplane_positive_btn_title">OK</string>
+
+    <string name="cloud_storage_file_loading_progress_text">Download started, please wait.</string>
+
+    <string name="cloud_storage_file_loading_progress_button_label">Cancel</string>
+</resources>
