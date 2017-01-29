@@ -41,11 +41,14 @@ public class ContactsProvider {
 
     private CloudCompanyContactLoader mCompanyContactsLoader;
     private DevicePersonalContactLoader mDeviceContactsLoader;
+    private CloudPersonalContactLoader mPersonalContactsLoader;
+
     private boolean mHasStarted = false;
 
     //use single thread pool to load contacts
     static volatile ExecutorService sPersonalContactService = Executors.newSingleThreadExecutor();
     static volatile ExecutorService sCompanyContactService = Executors.newSingleThreadExecutor();
+
 
     private ContentObserver mCompanyExtensionObserver = new ContentObserver(new Handler()) {
         @Override
@@ -73,6 +76,7 @@ public class ContactsProvider {
         }
         mCompanyContactsLoader = new CloudCompanyContactLoader(context, mCompanyContactReadWriteLock);
 
+        mPersonalContactsLoader = new CloudPersonalContactLoader(context, mPersonalContactReadWriteLock);
 
         mDeviceContactsLoader = new DevicePersonalContactLoader(context, mPersonalContactReadWriteLock);
         Log.d(TAG,"=====ContactsProvider register");
@@ -100,6 +104,10 @@ public class ContactsProvider {
         return instance;
     }
 
+    public long ensureCloudContactId(long contactId) {
+        return mPersonalContactsLoader.ensureContactId(contactId);
+    }
+
     public List<Contact> loadContacts(boolean includeDevice, boolean includeCompany, boolean includePersonal, boolean includeExtension, boolean isFuzzy, String filter){
         String searchValue = (filter == null || filter.trim().length() == 0)? null: filter.trim();
         String[] lowerCaseFilter = null;
@@ -122,11 +130,11 @@ public class ContactsProvider {
 
         List<Contact> personalContacts;
         //cloud personal contacts
-//        if (includePersonal) {
-//            personalContacts = mPersonalContactsLoader.loadContacts(search, isFuzzy, includeExtension, countryCode, nationalPrefix);
-//            contacts.addAll(personalContacts);
-//            MktLog.d(TAG, "Personal Contacts. Loaded " + personalContacts.size());
-//        }
+        if (includePersonal) {
+            personalContacts = mPersonalContactsLoader.loadContacts(search, isFuzzy, includeExtension, countryCode, nationalPrefix);
+            contacts.addAll(personalContacts);
+            MktLog.d(TAG, "Personal Contacts. Loaded " + personalContacts.size());
+        }
 
         //device contacts
         if (includeDevice) {
@@ -221,20 +229,20 @@ public class ContactsProvider {
             mHasStarted = false;
         }
         mDeviceContactsLoader.clear();
-//        mPersonalContactsLoader.clear();
+        mPersonalContactsLoader.clear();
         mCompanyContactsLoader.clear();
     }
 
 
 
     private void loadContacts() {
-//        sPersonalContactService.execute(new Runnable() {
-//            @Override
-//            public void run() {
-//                mPersonalContactsLoader.reloadContacts();
-//                onRemoveDuplicateContact();
-//            }
-//        });
+        sPersonalContactService.execute(new Runnable() {
+            @Override
+            public void run() {
+                mPersonalContactsLoader.reloadContacts();
+               // onRemoveDuplicateContact();
+            }
+        });
 
         sPersonalContactService.execute(new Runnable() {
             @Override

@@ -26,7 +26,7 @@ import com.example.nickgao.logging.MktLog;
 import java.util.ArrayList;
 public class RCMProvider extends ContentProvider {
 
-    static final boolean DEBUG_ENBL = false; 	// LogSettings.ENGINEERING && true;
+    static final boolean DEBUG_ENBL = false;    // LogSettings.ENGINEERING && true;
 
     static final String TAG = "[RC]RCMProvider";
 
@@ -43,10 +43,13 @@ public class RCMProvider extends ContentProvider {
     public static final String CALLER_IDS = "caller_ids";
     public static final String FW_NUMBERS = "fw_numbers";
     public static final String PHONE_NUMBERS = "phone_numbers";
+    public static final String PHONE_NUMBERS_PROCESS_OPT = "phone_numbers_process_opt";
     public static final String PHONE_NUMBERS_WITHOUT_MAILBOXID = "phone_numbers_without_mailbox_id";
     public static final String BLOCKED_NUMBERS = "blocked_numbers";
     public static final String EXTENSIONS = "extensions";
+    public static final String EXTENSIONS_REFRESH_OPT = "extensions_refresh_opt";
     public static final String FAVORITES = "favorites";
+    public static final String CLOUD_FAVORITES = "cloud_favorites";
     public static final String CALL_LOG = "call_log";
     public static final String CALL_LOG_TOKEN = "call_log_token";
     public static final String MESSAGES = "messages";
@@ -61,30 +64,39 @@ public class RCMProvider extends ContentProvider {
     public static final String MOBILE_WEB_ENHANCE_URL_PARAMETER = "mobile_web_enhance_url_parameter";
     public static final String PRESENCE = "presence";
     public static final String CONTACT_GROUP = "contact_group";
+    //public static final String TEMP_NEW_PERSONAL_CONTACTS = "temp_new_personal_contacts";
+    public static final String PERSONAL_CONTACTS = "personal_contacts";
+    public static final String PERSONAL_CONTACTS_ISYNC_DELETE = "personal_contacts_isync_delete";
+    public static final String PERSONAL_PHONE_NUMBER_ISYNC_DELETE = "personal_phone_number_isync_delete";
+    public static final String PERSONAL_EMAIL_ISYNC_DELETE = "personal_email_isync_delete";
+    public static final String PERSONAL_ADDRESS_ISYNC_DELETE = "personal_address_isync_delete";
+    public static final String PERSONAL_PHONE_NUMBER = "personal_phone_number";
+    public static final String PERSONAL_EMAIL = "personal_email";
+    public static final String PERSONAL_ADDRESS = "personal_address";
 
     public static final String TIER_SETTINGS = "tier_settings";        //account_info/tier_settings
     public static final String MAILBOX_STATE = "mailbox_state";        //account_info/mailbox_state
     public static final String EXT_MOD_COUNTER = "ext_mod_counter";    //account_info/ext_mod_counter
     public static final String MSG_MOD_COUNTER = "msg_mod_counter";    //account_info/msg_mod_counter
     public static final String EXT_GROUPS_TYPE = "ext_groups_type";    //account_info/extension_groups_type
-    
+
     public static final String CLOUD_STORAGE_DROPBOX = "cloud_storage_dropbox";
     public static final String CLOUD_STORAGE_BOX = "cloud_storage_box";
     public static final String CLOUD_STORAGE_GOOGLE_DRIVE = "cloud_storage_google_drive";
-    
+
     //Personal Group
     public static final String CONTACT_PERSONAL_GROUP = "contact_personal_group";
-    
+
     public static final String DID_FAVORITE = "did_favorite_table";
     public static final String FORWARDING_NUMBER = "forwarding_number";
-    
+
     public static final String SPECIAL_NUMBER = "special_number";
-    
+
     // Fax Out
-    public static final String OUTBOX 				= "outbox";
-    public static final String ATTACHMENT 			= "attachment";
-    public static final String OUTBOX_TO_PHONE 		= "outbox_to_phone";
-    public static final String OUTBOX_ATTACHMENT 	= "outbox_attachment";
+    public static final String OUTBOX = "outbox";
+    public static final String ATTACHMENT = "attachment";
+    public static final String OUTBOX_TO_PHONE = "outbox_to_phone";
+    public static final String OUTBOX_ATTACHMENT = "outbox_attachment";
 
     /**
      * sync_status URI
@@ -104,13 +116,27 @@ public class RCMProvider extends ContentProvider {
     public static final String MISSED_CALL_LOGS_STATUS = "missed_call_logs_status";
     public static final String MISSED_CALL_LOGS_LASTSYNC = "missed_call_logs_lastsync";
     public static final String MISSED_CALL_LOGS_ERROR = "missed_call_logs_error";
+    public static final String VersionControlTable = "VersionControlTable";
+    public static final String ClientInfoTable = "client_info_table";
+    public static final String LANGUAGES_TABLE = "LanguagesTable";
+    public static final String LANGUAGES_REMINDER_TABLE = "LanguageRemindersTable";
+    public static final String DIALING_PLANS_TABLE = "DialingPlansTable";
 
-    
+    public static final String CONTROL_RECONNECT_DB_IF_NEEDED = "control_reconnect_db_if_needed";
+
+    public static final String PERMISSION_TABLE = "permission_table";
+
+    /**Calendar*/
+    public static final String CALENDAR_EVENT_ALERT = "calendar_event_alert";
+
+    public static final String ACCOUNT_BADGE = "account_badge";
+
+    public static final String BLF_LIST = "blf_list_table";
+
+
     private RCMDbHelper dbHelper;
 
-    private static String buildAuthority() {
-        return BuildConfig.APPLICATION_ID + ".provider.RCMProvider";
-    }
+
 
 
     @Override
@@ -122,7 +148,11 @@ public class RCMProvider extends ContentProvider {
         dbHelper = RCMDbHelper.getInstance(getContext());
         return true;
     }
-    
+
+    private static String buildAuthority() {
+        return BuildConfig.APPLICATION_ID + ".provider.RCMProvider";
+    }
+
     @Override
 	public ContentProviderResult[] applyBatch(ArrayList<ContentProviderOperation> operations) throws OperationApplicationException {
     	synchronized (dbHelper) {
@@ -866,6 +896,7 @@ public class RCMProvider extends ContentProvider {
     private static final int CALLER_IDS_ID_MATCH = 31;
     private static final int FW_NUMBERS_MATCH = 40;
     private static final int FW_NUMBERS_ID_MATCH = 41;
+    private static final int PHONE_NUMBERS_PROCESS_OPT_MATCH = 43;
     private static final int PHONE_NUMBERS_WITHOUT_MAILBOXID_MATCH = 44;
     private static final int PHONE_NUMBERS_MATCH = 45;
     private static final int PHONE_NUMBERS_ID_MATCH = 46;
@@ -873,8 +904,11 @@ public class RCMProvider extends ContentProvider {
     private static final int BLOCKED_NUMBERS_ID_MATCH = 48;
     private static final int EXTENSIONS_MATCH = 50;
     private static final int EXTENSIONS_ID_MATCH = 51;
+    private static final int EXTENSIONS_REFRESH_OPT_MATCH = 52;
     private static final int FAVORITES_MATCH = 55;
     private static final int FAVORITES_ID_MATCH = 56;
+    private static final int CLOUD_FAVORITES_MATCH = 57;
+    private static final int CLOUD_FAVORITES_ID_MATCH = 58;
     private static final int CALL_LOG_MATCH = 60;
     private static final int CALL_LOG_ID_MATCH = 61;
     private static final int CALL_LOG_TOKEN_MATCH = 62;
@@ -893,7 +927,7 @@ public class RCMProvider extends ContentProvider {
     private static final int MAILBOX_STATE_MATCH = 100;
     private static final int EXT_MOD_COUNTER_MATCH = 110;
     private static final int MSG_MOD_COUNTER_MATCH = 120;
-    
+
     public static final int LOGIN_STATUS_MATCH = 130;
     public static final int LOGIN_LASTSYNC_MATCH = 131;
     public static final int LOGIN_ERROR_MATCH = 132;
@@ -906,45 +940,78 @@ public class RCMProvider extends ContentProvider {
     public static final int MISSED_CALL_LOGS_STATUS_MATCH = 160;
     public static final int MISSED_CALL_LOGS_LASTSYNC_MATCH = 161;
     public static final int MISSED_CALL_LOGS_ERROR_MATCH = 162;
-    
+
     private static final int EXT_GROUPS_TYPE_MATCH = 170;
-    
+
     public static final int PRESENCE_MATCH = 180;
     public static final int PRESENCE_ID_MATCH = 181;
 
     public static final int CONTACT_GROUP_MATCH = 190;
     public static final int CONTACT_GROUP_ID_MATCH = 191;
-    
+
     private static final int USER_CREDENTIALS_MATCH = 500;
     private static final int APP_CONFIG_MATCH = 510;
-    
+
     private static final int CONFERENCE_INFO_MATCH = 520;
     private static final int CONFERENCE_INFO_ID_MATCH = 521;
-    
+
     private static final int MOBILE_WEB_ENHANCE_URL_PARAMETER_MATCH = 530;
     private static final int MOBILE_WEB_ENHANCE_URL_PARAMETER_ID_MATCH = 531;
-    
-    private static final int OUTBOX_MATCH 						= 600;
-    private static final int OUTBOX_ID_MATCH 					= 601;
-    private static final int OUTBOX_TO_PHONE_MATCH 				= 602;
-    private static final int OUTBOX_TO_PHONE_ID_MATCH 			= 603;
-    private static final int ATTACHMENT_MATCH 					= 610;
-    private static final int ATTACHMENT_ID_MATCH 				= 611;
-    private static final int OUTBOX_ATTACHMENT_MATCH 			= 620;
-    private static final int OUTBOX_ATTACHMENT_ID_MATCH 		= 621;
-    
-    private static final int CLOUD_STORAGE_DROPBOX_MATCH      = 700;
-    private static final int CLOUD_STORAGE_BOX_MATCH          = 701;
+
+    private static final int ClientInfoTable_MATCH = 532;
+    private static final int ClientInfoTable_ID_MATCH = 533;
+
+    private static final int VersionControlTable_MATCH = 534;
+    private static final int VersionControlTable_ID_MATCH = 535;
+
+    private static final int LANGUAGE_TABLE_MATCH = 536;
+    private static final int LANGUAGE_TABLE_ID_MATCH = 537;
+
+    private static final int DIALING_PLANS_TABLE_MATCH = 538;
+
+    private static final int OUTBOX_MATCH = 600;
+    private static final int OUTBOX_ID_MATCH = 601;
+    private static final int OUTBOX_TO_PHONE_MATCH = 602;
+    private static final int OUTBOX_TO_PHONE_ID_MATCH = 603;
+    private static final int ATTACHMENT_MATCH = 610;
+    private static final int ATTACHMENT_ID_MATCH = 611;
+    private static final int OUTBOX_ATTACHMENT_MATCH = 620;
+    private static final int OUTBOX_ATTACHMENT_ID_MATCH = 621;
+
+    private static final int CLOUD_STORAGE_DROPBOX_MATCH = 700;
+    private static final int CLOUD_STORAGE_BOX_MATCH = 701;
     private static final int CLOUD_STORAGE_GOOGLE_DRIVE_MATCH = 702;
-    
-    private static final int DID_FAVORITE_MATCH 	= 710;
-    private static final int DID_FAVORITE_ID_MATCH 	= 711;
-    
+
+    private static final int DID_FAVORITE_MATCH = 710;
+    private static final int DID_FAVORITE_ID_MATCH = 711;
+
     private static final int CONTACT_PERSONAL_GROUP_MATCH = 720;
-    private static final int FORWARDING_NUMBER_MATCH      = 730;
-    
-    private static final int SPECIAL_NUMBER_MATCH	= 740;
-    
+    private static final int FORWARDING_NUMBER_MATCH = 730;
+
+    private static final int SPECIAL_NUMBER_MATCH = 740;
+
+    private static final int CONTROL_RECONNECT_DB_IF_NEEDED_MATCH = 750;
+
+    private static final int PERSONAL_CONTACTS_MATCH = 760;
+    //private static final int TEMP_NEW_PERSONAL_CONTACTS_MATCH = 761;
+    private static final int PERSONAL_CONTACTS_ISYNC_DELETE_MATCH = 765;
+    private static final int PERSONAL_PHONE_NUMBER_ISYNC_DELETE_MATCH = 770;
+    private static final int PERSONAL_EMAIL_ISYNC_DELETE_MATCH = 771;
+    private static final int PERSONAL_ADDRESS_ISYNC_DELETE_MATCH = 772;
+
+    private static final int PERSONAL_PHONE_NUMBER_MATCH = 766;
+    private static final int PERSONAL_EMAIL_MATCH = 767;
+    private static final int PERSONAL_ADDRESS_MATCH = 768;
+
+    private static final int PERMISSION_MATCH = 773;
+    private static final int PERMISSION_ID_MATCH = 774;
+
+    private static final int CALENDAR_EVENT_ALERT_MATCH = 775;
+
+    private static final int ACCOUNT_BADGE_MATCH = 776;
+
+    private static final int BLF_LIST_MATCH = 777;
+
     private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
     static {
@@ -958,6 +1025,7 @@ public class RCMProvider extends ContentProvider {
         sUriMatcher.addURI(AUTHORITY, CALLER_IDS + "/#", CALLER_IDS_ID_MATCH);
         sUriMatcher.addURI(AUTHORITY, FW_NUMBERS, FW_NUMBERS_MATCH);
         sUriMatcher.addURI(AUTHORITY, FW_NUMBERS + "/#", FW_NUMBERS_ID_MATCH);
+        sUriMatcher.addURI(AUTHORITY, PHONE_NUMBERS_PROCESS_OPT, PHONE_NUMBERS_PROCESS_OPT_MATCH);
         sUriMatcher.addURI(AUTHORITY, PHONE_NUMBERS, PHONE_NUMBERS_MATCH);
         sUriMatcher.addURI(AUTHORITY, PHONE_NUMBERS_WITHOUT_MAILBOXID, PHONE_NUMBERS_WITHOUT_MAILBOXID_MATCH);
         sUriMatcher.addURI(AUTHORITY, PHONE_NUMBERS + "/#", PHONE_NUMBERS_ID_MATCH);
@@ -965,8 +1033,11 @@ public class RCMProvider extends ContentProvider {
         sUriMatcher.addURI(AUTHORITY, BLOCKED_NUMBERS + "/#", BLOCKED_NUMBERS_ID_MATCH);
         sUriMatcher.addURI(AUTHORITY, EXTENSIONS, EXTENSIONS_MATCH);
         sUriMatcher.addURI(AUTHORITY, EXTENSIONS + "/#", EXTENSIONS_ID_MATCH);
+        sUriMatcher.addURI(AUTHORITY, EXTENSIONS_REFRESH_OPT, EXTENSIONS_REFRESH_OPT_MATCH);
         sUriMatcher.addURI(AUTHORITY, FAVORITES, FAVORITES_MATCH);
         sUriMatcher.addURI(AUTHORITY, FAVORITES + "/#", FAVORITES_ID_MATCH);
+        sUriMatcher.addURI(AUTHORITY, CLOUD_FAVORITES, CLOUD_FAVORITES_MATCH);
+        sUriMatcher.addURI(AUTHORITY, CLOUD_FAVORITES + "/#", CLOUD_FAVORITES_ID_MATCH);
         sUriMatcher.addURI(AUTHORITY, CALL_LOG, CALL_LOG_MATCH);
         sUriMatcher.addURI(AUTHORITY, CALL_LOG + "/#", CALL_LOG_ID_MATCH);
         sUriMatcher.addURI(AUTHORITY, CALL_LOG_TOKEN, CALL_LOG_TOKEN_MATCH);
@@ -1016,18 +1087,49 @@ public class RCMProvider extends ContentProvider {
         sUriMatcher.addURI(AUTHORITY, CONTACT_PERSONAL_GROUP, CONTACT_PERSONAL_GROUP_MATCH);
         sUriMatcher.addURI(AUTHORITY, FORWARDING_NUMBER, FORWARDING_NUMBER_MATCH);
         sUriMatcher.addURI(AUTHORITY, SPECIAL_NUMBER, SPECIAL_NUMBER_MATCH);
-        
-        sUriMatcher.addURI(AUTHORITY, OUTBOX, 						OUTBOX_MATCH);
-        sUriMatcher.addURI(AUTHORITY, OUTBOX + "/#", 				OUTBOX_ID_MATCH);
-        sUriMatcher.addURI(AUTHORITY, ATTACHMENT, 					ATTACHMENT_MATCH);
-        sUriMatcher.addURI(AUTHORITY, ATTACHMENT + "/#", 			ATTACHMENT_ID_MATCH);
-        sUriMatcher.addURI(AUTHORITY, OUTBOX_TO_PHONE, 				OUTBOX_TO_PHONE_MATCH);
-        sUriMatcher.addURI(AUTHORITY, OUTBOX_TO_PHONE + "/#", 		OUTBOX_TO_PHONE_ID_MATCH);
-        sUriMatcher.addURI(AUTHORITY, OUTBOX_ATTACHMENT, 			OUTBOX_ATTACHMENT_MATCH);
-        sUriMatcher.addURI(AUTHORITY, OUTBOX_ATTACHMENT + "/#", 	OUTBOX_ATTACHMENT_ID_MATCH);
-        sUriMatcher.addURI(AUTHORITY, PRESENCE, 		PRESENCE_MATCH);
-        sUriMatcher.addURI(AUTHORITY, PRESENCE + "/#", 	PRESENCE_ID_MATCH);
-        
+
+        sUriMatcher.addURI(AUTHORITY, OUTBOX, OUTBOX_MATCH);
+        sUriMatcher.addURI(AUTHORITY, OUTBOX + "/#", OUTBOX_ID_MATCH);
+        sUriMatcher.addURI(AUTHORITY, ATTACHMENT, ATTACHMENT_MATCH);
+        sUriMatcher.addURI(AUTHORITY, ATTACHMENT + "/#", ATTACHMENT_ID_MATCH);
+        sUriMatcher.addURI(AUTHORITY, OUTBOX_TO_PHONE, OUTBOX_TO_PHONE_MATCH);
+        sUriMatcher.addURI(AUTHORITY, OUTBOX_TO_PHONE + "/#", OUTBOX_TO_PHONE_ID_MATCH);
+        sUriMatcher.addURI(AUTHORITY, OUTBOX_ATTACHMENT, OUTBOX_ATTACHMENT_MATCH);
+        sUriMatcher.addURI(AUTHORITY, OUTBOX_ATTACHMENT + "/#", OUTBOX_ATTACHMENT_ID_MATCH);
+        sUriMatcher.addURI(AUTHORITY, PRESENCE, PRESENCE_MATCH);
+        sUriMatcher.addURI(AUTHORITY, PRESENCE + "/#", PRESENCE_ID_MATCH);
+
+        sUriMatcher.addURI(AUTHORITY, ClientInfoTable + "/#", ClientInfoTable_ID_MATCH);
+        sUriMatcher.addURI(AUTHORITY, ClientInfoTable, ClientInfoTable_MATCH);
+
+        sUriMatcher.addURI(AUTHORITY, VersionControlTable + "/#", VersionControlTable_ID_MATCH);
+        sUriMatcher.addURI(AUTHORITY, VersionControlTable, VersionControlTable_MATCH);
+
+        sUriMatcher.addURI(AUTHORITY, LANGUAGES_TABLE + "/#", LANGUAGE_TABLE_ID_MATCH);
+        sUriMatcher.addURI(AUTHORITY, LANGUAGES_TABLE, LANGUAGE_TABLE_MATCH);
+
+        sUriMatcher.addURI(AUTHORITY, DIALING_PLANS_TABLE, DIALING_PLANS_TABLE_MATCH);
+
+        sUriMatcher.addURI(AUTHORITY, CONTROL_RECONNECT_DB_IF_NEEDED, CONTROL_RECONNECT_DB_IF_NEEDED_MATCH);
+
+        //sUriMatcher.addURI(AUTHORITY, TEMP_NEW_PERSONAL_CONTACTS, TEMP_NEW_PERSONAL_CONTACTS_MATCH);
+        sUriMatcher.addURI(AUTHORITY, PERSONAL_CONTACTS, PERSONAL_CONTACTS_MATCH);
+
+        sUriMatcher.addURI(AUTHORITY, PERMISSION_TABLE + "/#", PERMISSION_ID_MATCH);
+        sUriMatcher.addURI(AUTHORITY, PERMISSION_TABLE, PERMISSION_MATCH);
+        sUriMatcher.addURI(AUTHORITY, PERSONAL_PHONE_NUMBER, PERSONAL_PHONE_NUMBER_MATCH);
+        sUriMatcher.addURI(AUTHORITY, PERSONAL_EMAIL, PERSONAL_EMAIL_MATCH);
+        sUriMatcher.addURI(AUTHORITY, PERSONAL_ADDRESS, PERSONAL_ADDRESS_MATCH);
+
+        sUriMatcher.addURI(AUTHORITY, PERSONAL_CONTACTS_ISYNC_DELETE, PERSONAL_CONTACTS_ISYNC_DELETE_MATCH);
+        sUriMatcher.addURI(AUTHORITY, PERSONAL_PHONE_NUMBER_ISYNC_DELETE, PERSONAL_PHONE_NUMBER_ISYNC_DELETE_MATCH);
+        sUriMatcher.addURI(AUTHORITY, PERSONAL_EMAIL_ISYNC_DELETE, PERSONAL_EMAIL_ISYNC_DELETE_MATCH);
+        sUriMatcher.addURI(AUTHORITY, PERSONAL_ADDRESS_ISYNC_DELETE, PERSONAL_ADDRESS_ISYNC_DELETE_MATCH);
+        sUriMatcher.addURI(AUTHORITY, CALENDAR_EVENT_ALERT, CALENDAR_EVENT_ALERT_MATCH);
+
+        sUriMatcher.addURI(AUTHORITY, ACCOUNT_BADGE, ACCOUNT_BADGE_MATCH);
+
+        sUriMatcher.addURI(AUTHORITY, BLF_LIST, BLF_LIST_MATCH);
     }
 
 }
