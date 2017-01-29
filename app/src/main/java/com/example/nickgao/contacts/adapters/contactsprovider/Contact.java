@@ -6,7 +6,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.TextUtils;
 
-import com.example.nickgao.service.model.Address;
+import com.example.nickgao.service.model.contact.Address;
 
 import java.util.ArrayList;
 import java.util.List;

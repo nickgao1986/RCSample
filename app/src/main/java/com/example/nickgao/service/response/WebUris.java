@@ -3,7 +3,7 @@ package com.example.nickgao.service.response;
 /**
  * Created by nick.gao on 2014/7/16.
  */
-public class WebUris extends AbstractModel {
+public class WebUris {
     String expressSetupMobile;
     String mobileWebBilling;
     String mobileWebPhoneSystem;

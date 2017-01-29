@@ -3,6 +3,8 @@ package com.example.nickgao.rcproject;
 import android.app.Application;
 import android.content.Context;
 
+import com.example.nickgao.contacts.adapters.contactsprovider.ContactsProvider;
+
 public class RingCentralApp extends Application{
     /**
      * Defines logging tag.
@@ -21,6 +23,8 @@ public class RingCentralApp extends Application{
         // Fixed bug AB-8845 Polling didn't work for Messages 
         // LoginScreen.setLoginIn();
         sApplicationContext = getApplicationContext();
+        ContactsProvider.init(getApplicationContext());
+
     }
     
     public static Context getContextRC(){    	

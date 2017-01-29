@@ -4,7 +4,7 @@ package com.example.nickgao.service.response;
 /**
  * Created by nick.gao on 2014/7/16.
  */
-public class HintNode extends AbstractModel {
+public class HintNode {
     boolean actionRequired;
 
     public boolean isActionRequired() {

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:rcm="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/contact_list_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgColorMain"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <com.example.nickgao.titlebar.RCTitleBarWithDropDownFilter
+        android:id="@+id/contacts_top_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_hight"
+        rcm:title_text="@string/filter_name_company"
+        rcm:title_right_button_drawable="@drawable/ic_action_plus"
+        rcm:title_right_first_button_drawable="@drawable/ic_action_filter"
+        rcm:title_has_dropdown="true"/>
+
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@color/transparentColor"
+        android:descendantFocusability="afterDescendants"
+        android:divider="@null"
+        android:listSelector="@drawable/bg_list_item_selector" />
+
+    <RelativeLayout
+        android:id="@+id/no_contact_indication"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/emptyListText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:maxLines="1"
+            android:text="@string/noContacts"
+            android:textColor="@color/text_no_items"
+            android:textSize="@dimen/font_size_xlarge" />
+
+        <ProgressBar
+            android:id="@+id/loading"
+            style="@style/RCMProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <include
+        layout="@layout/no_contact_permission_indication"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

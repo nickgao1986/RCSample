@@ -1,11 +1,12 @@
-package com.example.nickgao.service.model;
+package com.example.nickgao.service.model.contact;
 
 import android.text.TextUtils;
 
-import com.example.nickgao.service.response.AbstractModel;
+import com.example.nickgao.service.model.AbstractModel;
+
 
 /**
- * Created by nick.gao on 1/28/17.
+ * Created by steve.chen on 6/30/14.
  */
 
 public class Address extends AbstractModel {

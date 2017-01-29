@@ -1,6 +1,9 @@
 package com.example.nickgao.service;
 
+import com.example.nickgao.service.model.contact.Contact;
+import com.example.nickgao.service.request.RcRestRequest;
 import com.example.nickgao.service.response.ClientInfoResponse;
+import com.example.nickgao.service.response.RestPageResponse;
 
 
 /**
@@ -31,7 +34,8 @@ public interface IRequestFactory {
     String TAG_PERSONAL_CONTACTS_FSYNC = "[RC]PersonalContactsFSync";
     String TAG_PERSONAL_CONTACTS_ISYNC = "[RC]PersonalContactsISync";
 
-    
+
+    RcRestRequest<RestPageResponse<Contact>> createExtensionRequest(int pageSize);
 
     RcRestRequest<ClientInfoResponse> createClientInfoRequest();
 

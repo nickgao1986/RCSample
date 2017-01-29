@@ -1,4 +1,4 @@
-package com.example.nickgao.service;
+package com.example.nickgao.service.request;
 
 
 import android.content.Context;
@@ -7,8 +7,8 @@ import android.text.TextUtils;
 import com.example.nickgao.database.GeneralSettings;
 import com.example.nickgao.logging.MktLog;
 import com.example.nickgao.network.RestApiErrorCodes;
-import com.example.nickgao.network.RestSession;
 import com.example.nickgao.network.RestRequest;
+import com.example.nickgao.network.RestSession;
 import com.example.nickgao.service.response.AbstractResponse;
 import com.example.nickgao.utils.RCMConstants;
 import com.google.gson.Gson;
@@ -53,7 +53,7 @@ public class RcRestRequest<T> extends RestRequest {
     private HashMap<String, String> mRequestHeader;
 
     public RcRestRequest(int requestId, Type responseType, HttpMethod method, String logTag) {
-        super(method, logTag, RestRequest.LogHttp.ALL, LogHttp.ALL);
+        super(method, logTag, LogHttp.ALL, LogHttp.ALL);
         mRequestId = requestId;
         mResponseType = responseType;
         mRequestHeader = new HashMap<String, String>();

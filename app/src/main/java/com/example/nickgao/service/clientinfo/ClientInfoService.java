@@ -7,7 +7,7 @@ import com.example.nickgao.logging.MktLog;
 import com.example.nickgao.rcproject.RingCentralApp;
 import com.example.nickgao.service.AbstractService;
 import com.example.nickgao.service.IRequestFactory;
-import com.example.nickgao.service.RcRestRequest;
+import com.example.nickgao.service.request.RcRestRequest;
 import com.example.nickgao.service.response.ClientInfoResponse;
 import com.example.nickgao.service.response.Hints;
 import com.example.nickgao.service.response.WebUris;

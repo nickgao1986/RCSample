@@ -2,7 +2,12 @@ package com.example.nickgao.service;
 
 import com.example.nickgao.R;
 import com.example.nickgao.network.RestRequest;
+import com.example.nickgao.service.model.contact.Contact;
+import com.example.nickgao.service.request.RcRestRequest;
+import com.example.nickgao.service.request.RestListRequest;
+import com.example.nickgao.service.request.RestPageRequest;
 import com.example.nickgao.service.response.ClientInfoResponse;
+import com.example.nickgao.service.response.RestPageResponse;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
@@ -18,6 +23,15 @@ public class RestRequestFactory implements IRequestFactory {
         Type type = new TypeToken<ClientInfoResponse>() {
         }.getType();
         return new RestListRequest<ClientInfoResponse>(R.string.rest_path_get_client_info, type, RestRequest.HttpMethod.GET, TAG_GETCLIENTINFO);
+    }
+
+
+    @Override
+    public RcRestRequest<RestPageResponse<Contact>> createExtensionRequest(int pageSize) {
+
+        Type type = new TypeToken<RestPageResponse<Contact>>() {
+        }.getType();
+        return new RestPageRequest<RestPageResponse<Contact>>(R.string.rest_path_extension_list, pageSize, type, RestRequest.HttpMethod.GET, TAG_EXTENSION_LIST);
     }
 
 

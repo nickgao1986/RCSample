@@ -1,4 +1,4 @@
-package com.example.nickgao.service;
+package com.example.nickgao.service.request;
 
 import java.lang.reflect.Type;
 

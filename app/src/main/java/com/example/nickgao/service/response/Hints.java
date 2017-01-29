@@ -4,7 +4,7 @@ package com.example.nickgao.service.response;
 /**
  * Created by nick.gao on 2014/7/16.
  */
-public class Hints extends AbstractModel {
+public class Hints {
     private HintNode appVersionUpgrade;
 
     public HintNode getAppVersionUpgrade() {

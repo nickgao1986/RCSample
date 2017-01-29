@@ -1,9 +1,9 @@
-package com.example.nickgao.service.response;
+package com.example.nickgao.service.model;
 
 /**
  * Created by steve.chen on 7/7/14.
  */
-public class PageInfo {
+public class PageInfo extends AbstractModel {
 
     private int page;
     private int totalPages;

@@ -6,7 +6,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
+import com.example.nickgao.R;
+import com.example.nickgao.contacts.adapters.contactsprovider.ContactsProvider;
 import com.example.nickgao.database.GeneralSettings;
 import com.example.nickgao.logging.MktLog;
 import com.example.nickgao.network.RestSession;
@@ -14,6 +18,7 @@ import com.example.nickgao.network.RestSessionState;
 import com.example.nickgao.network.RestSessionStateChange;
 import com.example.nickgao.service.ServiceFactory;
 import com.example.nickgao.service.clientinfo.ClientInfoService;
+import com.example.nickgao.service.contact.ExtensionService;
 
 public class MainActivity extends Activity {
 
@@ -27,6 +32,16 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.main);
+		Button btn = (Button)findViewById(R.id.btn);
+		btn.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.setClass(MainActivity.this,ContactsActivity.class);
+				startActivity(intent);
+			}
+		});
 		restAuthorization();
 
 		mRestNotificationReceiver = new RestNotificationReceiver();
@@ -57,6 +72,11 @@ public class MainActivity extends Activity {
 					long mailboxId = GeneralSettings.getSettings()
 							.getCurrentMailboxId();
 					MktLog.d(TAG, "==mailboxId=" + mailboxId);
+					ContactsProvider.getInstance().start(mailboxId);
+
+					ExtensionService extensionService = (ExtensionService) ServiceFactory.getInstance().getService(ExtensionService.class.getName());
+					extensionService.updateExtension(context);
+
 					restClientInfo();
 				}
 			}

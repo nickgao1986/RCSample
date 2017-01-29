@@ -5,15 +5,22 @@
  */
 package com.example.nickgao.network;
 
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.Reader;
-import java.util.concurrent.atomic.AtomicInteger;
+/**
+ * Copyright (C) 2012, RingCentral, Inc.
+ *
+ * All Rights Reserved.
+ */
+
+import com.example.nickgao.logging.MktLog;
+import com.example.nickgao.utils.HttpUtils;
 
 import org.apache.http.Header;
 import org.apache.http.HttpMessage;
 
-import com.example.nickgao.logging.MktLog;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.Reader;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Base class for an HTTP REST requests.
@@ -22,15 +29,19 @@ public abstract class RestRequest implements Comparable<RestRequest> {
     /**
      * Defines options for logging HTTP headers and bodies in requests/responses
      */
-    public static enum LogHttp {
-        NONE, HEADER_ONLY, ALL;
+    public enum LogHttp {
+        NONE, HEADER_ONLY, ALL
     }
 
     /**
      * Defines request method
      */
-    public static enum HttpMethod {
-        GET, POST, PUT, DELETE;
+    public enum HttpMethod {
+        GET, POST, PUT, DELETE
+    }
+
+    public enum HttpPriority {
+        HIGH, NORMAL, LOW
     }
 
     /**
@@ -52,24 +63,24 @@ public abstract class RestRequest implements Comparable<RestRequest> {
     /**
      * Constructs base request.
      *
-     * @param method defines HTTP method for the request
-     *
-     * @param logTag
-     *            a short logging tag be used for request operation logging as a prefix of message followed by id (see #
-     *            getId()) in square brackets, example for "Account" logTag :
-     *
-     *            <code>
-     * [RC]RESTRequest   Account[2345] Completed with status 200.
-     * </code>
-     *
-     * @param logRequest defines logging options for request
+     * @param method      defines HTTP method for the request
+     * @param logTag      a short logging tag be used for request operation logging as a prefix of message followed by id (see #
+     *                    getId()) in square brackets, example for "Account" logTag :
+     *                    <p/>
+     *                    <code>
+     *                    [RC]RESTRequest   Account[2345] Completed with status 200.
+     *                    </code>
+     * @param logRequest  defines logging options for request
      * @param logResponse defines logging options for response
      */
     public RestRequest(HttpMethod method, String logTag, LogHttp logRequest, LogHttp logResponse) {
         if (logTag == null) {
-            new java.security.InvalidParameterException(LOG_TAG);
+            throw new java.security.InvalidParameterException(LOG_TAG);
         }
-        mLogTag = new String(logTag + "[id:" + mSequenceNumber + "]");
+        StringBuilder stringBuilder = new StringBuilder(logTag);
+        stringBuilder.append("[id:").append(mSequenceNumber).append("]");
+        mLogTag = stringBuilder.toString();
+        mApiNameLogTag = logTag;
         mLogHttpRequest = logRequest;
         mLogHttpResponse = logResponse;
         mMethod = method;
@@ -88,7 +99,7 @@ public abstract class RestRequest implements Comparable<RestRequest> {
     /**
      * Keeps HTTP method.
      */
-    HttpMethod mMethod;
+    protected HttpMethod mMethod;
 
     /**
      * Keeps the number of executions.
@@ -99,6 +110,11 @@ public abstract class RestRequest implements Comparable<RestRequest> {
      * Keeps logging tag, see {@link #RESTRequest(String)}
      */
     protected String mLogTag;
+
+    /**
+     * Keeps Api name logging tag, see {@link #RESTRequest(String)}
+     */
+    protected String mApiNameLogTag;
 
     /**
      * Keeps mailboxId the request belongs, valid only after injection into RESTSession.
@@ -165,7 +181,7 @@ public abstract class RestRequest implements Comparable<RestRequest> {
     /**
      * Keeps HTTP returned status code;
      */
-    int mHttpCode = 500;
+    int mHttpCode = RestApiErrorCodes.NETWORK_NOT_AVAILABLE;
 
     /**
      * Copies status data from indicated request.
@@ -181,8 +197,7 @@ public abstract class RestRequest implements Comparable<RestRequest> {
     /**
      * Turn the request to completion state.
      *
-     * @param result the result of completion, see {@link RESTStatusCode}
-     *
+     * @param result           the result of completion, see {@link RESTStatusCode}
      * @param callOnCompletion tells if {@link #onCompletion()} invocation required
      */
     void setCompletedState(int result, boolean callOnCompletion) {
@@ -213,7 +228,7 @@ public abstract class RestRequest implements Comparable<RestRequest> {
      * Returns REST Error Response if HTTP Code was not 200 (OK) and the error response was processed.
      *
      * @return REST Error Response if HTTP Code was not 200 (OK) and the error response was processed (can be
-     *         <code>null</code>)
+     * <code>null</code>)
      */
     public RestErrorResponse getErrorResponse() {
         return mRestErrorResponse;
@@ -240,7 +255,7 @@ public abstract class RestRequest implements Comparable<RestRequest> {
         InternalState prevState = mState;
         if (newState != prevState) {
             mState = newState;
-            MktLog.d(LOG_TAG, mLogTag + " State change " + prevState.name() + " -> " + newState.name()) ;
+            MktLog.d(LOG_TAG, mLogTag + " State change " + prevState.name() + " -> " + newState.name());
         }
     }
 
@@ -280,17 +295,12 @@ public abstract class RestRequest implements Comparable<RestRequest> {
     /**
      * Called on starting HTTP response receiving (HTTP Status code is 200).
      *
-     * @param response
-     *            the HTTP response stream
-     * @param contentType
-     *            the Content-Type header, or null if the content type is unknown
-     * @param contentEncoding
-     *            the Content-Encoding header for this response, or null if the content encoding is unknown
-     * @param length
-     *            the number of bytes of the content, or a negative number if unknown. If the content length is known
-     *            but exceeds Long.MAX_VALUE, a negative number is returned.
-     * @param headers
-     *            all the headers of this response. Headers are ordered in the sequence they will be sent over a connection.
+     * @param response        the HTTP response stream
+     * @param contentType     the Content-Type header, or null if the content type is unknown
+     * @param contentEncoding the Content-Encoding header for this response, or null if the content encoding is unknown
+     * @param length          the number of bytes of the content, or a negative number if unknown. If the content length is known
+     *                        but exceeds Long.MAX_VALUE, a negative number is returned.
+     * @param headers         all the headers of this response. Headers are ordered in the sequence they will be sent over a connection.
      */
     public abstract void onResponse(Reader response, InputStream responseStream,
                                     String contentType, String contentEncoding, long length, Header[] headers)
@@ -321,30 +331,33 @@ public abstract class RestRequest implements Comparable<RestRequest> {
     public String getBody() {
         return "";
     }
-    
-    
+
+
     /**
-     * 
      * @return
      */
     public boolean hasAttachment() {
-    	return false;
+        return false;
     }
-    
+
     /**
-     * 
      * @return
      */
     public ByteArrayOutputStream getAttachment() {
-    	return null;
+        return null;
     }
 
     /**
      * Called on HTTP header forming. Sub-classes shall override the method if required
      *
-     * @param  request the request for headers adding/modification
+     * @param request the request for headers adding/modification
      */
     public void onHeaderForming(HttpMessage request) {
+        //fixed me
+//        Language language = I18nResources.getResources().getCurrentLanguage();
+//        if (language != null) {
+//            request.addHeader("Accept-Language", language.getFormatLocale());
+//        }
     }
 
     /**
@@ -355,30 +368,38 @@ public abstract class RestRequest implements Comparable<RestRequest> {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer().append(mLogTag).append("; id:").append(this.mSequenceNumber)
-        .append("; factoryId:").append(mFactoryId)
-        .append("; mailboxId:").append(mMailboxId)
-        .append("; state:").append(mState.name())
-        .append("; result:").append(RestApiErrorCodes.getMsg(mResult));
+                .append("; factoryId:").append(mFactoryId)
+                .append("; mailboxId:").append(mMailboxId)
+                .append("; state:").append(mState.name())
+                .append("; result:").append(RestApiErrorCodes.getMsg(mResult));
         return sb.toString();
     }
-    
+
     @Override
     public boolean equals(Object object) {
         if (object == null || !(object instanceof RestRequest)) {
             return false;
         }
-        
-        RestRequest r = (RestRequest)object;
-        
-        if (r.mSequenceNumber == mSequenceNumber) {
-            return true;
-        } else {
-            return false;
-        }
+
+        RestRequest r = (RestRequest) object;
+
+        return r.mSequenceNumber == mSequenceNumber;
     }
-    
+
     @Override
     public int hashCode() {
-        return (int)mSequenceNumber;
+        return (int) mSequenceNumber;
+    }
+
+    public String getAcceptType(){
+        return HttpUtils.JSON_CONTENT_TYPE;
+    }
+
+    public HttpPriority getHttpPriority() {
+        return HttpPriority.NORMAL;
+    }
+
+    public boolean isBodyConvertToUTF8() {
+        return false;
     }
 }

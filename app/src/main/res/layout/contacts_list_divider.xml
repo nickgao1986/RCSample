@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtSectionHeader"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_item_section_height"
+        android:background="@drawable/bg_contacts_section_header"
+        android:gravity="center_vertical|left"
+        android:paddingLeft="@dimen/default_padding_to_side"
+        android:textColor="@color/contacts_text_separator_text_color"
+        android:textSize="@dimen/font_size_medium" />
+
+</LinearLayout>

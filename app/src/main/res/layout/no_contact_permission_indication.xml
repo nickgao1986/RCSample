@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/no_contact_permission_indication"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="gone">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_no_contact_permission"/>
+
+        <TextView
+            android:id="@+id/no_contact_permission_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/permission_denied_alert_title_contacts"
+            android:textColor="@color/no_contact_permission_title"
+            android:textSize="@dimen/font_size_xlarge"/>
+
+        <TextView
+            android:id="@+id/no_contact_permission_content"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/permission_denied_alert_content_contacts"
+            android:textColor="@color/no_contact_permission_content"
+            android:textSize="@dimen/font_size_medium"/>
+
+        <Button
+            android:id="@+id/turn_on_contacts_permission"
+            android:layout_width="@dimen/glip_install_round_button_width"
+            android:layout_height="@dimen/default_round_button_height"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/btn_bg_turn_on_contact_permission"
+            android:gravity="center"
+            android:text="@string/turn_on_permission"
+            android:textAllCaps="false"
+            android:textColor="@color/btn_launch_meeting_text_selector"
+            android:textSize="@dimen/font_size_xlarge"/>
+    </LinearLayout>
+</RelativeLayout>

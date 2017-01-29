@@ -5,7 +5,7 @@ package com.example.nickgao.service.response;
 /**
  * Created by nick.gao on 2014/7/16.
  */
-public class Client extends AbstractModel {
+public class Client {
     boolean detected;
     String userAgent;
     String appId;

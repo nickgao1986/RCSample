@@ -4,16 +4,13 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
-import com.example.nickgao.service.model.Address;
 import android.os.Build;
 import android.provider.ContactsContract;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 
-import com.example.nickgao.R;
-import com.example.nickgao.database.RCMProviderHelper;
 import com.example.nickgao.logging.MktLog;
-import com.example.nickgao.utils.RCMConstants;
+import com.example.nickgao.service.model.contact.Address;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -73,6 +70,7 @@ public class DevicePersonalContactLoader extends ContactsLoader {
     @Override
     public void reloadContacts() {
         MktLog.d(TAG, "reloadContacts");
+        acquireWriteLock();
         try {
             //contacts permission check
             boolean loadDeviceContacts = getDeviceContactsPermission();
@@ -358,6 +356,8 @@ public class DevicePersonalContactLoader extends ContactsLoader {
                 cursor.close();
             }
         }
+
+        MktLog.i(TAG,"====cacheContacts="+cacheContacts+"====size="+cacheContacts.size());
 
     }
 
