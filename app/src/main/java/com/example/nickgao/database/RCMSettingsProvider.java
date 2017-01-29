@@ -52,9 +52,12 @@ public class RCMSettingsProvider extends ContentProvider {
         return BuildConfig.APPLICATION_ID + ".provider.settings";
     }
 
+
+
     @Override
     public boolean onCreate() {
         mDbHelper = new RCMSettingsDbHelper(getContext());
+
 
         mInMemoryStorage = new HashMap<String, String>();
         return true;

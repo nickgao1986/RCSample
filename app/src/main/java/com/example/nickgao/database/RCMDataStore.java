@@ -154,21 +154,7 @@ public final class RCMDataStore {
 		public static final String RCM_DEVICE_AUDIO_SETUP_WIZARD = "device_audio_setup_wizard"; // INTEGER
 		public static final String RCM_LOG_CAT_ENABLED = "device_logcat_enabled"; // INTEGER
 
-		/**
-		 * Wide-band (Wi-Fi) VoIP codec priorities
-		 */
-		public static final String RCM_WIDEBAND_OPUS_CODEC_PRIO = "wb_opus_prio";  // INTEGER
-		public static final String RCM_WIDEBAND_ILBC_CODEC_PRIO = "wb_ilbc_prio"; // INTEGER
-		public static final String RCM_WIDEBAND_PCMU_CODEC_PRIO = "wb_pcmu_prio"; // INTEGER
-		public static final String RCM_WIDEBAND_PCMA_CODEC_PRIO = "wb_pcma_prio"; // INTEGER
 
-		/**
-		 * Narrow-band (3G/4G) VoIP codec priorities
-		 */
-		public static final String RCM_NARROWBAND_OPUS_CODEC_PRIO = "nb_opus_prio";  // INTEGER
-		public static final String RCM_NARROWBAND_ILBC_CODEC_PRIO = "nb_ilbc_prio"; // INTEGER
-		public static final String RCM_NARROWBAND_PCMU_CODEC_PRIO = "nb_pcmu_prio"; // INTEGER
-		public static final String RCM_NARROWBAND_PCMA_CODEC_PRIO = "nb_pcma_prio"; // INTEGER
 
 		/**
 		 * Defines if EDGE network shall be included for 3G/4G calls for testing
@@ -226,49 +212,7 @@ public final class RCMDataStore {
 						+ RCM_SIP_TLS_CERT_VER + " INTEGER DEFAULT 0"
 						+ ");";
 
-		private static final String INIT_TABLE_STMT =
-				"INSERT INTO " + TABLE_NAME
-						+ " ("
-						+ RCM_DEVICE_PHONE_NUMBER + ','
-						+ RCM_DEVICE_IMSI + ','
-						+ RCM_UI_LAUNCHED_AFTER_BOOT + ','
-						+ RCM_FORCED_RESTART + ','
-						+ RCM_TOS_ACCEPTED + ','
-						+ RCM_TOS911_ACCEPTED + ","
-						+ RCM_DEVICE_ECHO_STATE + ","
-						+ RCM_DEVICE_ECHO_VALUE_SPEAKER + ","
-						+ RCM_DEVICE_ECHO_VALUE_EARPIECE + ","
-						+ RCM_DEVICE_AUDIO_SETUP_WIZARD + ","
-						+ RCM_LOG_CAT_ENABLED + ","
-						+ RCM_INCLUDE_EDGE_INTO_3G4G_VOIP + ","
 
-						+ RCM_WIDEBAND_OPUS_CODEC_PRIO + ","
-						+ RCM_WIDEBAND_ILBC_CODEC_PRIO + ","
-						// + RCM_WIDEBAND_GSM_CODEC_PRIO + ","
-						+ RCM_WIDEBAND_PCMU_CODEC_PRIO + ","
-						+ RCM_WIDEBAND_PCMA_CODEC_PRIO + ","
-
-						+ RCM_NARROWBAND_OPUS_CODEC_PRIO + ","
-						+ RCM_NARROWBAND_ILBC_CODEC_PRIO + ","
-						// + RCM_NARROWBAND_GSM_CODEC_PRIO + ","
-						+ RCM_NARROWBAND_PCMU_CODEC_PRIO + ","
-						+ RCM_NARROWBAND_PCMA_CODEC_PRIO + ","
-						+ RCM_ALWAYS_CPU_PARTAIL_LOCK_WHEN_STACK_IS_ACTIVE + ","
-						+ RCM_DSCP_ENABLED + ","
-						// + RCM_PHONE_SEVICE_STATE + ","
-						+ RCM_SIP_TLS_CERT + ","
-						+ RCM_SIP_TLS_CERT_VER
-						+ ") "
-						+ "VALUES (NULL,NULL,1,0,0,0,1,"
-						+ RCMConstants.DEFAULT_AEC_DELAY_VALUE + ","
-						+ RCMConstants.DEFAULT_AEC_DELAY_VALUE + ","
-						+ "0,0,0,"
-
-						+ "1,"
-						//+ android.telephony.ServiceState.STATE_IN_SERVICE + ","
-						+ "NULL,"
-						+ "0"
-						+ ")";
 
 		@Override
 		String getName() {
@@ -278,7 +222,7 @@ public final class RCMDataStore {
 		@Override
 		void onCreate(SQLiteDatabase db) {
 			db.execSQL(CREATE_TABLE_STMT);
-			db.execSQL(INIT_TABLE_STMT);
+			//db.execSQL(INIT_TABLE_STMT);
 		}
 	}
 

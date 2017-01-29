@@ -111,6 +111,10 @@ public class DevicePersonalContactLoader extends ContactsLoader {
         }
     }
 
+    public void setIfNeedToReload(boolean isNeedReload) {
+        mIsNeedToReload = isNeedReload;
+    }
+
 
     @Override
     public List<Contact> loadContacts(Contact.TypeValue[] lowerCaseFilter, boolean isFuzzySearch, boolean includeExtension, String countryCode, String nationalPrefix) {

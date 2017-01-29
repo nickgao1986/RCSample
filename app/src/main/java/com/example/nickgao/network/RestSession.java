@@ -11,6 +11,7 @@ import android.os.Parcelable;
 import android.os.SystemClock;
 import android.text.TextUtils;
 
+import com.example.nickgao.database.CurrentUserSettings;
 import com.example.nickgao.database.GeneralSettings;
 import com.example.nickgao.database.RCMProviderHelper;
 import com.example.nickgao.logging.BUILD;
@@ -1455,7 +1456,10 @@ public final class RestSession {
                         long oldMailboxId = authReqCtx.mailboxId;
                         authReqCtx.mailboxId = mailId;
                         updateSessionMailBoxId(oldMailboxId, mailId);
-                        GeneralSettings.getSettings().setCurrentMailboxId(mailId);
+                        GeneralSettings.getSettings().setCurrentUser(mailId);
+                        CurrentUserSettings.getSettings(RingCentralApp.getContextRC()).setCurrentMailboxId(mailId);
+
+//                        GeneralSettings.getSettings().setCurrentMailboxId(mailId);
                     }
                     
                     jReader.close();

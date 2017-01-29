@@ -11,7 +11,7 @@ import android.widget.Button;
 
 import com.example.nickgao.R;
 import com.example.nickgao.contacts.adapters.contactsprovider.ContactsProvider;
-import com.example.nickgao.database.GeneralSettings;
+import com.example.nickgao.database.CurrentUserSettings;
 import com.example.nickgao.logging.MktLog;
 import com.example.nickgao.network.RestSession;
 import com.example.nickgao.network.RestSessionState;
@@ -69,7 +69,7 @@ public class MainActivity extends Activity {
 						.getParcelableExtra(RestSessionStateChange.REST_SESSION_STATE_CHANGE_TAG);
 				RestSessionState mState = restSessionStateChange.getState();
 				if (mState == RestSessionState.AUTHORIZED) {
-					long mailboxId = GeneralSettings.getSettings()
+					long mailboxId = CurrentUserSettings.getSettings()
 							.getCurrentMailboxId();
 					MktLog.d(TAG, "==mailboxId=" + mailboxId);
 					ContactsProvider.getInstance().start(mailboxId);

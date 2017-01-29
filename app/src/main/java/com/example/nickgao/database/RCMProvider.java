@@ -140,6 +140,7 @@ public class RCMProvider extends ContentProvider {
 
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+
         if (RCMProvider.DEBUG_ENBL) {
             EngLog.d(TAG, "query(" + uri + ",...)");
         }
@@ -150,6 +151,7 @@ public class RCMProvider extends ContentProvider {
             }
             throw new IllegalArgumentException("Wrong URI: " + uri);
         }
+
 
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
         int where_append_count = 0;
@@ -165,23 +167,23 @@ public class RCMProvider extends ContentProvider {
 
             long mailbox_id;
             try {
-                mailbox_id = Long.valueOf(mailbox_id_string);
+                mailbox_id = Long.parseLong(mailbox_id_string);
             } catch (NumberFormatException e) {
                 if (LogSettings.MARKET) {
                     MktLog.e(TAG, "query(): Wrong mailboxID: " + mailbox_id_string, e);
                 }
-                
+
                 throw new IllegalArgumentException("Wrong mailboxID: " + mailbox_id_string);
             }
 
-            long current_mailbox_id = RCMProviderHelper.getCurrentMailboxId(getContext());
+            long current_mailbox_id = CurrentUserSettings.getSettings(getContext()).getCurrentMailboxId();
             if (mailbox_id != current_mailbox_id) {
                 if (LogSettings.MARKET) {
                     MktLog.i(TAG, "query(): mailboxID mis-match: " + mailbox_id + ". Current mailboxID: " + current_mailbox_id + "; URI: " + uri);
                 }
                 return null;
             }
-            
+
             qb.appendWhere((where_append_count++ == 0 ? "" : " AND ") + (RCMColumns.MAILBOX_ID + '=' + mailbox_id));
         }
 
@@ -197,7 +199,6 @@ public class RCMProvider extends ContentProvider {
         if (TextUtils.isEmpty(sortOrder)) {
             sortOrder = RCMColumns.DEFAULT_SORT_ORDER;
         }
-
         SQLiteDatabase db;
         try {
             db = dbHelper.getReadableDatabase();
@@ -206,7 +207,7 @@ public class RCMProvider extends ContentProvider {
             if (LogSettings.MARKET) {
                 MktLog.e(TAG, "query(): Error opening readable database", e);
             }
-            
+
             throw e;
         }
 
@@ -218,7 +219,7 @@ public class RCMProvider extends ContentProvider {
                 if (LogSettings.MARKET) {
                     EngLog.e(TAG, "query(): Exception at db query", e);
                 }
-                
+
                 throw new RuntimeException("Exception at db query: " + e.getMessage());
             }
         }
@@ -240,6 +241,7 @@ public class RCMProvider extends ContentProvider {
 
     @Override
     public Uri insert(Uri uri, ContentValues values) {
+
         if (RCMProvider.DEBUG_ENBL) {
             EngLog.d(TAG, "insert(" + uri + ", ...)");
         }
@@ -261,7 +263,6 @@ public class RCMProvider extends ContentProvider {
             throw new IllegalArgumentException("Insert not allowed for this URI: " + uri);
         }
 
-
         //MailboxID parameter does not make sense for insert operations and shall not be used
         //So it throws exception on ENGINEERING and QA builds
         //and is ignored on MARKET builds
@@ -273,10 +274,9 @@ public class RCMProvider extends ContentProvider {
                 throw new IllegalArgumentException("Insert not allowed for this URI: " + uri);
             }
         }
-        
+
         SQLiteDatabase db;
         long rowId;
-
         try {
             db = dbHelper.getWritableDatabase();
         } catch (SQLiteException e) {
@@ -284,7 +284,7 @@ public class RCMProvider extends ContentProvider {
             if (LogSettings.MARKET) {
                 MktLog.e(TAG, "insert(): Error opening writeable database", e);
             }
-            
+
             throw e;
         }
 
@@ -296,7 +296,7 @@ public class RCMProvider extends ContentProvider {
                 if (LogSettings.MARKET) {
                     MktLog.e(TAG, "Insert() failed", e);
                 }
-                
+
                 throw e;
             }
         }
@@ -312,7 +312,10 @@ public class RCMProvider extends ContentProvider {
         if (RCMProvider.DEBUG_ENBL) {
             EngLog.d(TAG, "insert(): new uri with rowId: " + uri);
         }
-        getContext().getContentResolver().notifyChange(uri, null);
+
+        if(rowId > 0) {
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
 
         if (RCMProvider.DEBUG_ENBL) {
             EngLog.d(TAG, "insert(): return " + uri);
@@ -322,6 +325,7 @@ public class RCMProvider extends ContentProvider {
 
     @Override
     public int bulkInsert(Uri uri, ContentValues[] values) {
+
         if (RCMProvider.DEBUG_ENBL) {
             EngLog.d(TAG, "bulkInsert(" + uri + ", ...)");
         }
@@ -353,8 +357,6 @@ public class RCMProvider extends ContentProvider {
                 throw new IllegalArgumentException("Insert not allowed for this URI: " + uri);
             }
         }
-
-        
         SQLiteDatabase db;
         try {
             db = dbHelper.getWritableDatabase();
@@ -363,50 +365,69 @@ public class RCMProvider extends ContentProvider {
             if (LogSettings.MARKET) {
                 MktLog.e(TAG, "bulkInsert(): Error opening writable database", e);
             }
-            
+
             throw e;
         }
 
         int added = 0;
-        long rowId = 0;
+
+        //if (match == PERSONAL_CONTACTS_FSYNC_MATCH){
+        //    added = personalContactsFSync(dbHelper, db, values);
+        //} else {
         String table = tableName(match);
 
         synchronized (dbHelper) {
             try {
                 db.beginTransaction();
-                for (int i = 0; i < values.length; i++) {
-                    try {
-                        rowId = db.insert(table, null, values[i]);
-                    } catch (SQLException e) {
-                        if (LogSettings.MARKET) {
-                            MktLog.e(TAG, "bulkInsert() P1", e);
-                        }
-                        continue;
-                    }
 
-                    if (rowId <= 0) {
-                        if (LogSettings.MARKET) {
-                            MktLog.e(TAG, "bulkInsert() P2: " + rowId);
-                        }
-                        continue;
-                    }
-                    added = added + 1;
-                }
+                //if (match == PERSONAL_CONTACTS_FSYNC_MATCH) {
+
+                //} else {
+                added = insertValues(db, table, values);
+                //}
                 db.setTransactionSuccessful();
             } catch (SQLException e) {
                 if (LogSettings.MARKET) {
                     MktLog.e(TAG, "bulkInsert() P3", e);
                 }
-                
-                throw new RuntimeException("bulkInsert(): DB insert failed: " + e.getMessage());
+
+                throw new RuntimeException("bulkInsert(): DB insert failed", e);
             } finally {
                 db.endTransaction();
             }
         }
+        //}
 
-        getContext().getContentResolver().notifyChange(uri, null);
+        if(added > 0) {
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
         return added;
     }
+
+    private int insertValues(SQLiteDatabase db, String table , ContentValues[] values){
+        int added = 0;
+        long rowId;
+        for (int i = 0; i < values.length; i++) {
+            try {
+                rowId = db.insert(table, null, values[i]);
+            } catch (SQLException e) {
+                if (LogSettings.MARKET) {
+                    MktLog.e(TAG, "bulkInsert() P1", e);
+                }
+                continue;
+            }
+
+            if (rowId <= 0) {
+                if (LogSettings.MARKET) {
+                    MktLog.e(TAG, "bulkInsert() P2: " + rowId);
+                }
+                continue;
+            }
+            added = added + 1;
+        }
+        return added;
+    }
+
 
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {

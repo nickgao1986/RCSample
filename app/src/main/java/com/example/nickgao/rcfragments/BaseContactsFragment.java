@@ -36,33 +36,6 @@ public abstract class BaseContactsFragment extends ContactsTabFragment {
     protected boolean mNeedReload;
 
 
-    public enum Tabs {
-        ALL {
-            @Override
-            public String toString() {
-                return "ALL";
-            }
-        },
-        COMPANY {
-            @Override
-            public String toString() {
-                return "COMPANY";
-            }
-        },
-        DEVICE {
-            @Override
-            public String toString() {
-                return "DEVICE";
-            }
-        },
-        FAVORITE {
-            @Override
-            public String toString() {
-                return "FAVORITE";
-            }
-        }
-    }
-
     protected final void initCommon(View rootView) {
         super.init();
         mEmptyIndicateView = (TextView) rootView.findViewById(R.id.emptyListText);
@@ -100,6 +73,25 @@ public abstract class BaseContactsFragment extends ContactsTabFragment {
     @Override
     protected void initDefaultFilter() {
 
+    }
+
+
+    @Override
+    protected void onDropDownMenuSelected(int index) {
+        super.onDropDownMenuSelected(index);
+
+        boolean needReload = true;
+//        if (getCurrentTab() == Tabs.FAVORITE) {
+//            logForTapFavorite();
+//            mRCMainInterface.switchToFavorites(new Intent(RCMConstants.ACTION_LIST_FAVORITES));
+//            needReload = false;
+//        }
+
+        tabChangedManually();
+        getListView().setSelection(0);
+        if (needReload) {
+            reloadTheData();
+        }
     }
 
 

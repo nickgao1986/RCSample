@@ -167,6 +167,7 @@ public class CloudCompanyContactLoader extends ContactsLoader {
 
 
     private static void loadAllContacts(final Context context, Map<Long, Contact> cacheContacts, Map<String, Long> cacheNumbers) {
+        MktLog.i(TAG,"====loadCloudCompany contact");
         Cursor cursor = null;
         EXTENSION_PROJECTION[] values = EXTENSION_PROJECTION.values();
         String[] projection = new String[values.length];
@@ -233,6 +234,7 @@ public class CloudCompanyContactLoader extends ContactsLoader {
                 cursor.close();
             }
         }
+        MktLog.i(TAG,"====loadCloudCompany cacheContacts="+cacheContacts);
 
     }
 

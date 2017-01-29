@@ -410,8 +410,7 @@ public abstract class Contact implements Comparable<Contact> {
 
     @Override
     public int compareTo(Contact contact) {
-//        return ContactsSorting.sorting(getDisplayName(), contact.getDisplayName(), true);
-        return 1;
+        return ContactsSorting.sorting(getDisplayName(), contact.getDisplayName(), true);
     }
 
     public static boolean isEmpty(String value) {

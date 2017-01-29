@@ -6,12 +6,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.text.TextUtils;
 
-import com.example.nickgao.contacts.adapters.contactsprovider.ContactMatcher;
 import com.example.nickgao.database.CurrentUserSettings;
 import com.example.nickgao.database.RCMDataStore;
 import com.example.nickgao.database.RCMProvider;
 import com.example.nickgao.database.UriHelper;
-import com.example.nickgao.logging.LogSettings;
 import com.example.nickgao.logging.MktLog;
 import com.example.nickgao.service.AbstractService;
 import com.example.nickgao.service.IRequestFactory;
@@ -30,7 +28,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Vector;
 
@@ -60,9 +57,12 @@ public class ExtensionService extends AbstractService {
         request.registerOnRequestListener(new RcRestRequest.OnRequestListener<RestPageResponse<Contact>>() {
             @Override
             public void onSuccess(RcRestRequest<RestPageResponse<Contact>> request, RestPageResponse<Contact> response) {
+                MktLog.i(TAG,"======extensionList success");
                 RestPageRequest<RestPageResponse<Contact>> pageRequest = (RestPageRequest<RestPageResponse<Contact>>) request;
                 mContacts.addAll(Arrays.asList(response.getRecords()));
                 if (pageRequest.hasMore()) {
+                    MktLog.i(TAG,"======extensionList has more");
+
                     pageRequest.createNextPageRequest().executeRequest(context);
                 } else {
                     updateContact(mContacts, context);
@@ -88,7 +88,7 @@ public class ExtensionService extends AbstractService {
 
     public void updateContact(List<Contact> contacts, Context context) {
         long mailbox_id = CurrentUserSettings.getSettings(context).getCurrentMailboxId();
-
+        MktLog.i(TAG,"=====mailbox_id="+mailbox_id+"contacts="+contacts);
         HashMap<String, Contact> processed_new_ext_Map = new HashMap<String, Contact>();
         Collection<Contact> name_changed_ext_list = new ArrayList<Contact>();
         Collection<Contact> ext_removed_list = new ArrayList<Contact>();
@@ -102,10 +102,12 @@ public class ExtensionService extends AbstractService {
         /* Retrieve old extensions' list from the DB */
         Collection<Contact> old_ext = new ArrayList<Contact>();
         Collection<Contact> new_ext = processed_new_ext_Map.values();
+        MktLog.i(TAG,"=====getOlderExtensionListFromDB= new_ext="+new_ext);
 
         getOlderExtensionListFromDB(old_ext, context, mailbox_id);
 
         if (old_ext.size() > 0) {
+            MktLog.i(TAG,"=====old_ext.size() > 0=");
 
             /* Remove obsolete entries from the DB */
             ContentResolver resolver = context.getContentResolver();
@@ -152,6 +154,7 @@ public class ExtensionService extends AbstractService {
 
 
         }
+        MktLog.i(TAG,"=====new_ext.size="+new_ext.size());
 
         if (!new_ext.isEmpty()) {
             insertNewExtensionToDB(new_ext, context, mailbox_id);
@@ -172,6 +175,7 @@ public class ExtensionService extends AbstractService {
                 UriHelper.getUri(RCMProvider.EXTENSIONS, mailbox_id), null, null, null, null);
 
         if (c != null && c.getCount() > 0) {
+            MktLog.i(TAG,"=====getOlderExtensionListFromDB c.getCount() > 0");
 
             Contact extInfo;
             c.moveToFirst();
@@ -230,6 +234,8 @@ public class ExtensionService extends AbstractService {
 
 
     private void insertNewExtensionToDB(Collection<Contact> new_ext, Context context, long mailbox_id) {
+        MktLog.i(TAG,"=====insertNewExtensionToDB");
+
         /* Store new extensions list to the database */
         ContentValues item;
         Vector<ContentValues> values = new Vector<ContentValues>();
@@ -282,6 +288,7 @@ public class ExtensionService extends AbstractService {
         }
 
         if (values.size() > 0) {
+            MktLog.i(TAG,"======extensionList blk insert");
 
             context.getContentResolver().bulkInsert(
                     UriHelper.getUri(RCMProvider.EXTENSIONS), values.toArray(new ContentValues[values.size()]));

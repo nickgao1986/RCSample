@@ -1,10 +1,13 @@
 package com.example.nickgao.database;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import com.example.nickgao.BuildConfig;
 import com.example.nickgao.logging.MktLog;
+import com.example.nickgao.rcfragments.ContactsTabFragment;
 import com.example.nickgao.rcproject.RingCentralApp;
 
 /**
@@ -16,8 +19,10 @@ public class CurrentUserSettings extends AbstractDbSettings {
 
     private static final String KEY_CURRENT_MAILBOX_ID = "current_mailbox_id";
     private static final long MAILBOX_ID_NOT_SET = -2;
+    private static final String KEY_CONTACTS_CURRENT_TAB = "ContactsCurrentTab";
 
-
+    private static final String SAVING_STATE_SHARED_PREF_NAME = BuildConfig.APPLICATION_ID + ".contacts.list";
+    private static final String SAVING_STATE_SHARED_PREF_PARAMETER = "isCompany";
     private static volatile long sCurrentMailboxId = MAILBOX_ID_NOT_SET;
 
 
@@ -74,4 +79,29 @@ public class CurrentUserSettings extends AbstractDbSettings {
         final String result = getString(key, null);
         return TextUtils.isEmpty(result) ? def : Long.parseLong(result);
     }
+
+    public void setContactsCurrentTab(ContactsTabFragment.Tabs tab){
+        setString(KEY_CONTACTS_CURRENT_TAB, tab.name());
+    }
+
+    public ContactsTabFragment.Tabs getContactsCurrentTab() {
+        String currentTab = getString(KEY_CONTACTS_CURRENT_TAB, "");
+        if (TextUtils.isEmpty(currentTab)){
+            SharedPreferences preferences = getContext().getSharedPreferences(SAVING_STATE_SHARED_PREF_NAME, Context.MODE_PRIVATE);
+            if (preferences.contains(SAVING_STATE_SHARED_PREF_PARAMETER)){
+                if (preferences.getBoolean(SAVING_STATE_SHARED_PREF_PARAMETER, true)){
+                    setContactsCurrentTab(ContactsTabFragment.Tabs.COMPANY);
+                } else {
+                    setContactsCurrentTab(ContactsTabFragment.Tabs.DEVICE);
+                }
+            } else {
+                setContactsCurrentTab(ContactsTabFragment.Tabs.ALL);
+            }
+            return getContactsCurrentTab();
+        }
+
+        return ContactsTabFragment.Tabs.valueOf(currentTab);
+    }
+
+
 }

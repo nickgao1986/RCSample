@@ -1,8 +1,11 @@
 package com.example.nickgao.rcfragments;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -22,7 +25,9 @@ import com.example.nickgao.contacts.adapters.contactsprovider.Contact;
 import com.example.nickgao.contacts.adapters.contactsprovider.ContactListItem;
 import com.example.nickgao.contacts.adapters.contactsprovider.ContactsProvider;
 import com.example.nickgao.contacts.adapters.contactsprovider.DisplayContactsProviderUtils;
+import com.example.nickgao.database.CurrentUserSettings;
 import com.example.nickgao.logging.MktLog;
+import com.example.nickgao.titlebar.RCMainTitleBar;
 import com.example.nickgao.titlebar.RCTitleBarWithDropDownFilter;
 import com.example.nickgao.titlebar.RightDropDownManager;
 import com.example.nickgao.utils.RCMConstants;
@@ -36,7 +41,7 @@ import java.util.Map;
  * Created by nick.gao on 1/28/17.
  */
 
-public class ContactsFragment extends BaseContactsFragment {
+public class ContactsFragment extends BaseContactsFragment implements RCMainTitleBar.HeaderClickListener{
 
     private static final String TAG = "[RC]ContactsFragment";
 
@@ -102,7 +107,7 @@ public class ContactsFragment extends BaseContactsFragment {
         mRCTitleBar.setRightImageRes(R.drawable.ic_action_plus);
         mRCTitleBar.setRightFirstImageRes(R.drawable.ic_action_filter);
 
-       // mRCTitleBar.setButtonsClickCallback(this);
+        mRCTitleBar.setButtonsClickCallback(this);
 
         mContactsData = new ArrayList<>();
         mAdapter = new CombinedContactsAdapter(mActivity, mContactsData);
@@ -153,9 +158,9 @@ public class ContactsFragment extends BaseContactsFragment {
         });
 
         mShouldDismissSavedState = mActivity.getIntent() != null && (mActivity.getIntent().hasExtra(RCMConstants.EXTRA_CALL_CALLER_ID) || mActivity.getIntent().hasExtra(RCMConstants.EXTRA_CONTACT_SELECTOR_TYPE));
-//        if (!mShouldDismissSavedState) {
-//            updateCurrentTab();
-//        }
+        if (!mShouldDismissSavedState) {
+            updateCurrentTab();
+        }
     }
 
     private boolean hideSoftInputFromWindow() {
@@ -165,6 +170,23 @@ public class ContactsFragment extends BaseContactsFragment {
             imm.hideSoftInputFromWindow(mActivity.getCurrentFocus().getWindowToken(), InputMethodManager.RESULT_UNCHANGED_SHOWN);
         }
         return false;
+    }
+
+    protected void updateCurrentTab() {
+        switch (CurrentUserSettings.getSettings().getContactsCurrentTab()) {
+            case ALL:
+                mRCTitleBarWithDropDownFilter.initContactsFilterWithState(RCTitleBarWithDropDownFilter.CONTACTS_ALL_TAB);
+                break;
+            case COMPANY:
+                mRCTitleBarWithDropDownFilter.initContactsFilterWithState(RCTitleBarWithDropDownFilter.CONTACTS_COMPANY_TAB);
+                break;
+            case DEVICE:
+                mRCTitleBarWithDropDownFilter.initContactsFilterWithState(RCTitleBarWithDropDownFilter.CONTACTS_DEVICE_TAB);
+                break;
+            case FAVORITE:
+                mRCTitleBarWithDropDownFilter.initContactsFilterWithState(RCTitleBarWithDropDownFilter.CONTACTS_FAVORITE_TAB);
+                break;
+        }
     }
 
 
@@ -319,11 +341,43 @@ public class ContactsFragment extends BaseContactsFragment {
 
     @Override
     protected void reloadTheData() {
+        reloadContacts(null);
+    }
+
+    private void reloadContacts(String filter) {
         if (mCurrentLoader != null) {
             mCurrentLoader.cancel(false);
         }
-        mCurrentLoader = new AsynchContactsLoader(
-                true,false,false,null);
-        mCurrentLoader.execute();
+        Tabs currentTab = getCurrentTab();
+        if (currentTab == Tabs.FAVORITE) {
+//            mRCMainInterface.switchToFavorites(new Intent(RCMConstants.ACTION_LIST_FAVORITES));
+        } else {
+            mCurrentLoader = new AsynchContactsLoader(
+                    !isCloudContactMode() && ((currentTab == Tabs.DEVICE || currentTab == Tabs.ALL) && getDeviceContactsPermission()),
+                    !isCloudContactMode() && (currentTab == Tabs.COMPANY || currentTab == Tabs.ALL),
+                    isCloudContactMode() || (currentTab == Tabs.DEVICE || currentTab == Tabs.ALL),
+                    filter);
+            mCurrentLoader.execute();
+        }
+    }
+
+    protected boolean getDeviceContactsPermission() {
+        return !(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                && (mActivity.checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED));
+    }
+
+    @Override
+    public void onRightButtonClicked() {
+
+    }
+
+    @Override
+    public void onRightFirstButtonClicked() {
+
+    }
+
+    @Override
+    public void onLeftButtonClicked() {
+
     }
 }

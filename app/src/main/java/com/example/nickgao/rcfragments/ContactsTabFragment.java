@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v4.app.ListFragment;
 
 import com.example.nickgao.R;
+import com.example.nickgao.database.CurrentUserSettings;
 import com.example.nickgao.logging.MktLog;
 import com.example.nickgao.rcproject.RingCentralApp;
 import com.example.nickgao.titlebar.DropDownItem;
@@ -56,7 +57,7 @@ public abstract class ContactsTabFragment extends ListFragment {
         return mTopMenuList;
     }
 
-    protected Tabs getCurrentTab() {
+    public Tabs getCurrentTab() {
         int index = mRCTitleBarWithDropDownFilter.getCurrentIndex();
         MktLog.d(TAG, "selected tab: " + index);
         switch (index) {
@@ -112,7 +113,7 @@ public abstract class ContactsTabFragment extends ListFragment {
     }
 
     protected void init() {
-        //initDropDownFilterView();
+        initDropDownFilterView();
     }
 
     protected void initContactsFilterWithState(int state) {
@@ -145,9 +146,9 @@ public abstract class ContactsTabFragment extends ListFragment {
     protected abstract void initDefaultFilter();
 
     private void storeCurrentTab(Tabs tab) {
-//        if (!isContactSelector()) {
-//            CurrentUserSettings.getSettings().setContactsCurrentTab(tab);
-//        }
+        if (!isContactSelector()) {
+            CurrentUserSettings.getSettings().setContactsCurrentTab(tab);
+        }
     }
 
     public void argumentsChanged(Intent intent) {
@@ -202,4 +203,6 @@ public abstract class ContactsTabFragment extends ListFragment {
         super.onAttach(activity);
         mActivity = activity;
     }
+
+
 }

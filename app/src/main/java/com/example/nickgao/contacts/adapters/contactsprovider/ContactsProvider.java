@@ -2,10 +2,15 @@ package com.example.nickgao.contacts.adapters.contactsprovider;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.ContentObserver;
 import android.os.Handler;
 import android.os.Looper;
+import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 
+import com.example.nickgao.database.RCMProvider;
+import com.example.nickgao.database.UriHelper;
 import com.example.nickgao.logging.MktLog;
 import com.example.nickgao.rcproject.RingCentralApp;
 import com.example.nickgao.utils.RCMConstants;
@@ -42,6 +47,19 @@ public class ContactsProvider {
     static volatile ExecutorService sPersonalContactService = Executors.newSingleThreadExecutor();
     static volatile ExecutorService sCompanyContactService = Executors.newSingleThreadExecutor();
 
+    private ContentObserver mCompanyExtensionObserver = new ContentObserver(new Handler()) {
+        @Override
+        public boolean deliverSelfNotifications() {
+            return true;
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            MktLog.i(TAG,"====extension change");
+            onCompanyContactsChanged();
+        }
+    };
+
     public static void onContactChangedForUIUpdate() {
         RingCentralApp.getContextRC().sendBroadcast(new Intent(RCMConstants.ACTION_UI_CONTACT_CHANGED));
     }
@@ -53,11 +71,19 @@ public class ContactsProvider {
         if (context == null){
             throw new IllegalArgumentException("context");
         }
+        mCompanyContactsLoader = new CloudCompanyContactLoader(context, mCompanyContactReadWriteLock);
+
 
         mDeviceContactsLoader = new DevicePersonalContactLoader(context, mPersonalContactReadWriteLock);
+        Log.d(TAG,"=====ContactsProvider register");
+        register();
     }
 
-
+    @Override
+    protected void finalize() throws Throwable {
+        unregister();
+        super.finalize();
+    }
 
     /**
      * init function should be called once
@@ -75,7 +101,6 @@ public class ContactsProvider {
     }
 
     public List<Contact> loadContacts(boolean includeDevice, boolean includeCompany, boolean includePersonal, boolean includeExtension, boolean isFuzzy, String filter){
-        includeDevice = true;
         String searchValue = (filter == null || filter.trim().length() == 0)? null: filter.trim();
         String[] lowerCaseFilter = null;
         Contact.TypeValue[] search = null;
@@ -111,11 +136,11 @@ public class ContactsProvider {
         }
 
         //company contacts
-//        if (includeCompany) {
-//            List<Contact> companyContacts = mCompanyContactsLoader.loadContacts(search, isFuzzy, includeExtension, countryCode, nationalPrefix);
-//            contacts.addAll(companyContacts);
-//            MktLog.d(TAG, "Company Contacts. Loaded " + companyContacts.size());
-//        }
+        if (includeCompany) {
+            List<Contact> companyContacts = mCompanyContactsLoader.loadContacts(search, isFuzzy, includeExtension, countryCode, nationalPrefix);
+            contacts.addAll(companyContacts);
+            MktLog.d(TAG, "Company Contacts. Loaded " + companyContacts.size());
+        }
 
         Collections.sort(contacts);
 
@@ -197,7 +222,7 @@ public class ContactsProvider {
         }
         mDeviceContactsLoader.clear();
 //        mPersonalContactsLoader.clear();
-//        mCompanyContactsLoader.clear();
+        mCompanyContactsLoader.clear();
     }
 
 
@@ -219,15 +244,94 @@ public class ContactsProvider {
             }
         });
 
-//        sCompanyContactService.execute(new Runnable() {
-//            @Override
-//            public void run() {
-//                mCompanyContactsLoader.onDirectNumberChanged();
-//                mCompanyContactsLoader.reloadContacts();
-//                onContactChangedForUIUpdate();
-//            }
-//        });
+        sCompanyContactService.execute(new Runnable() {
+            @Override
+            public void run() {
+                mCompanyContactsLoader.reloadContacts();
+                onContactChangedForUIUpdate();
+            }
+        });
     }
+
+
+    private void register() {
+        try {
+            mContext.getContentResolver().registerContentObserver(ContactsContract.Data.CONTENT_URI, false, mDeviceContactObserver);
+        }catch (Throwable th) {
+            MktLog.e(TAG, "ContactsProvider(), register device contacts observer, error=" + th.toString());
+        }
+
+        try{
+            mContext.getContentResolver().registerContentObserver(UriHelper.getUri(RCMProvider.EXTENSIONS),
+                    true,
+                    mCompanyExtensionObserver);
+        }catch (Throwable th) {
+            MktLog.e(TAG, "ContactsProvider register company contacts observer, error=" + th.toString());
+        }
+
+
+    }
+
+    private void unregister() {
+        try{
+            if(mDeviceContactObserver != null) {
+                mContext.getContentResolver().unregisterContentObserver(mDeviceContactObserver);
+            }
+        } catch (Throwable th) {
+            MktLog.e(TAG, "finalize(), unregister device contacts observer, error=" + th.toString());
+        }
+
+        try{
+            if(mCompanyExtensionObserver != null) {
+                mContext.getContentResolver().unregisterContentObserver(mCompanyExtensionObserver);
+            }
+        } catch (Throwable th) {
+            MktLog.e(TAG, "finalize(), unregister company contacts observer, error=" + th.toString());
+        }
+
+
+    }
+
+
+    protected void onCompanyContactsChanged() {
+        synchronized (this) {
+            if(!mHasStarted) {
+                return;
+            }
+        }
+
+        sCompanyContactService.execute(new Runnable() {
+            @Override
+            public void run() {
+                mCompanyContactsLoader.reloadContacts();
+                onContactChangedForUIUpdate();
+            }
+        });
+    }
+
+    public void onDeviceContactsChanged() {
+        try{
+            MktLog.d(TAG, "device contact changed, need to reload later!");
+            if(mDeviceContactsLoader != null) {
+                mDeviceContactsLoader.setIfNeedToReload(true);
+            }
+        }catch (Throwable th) {
+            MktLog.e(TAG, "device contact observer, error=" + th.toString());
+        }
+    }
+
+
+    private ContentObserver mDeviceContactObserver = new ContentObserver(new Handler()) {
+        @Override
+        public boolean deliverSelfNotifications() {
+            return true;
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            onDeviceContactsChanged();
+        }
+    };
 
 
 }
