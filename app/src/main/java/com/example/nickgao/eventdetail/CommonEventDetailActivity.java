@@ -49,7 +49,6 @@ import com.example.nickgao.contacts.adapters.contactsprovider.DeviceContact;
 import com.example.nickgao.eventdetail.EventDetailUtils.EventDetailContactInfo;
 import com.example.nickgao.logging.LogSettings;
 import com.example.nickgao.logging.MktLog;
-import com.example.nickgao.utils.ActivityUtils;
 import com.example.nickgao.utils.ChromeHelper;
 import com.example.nickgao.utils.DateUtils;
 import com.example.nickgao.utils.LabelsUtils;
@@ -64,7 +63,7 @@ import java.util.Date;
  * Created by nick.gao on 1/30/17.
  */
 
-public class CommonEventDetailActivity extends Activity implements EventDetailBase.OnContactInfoChangedListener,EventDetailBase.OnEditListener, EventDetailBase.OnImportListener{
+public class CommonEventDetailActivity extends Activity implements EventDetailBase.OnBackListener,EventDetailBase.OnContactInfoChangedListener,EventDetailBase.OnEditListener, EventDetailBase.OnImportListener{
 
 
     private static final String TAG = "[RC]CommonEventDetailActivity";
@@ -167,6 +166,10 @@ public class CommonEventDetailActivity extends Activity implements EventDetailBa
                 break;
         }
         isNeedBoldFirstNumber = false;
+
+        mEventDetail.setOnBackListener(CommonEventDetailActivity.this);
+        mEventDetail.setOnContactInfoChangedListener(CommonEventDetailActivity.this);
+
     }
 
     private ContactObserver mContactObserver = new ContactObserver();
@@ -962,5 +965,10 @@ public class CommonEventDetailActivity extends Activity implements EventDetailBa
         } catch (Exception e) {
             MktLog.e(TAG, "onResume() : " + e.getMessage());
         }
+    }
+
+    @Override
+    public void onBack() {
+        finish();
     }
 }

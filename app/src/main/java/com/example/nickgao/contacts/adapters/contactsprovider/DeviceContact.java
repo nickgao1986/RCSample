@@ -7,6 +7,8 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 
 import com.example.nickgao.androidsample11.ContactsUtils;
+import com.example.nickgao.eventdetail.CommonEventDetailActivity;
+import com.example.nickgao.eventdetail.ViewPersonalContact;
 import com.example.nickgao.service.model.contact.Address;
 
 import java.util.ArrayList;
@@ -45,11 +47,11 @@ public class DeviceContact extends Contact {
 
     @Override
     public Intent getDetailsActivityIntent(Context context) {
-//        Intent intent = new Intent();
-//        intent.putExtra(ViewPersonalContact.PERSONAL_ID, String.valueOf(mContactId));
-//        intent.putExtra(ViewPersonalContact.DISPLAY_NAME, getDisplayName());
-//        intent.setClass(context, CommonEventDetailActivity.class);
-        return null;
+        Intent intent = new Intent();
+        intent.putExtra(ViewPersonalContact.PERSONAL_ID, String.valueOf(mContactId));
+        intent.putExtra(ViewPersonalContact.DISPLAY_NAME, getDisplayName());
+        intent.setClass(context, CommonEventDetailActivity.class);
+        return intent;
     }
 
     @Override

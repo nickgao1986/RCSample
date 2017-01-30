@@ -22,16 +22,15 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.example.nickgao.R;
+import com.example.nickgao.contacts.ContactOperator;
 import com.example.nickgao.contacts.adapters.contactsprovider.CombinedContactsAdapter;
 import com.example.nickgao.contacts.adapters.contactsprovider.Contact;
 import com.example.nickgao.contacts.adapters.contactsprovider.ContactEditActivity;
 import com.example.nickgao.contacts.adapters.contactsprovider.ContactListItem;
 import com.example.nickgao.contacts.adapters.contactsprovider.ContactsProvider;
-import com.example.nickgao.contacts.adapters.contactsprovider.DeviceContact;
 import com.example.nickgao.contacts.adapters.contactsprovider.DisplayContactsProviderUtils;
 import com.example.nickgao.database.CurrentUserSettings;
 import com.example.nickgao.eventdetail.CommonEventDetailActivity;
-import com.example.nickgao.eventdetail.ViewPersonalContact;
 import com.example.nickgao.logging.MktLog;
 import com.example.nickgao.rcproject.RingCentralApp;
 import com.example.nickgao.titlebar.DropDownItem;
@@ -447,19 +446,13 @@ public class ContactsFragment extends BaseContactsFragment implements RCMainTitl
         if (contact == null) {
             return;
         }
-//        ContactOperator.getContactsOperator(contact, mActivity)
-//                .viewDetails(
-//                        CommonEventDetailActivity.VIEW_PERSONAL_CONTACT,
-//                        getEventDetailName(RCMConstants.FROM_RIGHT_ARROW_BUTTON),
-//                        RCMConstants.COMPANY_FROM_CONTACT_LIST);
+        ContactOperator.getContactsOperator(contact, mActivity)
+                .viewDetails(
+                        CommonEventDetailActivity.VIEW_PERSONAL_CONTACT,
+                        null,
+                        RCMConstants.COMPANY_FROM_CONTACT_LIST);
 
-        Intent intent = new Intent();
-        intent.putExtra(ViewPersonalContact.PERSONAL_ID, String.valueOf(((DeviceContact) contact).getContactId()));
-        intent.putExtra(ViewPersonalContact.DISPLAY_NAME, ((DeviceContact) contact).getDisplayName());
-        intent.setClass(mActivity, CommonEventDetailActivity.class);
-        intent.putExtra(RCMConstants.EXTRA_EVENT_DETAIL_TYPE, CommonEventDetailActivity.VIEW_PERSONAL_CONTACT);
-        intent.putExtra(RCMConstants.EXTRA_CONTACT_TYPE_FROM, Contact.ContactType.DEVICE.ordinal());
-        mActivity.startActivity(intent);
+
 
     }
 }

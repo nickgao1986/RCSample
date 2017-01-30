@@ -7,7 +7,8 @@ import android.net.Uri;
 import android.text.TextUtils;
 
 import com.example.nickgao.R;
-import com.example.nickgao.logging.MktLog;
+import com.example.nickgao.eventdetail.CommonEventDetailActivity;
+import com.example.nickgao.eventdetail.ViewCloudPersonalContact;
 import com.example.nickgao.rcproject.RingCentralApp;
 import com.example.nickgao.service.model.contact.Address;
 
@@ -482,10 +483,9 @@ public class CloudPersonalContact extends Contact {
     @Override
     public Intent getDetailsActivityIntent(Context context) {
         Intent intent = new Intent();
-        //// FIXME: 1/29/17
-//        intent.putExtra(ViewCloudPersonalContact.PERSONAL_ID, getId());
-//        intent.putExtra(ViewCloudPersonalContact.DISPLAY_NAME, getDisplayName());
-//        intent.setClass(context, CommonEventDetailActivity.class);
+        intent.putExtra(ViewCloudPersonalContact.PERSONAL_ID, getId());
+        intent.putExtra(ViewCloudPersonalContact.DISPLAY_NAME, getDisplayName());
+        intent.setClass(context, CommonEventDetailActivity.class);
         return intent;
     }
 
