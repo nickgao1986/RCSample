@@ -1268,4 +1268,31 @@ public class CloudPersonalContactLoader extends ContactsLoader{
         }
     }
 
+    public void replaceWithServerContactId(long localId, long serverId) {
+        CloudPersonalContact contact = (CloudPersonalContact) getContact(localId, true);
+        acquireWriteLock();
+        try {
+            if(contact != null) {
+                contact.setId(serverId);
+                mCacheContacts.remove(localId);
+                mCacheContacts.put(serverId, contact);
+                List<Contact.TypeValue> phoneList;
+                phoneList = contact.getE164PhoneNumbers();
+                if(phoneList != null) {
+                    for (Contact.TypeValue typeValue : phoneList) {
+                        mCacheNumbers.put(typeValue.getValue(), contact.getId());
+                    }
+                }
+
+                mTempContactIds.put(localId, serverId);
+            }
+        } catch (Throwable th) {
+            MktLog.e(TAG, "replaceWithServerContactId error=" + th.toString());
+        }finally {
+            releaseWriteLock();
+        }
+    }
+
+
+
 }

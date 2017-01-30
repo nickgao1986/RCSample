@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/conversation_between"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginLeft="@dimen/default_button_margin_left_right"
+    android:layout_marginRight="@dimen/default_button_margin_left_right">
+
+    <TextView
+        android:id="@+id/between_information_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/conversation_between"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/event_detail_title_info_size"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/between_information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/event_detail_title_info_size"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/blocked_number_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/event_detail_title_info_size"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/event_detail_title_info_size"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/toField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/event_detail_title_info_size"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/event_detail_title_info_size"
+        android:visibility="gone" />
+
+</LinearLayout>

@@ -18,7 +18,10 @@ import android.text.TextUtils;
 import com.example.nickgao.contacts.adapters.contactsprovider.CloudPersonalContact;
 import com.example.nickgao.contacts.adapters.contactsprovider.CloudPersonalContactInfo;
 import com.example.nickgao.contacts.adapters.contactsprovider.Contact;
+import com.example.nickgao.contacts.adapters.contactsprovider.ContactsProvider;
+import com.example.nickgao.contacts.adapters.contactsprovider.DeviceContact;
 import com.example.nickgao.logging.MktLog;
+import com.example.nickgao.service.model.contact.Address;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -377,5 +380,326 @@ public class ContactsUtils {
 		return phones;
 	}
 
+	public static class TranslateResult {
+		public static final int PHONE_OUT_OF_ARRANGE = 0x0001;
+		public static final int EMAIL_OUT_OF_ARRANGE = 0x0010;
+		public static final int ADDRESS_OUT_OF_ARRANGE = 0x0100;
+		public static final int WEBPAGE_OUT_OF_ARRANGE = 0x1000;
+		public int flag = 0;
+	}
+
+
+
+	public static CloudPersonalContact translateDeviceContactToCloud(long contactId, TranslateResult result) {
+		CloudPersonalContact cloudContact = null;
+		Contact contact = ContactsProvider.getInstance().getContact(Contact.ContactType.DEVICE, contactId, true);
+		if(contact != null) {
+			DeviceContact deviceContact = (DeviceContact)contact;
+			cloudContact = new CloudPersonalContact(CloudPersonalContact.CloudContactType.LOCAL, CloudPersonalContact.getLocalContactId(),
+					deviceContact.getDisplayName(),
+					//When import a device contact to cloud, if current contact doesn't have any one of those four fields: Add "display name" into the "first name" field.
+					validate(deviceContact.getFirstName(), deviceContact.getMiddleName(), deviceContact.getCompany(), deviceContact.getE164PhoneNumbers())? deviceContact.getFirstName() : deviceContact.getDisplayName(),
+					deviceContact.getMiddleName(), deviceContact.getLastName(), deviceContact.getNickName(),
+					deviceContact.getCompany(), deviceContact.getJobTitle());
+			cloudContact.setBirthday(deviceContact.getBirthday());
+
+			//set web page
+			List<String> webPages = deviceContact.getWebPages();
+			int sizeOfWebPage = webPages.size();
+			if(sizeOfWebPage > 0) {
+				cloudContact.addWebPage(webPages.get(0));
+				if(sizeOfWebPage > 1) {
+					result.flag |= TranslateResult.WEBPAGE_OUT_OF_ARRANGE;
+				}
+			}
+
+			cloudContact.setNotes(deviceContact.getNotes());
+
+			//map to cloud contact phone type
+			List<Contact.TypeValue> deviceOriginalPhones = deviceContact.getOriginalPhoneNumbers();
+			List<String> restPhones = new ArrayList<>();
+			CloudPhoneManager cloudPhoneManager = new CloudPhoneManager();
+			StringArray currentPhones;
+
+            /*
+            List<Contact.TypeValue> validateDevicePhones = new ArrayList<>();
+            for (Contact.TypeValue phone : deviceOriginalPhones) {
+                //normalize phone number
+                String phoneNumber = phoneNumberNormalize(phone.getValue());
+                if(!TextUtils.isEmpty(phoneNumber)) {
+                    validateDevicePhones.add(phone);
+                }
+            }*/
+
+			for (Contact.TypeValue phone : deviceOriginalPhones) {
+				switch (phone.getType()) {
+					case ContactsContract.CommonDataKinds.Phone.TYPE_HOME:
+						currentPhones = cloudPhoneManager.homePhones;
+						break;
+					case ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE:
+						currentPhones = cloudPhoneManager.mobilePhones;
+						break;
+					case ContactsContract.CommonDataKinds.Phone.TYPE_WORK:
+					case ContactsContract.CommonDataKinds.Phone.TYPE_WORK_MOBILE:
+						currentPhones = cloudPhoneManager.businessPhones;
+						break;
+					case ContactsContract.CommonDataKinds.Phone.TYPE_FAX_WORK:
+					case ContactsContract.CommonDataKinds.Phone.TYPE_FAX_HOME:
+						currentPhones = cloudPhoneManager.faxPhones;
+						break;
+					case ContactsContract.CommonDataKinds.Phone.TYPE_ASSISTANT:
+						currentPhones = cloudPhoneManager.assistantPhones;
+						break;
+					case ContactsContract.CommonDataKinds.Phone.TYPE_CAR:
+						currentPhones = cloudPhoneManager.carPhones;
+						break;
+					case ContactsContract.CommonDataKinds.Phone.TYPE_COMPANY_MAIN:
+						currentPhones = cloudPhoneManager.companyPhones;
+						break;
+					case ContactsContract.CommonDataKinds.Phone.TYPE_PAGER:
+					case ContactsContract.CommonDataKinds.Phone.TYPE_OTHER:
+					case ContactsContract.CommonDataKinds.Phone.TYPE_CALLBACK:
+					case ContactsContract.CommonDataKinds.Phone.TYPE_ISDN:
+					case ContactsContract.CommonDataKinds.Phone.TYPE_MAIN:
+					case ContactsContract.CommonDataKinds.Phone.TYPE_OTHER_FAX:
+					case ContactsContract.CommonDataKinds.Phone.TYPE_RADIO:
+					case ContactsContract.CommonDataKinds.Phone.TYPE_TELEX:
+					case ContactsContract.CommonDataKinds.Phone.TYPE_TTY_TDD:
+					case ContactsContract.CommonDataKinds.Phone.TYPE_WORK_PAGER:
+					case ContactsContract.CommonDataKinds.Phone.TYPE_MMS:
+					default:
+						currentPhones = cloudPhoneManager.otherPhones;
+						break;
+				}
+
+				if(!currentPhones.addData(phone.getValue())) {
+					restPhones.add(phone.getValue());
+				}
+			}
+
+			List<Contact.TypeValue> cloudOriginalPhones = addUnorderedPhones(cloudPhoneManager, restPhones, false);
+			if(deviceOriginalPhones.size() > cloudOriginalPhones.size()) {
+				result.flag |= TranslateResult.PHONE_OUT_OF_ARRANGE;
+			}
+
+			cloudContact.setOriginalPhoneNumbers(cloudOriginalPhones);
+			cloudContact.setE164PhoneNumbers(cloudOriginalPhones);
+
+			//email type map, no rule
+			List<Contact.TypeValue> deviceEmails = deviceContact.getEmailAddressList();
+			List<Contact.TypeValue> validateDeviceEmails = new ArrayList<>();
+			for(Contact.TypeValue email : deviceEmails) {
+				//filter invalid email address
+				if(validateEmail(email.getValue())) {
+					validateDeviceEmails.add(email);
+				}
+			}
+
+			List<Contact.TypeValue> cloudEmails = new ArrayList<>();
+			CloudPersonalContact.EmailType[] emailTypes = CloudPersonalContact.EmailType.values();
+			for(int i = 0; i< emailTypes.length && i < validateDeviceEmails.size(); i++) {
+				//filter invalid email address
+				cloudEmails.add(new Contact.TypeValue(emailTypes[i].ordinal(), validateDeviceEmails.get(i).getValue()));
+			}
+
+			if(validateDeviceEmails.size() > cloudEmails.size()) {
+				result.flag |= TranslateResult.EMAIL_OUT_OF_ARRANGE;
+			}
+			cloudContact.setEmails(cloudEmails);
+
+			//address type map
+			List<Contact.TypeAddress> deviceAddresses = deviceContact.getAddresses();
+			List<Contact.TypeAddress> validateDeviceAddress = new ArrayList<>();
+			for(Contact.TypeAddress address : deviceAddresses) {
+				//filter invalid email address
+				//1, remove invalid char
+				Address a = new Address(address.getValue().getCountry(), address.getValue().getState(), address.getValue().getCity(),
+						address.getValue().getStreet(), getValidZipCode(address.getValue().getZip()) );
+				if(!TextUtils.isEmpty(a.toString())) {
+					validateDeviceAddress.add(new Contact.TypeAddress(address.getType(), a));
+				}
+
+			}
+			List<Contact.TypeAddress> restAddresses = new ArrayList<>();
+			List<Contact.TypeAddress> cloudAddresses = new ArrayList<>();
+			AddressArray homeAddress = new AddressArray(CloudPersonalContact.HOME_ADDRESS_SIZE);
+			AddressArray workAddress = new AddressArray(CloudPersonalContact.WORK_ADDRESS_SIZE);
+			AddressArray otherAddress = new AddressArray(CloudPersonalContact.OTHER_ADDRESS_SIZE);
+			AddressArray currentAddress;
+			for(int i= 0; i < validateDeviceAddress.size(); i++) {
+				Contact.TypeAddress address = validateDeviceAddress.get(i);
+				switch (address.getType()) {
+					case ContactsContract.CommonDataKinds.StructuredPostal.TYPE_HOME:
+						currentAddress = homeAddress;
+						break;
+					case ContactsContract.CommonDataKinds.StructuredPostal.TYPE_WORK:
+						currentAddress = workAddress;
+						break;
+					case ContactsContract.CommonDataKinds.StructuredPostal.TYPE_OTHER:
+						currentAddress = otherAddress;
+						break;
+					default:
+						currentAddress = otherAddress;
+						break;
+				}
+
+				if(!currentAddress.addData(address)) {
+					restAddresses.add(address);
+				}
+			}
+
+			for (Contact.TypeAddress address : restAddresses) {
+				if(homeAddress.addData(address)) {
+					continue;
+				}
+
+				if(workAddress.addData(address)) {
+					continue;
+				}
+
+				if(otherAddress.addData(address)) {
+					continue;
+				}
+			}
+
+			List<Contact.TypeAddress> listAddress = homeAddress.getData();
+			for(int i=0; i< listAddress.size(); i++ ) {
+				cloudAddresses.add(new Contact.TypeAddress(CloudPersonalContact.ADDRESS_TYPE_HOME[i], listAddress.get(i).getValue()));
+			}
+
+			listAddress = workAddress.getData();
+			for(int i=0; i< listAddress.size(); i++ ) {
+				cloudAddresses.add(new Contact.TypeAddress(CloudPersonalContact.ADDRESS_TYPE_WORK[i], listAddress.get(i).getValue()));
+			}
+
+			listAddress = otherAddress.getData();
+			for(int i=0; i< listAddress.size(); i++ ) {
+				cloudAddresses.add(new Contact.TypeAddress(CloudPersonalContact.ADDRESS_TYPE_OTHER[i], listAddress.get(i).getValue()));
+			}
+
+			if(validateDeviceAddress.size() > cloudAddresses.size()) {
+				result.flag |= TranslateResult.ADDRESS_OUT_OF_ARRANGE;
+			}
+			cloudContact.setAddress(cloudAddresses);
+			cloudContact.generateDisplayName();
+		}
+		return cloudContact;
+	}
+
+
+	public static class CloudPhoneManager {
+		StringArray mobilePhones = new StringArray(CloudPersonalContact.MOBILE_PHONE_SIZE);
+		StringArray businessPhones = new StringArray(CloudPersonalContact.BUSINESS_PHONE_SIZE);
+		StringArray homePhones = new StringArray(CloudPersonalContact.HOME_PHONE_SIZE);
+		StringArray companyPhones = new StringArray(CloudPersonalContact.COMPANY_PHONE_SIZE);
+		StringArray faxPhones = new StringArray(CloudPersonalContact.FAX_PHONE_SIZE);
+		StringArray assistantPhones = new StringArray(CloudPersonalContact.ASSISTANT_PHONE_SIZE);
+		StringArray carPhones = new StringArray(CloudPersonalContact.CAR_PHONE_SIZE);
+		StringArray otherPhones = new StringArray(CloudPersonalContact.OTHER_PHONE_SIZE);
+		public CloudPhoneManager() {}
+	}
+
+
+	public static String phoneNumberNormalize(String source) {
+		if(TextUtils.isEmpty(source)) {
+			return "";
+		}
+
+		return phoneNumberNormalize(source, 0, source.length());
+	}
+
+	private static List<Contact.TypeValue> addUnorderedPhones(CloudPhoneManager cloudPhoneManager, List<String> phoneNumbers, boolean isFax) {
+		List<Contact.TypeValue> cloudPhones = new ArrayList<>();
+		for (String phone : phoneNumbers) {
+			phone = phoneNumberNormalize(phone);
+			if(TextUtils.isEmpty(phone)) {
+				continue;
+			}
+
+			//when is fax, it will get the highest priority
+			if(isFax) {
+				if(cloudPhoneManager.faxPhones.addData(phone)) {
+					continue;
+				}
+			}
+
+			if(cloudPhoneManager.mobilePhones.addData(phone)) {
+				continue;
+			}
+
+			if(cloudPhoneManager.businessPhones.addData(phone)) {
+				continue;
+			}
+
+			if(cloudPhoneManager.homePhones.addData(phone)) {
+				continue;
+			}
+
+			if(cloudPhoneManager.companyPhones.addData(phone)) {
+				continue;
+			}
+
+			if(!isFax) {
+				if (cloudPhoneManager.faxPhones.addData(phone)) {
+					continue;
+				}
+			}
+
+			if(cloudPhoneManager.assistantPhones.addData(phone)) {
+				continue;
+			}
+
+			if(cloudPhoneManager.carPhones.addData(phone)) {
+				continue;
+			}
+
+			if(cloudPhoneManager.otherPhones.addData(phone)) {
+				continue;
+			}
+		}
+
+		//map to cloud contact phone type
+		List<String> phoneList = cloudPhoneManager.mobilePhones.getData();
+		for(int i=0; i< phoneList.size(); i++ ) {
+			cloudPhones.add(new Contact.TypeValue(CloudPersonalContact.PHONE_TYPE_MOBILE[i], phoneList.get(i)));
+		}
+
+		phoneList = cloudPhoneManager.businessPhones.getData();
+		for(int i=0; i< phoneList.size(); i++ ) {
+			cloudPhones.add(new Contact.TypeValue(CloudPersonalContact.PHONE_TYPE_BUSINESS[i], phoneList.get(i)));
+		}
+
+		phoneList = cloudPhoneManager.homePhones.getData();
+		for(int i=0; i< phoneList.size(); i++ ) {
+			cloudPhones.add(new Contact.TypeValue(CloudPersonalContact.PHONE_TYPE_HOME[i], phoneList.get(i)));
+		}
+
+		phoneList = cloudPhoneManager.companyPhones.getData();
+		for(int i=0; i< phoneList.size(); i++ ) {
+			cloudPhones.add(new Contact.TypeValue(CloudPersonalContact.PHONE_TYPE_COMPANY[i], phoneList.get(i)));
+		}
+
+		phoneList = cloudPhoneManager.faxPhones.getData();
+		for(int i=0; i< phoneList.size(); i++ ) {
+			cloudPhones.add(new Contact.TypeValue(CloudPersonalContact.PHONE_TYPE_FAX[i], phoneList.get(i)));
+		}
+
+		phoneList = cloudPhoneManager.assistantPhones.getData();
+		for(int i=0; i< phoneList.size(); i++ ) {
+			cloudPhones.add(new Contact.TypeValue(CloudPersonalContact.PHONE_TYPE_ASSISTANT[i], phoneList.get(i)));
+		}
+
+		phoneList = cloudPhoneManager.carPhones.getData();
+		for(int i=0; i< phoneList.size(); i++ ) {
+			cloudPhones.add(new Contact.TypeValue(CloudPersonalContact.PHONE_TYPE_CAR[i], phoneList.get(i)));
+		}
+
+		phoneList = cloudPhoneManager.otherPhones.getData();
+		for(int i=0; i< phoneList.size(); i++ ) {
+			cloudPhones.add(new Contact.TypeValue(CloudPersonalContact.PHONE_TYPE_OTHER[i], phoneList.get(i)));
+		}
+
+		return cloudPhones;
+	}
 
 }

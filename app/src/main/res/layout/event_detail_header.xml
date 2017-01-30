@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2012, RingCentral, Inc. All Rights Reserved. -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:id="@+id/photo_view_panel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/default_button_margin_left_right">
+
+        <ImageView
+            android:id="@+id/top_photo_view"
+            android:layout_width="@dimen/event_detail_avatar_width"
+            android:layout_height="@dimen/event_detail_avatar_height"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_event_photo_default"
+            />
+
+        <ImageView
+            android:id="@+id/presence_imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="6dp"
+            android:src="@drawable/icon_online"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <ImageButton
+        android:id="@+id/favoritebtn"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/default_button_margin_left_right"
+        android:layout_marginRight="@dimen/default_button_margin_left_right"
+        android:src="@drawable/contact_detail_fav_yes_selector"
+        android:background="@null" />
+
+
+    <LinearLayout
+        android:layout_weight="1.0"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/event_detail_header_text_margin_left"
+        android:layout_marginRight="@dimen/event_detail_header_text_margin_left"
+        android:layout_toRightOf="@id/photo_view_panel"
+        android:layout_toLeftOf="@id/favoritebtn"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_main"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textSize="@dimen/event_detail_title_name_size" />
+
+        <TextView
+            android:id="@+id/contact_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/event_detail_title_info_size"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/contact_company_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/event_detail_title_info_size"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/contact_department"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/event_detail_title_info_size"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/event_detail_title_info_size"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</RelativeLayout>

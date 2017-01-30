@@ -708,6 +708,7 @@ public class RCMProvider extends ContentProvider {
             case FW_NUMBERS_ID_MATCH:
                 return RCMDataStore.FwNumbersTable.getInstance().getName();
 
+            case PHONE_NUMBERS_PROCESS_OPT_MATCH:
             case PHONE_NUMBERS_MATCH:
             case PHONE_NUMBERS_WITHOUT_MAILBOXID_MATCH:
             case PHONE_NUMBERS_ID_MATCH:
@@ -716,9 +717,10 @@ public class RCMProvider extends ContentProvider {
             case BLOCKED_NUMBERS_MATCH:
             case BLOCKED_NUMBERS_ID_MATCH:
                 return RCMDataStore.BlockedNumbersTable.getInstance().getName();
-                
+
             case EXTENSIONS_MATCH:
             case EXTENSIONS_ID_MATCH:
+            case EXTENSIONS_REFRESH_OPT_MATCH:
                 return RCMDataStore.ExtensionsTable.getInstance().getName();
 
             case FAVORITES_MATCH:
@@ -728,19 +730,19 @@ public class RCMProvider extends ContentProvider {
             case CALL_LOG_MATCH:
             case CALL_LOG_ID_MATCH:
                 return RCMDataStore.CallLogTable.getInstance().getName();
-                
+
             case CALL_LOG_TOKEN_MATCH:
             case CALL_LOG_TOKEN_ID_MATCH:
-            	return RCMDataStore.CallLogTokenTable.getInstance().getName();
+                return RCMDataStore.CallLogTokenTable.getInstance().getName();
 
             case MESSAGES_MATCH:
             case MESSAGES_ID_MATCH:
                 return RCMDataStore.MessagesTable.getInstance().getName();
-                
+
             case MESSAGE_RECIPIENTS_MATCH:
             case MESSAGE_RECIPIENTS_ID_MATCH:
                 return RCMDataStore.MessageRecipientsTable.getInstance().getName();
-                
+
             case MESSAGE_LIST_MATCH:
             case MESSAGE_LIST_ID_MATCH:
                 return RCMDataStore.MessageListTable.getInstance().getName();
@@ -751,7 +753,12 @@ public class RCMProvider extends ContentProvider {
 
             case MESSAGE_DRAFT_MATCH:
                 return RCMDataStore.MessageDraftTable.getInstance().getName();
-
+            case VersionControlTable_MATCH:
+            case VersionControlTable_ID_MATCH:
+                return RCMDataStore.VersionControlTable.getInstance().getName();
+            case LANGUAGE_TABLE_MATCH:
+            case LANGUAGE_TABLE_ID_MATCH:
+                return RCMDataStore.LanguagesTable.getInstance().getName();
             case SYNC_STATUS_MATCH:
             case LOGIN_STATUS_MATCH:
             case LOGIN_LASTSYNC_MATCH:
@@ -767,48 +774,50 @@ public class RCMProvider extends ContentProvider {
             case MISSED_CALL_LOGS_ERROR_MATCH:
                 return RCMDataStore.SyncStatusTable.getInstance().getName();
             case APP_CONFIG_MATCH:
-            	return RCMDataStore.AppConfigTable.getInstance().getName();
+                return RCMDataStore.AppConfigTable.getInstance().getName();
 
             case CONFERENCE_INFO_ID_MATCH:
             case CONFERENCE_INFO_MATCH:
-            	return RCMDataStore.ConferenceInfoTable.getInstance().getName();
-            	
+                return RCMDataStore.ConferenceInfoTable.getInstance().getName();
+
             case MOBILE_WEB_ENHANCE_URL_PARAMETER_MATCH:
             case MOBILE_WEB_ENHANCE_URL_PARAMETER_ID_MATCH:
-            	return RCMDataStore.MobileWebEnhanceURLParamTable.getInstance().getName();
-            	
-            	
+                return RCMDataStore.MobileWebEnhanceURLParamTable.getInstance().getName();
+
             case CLOUD_STORAGE_DROPBOX_MATCH:
                 return RCMDataStore.CloudStorageDropBoxTable.getInstance().getName();
             case CLOUD_STORAGE_BOX_MATCH:
                 return RCMDataStore.CloudStorageBoxTable.getInstance().getName();
             case DID_FAVORITE_MATCH:
             case DID_FAVORITE_ID_MATCH:
-            	return RCMDataStore.DIDFavoriteTable.getInstance().getName();
+                return RCMDataStore.DIDFavoriteTable.getInstance().getName();
             case CLOUD_STORAGE_GOOGLE_DRIVE_MATCH:
                 return RCMDataStore.CloudStorageGoogleDriveTable.getInstance().getName();
-             
+
+            case CONTACT_PERSONAL_GROUP_MATCH:
+                return RCMDataStore.ContactPersonalGroupTable.getInstance().getName();
+
             case FORWARDING_NUMBER_MATCH:
                 return RCMDataStore.ForwardingNumberTable.getInstance().getName();
-            
+
             case SPECIAL_NUMBER_MATCH:
-            	return RCMDataStore.SpecialNumberTable.getInstance().getName();
-               
+                return RCMDataStore.SpecialNumberTable.getInstance().getName();
+
             case OUTBOX_MATCH:
             case OUTBOX_ID_MATCH:
-            	return RCMDataStore.RCMOutboxTable.getInstance().getName();
-            	
+                return RCMDataStore.RCMOutboxTable.getInstance().getName();
+
             case ATTACHMENT_MATCH:
             case ATTACHMENT_ID_MATCH:
-            	return RCMDataStore.RCMAttachmentTable.getInstance().getName();
-            	
+                return RCMDataStore.RCMAttachmentTable.getInstance().getName();
+
             case OUTBOX_TO_PHONE_MATCH:
             case OUTBOX_TO_PHONE_ID_MATCH:
-            	return RCMDataStore.RCMOutboxToPhoneTable.getInstance().getName();
-            	
+                return RCMDataStore.RCMOutboxToPhoneTable.getInstance().getName();
+
             case OUTBOX_ATTACHMENT_MATCH:
             case OUTBOX_ATTACHMENT_ID_MATCH:
-            	return RCMDataStore.RCMAttOutboxTable.getInstance().getName();
+                return RCMDataStore.RCMAttOutboxTable.getInstance().getName();
 
             case PRESENCE_MATCH:
             case PRESENCE_ID_MATCH:
@@ -817,6 +826,37 @@ public class RCMProvider extends ContentProvider {
             case CONTACT_GROUP_MATCH:
             case CONTACT_GROUP_ID_MATCH:
                 return RCMDataStore.ContactGroupTable.getInstance().getName();
+            case ClientInfoTable_MATCH:
+            case ClientInfoTable_ID_MATCH:
+                return RCMDataStore.ClientInfoTable.getInstance().getName();
+            case DIALING_PLANS_TABLE_MATCH:
+                return RCMDataStore.DialingPlansTable.getInstance().getName();
+            case PERSONAL_CONTACTS_MATCH:
+            case PERSONAL_CONTACTS_ISYNC_DELETE_MATCH:
+                return RCMDataStore.PersonalContactsTable.getInstance().getName();
+            //case TEMP_NEW_PERSONAL_CONTACTS_MATCH:
+            //    return RCMDataStore.TempNewPersonalContactsTable.getInstance().getName();
+            case PERMISSION_ID_MATCH:
+            case PERMISSION_MATCH:
+                return RCMDataStore.PermissionsTable.getInstance().getName();
+            case PERSONAL_PHONE_NUMBER_MATCH:
+            case PERSONAL_PHONE_NUMBER_ISYNC_DELETE_MATCH:
+                return RCMDataStore.PersonalPhoneNumberTable.getInstance().getName();
+            case PERSONAL_EMAIL_MATCH:
+            case PERSONAL_EMAIL_ISYNC_DELETE_MATCH:
+                return RCMDataStore.PersonalEmailTable.getInstance().getName();
+            case PERSONAL_ADDRESS_MATCH:
+            case PERSONAL_ADDRESS_ISYNC_DELETE_MATCH:
+                return RCMDataStore.PersonalAddressTable.getInstance().getName();
+            case CLOUD_FAVORITES_MATCH:
+            case CLOUD_FAVORITES_ID_MATCH:
+                return RCMDataStore.CloudFavoritesTable.getInstance().getName();
+            case CALENDAR_EVENT_ALERT_MATCH:
+                return  RCMDataStore.CalendarEventAlertTable.getInstance().getName();
+            case ACCOUNT_BADGE_MATCH:
+                return RCMDataStore.AccountBadgeTable.getInstance().getName();
+            case BLF_LIST_MATCH:
+                return RCMDataStore.BLFListTable.getInstance().getName();
             default:
                 throw new Error(TAG + " No table defined for #" + uri_match);
         }

@@ -115,9 +115,9 @@ public abstract class ContactsLoader {
         Contact temp = mCacheContacts.get(id);
         if (copy && temp != null) {
             switch (temp.getType()) {
-//                case CLOUD_PERSONAL:
-//                    result = new CloudPersonalContact();
-//                    break;
+                case CLOUD_PERSONAL:
+                    result = new CloudPersonalContact();
+                    break;
 //                case CLOUD_COMPANY:
 //                    result = new CompanyContact();
 //                    break;

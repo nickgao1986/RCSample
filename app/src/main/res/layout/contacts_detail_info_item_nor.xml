@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/email_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/event_detail_margin_top"
+    android:paddingTop="@dimen/event_detail_margin_top"
+    android:orientation="vertical"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="@dimen/contact_detail_phone_type_width"
+        android:ellipsize="end"
+        android:duplicateParentState="true"
+        android:focusable="true"
+        android:maxLines="1"
+        android:textColor="@color/known_contact_phone_label_text"
+        android:textSize="@dimen/view_contact_phone_size" />
+
+    <TextView
+        android:id="@+id/value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:duplicateParentState="true"
+        android:gravity="left|center_vertical"
+        android:text=""
+        android:textColor="@color/contact_detail_char_color"
+        android:textSize="@dimen/view_contact_phone_size" />
+
+</LinearLayout>

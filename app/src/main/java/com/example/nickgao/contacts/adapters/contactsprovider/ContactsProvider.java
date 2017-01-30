@@ -239,7 +239,7 @@ public class ContactsProvider {
             @Override
             public void run() {
                 mPersonalContactsLoader.reloadContacts();
-               // onRemoveDuplicateContact();
+                onRemoveDuplicateContact();
             }
         });
 
@@ -247,7 +247,7 @@ public class ContactsProvider {
             @Override
             public void run() {
                 mDeviceContactsLoader.reloadContacts();
-               // onRemoveDuplicateContact();
+                onRemoveDuplicateContact();
             }
         });
 
@@ -359,6 +359,11 @@ public class ContactsProvider {
         return null;
     }
 
+    public void replaceWithServerContactId(long localId, long serverId) {
+        mPersonalContactsLoader.replaceWithServerContactId(localId, serverId);
+    }
+
+
     public void deleteContactInCache(final long contactId, Contact.ContactType contactType) {
         switch (contactType) {
             case CLOUD_PERSONAL:
@@ -382,7 +387,7 @@ public class ContactsProvider {
                 if(CloudPersonalContactLoader.addContactToDB(contact)) {
                     //add contact to cache
                     mPersonalContactsLoader.addContactInCache(contact);
-                  //  onRemoveDuplicateContact();
+                    onRemoveDuplicateContact();
                 }
                 //send sync cmd
                 CloudContactSyncService.sendCommand(mContext, CloudContactSyncService.CONTACT_LOCAL_SYNC_TO_SERVER);
@@ -417,6 +422,13 @@ public class ContactsProvider {
             default:
                 break;
         }
+    }
+
+
+    public void onRemoveDuplicateContact() {
+        MktLog.d(TAG, "onRemoveDuplicateContact, begin");
+        onContactChangedForUIUpdate();
+        MktLog.d(TAG, "onRemoveDuplicateContact, end");
     }
 
 }

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/edit_contact_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/open_glip_layout"
+        android:fadingEdge="none">
+
+        <LinearLayout
+            android:id="@+id/contact_detail_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/event_detail_contact_information"
+                layout="@layout/event_detail_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_button_margin_left_right"/>
+
+
+            <include
+                android:id="@+id/event_detail_conversation_between"
+                layout="@layout/event_detail_conversation_between"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/default_button_margin_left_right"
+                android:layout_marginRight="@dimen/default_button_margin_left_right"
+                android:layout_marginTop="@dimen/event_detail_title_margin_top"/>
+
+            <include
+                layout="@layout/contacts_detail_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/event_detail_title_margin_top"/>
+
+            <View
+                android:id="@+id/send_fax_layout_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/default_button_margin_left_right"
+                android:background="@drawable/bg_list_item_divider"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/open_glip_layout"
+        android:layout_above="@+id/send_fax_layout"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/bottom_button_height"
+        android:layout_marginTop="@dimen/default_button_margin_top_bottom"
+        android:background="@drawable/bg_list_item_selector"
+        android:cacheColorHint="@color/transparentColor"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/bottom_button_height"
+            android:background="@drawable/contact_item_divider">
+
+            <LinearLayout
+                android:id="@+id/glip_right_side"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="@dimen/glip_open_icon_padding_right"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/glip_imgright"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="center"
+                    android:src="@drawable/ico_open_glip"/>
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/glip_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignWithParentIfMissing="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="18dp"
+                android:layout_toLeftOf="@id/glip_right_side"
+                android:ellipsize="end"
+                android:gravity="center_vertical|left"
+                android:paddingBottom="0dp"
+                android:singleLine="true"
+                android:text="@string/event_detail_open_glip"
+                android:textColor="@color/contact_detail_phone_related_color_pressed"
+                android:textSize="@dimen/font_size_medium"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/send_fax_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/bottom_button_height"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_list_item_selector"
+        android:cacheColorHint="@color/transparentColor"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/bottom_button_height"
+            android:background="@drawable/contact_item_divider">
+
+            <LinearLayout
+                android:id="@+id/right_side"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="@dimen/default_padding_to_side"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imgright"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="center"
+                    android:src="@drawable/detail_contact_fax_selector"/>
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignWithParentIfMissing="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="18dp"
+                android:layout_toLeftOf="@id/right_side"
+                android:ellipsize="end"
+                android:gravity="center_vertical|left"
+                android:paddingBottom="0dp"
+                android:maxLines="1"
+                android:text="@string/event_detail_send_a_fax"
+                android:textColor="@color/contact_detail_phone_related_color_pressed"
+                android:textSize="@dimen/font_size_medium"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

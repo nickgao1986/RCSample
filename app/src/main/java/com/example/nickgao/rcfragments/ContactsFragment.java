@@ -19,6 +19,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 
 import com.example.nickgao.R;
 import com.example.nickgao.contacts.adapters.contactsprovider.CombinedContactsAdapter;
@@ -26,9 +27,14 @@ import com.example.nickgao.contacts.adapters.contactsprovider.Contact;
 import com.example.nickgao.contacts.adapters.contactsprovider.ContactEditActivity;
 import com.example.nickgao.contacts.adapters.contactsprovider.ContactListItem;
 import com.example.nickgao.contacts.adapters.contactsprovider.ContactsProvider;
+import com.example.nickgao.contacts.adapters.contactsprovider.DeviceContact;
 import com.example.nickgao.contacts.adapters.contactsprovider.DisplayContactsProviderUtils;
 import com.example.nickgao.database.CurrentUserSettings;
+import com.example.nickgao.eventdetail.CommonEventDetailActivity;
+import com.example.nickgao.eventdetail.ViewPersonalContact;
 import com.example.nickgao.logging.MktLog;
+import com.example.nickgao.rcproject.RingCentralApp;
+import com.example.nickgao.titlebar.DropDownItem;
 import com.example.nickgao.titlebar.RCMainTitleBar;
 import com.example.nickgao.titlebar.RCTitleBarWithDropDownFilter;
 import com.example.nickgao.titlebar.RightDropDownManager;
@@ -370,7 +376,7 @@ public class ContactsFragment extends BaseContactsFragment implements RCMainTitl
         Tabs tab = getCurrentTab();
         switch (tab) {
             case ALL:
-                //showDropMenu();
+                showDropMenu();
                 return;
             case DEVICE:
                 tapAddToNewContact();
@@ -379,6 +385,19 @@ public class ContactsFragment extends BaseContactsFragment implements RCMainTitl
 
         throw new IllegalStateException("invalid tab: " + tab);
     }
+
+    private void showDropMenu() {
+        ArrayList<DropDownItem> mTopMenuList = new ArrayList<>();
+        mTopMenuList.add(new DropDownItem(RingCentralApp.getContextRC().getResources().getString(
+                R.string.menu_list_new_contact), MENU_LIST_NEW_CONTACT, 0));
+        mTopMenuList.add(new DropDownItem(RingCentralApp.getContextRC().getResources().getString(
+                R.string.menu_list_new_favorite), MENU_LIST_NEW_FAVORITE, 0));
+
+        mDropdownMenu.setDropDownItemList(mTopMenuList);
+        mDropdownMenu.showDialog(true, null);
+
+    }
+
 
     @Override
     public void onRightFirstButtonClicked() {
@@ -419,4 +438,28 @@ public class ContactsFragment extends BaseContactsFragment implements RCMainTitl
     }
 
 
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        if (position == 0) {
+            return;
+        }
+        Contact contact = getDisplayContact(position);
+        if (contact == null) {
+            return;
+        }
+//        ContactOperator.getContactsOperator(contact, mActivity)
+//                .viewDetails(
+//                        CommonEventDetailActivity.VIEW_PERSONAL_CONTACT,
+//                        getEventDetailName(RCMConstants.FROM_RIGHT_ARROW_BUTTON),
+//                        RCMConstants.COMPANY_FROM_CONTACT_LIST);
+
+        Intent intent = new Intent();
+        intent.putExtra(ViewPersonalContact.PERSONAL_ID, String.valueOf(((DeviceContact) contact).getContactId()));
+        intent.putExtra(ViewPersonalContact.DISPLAY_NAME, ((DeviceContact) contact).getDisplayName());
+        intent.setClass(mActivity, CommonEventDetailActivity.class);
+        intent.putExtra(RCMConstants.EXTRA_EVENT_DETAIL_TYPE, CommonEventDetailActivity.VIEW_PERSONAL_CONTACT);
+        intent.putExtra(RCMConstants.EXTRA_CONTACT_TYPE_FROM, Contact.ContactType.DEVICE.ordinal());
+        mActivity.startActivity(intent);
+
+    }
 }
