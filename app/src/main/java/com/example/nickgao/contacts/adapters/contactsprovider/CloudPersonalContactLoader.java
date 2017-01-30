@@ -1294,5 +1294,24 @@ public class CloudPersonalContactLoader extends ContactsLoader{
     }
 
 
+    @Override
+    protected Contact getContactById(Long id, boolean copy) {
+        Contact result;
+        Contact temp = mCacheContacts.get(id);
+        if(temp == null && CloudPersonalContact.isLocalContact(id)) {
+            Long serverContactId = mTempContactIds.get(id);
+            if(serverContactId != null) {
+                temp = mCacheContacts.get(serverContactId);
+            }
+        }
+        if (copy && temp != null) {
+            result = new CloudPersonalContact();
+            result.clone(temp);
+        } else {
+            result = temp;
+        }
+        return result;
+    }
+
 
 }

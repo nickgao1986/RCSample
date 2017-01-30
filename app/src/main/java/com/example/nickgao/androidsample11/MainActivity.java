@@ -18,7 +18,6 @@ import com.example.nickgao.network.RestSessionState;
 import com.example.nickgao.network.RestSessionStateChange;
 import com.example.nickgao.service.ServiceFactory;
 import com.example.nickgao.service.clientinfo.ClientInfoService;
-import com.example.nickgao.service.contact.ExtensionService;
 
 public class MainActivity extends Activity {
 
@@ -74,8 +73,8 @@ public class MainActivity extends Activity {
 					MktLog.d(TAG, "==mailboxId=" + mailboxId);
 					ContactsProvider.getInstance().start(mailboxId);
 
-					ExtensionService extensionService = (ExtensionService) ServiceFactory.getInstance().getService(ExtensionService.class.getName());
-					extensionService.updateExtension(context);
+//					ExtensionService extensionService = (ExtensionService) ServiceFactory.getInstance().getService(ExtensionService.class.getName());
+//					extensionService.updateExtension(context);
 
 					restClientInfo();
 				}

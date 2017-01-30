@@ -643,7 +643,7 @@ public class ContactEditActivity extends Activity implements HeaderViewBase.Head
 
     @Override
     public void onRightButtonClicked() {
-           //onSaveContact();
+           onSaveContact();
     }
 
     @Override
