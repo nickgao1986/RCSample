@@ -24,6 +24,7 @@ public class CurrentUserSettings extends AbstractDbSettings {
     private static final String SAVING_STATE_SHARED_PREF_NAME = BuildConfig.APPLICATION_ID + ".contacts.list";
     private static final String SAVING_STATE_SHARED_PREF_PARAMETER = "isCompany";
     private static volatile long sCurrentMailboxId = MAILBOX_ID_NOT_SET;
+    private static final String KEY_PERSONAL_CONTACTS_SYNC_TOKEN = "CloudPersonalContactsSyncToken";
 
 
     private Context mContext;
@@ -103,5 +104,12 @@ public class CurrentUserSettings extends AbstractDbSettings {
         return ContactsTabFragment.Tabs.valueOf(currentTab);
     }
 
+    public void setPersonalContactsSyncToken(String token) {
+        setString(KEY_PERSONAL_CONTACTS_SYNC_TOKEN, token);
+    }
+
+    public String getPersonalContactsSyncToken(){
+        return getString(KEY_PERSONAL_CONTACTS_SYNC_TOKEN, "");
+    }
 
 }

@@ -84,6 +84,11 @@
             android:theme="@style/RingCentral.Reskin.NoActionAndTitleBar"
             ></activity>
 
+        <activity
+            android:name=".contacts.adapters.contactsprovider.ContactEditActivity"
+            android:theme="@style/RingCentral.Reskin.NoActionAndTitleBar"
+            ></activity>
+
         <provider
             android:authorities="${applicationId}.provider.RCMProvider"
             android:name=".database.RCMProvider"

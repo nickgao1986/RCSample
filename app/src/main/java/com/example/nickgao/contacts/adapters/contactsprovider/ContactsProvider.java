@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.example.nickgao.database.RCMProvider;
 import com.example.nickgao.database.UriHelper;
@@ -79,7 +78,7 @@ public class ContactsProvider {
         mPersonalContactsLoader = new CloudPersonalContactLoader(context, mPersonalContactReadWriteLock);
 
         mDeviceContactsLoader = new DevicePersonalContactLoader(context, mPersonalContactReadWriteLock);
-        Log.d(TAG,"=====ContactsProvider register");
+
         register();
     }
 
@@ -341,5 +340,83 @@ public class ContactsProvider {
         }
     };
 
+
+    public Contact getContact(Contact.ContactType type, long contactId, boolean copy) {
+        try {
+            switch (type) {
+                case CLOUD_PERSONAL:
+                    return mPersonalContactsLoader.getContact(contactId, copy);
+                case DEVICE:
+                    return mDeviceContactsLoader.getContact(Long.valueOf(contactId), copy);
+                case CLOUD_COMPANY:
+                    return mCompanyContactsLoader.getContact(Long.valueOf(contactId), copy);
+                default:
+                    return null;
+            }
+        }catch (Throwable th) {
+            MktLog.e(TAG, "getContact, error=" + th.toString());
+        }
+        return null;
+    }
+
+    public void deleteContactInCache(final long contactId, Contact.ContactType contactType) {
+        switch (contactType) {
+            case CLOUD_PERSONAL:
+                mPersonalContactsLoader.deleteContactInCache(contactId);
+                break;
+            case DEVICE:
+                //not implement
+                break;
+            case CLOUD_COMPANY:
+                //not implement
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void addContact(final Contact contact) {
+        switch (contact.getType()) {
+            case CLOUD_PERSONAL:
+                //add contact to database
+                if(CloudPersonalContactLoader.addContactToDB(contact)) {
+                    //add contact to cache
+                    mPersonalContactsLoader.addContactInCache(contact);
+                  //  onRemoveDuplicateContact();
+                }
+                //send sync cmd
+                CloudContactSyncService.sendCommand(mContext, CloudContactSyncService.CONTACT_LOCAL_SYNC_TO_SERVER);
+                break;
+            case DEVICE:
+                //not implement
+                break;
+            case CLOUD_COMPANY:
+                //not implement
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void updateContact(final Contact contact) {
+        switch (contact.getType()) {
+            case CLOUD_PERSONAL:
+                if(CloudPersonalContactLoader.updateContactInDB(contact)) {
+                    mPersonalContactsLoader.updateContactInCache(contact);
+//                    onRemoveDuplicateContact();
+                }
+
+                CloudContactSyncService.sendCommand(mContext, CloudContactSyncService.CONTACT_LOCAL_SYNC_TO_SERVER);
+                break;
+            case DEVICE:
+                //not implement
+                break;
+            case CLOUD_COMPANY:
+                //not implement
+                break;
+            default:
+                break;
+        }
+    }
 
 }

@@ -1203,4 +1203,69 @@ public class CloudPersonalContactLoader extends ContactsLoader{
         MktLog.d(TAG, "loadContactsWithMatchInfo() loaded: " + resultContacts.size() + " spent=" + (System.currentTimeMillis() - time));
         return resultContacts;
     }
+
+    public void deleteContactInCache(long contactId) {
+        long id = contactId;
+        //try to delete the server id
+        if(CloudPersonalContact.isLocalContact(contactId)) {
+            acquireReadLock();
+            try {
+                Long serverContactId = mTempContactIds.get(contactId);
+                if(serverContactId != null) {
+                    id = serverContactId;
+                }
+            } finally {
+                releaseReadLock();
+            }
+        }
+
+        //double check, make sure delete cache contact
+        if(removeCacheContact(id) == null && id != contactId) {
+            removeCacheContact(contactId);
+        }
+    }
+
+    public void addContactInCache(Contact contact) {
+        Map<Long, Contact> contacts = new HashMap<>();
+        contacts.put(contact.getId(), contact);
+        bulkInsert(contacts, false);
+    }
+
+    public void updateContactInCache(Contact contact) {
+        removeCacheContact(contact.getId());
+        addContactInCache(contact);
+    }
+
+    public void bulkInsert(Map<Long, Contact> contactsMap, boolean reset) {
+        acquireWriteLock();
+        try {
+            if(reset) {
+                //clear
+                clearCache();
+            }
+
+            //insert into cache
+            mCacheContacts.putAll(contactsMap);
+
+            List<Contact.TypeValue> phoneList;
+            CloudPersonalContact contact;
+            //need to add insert contacts into phone number cache.
+            Iterator item = contactsMap.entrySet().iterator();
+            while (item.hasNext()) {
+                Map.Entry pair = (Map.Entry)item.next();
+                contact = (CloudPersonalContact)pair.getValue();
+                phoneList = contact.getE164PhoneNumbers();
+                if(phoneList != null) {
+                    for(Contact.TypeValue typeValue : phoneList) {
+                        mCacheNumbers.put(typeValue.getValue(), contact.getId());
+                    }
+                }
+            }
+        } catch (Throwable th) {
+            MktLog.e(TAG, "bulkInsert error=" + th.toString());
+        }finally {
+            releaseWriteLock();
+        }
+    }
+
 }

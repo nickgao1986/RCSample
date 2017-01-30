@@ -7,12 +7,24 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
-import android.provider.ContactsContract;
 import android.provider.Contacts.ContactMethods;
 import android.provider.Contacts.People;
 import android.provider.Contacts.Phones;
 import android.provider.Contacts.Photos;
+import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Photo;
+import android.text.TextUtils;
+
+import com.example.nickgao.contacts.adapters.contactsprovider.CloudPersonalContact;
+import com.example.nickgao.contacts.adapters.contactsprovider.CloudPersonalContactInfo;
+import com.example.nickgao.contacts.adapters.contactsprovider.Contact;
+import com.example.nickgao.logging.MktLog;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
+
+import static android.support.v7.widget.StaggeredGridLayoutManager.TAG;
 
 public class ContactsUtils {
 
@@ -67,6 +79,10 @@ public class ContactsUtils {
 	public static Uri Uri_Photo 					= Photos.CONTENT_URI;	
 	/** URI value. In SDK 3 it = ContactMethods.CONTENT_EMAIL_URI*/
 	public static Uri Uri_Email 					= ContactMethods.CONTENT_EMAIL_URI;
+
+	public static final String EMAIL_REGEX = "^[a-z0-9!#$%&'*+=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$";
+	public static final String PHONE_NUMBER_FILTER = "+0123456789";
+
 
 	@SuppressWarnings("static-access")
 	public static String getBuildVersion(){
@@ -145,5 +161,221 @@ public class ContactsUtils {
         }
         return null;
     }
+
+	public static String phoneNumberNormalize(String source, int start, int end) {
+		StringBuilder sb = new StringBuilder();
+		char c;
+		for (int i = start; i < end; i++) {
+			c = source.charAt(i);
+			if (PHONE_NUMBER_FILTER.indexOf(c) != -1) {
+				sb.append(c);
+			}
+		}
+		return sb.toString();
+	}
+
+	public static List<Contact.TypeAddress> orderedAddress(List<Contact.TypeAddress> addressList) {
+		List<Contact.TypeAddress> orderedAddress = new ArrayList<>();
+		AddressArray homeAddress = new AddressArray(CloudPersonalContact.HOME_ADDRESS_SIZE);
+		AddressArray workAddress = new AddressArray(CloudPersonalContact.WORK_ADDRESS_SIZE);
+		AddressArray otherAddress = new AddressArray(CloudPersonalContact.OTHER_ADDRESS_SIZE);
+		for(Contact.TypeAddress address : addressList) {
+			if(address.getType() == CloudPersonalContact.AddressType.HOME_ADDRESS.ordinal()) {
+				homeAddress.addData(address);
+			}else if(address.getType() == CloudPersonalContact.AddressType.BUSINESS_ADDRESS.ordinal()) {
+				workAddress.addData(address);
+			}else if(address.getType() == CloudPersonalContact.AddressType.OTHER_ADDRESS.ordinal()){
+				otherAddress.addData(address);
+			}
+		}
+		homeAddress.output(orderedAddress);
+		workAddress.output(orderedAddress);
+		otherAddress.output(orderedAddress);
+		return orderedAddress;
+	}
+
+
+	public static class StringArray extends Contact.DataArray<String> {
+		public StringArray(int maxSize) {
+			super(maxSize);
+		}
+	}
+
+	public static class PhoneArray extends Contact.DataArray<Contact.TypeValue> {
+		public PhoneArray(int maxSize) {
+			super(maxSize);
+		}
+	}
+
+	public static class AddressArray extends Contact.DataArray<Contact.TypeAddress> {
+		public AddressArray(int maxSize) {
+			super(maxSize);
+		}
+	}
+
+	public static String getValidZipCode(String source) {
+		StringBuilder sb = new StringBuilder();
+		if (!TextUtils.isEmpty(source)) {
+			char c;
+			for (int i = 0; i < source.length(); i++) {
+				c = source.charAt(i);
+				if (isDigitOrLetter(c)) {
+					sb.append(c);
+				}
+			}
+		}
+		return sb.toString();
+	}
+
+	public static boolean isDigitOrLetter(char c) {
+		return (c >= 'a' && c <= 'z') ||
+				(c >= 'A' && c <= 'Z') ||
+				(c >= '0' && c <= '9');
+	}
+
+	public static boolean validateEmail(String value) {
+		if(TextUtils.isEmpty(value)) {
+			return false;
+		}
+		Pattern pattern = Pattern.compile(EMAIL_REGEX);
+		return pattern.matcher(value.toLowerCase()).matches();
+	}
+
+	public static boolean validate(String firstName, String lastName, String company, List<Contact.TypeValue> phones) {
+		return !Contact.isEmpty(firstName) || !Contact.isEmpty(lastName) || !Contact.isEmpty(company) || !phones.isEmpty();
+	}
+
+	public static boolean validate(String firstName, String lastName, String nickName, String company, List<Contact.TypeValue> phones) {
+		return !Contact.isEmpty(firstName) || !Contact.isEmpty(lastName) || !Contact.isEmpty(nickName) || !Contact.isEmpty(company) || !phones.isEmpty();
+	}
+
+
+	/**
+	 * Translate CloudPersonalContact object to cloud single info
+	 * @param contact
+	 * @return
+	 */
+	public static CloudPersonalContactInfo translateToCloudPersonalContactInfo(CloudPersonalContact contact) {
+		CloudPersonalContactInfo cloudInfo = new CloudPersonalContactInfo();
+		try {
+			cloudInfo.id = contact.getId();
+			cloudInfo.uri = contact.getUri();
+			cloudInfo.availability = contact.getAvailability();
+			cloudInfo.firstName = contact.getFirstName();
+			cloudInfo.lastName = contact.getLastName();
+			cloudInfo.middleName = contact.getMiddleName();
+			cloudInfo.nickName = contact.getNickName();
+			cloudInfo.company = contact.getCompany();
+			cloudInfo.jobTitle = contact.getJobTitle();
+			cloudInfo.birthday = contact.getBirthday();
+			cloudInfo.webPage = contact.getWebPage(0);
+			cloudInfo.notes = contact.getNotes();
+			//translate phones
+			List<Contact.TypeValue> phones = contact.getE164PhoneNumbers();
+			CloudPersonalContact.PhoneType[] phoneTypes = CloudPersonalContact.PhoneType.values();
+			String phoneValue;
+			for (Contact.TypeValue phone : phones) {
+				phoneValue = phone.getValue();
+				if(TextUtils.isEmpty(phoneValue)) {
+					continue;
+				}
+
+				if(!phoneValue.startsWith("+")) {
+					phoneValue = String.format("+%s%s", 0, phoneValue);
+				}
+
+				switch (phoneTypes[phone.getType()]) {
+					case HOME_PHONE:
+						cloudInfo.homePhone = phoneValue;
+						break;
+					case HOME_PHONE2:
+						cloudInfo.homePhone2 = phoneValue;
+						break;
+					case BUSINESS_PHONE:
+						cloudInfo.businessPhone = phoneValue;
+						break;
+					case BUSINESS_PHONE2:
+						cloudInfo.businessPhone2 = phoneValue;
+						break;
+					case MOBILE_PHONE:
+						cloudInfo.mobilePhone = phoneValue;
+						break;
+					case BUSINESS_FAX:
+						cloudInfo.businessFax = phoneValue;
+						break;
+					case COMPANY_PHONE:
+						cloudInfo.companyPhone = phoneValue;
+						break;
+					case ASSISTANT_PHONE:
+						cloudInfo.assistantPhone = phoneValue;
+						break;
+					case CAR_PHONE:
+						cloudInfo.carPhone = phoneValue;
+						break;
+					case OTHER_PHONE:
+						cloudInfo.otherPhone = phoneValue;
+						break;
+					case OTHER_FAX:
+						cloudInfo.otherFax = phoneValue;
+						break;
+					case CALLBACK_PHONE:
+						cloudInfo.callbackPhone = phoneValue;
+						break;
+					default:
+						break;
+				}
+			}
+
+			//translate emails
+			List<Contact.TypeValue> emails = contact.getEmails();
+			CloudPersonalContact.EmailType[] emailTypes = CloudPersonalContact.EmailType.values();
+			for (Contact.TypeValue email : emails) {
+				switch (emailTypes[email.getType()]) {
+					case EMAIL:
+						cloudInfo.email = email.getValue();
+						break;
+					case EMAIL2:
+						cloudInfo.email2 = email.getValue();
+						break;
+					case EMAIL3:
+						cloudInfo.email3 = email.getValue();
+						break;
+					default:
+						break;
+				}
+			}
+
+			//translate addresses
+			List<Contact.TypeAddress> addresses = contact.getAddresses();
+			CloudPersonalContact.AddressType[] addressTypes = CloudPersonalContact.AddressType.values();
+			for (Contact.TypeAddress address : addresses) {
+				switch (addressTypes[address.getType()]) {
+					case BUSINESS_ADDRESS:
+						cloudInfo.businessAddress = address.getValue();
+						break;
+					case HOME_ADDRESS:
+						cloudInfo.homeAddress = address.getValue();
+						break;
+					case OTHER_ADDRESS:
+						cloudInfo.otherAddress = address.getValue();
+						break;
+					default:
+						break;
+				}
+			}
+		}catch (Throwable th) {
+			MktLog.e(TAG, "translateToCloudPersonalContactInfo: error=" + th.toString());
+		}
+
+		return cloudInfo;
+	}
+
+	public static List<Contact.TypeValue> orderedPhones(List<Contact.TypeValue> phones) {
+//		CloudPhoneManager cloudPhoneManager = new CloudPhoneManager();
+//		categorizePhones(cloudPhoneManager, phones);
+//		return addUnorderedPhones(cloudPhoneManager, new ArrayList<String>(), false);
+		return phones;
+	}
+
 
 }

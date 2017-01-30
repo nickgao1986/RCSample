@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:id="@+id/scrollView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/contact_photo_padding_bottom"
+                android:paddingLeft="@dimen/contact_photo_padding_left"
+                android:paddingRight="@dimen/contact_photo_padding_right"
+                android:paddingTop="@dimen/contact_photo_padding_top"
+                android:src="@drawable/ic_event_photo_default"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@id/photo"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/firstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/contact_name_item_height"
+                    android:paddingRight="@dimen/contact_tag_item_padding"
+                    android:background="@drawable/bg_edit_line_in_bottom"
+                    android:hint="@string/first_name_hint"
+                    android:textSize="@dimen/font_size_medium"
+                    android:maxLength="@integer/contact_first_name_max_length"
+                    android:imeOptions="actionNext"
+                    android:maxLines="1"
+                    android:textColor="@color/text_color_main"
+                    android:textColorHint="@color/text_secondary"/>
+
+                <EditText
+                    android:id="@+id/middleName"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/contact_name_item_height"
+                    android:paddingRight="@dimen/contact_tag_item_padding"
+                    android:background="@drawable/bg_edit_line_in_bottom"
+                    android:hint="@string/middle_name_hint"
+                    android:textSize="@dimen/font_size_medium"
+                    android:maxLength="@integer/contact_middle_name_max_length"
+                    android:textColor="@color/text_color_main"
+                    android:imeOptions="actionNext"
+                    android:maxLines="1"
+                    android:visibility="gone"
+                    android:textColorHint="@color/text_secondary"/>
+
+                <EditText
+                    android:id="@+id/lastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/contact_name_item_height"
+                    android:paddingRight="@dimen/contact_tag_item_padding"
+                    android:background="@drawable/bg_edit_line_in_bottom"
+                    android:hint="@string/last_name_hint"
+                    android:textSize="@dimen/font_size_medium"
+                    android:maxLength="@integer/contact_last_name_max_length"
+                    android:textColor="@color/text_color_main"
+                    android:imeOptions="actionNext"
+                    android:maxLines="1"
+                    android:textColorHint="@color/text_secondary"/>
+
+                <EditText
+                    android:id="@+id/nickName"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/contact_name_item_height"
+                    android:paddingRight="@dimen/contact_tag_item_padding"
+                    android:background="@drawable/bg_edit_line_in_bottom"
+                    android:hint="@string/nick_name_hint"
+                    android:textSize="@dimen/font_size_medium"
+                    android:maxLength="@integer/contact_nick_name_max_length"
+                    android:textColor="@color/text_color_main"
+                    android:imeOptions="actionNext"
+                    android:maxLines="1"
+                    android:textColorHint="@color/text_secondary"
+                    android:visibility="gone"/>
+
+                <EditText
+                    android:id="@+id/jobTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/contact_name_item_height"
+                    android:paddingRight="@dimen/contact_tag_item_padding"
+                    android:background="@drawable/bg_edit_line_in_bottom"
+                    android:hint="@string/job_title_hint"
+                    android:textSize="@dimen/font_size_medium"
+                    android:maxLength="@integer/contact_job_title_max_length"
+                    android:maxLines="1"
+                    android:imeOptions="actionNext"
+                    android:textColor="@color/text_color_main"
+                    android:textColorHint="@color/text_secondary"
+                    android:visibility="gone"/>
+
+                <EditText
+                    android:id="@+id/company"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/contact_name_item_height"
+                    android:paddingRight="@dimen/contact_tag_item_padding"
+                    android:background="@drawable/bg_edit_line_in_bottom"
+                    android:hint="@string/company_hint"
+                    android:textSize="@dimen/font_size_medium"
+                    android:maxLength="@integer/contact_company_max_length"
+                    android:maxLines="1"
+                    android:imeOptions="actionNext"
+                    android:textColor="@color/text_color_main"
+                    android:textColorHint="@color/text_secondary"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/contact_item_padding_left"
+            android:paddingRight="@dimen/contact_item_padding_right"
+            >
+
+            <LinearLayout
+                android:id="@+id/phoneList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/contact_edit_section_first_padding">
+            </LinearLayout>
+
+            <include
+                android:id="@+id/addPhone"
+                layout="@layout/contact_tag_add_item"/>
+
+            <LinearLayout
+                android:id="@+id/emailList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/contact_edit_section_padding">
+            </LinearLayout>
+
+            <include
+                android:id="@+id/addEmail"
+                layout="@layout/contact_tag_add_item"/>
+
+            <LinearLayout
+                android:id="@+id/webPageList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/contact_edit_section_padding">
+            </LinearLayout>
+
+            <include
+                android:id="@+id/addWebPage"
+                layout="@layout/contact_tag_add_item"/>
+
+            <LinearLayout
+                android:id="@+id/addressList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/contact_edit_section_padding">
+            </LinearLayout>
+
+            <include
+                android:id="@+id/addAddress"
+                layout="@layout/contact_tag_add_item"/>
+
+            <LinearLayout
+                android:id="@+id/birthdayList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/contact_edit_section_padding"/>
+
+            <include
+                android:id="@+id/addBirthday"
+                layout="@layout/contact_tag_add_item"/>
+
+            <EditText
+                android:id="@+id/notes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_edit_line_in_bottom"
+                android:drawableLeft="@drawable/icon_item_note"
+                android:drawablePadding="@dimen/contact_tag_item_padding"
+                android:hint="@string/notes_hint"
+                android:textSize="@dimen/font_size_medium"
+                android:maxLength="@integer/contact_notes_max_length"
+                android:paddingTop="@dimen/contact_edit_section_padding"
+                android:paddingRight="@dimen/contact_tag_item_padding"
+                android:textColor="@color/text_color_main"
+                android:textColorHint="@color/text_secondary"/>
+
+            <include
+                android:id="@+id/addField"
+                layout="@layout/contact_tag_add_item"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/default_button_height"
+            android:layout_marginBottom="@dimen/contact_del_margin"
+            android:layout_marginRight="@dimen/default_padding_to_side"
+            android:layout_marginTop="@dimen/contact_del_margin"
+            android:layout_marginLeft="@dimen/contact_item_padding_left"
+            android:background="@drawable/btn_delete_bg_selector"
+            android:gravity="center"
+            android:text="@string/delete_contact"
+            android:textColor="@color/btn_delete_text_selector"
+            android:textSize="@dimen/font_size_medium"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+</ScrollView>

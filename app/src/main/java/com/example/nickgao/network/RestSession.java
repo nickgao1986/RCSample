@@ -13,6 +13,7 @@ import android.text.TextUtils;
 
 import com.example.nickgao.database.CurrentUserSettings;
 import com.example.nickgao.database.GeneralSettings;
+import com.example.nickgao.database.RCMDataStore;
 import com.example.nickgao.database.RCMProviderHelper;
 import com.example.nickgao.logging.BUILD;
 import com.example.nickgao.logging.LogSettings;
@@ -23,9 +24,8 @@ import com.example.nickgao.utils.HttpUtils.HttpResponseLogger;
 import com.example.nickgao.utils.NetworkUtils;
 import com.example.nickgao.utils.Utils;
 import com.example.nickgao.utils.execution.CommandProcessor;
-import com.google.agson.stream.JsonReader;
 import com.example.nickgao.utils.execution.CommandProcessor.Command;
-
+import com.google.agson.stream.JsonReader;
 
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
@@ -462,7 +462,35 @@ public final class RestSession {
         authReqCtx.lastRefreshToken = mAuthContext.refreshToken;
         return authReqCtx;
     }
-    
+
+    public static boolean validateSession(Context context) {
+        long mailboxId = CurrentUserSettings.getSettings(context).getCurrentMailboxId();
+        if (RCMDataStore.MailboxCurrentTable.MAILBOX_ID_NONE == mailboxId) {
+            return false;
+        }
+
+        RestSession session = RestSession.get(mailboxId);
+        if (session == null) {
+            return false;
+        }
+
+        if (session.mAuthContext == null){
+            return false;
+        }
+
+        if (session.getState() == RestSessionState.INITIAL) {
+            return false;
+        }
+        if (session.getState() == RestSessionState.AUTHORIZATION_FAILED &&
+                session.getStatusCode() == RestApiErrorCodes.AUTHORIZATION_ERROR) {
+            MktLog.w(LOG_TAG, "validateSession(): session is in un-recoverable " +
+                    "authorization failed state (account) for mailboxId:" + mailboxId + "; stop checking account state.");
+            return false;
+        }
+        return true;
+    }
+
+
     /**
      * Sends a request
      * 

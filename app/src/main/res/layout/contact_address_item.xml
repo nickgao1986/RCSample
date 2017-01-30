@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_list_item_divider"
+    >
+
+    <ImageView
+        android:id="@+id/item_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:paddingBottom="@dimen/contact_edit_item_padding"
+        android:paddingRight="@dimen/contact_edit_item_icon_padding_right"
+        android:paddingTop="@dimen/contact_edit_item_padding"
+        android:src="@drawable/icon_item_delete"
+        />
+
+    <TextView
+        android:id="@+id/item_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/item_icon"
+        android:ellipsize="end"
+        android:text="home"
+        android:textColor="@color/bgTitleBar"
+        android:textSize="@dimen/font_size_medium"/>
+
+    <ImageView
+        android:id="@+id/item_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/item_type"
+        android:paddingLeft="@dimen/contact_edit_item_arrow_padding_left"
+        android:paddingRight="@dimen/contact_edit_item_padding"
+        android:src="@drawable/icon_item_arrow"/>
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/item_arrow">
+
+        <EditText
+            android:id="@+id/street"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/contact_edit_item_height"
+            android:background="@drawable/bg_edit_line_in_left_bottom"
+            android:hint="@string/address_street_hint"
+            android:imeOptions="actionNext"
+            android:maxLength="@integer/contact_address_street_max_length"
+            android:paddingLeft="@dimen/contact_edit_item_padding"
+            android:paddingTop="@dimen/contact_edit_item_padding"
+            android:paddingBottom="@dimen/contact_edit_item_padding"
+            android:paddingRight="@dimen/contact_tag_item_padding"
+            android:maxLines="1"
+            android:textColor="@color/text_color_main"
+            android:textColorHint="@color/text_secondary"
+            android:textSize="@dimen/font_size_medium"/>
+
+        <EditText
+            android:id="@+id/city"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/contact_edit_item_height"
+            android:layout_below="@+id/street"
+            android:background="@drawable/bg_edit_line_in_left_bottom"
+            android:hint="@string/address_city"
+            android:imeOptions="actionNext"
+            android:maxLength="@integer/contact_address_city_max_length"
+            android:paddingLeft="@dimen/contact_edit_item_padding"
+            android:paddingTop="@dimen/contact_edit_item_padding"
+            android:paddingBottom="@dimen/contact_edit_item_padding"
+            android:paddingRight="@dimen/contact_tag_item_padding"
+            android:maxLines="1"
+            android:textColor="@color/text_color_main"
+            android:textColorHint="@color/text_secondary"
+            android:textSize="@dimen/font_size_medium"/>
+
+        <EditText
+            android:id="@+id/state"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/contact_edit_item_height"
+            android:layout_below="@id/city"
+            android:background="@drawable/bg_edit_line_in_left_bottom"
+            android:hint="@string/address_state"
+            android:imeOptions="actionNext"
+            android:maxLength="@integer/contact_address_state_max_length"
+            android:paddingLeft="@dimen/contact_edit_item_padding"
+            android:paddingTop="@dimen/contact_edit_item_padding"
+            android:paddingBottom="@dimen/contact_edit_item_padding"
+            android:paddingRight="@dimen/contact_tag_item_padding"
+            android:maxLines="1"
+            android:textColor="@color/text_color_main"
+            android:textColorHint="@color/text_secondary"
+            android:textSize="@dimen/font_size_medium"/>
+
+        <EditText
+            android:id="@+id/zip"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/contact_edit_item_height"
+            android:layout_below="@+id/state"
+            android:background="@drawable/bg_edit_line_in_left"
+            android:hint="@string/address_zip_hint"
+            android:imeOptions="actionNext"
+            android:maxLength="@integer/contact_address_zip_code_max_length"
+            android:paddingLeft="@dimen/contact_edit_item_padding"
+            android:paddingTop="@dimen/contact_edit_item_padding"
+            android:paddingBottom="@dimen/contact_edit_item_padding"
+            android:paddingRight="@dimen/contact_tag_item_padding"
+            android:maxLines="1"
+            android:digits="@string/cloud_contact_char_limit"
+            android:textColor="@color/text_color_main"
+            android:textColorHint="@color/text_secondary"
+            android:textSize="@dimen/font_size_medium"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

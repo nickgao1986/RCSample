@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgColorMain"
+    xmlns:rcm="http://schemas.android.com/apk/res-auto">
+    <com.example.nickgao.utils.widget.HeaderViewBase
+        android:id="@+id/contactEditorHeader"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_hight"
+        android:background="@drawable/bg_action_bar_blue"
+        rcm:header_header_text="@string/new_contact"
+        rcm:header_left_button_label="@string/cancel"
+        rcm:header_right_button_label="@string/done" />
+
+    <include android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:layout_below="@id/contactEditorHeader"
+             layout="@layout/contact_content_scrolling" />
+</RelativeLayout>

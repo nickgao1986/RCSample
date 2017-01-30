@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    android:id="@+id/header"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btnTopLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/btn_bg_action_bar"
+            android:minWidth="@dimen/header_btn_width"
+            android:paddingBottom="@dimen/header_buttons_padding_bottom"
+            android:paddingLeft="@dimen/reSkin_headerButtonsPadding"
+            android:paddingRight="@dimen/reSkin_headerButtonsPadding"
+            android:text="@string/topleftback"
+            android:textColor="@color/text_action_bar_btn_selector"
+            android:textSize="@dimen/font_size_medium"
+            android:visibility="invisible" />
+
+        <ImageButton
+            android:id="@+id/btnTopLeftImage"
+            android:layout_width="@dimen/header_btn_width"
+            android:layout_height="fill_parent"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_toRightOf="@+id/btnTopLeft"
+            android:background="@drawable/btn_bg_action_bar"
+            android:scaleType="fitXY"
+            android:text="@string/txt_add_button"
+            android:textColor="@color/text_action_bar_btn_selector"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/btnTopLeftImageForTablet"
+            android:layout_width="@dimen/header_btn_width"
+            android:layout_height="@dimen/general_list_view_item_height"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="4dp"
+            android:scaleType="center"
+            android:background="@color/bgColorMain"
+            android:src="@drawable/ic_back_tablet"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_toLeftOf="@+id/btnTopFirstRightImage"
+            android:layout_toRightOf="@+id/btnTopLeftImage"
+            android:gravity="center"
+            android:paddingBottom="@dimen/header_text_padding_bottom"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:maxLines="1"
+            android:textColor="@color/text_action_bar_btn_nor"
+            android:textSize="@dimen/font_size_large" />
+
+        <!--TODO SO change styles-->
+
+        <RelativeLayout
+            android:id="@+id/text_message_send_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/sending_textview"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:text="@string/send_notify"
+                android:textColor="@color/text_action_bar_btn_nor"
+                android:textSize="@dimen/font_size_small" />
+
+            <ProgressBar
+                android:id="@+id/send_progressBar"
+                style="@style/TextMessageSendProgress"
+                android:layout_width="150dip"
+                android:layout_height="4dp"
+                android:layout_below="@id/sending_textview"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dip"
+                android:gravity="center"
+                android:indeterminate="false"
+                android:max="100"
+                android:progressDrawable="@drawable/text_message_send_progress" />
+        </RelativeLayout>
+
+        <ImageButton
+            android:id="@+id/btnTopRightImage"
+            android:layout_width="@dimen/header_btn_width"
+            android:layout_height="fill_parent"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_bg_action_bar"
+            android:scaleType="centerInside"
+            android:text="@string/txt_add_button"
+            android:textColor="@color/text_action_bar_btn_selector"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/btnImportDeviceContact"
+            android:layout_width="@dimen/header_btn_width"
+            android:layout_height="fill_parent"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_bg_action_bar"
+            android:scaleType="centerInside"
+            android:text="@string/txt_add_button"
+            android:textColor="@color/text_action_bar_btn_selector"
+            android:visibility="gone" />
+
+
+        <ImageButton
+            android:id="@+id/btnTopFirstRightImage"
+            android:layout_width="@dimen/header_btn_width"
+            android:layout_height="fill_parent"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_toLeftOf="@+id/btnTopRightImage"
+            android:background="@drawable/btn_bg_action_bar"
+            android:scaleType="centerInside"
+            android:textColor="@color/text_action_bar_btn_selector"
+            android:visibility="gone"
+            />
+
+        <Button
+            android:id="@+id/btnTopRightSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_toLeftOf="@+id/btnTopRight"
+            android:background="@drawable/btn_bg_action_bar"
+            android:minWidth="@dimen/header_btn_width"
+            android:paddingBottom="@dimen/header_buttons_padding_bottom"
+            android:paddingLeft="@dimen/reSkin_headerButtonsPadding"
+            android:paddingRight="@dimen/reSkin_headerButtonsPadding"
+            android:textColor="@color/text_action_bar_btn_selector"
+            android:textSize="@dimen/font_size_medium"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btnTopRight"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_bg_action_bar"
+            android:minWidth="@dimen/header_btn_width"
+            android:paddingBottom="@dimen/header_buttons_padding_bottom"
+            android:paddingLeft="@dimen/reSkin_headerButtonsPadding"
+            android:paddingRight="@dimen/reSkin_headerButtonsPadding"
+            android:textColor="@color/text_action_bar_btn_selector"
+            android:textSize="@dimen/font_size_medium"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
+
+</merge>

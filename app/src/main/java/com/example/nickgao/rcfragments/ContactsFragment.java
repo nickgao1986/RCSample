@@ -2,6 +2,7 @@ package com.example.nickgao.rcfragments;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
@@ -22,6 +23,7 @@ import android.widget.LinearLayout;
 import com.example.nickgao.R;
 import com.example.nickgao.contacts.adapters.contactsprovider.CombinedContactsAdapter;
 import com.example.nickgao.contacts.adapters.contactsprovider.Contact;
+import com.example.nickgao.contacts.adapters.contactsprovider.ContactEditActivity;
 import com.example.nickgao.contacts.adapters.contactsprovider.ContactListItem;
 import com.example.nickgao.contacts.adapters.contactsprovider.ContactsProvider;
 import com.example.nickgao.contacts.adapters.contactsprovider.DisplayContactsProviderUtils;
@@ -31,6 +33,7 @@ import com.example.nickgao.titlebar.RCMainTitleBar;
 import com.example.nickgao.titlebar.RCTitleBarWithDropDownFilter;
 import com.example.nickgao.titlebar.RightDropDownManager;
 import com.example.nickgao.utils.RCMConstants;
+import com.example.nickgao.utils.widget.RightDropDownDialog;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,7 +44,7 @@ import java.util.Map;
  * Created by nick.gao on 1/28/17.
  */
 
-public class ContactsFragment extends BaseContactsFragment implements RCMainTitleBar.HeaderClickListener{
+public class ContactsFragment extends BaseContactsFragment implements RCMainTitleBar.HeaderClickListener {
 
     private static final String TAG = "[RC]ContactsFragment";
 
@@ -112,7 +115,7 @@ public class ContactsFragment extends BaseContactsFragment implements RCMainTitl
         mContactsData = new ArrayList<>();
         mAdapter = new CombinedContactsAdapter(mActivity, mContactsData);
 
-       // initializeListHeader();
+        initializeListHeader();
 
         setListAdapter(mAdapter);
 
@@ -142,7 +145,6 @@ public class ContactsFragment extends BaseContactsFragment implements RCMainTitl
                 //no implementation
             }
         });
-
 
 
         mInputMethodManager = (InputMethodManager) mActivity.getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -190,7 +192,6 @@ public class ContactsFragment extends BaseContactsFragment implements RCMainTitl
     }
 
 
-
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
@@ -234,14 +235,12 @@ public class ContactsFragment extends BaseContactsFragment implements RCMainTitl
     }
 
 
-
     protected DisplayContactsProviderUtils.ContactsAdapterDataContainer loadContact(boolean showDevice, boolean showCompany, boolean showPersonal, String mFilter, String... params) {
         List<Contact> contacts = ContactsProvider.getInstance().loadContacts(showDevice, showCompany, showPersonal, true, true, mFilter);
         return TextUtils.isEmpty(mFilter)
                 ? DisplayContactsProviderUtils.getContactsAdapterDataWithSections(contacts)
                 : DisplayContactsProviderUtils.getContactsAdapterData(contacts);
     }
-
 
 
     private class AsynchContactsLoader extends AsyncTask<String, Void, DisplayContactsProviderUtils.ContactsAdapterDataContainer> {
@@ -255,7 +254,7 @@ public class ContactsFragment extends BaseContactsFragment implements RCMainTitl
             mShowDevice = showDevice;
             mShowCompany = showCompany;
             mShowPersonal = showPersonal;
-            MktLog.i(TAG,"====mShowDevice="+mShowDevice+"mShowCompany="+mShowCompany+"mShowPersonal="+mShowPersonal);
+            MktLog.i(TAG, "====mShowDevice=" + mShowDevice + "mShowCompany=" + mShowCompany + "mShowPersonal=" + mShowPersonal);
             mFilter = filter;
         }
 
@@ -368,7 +367,17 @@ public class ContactsFragment extends BaseContactsFragment implements RCMainTitl
 
     @Override
     public void onRightButtonClicked() {
+        Tabs tab = getCurrentTab();
+        switch (tab) {
+            case ALL:
+                //showDropMenu();
+                return;
+            case DEVICE:
+                tapAddToNewContact();
+                return;
+        }
 
+        throw new IllegalStateException("invalid tab: " + tab);
     }
 
     @Override
@@ -380,4 +389,34 @@ public class ContactsFragment extends BaseContactsFragment implements RCMainTitl
     public void onLeftButtonClicked() {
 
     }
+
+    protected void initializeListHeader() {
+        mDropdownMenu = new RightDropDownManager(mActivity);
+        mDropdownMenu.setDropDownClickListener(new RightDropDownDialog.OnDropdownClickListener() {
+
+            @Override
+            public void onHide() {
+
+            }
+
+            @Override
+            public void onClickItem(int index) {
+                switch (index) {
+                    case MENU_LIST_NEW_CONTACT:
+                        tapAddToNewContact();
+                        break;
+                    case MENU_LIST_NEW_FAVORITE:
+                       // tapAddToCreateNewFavorite(FlurryTypes.ALL);
+                        break;
+                }
+            }
+        });
+
+    }
+
+    protected void tapAddToNewContact() {
+        startActivity(new Intent(this.getContext(), ContactEditActivity.class));
+    }
+
+
 }
