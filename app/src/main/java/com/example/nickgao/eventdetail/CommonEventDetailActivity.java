@@ -40,6 +40,7 @@ import com.example.nickgao.contacts.GetPersonalContactData.ContactsInfo;
 import com.example.nickgao.contacts.GetPersonalContactData.ListType;
 import com.example.nickgao.contacts.GetPersonalContactData.PersonalDetailData;
 import com.example.nickgao.contacts.GetPersonalContactData.PhoneData;
+import com.example.nickgao.contacts.PersonalFavorites;
 import com.example.nickgao.contacts.adapters.contactsprovider.CloudContactSyncService;
 import com.example.nickgao.contacts.adapters.contactsprovider.CloudPersonalContact;
 import com.example.nickgao.contacts.adapters.contactsprovider.Contact;
@@ -63,7 +64,7 @@ import java.util.Date;
  * Created by nick.gao on 1/30/17.
  */
 
-public class CommonEventDetailActivity extends Activity implements EventDetailBase.OnBackListener,EventDetailBase.OnContactInfoChangedListener,EventDetailBase.OnEditListener, EventDetailBase.OnImportListener{
+public class CommonEventDetailActivity extends Activity implements PersonalFavorites.OnAddDeviceFavoriteCallback,EventDetailBase.OnBackListener,EventDetailBase.OnContactInfoChangedListener,EventDetailBase.OnEditListener, EventDetailBase.OnImportListener{
 
 
     private static final String TAG = "[RC]CommonEventDetailActivity";
@@ -182,6 +183,15 @@ public class CommonEventDetailActivity extends Activity implements EventDetailBa
         }
     }
 
+    @Override
+    public void onAddDeviceFavorite(Contact contact) {
+        if (mEventDetail instanceof ViewPersonalContact) {
+            mEventDetail.setContactType(Contact.ContactType.CLOUD_PERSONAL);
+            mEventDetail.setContactId(contact.getId());
+            mContactInfo = mEventDetail.bindContactInfo();
+            mContactType = mEventDetail.getContactType();
+        }
+    }
 
     @Override
     public void onContactInfoChanged() {
@@ -565,18 +575,33 @@ public class CommonEventDetailActivity extends Activity implements EventDetailBa
             });
         }
 
-//        if (mContactInfo != null) {
-//            if (PersonalFavorites.isCloudFavorite(mContactInfo.contactID, mContactType, CommonEventDetailActivity.this)) {
-//                mFavoritebtn.setImageResource(R.drawable.contact_detail_fav_yes_selector);
-//            } else {
-//                mFavoritebtn.setImageResource(R.drawable.contact_detail_fav_no_selector);
-//            }
-//        } else {
-//            mFavoritebtn.setVisibility(View.GONE);
-//        }
-//        mFavoritebtn.setOnClickListener(mAddPersonalFav);
+        if (mContactInfo != null) {
+            if (PersonalFavorites.isCloudFavorite(mContactInfo.contactID, mContactType, CommonEventDetailActivity.this)) {
+                mFavoritebtn.setImageResource(R.drawable.contact_detail_fav_yes_selector);
+            } else {
+                mFavoritebtn.setImageResource(R.drawable.contact_detail_fav_no_selector);
+            }
+        } else {
+            mFavoritebtn.setVisibility(View.GONE);
+        }
+        mFavoritebtn.setOnClickListener(mAddPersonalFav);
         return hasPhoneField;
     }
+
+    private View.OnClickListener mAddPersonalFav = new View.OnClickListener() {
+        @Override
+        public void onClick(final View v) {
+            if (mDetailData != null) {
+                final String action;
+                if (PersonalFavorites.isCloudFavorite(mContactInfo.contactID, mContactType, CommonEventDetailActivity.this)) {
+                    PersonalFavorites.markedAsDeletedInFavorites(mContactInfo.contactID, mContactType);
+                } else {
+                    PersonalFavorites.addToCloudFavoriteWithLimitationChecking(mContactInfo.contactID, mContactType, CommonEventDetailActivity.this, (mContactType == Contact.ContactType.DEVICE) ? CommonEventDetailActivity.this : null);
+                }
+                setUI();
+            }
+        }
+    };
 
 
     private boolean initEmailFild() {

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/search_bar"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <EditText
+        android:id="@+id/search_bar_et"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:scrollHorizontally="true"
+        android:background="@drawable/bg_search_input"
+        android:hint="@string/search_bar_control_edit_hint"
+        android:maxLength="25"
+        android:paddingBottom="7dp"
+        android:paddingLeft="30dp"
+        android:paddingTop="7dp"
+        android:paddingRight="25dp"
+        android:maxLines="1"
+        android:textColorHint="@color/edittextcolor_noinput"
+        android:textSize="@dimen/font_size_small" />
+
+    <ImageView
+        android:id="@+id/search_bar_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/search_bar_et"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8dp"
+        android:src="@drawable/ic_search_bar_search_btn" />
+
+    <ImageView
+        android:id="@+id/search_bar_close_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/search_bar_et"
+        android:layout_centerVertical="true"
+        android:padding="8dp"
+        android:src="@drawable/search_bar_close_btn"
+        android:visibility="gone" />
+
+</merge>

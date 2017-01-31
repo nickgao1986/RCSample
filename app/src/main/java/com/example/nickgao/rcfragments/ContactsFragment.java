@@ -1,6 +1,7 @@
 package com.example.nickgao.rcfragments;
 
 import android.Manifest;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -9,6 +10,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,6 +34,9 @@ import com.example.nickgao.contacts.adapters.contactsprovider.DisplayContactsPro
 import com.example.nickgao.database.CurrentUserSettings;
 import com.example.nickgao.eventdetail.CommonEventDetailActivity;
 import com.example.nickgao.logging.MktLog;
+import com.example.nickgao.rcfragments.presents.FavoritesHorizontalListView;
+import com.example.nickgao.rcfragments.presents.FavoritesInContactsPresenter;
+import com.example.nickgao.rcfragments.presents.FavoritesPresenter;
 import com.example.nickgao.rcproject.RingCentralApp;
 import com.example.nickgao.titlebar.DropDownItem;
 import com.example.nickgao.titlebar.RCMainTitleBar;
@@ -39,6 +44,7 @@ import com.example.nickgao.titlebar.RCTitleBarWithDropDownFilter;
 import com.example.nickgao.titlebar.RightDropDownManager;
 import com.example.nickgao.utils.RCMConstants;
 import com.example.nickgao.utils.widget.RightDropDownDialog;
+import com.example.nickgao.utils.widget.SearchBarView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -82,6 +88,12 @@ public class ContactsFragment extends BaseContactsFragment implements RCMainTitl
     private RightDropDownManager mDropdownMenu;
     private final int MENU_LIST_NEW_CONTACT = 0;
     private final int MENU_LIST_NEW_FAVORITE = 1;
+
+
+    private SearchBarClearReceiver mSearchBarClearReceiver;
+    protected SearchBarView mSearchBar;  // search controls
+    protected FavoritesPresenter mFavoritesPresenter;
+    protected FavoritesHorizontalListView mFavoritesHorizontalListView;
 
     /**
      * Called when the activity is first created.
@@ -409,6 +421,32 @@ public class ContactsFragment extends BaseContactsFragment implements RCMainTitl
     }
 
     protected void initializeListHeader() {
+
+        LayoutInflater inflater = LayoutInflater.from(mActivity);
+        LinearLayout view = (LinearLayout) inflater.inflate(R.layout.contacts_search_bar_view, null);
+        mSearchBar = (SearchBarView) view.findViewById(R.id.contacts_list_search_bar);
+        mSearchBar.setSearchHandler(new SearchBarView.SearchHandler() {
+            @Override
+            public void search(String filter) {
+                if (mSearchBarDivider != null) {
+                    mSearchBarDivider.setVisibility(TextUtils.isEmpty(filter) ? View.INVISIBLE : View.VISIBLE);
+                }
+                resetListViewPosition();
+                reloadContacts(filter);
+            }
+        });
+
+        initFavoritesHorizontalListView(view);
+
+        initFavoritePresenter();
+        mSearchBarDivider = view.findViewById(R.id.search_bar_divider);
+
+        if (getListView() != null) {
+            getListView().addHeaderView(view, null, false);
+        }
+
+
+
         mDropdownMenu = new RightDropDownManager(mActivity);
         mDropdownMenu.setDropDownClickListener(new RightDropDownDialog.OnDropdownClickListener() {
 
@@ -431,6 +469,32 @@ public class ContactsFragment extends BaseContactsFragment implements RCMainTitl
         });
 
     }
+
+    protected void initFavoritesHorizontalListView(LinearLayout view) {
+        mFavoritesHorizontalListView = new FavoritesHorizontalListView(this, (RecyclerView) view.findViewById(R.id.fav_list_view), view.findViewById(R.id.fav_list_empty_view));
+    }
+
+    protected void initFavoritePresenter() {
+        mFavoritesPresenter = new FavoritesInContactsPresenter(this.getContext(), mFavoritesHorizontalListView);
+    }
+
+
+    protected void resetListViewPosition() {
+//        if (mActivity instanceof RingCentralMain) {
+//            mLastListViewPosition = 0;
+//            getListView().setSelection(mLastListViewPosition);
+//        } else {
+//            getListView().setSelection(0);
+//        }
+    }
+
+    protected void saveListViewPosition() {
+//        if (mActivity instanceof RingCentralMain) {
+//            mLastListViewPosition = getListView().getFirstVisiblePosition();
+//        }
+    }
+
+
 
     protected void tapAddToNewContact() {
         startActivity(new Intent(this.getContext(), ContactEditActivity.class));
@@ -455,4 +519,12 @@ public class ContactsFragment extends BaseContactsFragment implements RCMainTitl
 
 
     }
+
+    private class SearchBarClearReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+        }
+    }
+
 }

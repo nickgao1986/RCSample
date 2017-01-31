@@ -586,6 +586,16 @@ public class ContactsUtils {
 		return cloudContact;
 	}
 
+	public static Contact importFromCachedDeviceContactToCloud(Context context, long contactId) {
+		ContactsUtils.TranslateResult translateResult = new ContactsUtils.TranslateResult();
+		final CloudPersonalContact contact = ContactsUtils.translateDeviceContactToCloud(contactId, translateResult);
+		if(contact != null && !contact.isEmpty()) {
+			//add to cloud contact and sync
+			ContactsProvider.getInstance().addContact(contact);
+		}
+		return contact;
+	}
+
 
 	public static class CloudPhoneManager {
 		StringArray mobilePhones = new StringArray(CloudPersonalContact.MOBILE_PHONE_SIZE);

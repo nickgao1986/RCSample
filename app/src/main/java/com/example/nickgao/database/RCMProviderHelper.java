@@ -1337,7 +1337,7 @@ public class RCMProviderHelper {
         resolver.insert(UriHelper.getUri(uri_path), val);
     }
     
-    private static int getRecordsCount(Context context, String uri_path, String selection) {
+    public static int getRecordsCount(Context context, String uri_path, String selection) {
 		Cursor cursor = context.getContentResolver().query(
 				UriHelper.getUri(uri_path, getCurrentMailboxId(context)), 
 				new String[] { BaseColumns._ID }, 
@@ -2081,4 +2081,10 @@ public class RCMProviderHelper {
 
 		context.getContentResolver().delete(UriHelper.getUri(RCMProvider.CALL_LOG, mailbox_id), CallLogTable.RCM_LOG_TYPE + "=?", new String[]{String.valueOf(call_log_type)});
 	}
+
+    public static int getPersonalFavoritesMaxPosition(Context context) {
+        return getMaxPosition(context, RCMProvider.CLOUD_FAVORITES, new String[]{"MAX(" + FavoritesTable.RCM_SORT + ")"}, null);
+    }
+
+
 }

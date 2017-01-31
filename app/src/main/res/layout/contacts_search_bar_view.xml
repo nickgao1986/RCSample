@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.example.nickgao.utils.widget.SearchBarView
+        android:id="@+id/contacts_list_search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/bg_search"
+        android:gravity="center"
+        android:paddingBottom="@dimen/search_bar_padding_top_bottom"
+        android:paddingLeft="@dimen/search_bar_padding_left_right"
+        android:paddingRight="@dimen/search_bar_padding_left_right"
+        android:paddingTop="@dimen/search_bar_padding_top_bottom" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fav_list_view"
+        android:paddingLeft="@dimen/fav_in_contacts_item_padding"
+        android:paddingRight="@dimen/fav_in_contacts_item_padding"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fav_in_contacts_height"
+        android:layout_marginBottom="@dimen/fav_in_contacts_padding"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal"
+        android:scrollbars="none"
+        android:visibility="gone"
+        />
+
+    <RelativeLayout
+        android:id="@+id/fav_list_empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fav_in_contacts_height"
+        android:layout_marginBottom="@dimen/fav_in_contacts_padding"
+        android:paddingBottom="@dimen/fav_in_contacts_no_favorite_padding_offset"
+        android:gravity="center"
+        android:visibility="gone">
+        <ImageButton
+            android:id="@+id/btnAdd"
+            android:layout_width="@dimen/fav_in_contacts_item_action_button_size"
+            android:layout_height="@dimen/fav_in_contacts_item_action_button_size"
+            android:background="@drawable/btn_fav_action_menu_selector"
+            android:duplicateParentState="true"
+            android:layout_gravity="center"
+            android:layout_centerVertical="true"
+            android:src="@drawable/add_fav_in_list_selector"
+            android:clickable="false"
+           />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/fav_in_contacts_item_action_button_size"
+            android:text="@string/add_favorites"
+            android:id="@+id/text_add_fav"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/btnAdd"
+            android:layout_marginLeft="@dimen/fav_in_contacts_item_padding"
+            android:gravity="center|left"
+            android:textSize="@dimen/font_size_large"
+            android:textColor="@color/add_fav_text_color"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_no_paging_group"
+            android:text="@string/no_fav_paging_groups_text"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textSize="@dimen/font_size_medium"
+            android:textColor="@color/text_no_items"
+            android:visibility="gone"
+            />
+    </RelativeLayout>
+
+
+    <!--
+        <com.ringcentral.android.utils.RCMBanner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />-->
+
+    <View
+        android:id="@+id/search_bar_divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/search_bar_divider_height"
+        android:background="@color/list_items_divider"
+        android:visibility="invisible"/>
+</LinearLayout>
