@@ -51,12 +51,16 @@ public class RcRestRequest<T> extends RestRequest {
     private Object requestBody;
 
     private HashMap<String, String> mRequestHeader;
+    private HashMap<String, String> mResponseHeader;
+
 
     public RcRestRequest(int requestId, Type responseType, HttpMethod method, String logTag) {
         super(method, logTag, LogHttp.ALL, LogHttp.ALL);
         mRequestId = requestId;
         mResponseType = responseType;
         mRequestHeader = new HashMap<String, String>();
+        mResponseHeader = new HashMap<>();
+
     }
 
     public void addHeader(String key, String value) {
@@ -147,6 +151,11 @@ public class RcRestRequest<T> extends RestRequest {
         mRequestPath = RCMConstants.REST_VERSION_URI + context.getResources().getString(mRequestId, args);
     }
 
+    public HashMap<String, String> getResponseHeader() {
+        return mResponseHeader;
+    }
+
+
     @Override
     public String getPath() {
         return mRequestPath;
@@ -168,6 +177,17 @@ public class RcRestRequest<T> extends RestRequest {
 
     @Override
     public void onResponse(Reader response, InputStream responseStream, String contentType, String contentEncoding, long length, Header[] headers) throws IOException {
+        if(headers != null) {
+            for(Header header : headers) {
+                if(header != null) {
+                    String name = header.getName();
+                    String value = header.getValue();
+                    if(!TextUtils.isEmpty(name) && !TextUtils.isEmpty(value)) {
+                        mResponseHeader.put(name, value);
+                    }
+                }
+            }
+        }
         onParse(response);
     }
 

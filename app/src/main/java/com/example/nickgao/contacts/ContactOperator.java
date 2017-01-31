@@ -54,5 +54,6 @@ public abstract class ContactOperator<T extends Contact> {
     }
 
     public abstract void viewDetails(int eventDetailType, String eventDetailName, String eventDetailCompanyFrom);
+    public abstract boolean toggleFavoriteFromAddFavorite(String flurryAddFrom, String flurryDeleteFrom);
 
 }

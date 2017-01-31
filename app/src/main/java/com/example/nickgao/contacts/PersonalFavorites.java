@@ -1,8 +1,11 @@
 package com.example.nickgao.contacts;
 
 import android.app.Activity;
+import android.content.ContentProviderOperation;
+import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.text.TextUtils;
@@ -11,6 +14,7 @@ import com.example.nickgao.R;
 import com.example.nickgao.androidsample11.ContactsUtils;
 import com.example.nickgao.contacts.adapters.contactsprovider.CloudContactSyncService;
 import com.example.nickgao.contacts.adapters.contactsprovider.CloudPersonalContact;
+import com.example.nickgao.contacts.adapters.contactsprovider.CloudPersonalContactLoader;
 import com.example.nickgao.contacts.adapters.contactsprovider.Contact;
 import com.example.nickgao.database.CurrentUserSettings;
 import com.example.nickgao.database.RCMDataStore;
@@ -22,10 +26,14 @@ import com.example.nickgao.logging.EngLog;
 import com.example.nickgao.logging.LogSettings;
 import com.example.nickgao.logging.MktLog;
 import com.example.nickgao.rcproject.RingCentralApp;
+import com.example.nickgao.utils.RCMConstants;
 import com.example.nickgao.utils.RcAlertDialog;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by nick.gao on 1/31/17.
@@ -318,6 +326,273 @@ public class PersonalFavorites {
         }
 
         return true;
+    }
+
+    public static List<Favorite> getFavoriteListFromDatabase() {
+        return getFavoriteListFromDatabase(false, Contact.ContactType.UNKNOW);
+    }
+
+    public static List<Favorite> getFavoriteListFromDatabase(boolean specifiedContactType, Contact.ContactType contactType) {
+        List<Favorite> list = new ArrayList<>();
+        try {
+            final Context context = RingCentralApp.getContextRC();
+            if(context == null) {
+                return list;
+            }
+
+            String where = null;
+            String[] args = null;
+
+            if(specifiedContactType) {
+                where = CloudFavoritesTable.CONTACT_TYPE + " = ?";
+                args = new String[] { String.valueOf(matchToFavoriteDBContactType(contactType))};
+            }
+
+            Cursor cursor = context.getContentResolver().query(UriHelper.getUri(RCMProvider.CLOUD_FAVORITES, CurrentUserSettings.getSettings().getCurrentMailboxId()),
+                    PersonalFavorites.PROJECTION,
+                    where,
+                    args,
+                    RCMDataStore.CloudFavoritesTable.RCM_SORT);
+            if(cursor == null || cursor.getCount() == 0) {
+                return list;
+            }
+            cursor.move(-1);
+            while (cursor.moveToNext()) {
+                Favorite entity = new Favorite();
+                entity.dbId = cursor.getLong(PersonalFavorites._ID_INDX);
+                entity.contactId = cursor.getLong(PersonalFavorites.CONTACT_ID_INDX);
+                entity.contactType = matchToContactType(cursor.getInt(PersonalFavorites.CONTACT_TYPE_INDX));
+                entity.order = cursor.getInt(PersonalFavorites.SORT_INDEX);
+                entity.syncStatus = matchToSyncStatus(cursor.getInt(PersonalFavorites.SYNC_STATUS));
+                list.add(entity);
+            }
+        } catch (Exception e) {
+            MktLog.e(LOG_TAG, "Fail to load favorites", e);
+        }
+        return list;
+    }
+
+    public static RCMDataStore.CloudFavoriteSyncStatus matchToSyncStatus(int value) {
+        RCMDataStore.CloudFavoriteSyncStatus syncStatus;
+        if(RCMDataStore.CloudFavoriteSyncStatus.Synced.ordinal() == value) {
+            syncStatus = RCMDataStore.CloudFavoriteSyncStatus.Synced;
+        } else if(RCMDataStore.CloudFavoriteSyncStatus.NeedSync.ordinal() == value) {
+            syncStatus = RCMDataStore.CloudFavoriteSyncStatus.NeedSync;
+        } else if(RCMDataStore.CloudFavoriteSyncStatus.CloudTemporary.ordinal() == value) {
+            syncStatus = RCMDataStore.CloudFavoriteSyncStatus.CloudTemporary;
+        } else if(RCMDataStore.CloudFavoriteSyncStatus.Deleted.ordinal() == value) {
+            syncStatus = RCMDataStore.CloudFavoriteSyncStatus.Deleted;
+        } else {
+            syncStatus = RCMDataStore.CloudFavoriteSyncStatus.UNKNOWN;
+        }
+        return syncStatus;
+    }
+
+    public static class CloudFavoritesRecord {
+        public CloudFavoriteContactInfo[] records;
+    }
+
+
+    public static String toCloudFavoriteRequestBody(List<Favorite> favorites) {
+        String requestBody = null;
+        Favorite favorite;
+        CloudFavoritesRecord record = new CloudFavoritesRecord();
+        try {
+            record.records = new CloudFavoriteContactInfo[favorites.size()];
+            for (int i = 0; i < favorites.size(); i++) {
+                favorite = favorites.get(i);
+                if(favorite.contactType == Contact.ContactType.CLOUD_PERSONAL) {
+                    record.records[i] = CloudFavoriteContactInfo.Builder.cloudContactFavorite(favorite.order, String.valueOf(favorite.contactId));
+                } else if(favorite.contactType == Contact.ContactType.CLOUD_COMPANY) {
+                    record.records[i] = CloudFavoriteContactInfo.Builder.extensionFavorite(favorite.order, String.valueOf(favorite.contactId));
+                }
+            }
+
+            Gson gson = new Gson();
+            requestBody = gson.toJson(record);
+        }catch (Throwable th) {
+            MktLog.d(LOG_TAG, th.toString());
+        }
+
+        EngLog.d(LOG_TAG, "toCloudFavoriteRequestBody request body=" + requestBody);
+
+        return requestBody;
+    }
+
+    public static List<Favorite> truncateIfExceedServerLimitation(List<Favorite> favorites) {
+        return (favorites.size() > FAVORITES_SERVER_LIMITATION) ? favorites.subList(0, FAVORITES_SERVER_LIMITATION - 1) : favorites;
+    }
+
+
+    public static void deleteAndInsertFavoriteListFromDatabase(List<Favorite> localFavoriteList, List<Favorite> serverFavoriteList) {
+        try {
+            final Context context = RingCentralApp.getContextRC();
+            if(context == null) {
+                return;
+            }
+            long mailBoxID = CurrentUserSettings.getSettings(context).getCurrentMailboxId();
+            ContentResolver cr = context.getContentResolver();
+            Uri uri = UriHelper.getUri(RCMProvider.CLOUD_FAVORITES);
+
+            //speed up
+            Map<Long, Favorite> mapServerPersonalFavorites = new HashMap<>();
+            for(PersonalFavorites.Favorite serverFavorite: serverFavoriteList) {
+                mapServerPersonalFavorites.put(serverFavorite.getContactId(), serverFavorite);
+            }
+
+            List<Favorite> localTempCloudFavorites = new ArrayList<>();
+            List<Favorite> localStillNeedSyncFavorites = new ArrayList<>();
+            //remove old favorites
+            if(localFavoriteList != null && !localFavoriteList.isEmpty()) {
+                List<Long> idList = new ArrayList<>();
+                for (Favorite favorite : localFavoriteList) {
+                    if(favorite.getSyncStatus() != RCMDataStore.CloudFavoriteSyncStatus.CloudTemporary) {
+                        if(favorite.getSyncStatus() == RCMDataStore.CloudFavoriteSyncStatus.NeedSync) {
+                            //if there is not matched in server returned list, that means this favorite still needing to sync, do not delete
+                            if(!mapServerPersonalFavorites.containsKey(favorite.getContactId())) {
+                                localStillNeedSyncFavorites.add(favorite);
+                                continue;
+                            }
+                        }
+                        idList.add(favorite.getDbId());
+                    }else {
+                        //local temp cloud should not be deleted
+                        localTempCloudFavorites.add(favorite);
+                    }
+                }
+
+                if (!idList.isEmpty()) {
+                    String where = CloudFavoritesTable._ID + " IN ( " + TextUtils.join(",", idList) +" ) ";
+                    int rows = cr.delete(uri, where, null);
+                    EngLog.d(LOG_TAG, "deleteAndInsertFavoriteListFromDatabase deleted rows =" + rows);
+                }
+            }
+
+            //add favorites from server
+            List<ContentValues> favoriteCRList = new ArrayList<>();
+            int order = 0;
+            if(serverFavoriteList != null && !serverFavoriteList.isEmpty()) {
+                for (Favorite favorite : serverFavoriteList) {
+                    order = favorite.getOrder();
+                    ContentValues values = new ContentValues();
+                    values.put(CloudFavoritesTable.MAILBOX_ID, mailBoxID);
+                    values.put(CloudFavoritesTable.CONTACT_TYPE, matchToFavoriteDBContactType(favorite.getContactType()));
+                    values.put(CloudFavoritesTable.CONTACT_ID, favorite.getContactId());
+                    values.put(CloudFavoritesTable.RCM_SORT, order);
+                    values.put(CloudFavoritesTable.SYNC_STATUS, RCMDataStore.CloudFavoriteSyncStatus.Synced.ordinal());
+                    favoriteCRList.add(values);
+                }
+            }
+
+            if (!favoriteCRList.isEmpty()) {
+                CloudPersonalContactLoader.bulkInsert(cr, uri, favoriteCRList);
+            }
+
+            //re-order or delete favorites
+            ArrayList<ContentProviderOperation> favoriteOps = new ArrayList<>();
+            //re-order need sync favorites
+            if(!localStillNeedSyncFavorites.isEmpty() || !localTempCloudFavorites.isEmpty()) {
+                //update
+                Uri favoriteUriWithId = UriHelper.getUri(RCMProvider.CLOUD_FAVORITES, mailBoxID);
+                String where = CloudFavoritesTable._ID + "=?";
+                //still needing sync favorites
+                for(Favorite favorite : localStillNeedSyncFavorites) {
+                    String[] args = new String[]{String.valueOf(favorite.getDbId())};
+                    //any exceed items should be deleted.
+                    if(order >= PersonalFavorites.FAVORITES_SERVER_LIMITATION) {
+                        favoriteOps.add(ContentProviderOperation.newDelete(favoriteUriWithId).withSelection(where, args).build());
+                        continue;
+                    }
+                    order++;
+                    ContentValues values = new ContentValues();
+                    values.put(CloudFavoritesTable.RCM_SORT, order);
+                    favoriteOps.add(ContentProviderOperation.newUpdate(favoriteUriWithId).withSelection(where, args).withValues(values)
+                            .build());
+                }
+
+                //temp cloud contacts favorites
+                for(Favorite favorite : localTempCloudFavorites) {
+                    String[] args = new String[]{String.valueOf(favorite.getDbId())};
+                    //any exceed items should be deleted.
+                    if(order >= PersonalFavorites.FAVORITES_SERVER_LIMITATION) {
+                        favoriteOps.add(ContentProviderOperation.newDelete(favoriteUriWithId).withSelection(where, args).build());
+                        continue;
+                    }
+                    order++;
+                    ContentValues values = new ContentValues();
+                    values.put(CloudFavoritesTable.RCM_SORT, order);
+                    favoriteOps.add(ContentProviderOperation.newUpdate(favoriteUriWithId).withSelection(where, args).withValues(values)
+                            .build());
+                }
+            }
+
+            if(!favoriteOps.isEmpty()) {
+                cr.applyBatch(RCMProvider.AUTHORITY, favoriteOps);
+            }
+
+            //notify
+            if(!favoriteOps.isEmpty() || !favoriteCRList.isEmpty()) {
+                context.sendBroadcast(new Intent(RCMConstants.ACTION_CLOUD_FAVORITE_CHANGED));
+            }
+        } catch (Exception e) {
+            MktLog.e(LOG_TAG, "deleteAndInsertFavoriteListFromDatabase:", e);
+        }
+    }
+
+
+    public static class Favorite {
+        public long dbId;
+        public long contactId;
+        public int order;
+        public Contact.ContactType contactType;
+        public RCMDataStore.CloudFavoriteSyncStatus syncStatus = RCMDataStore.CloudFavoriteSyncStatus.UNKNOWN;
+        public Favorite() {}
+        public Favorite(long dbId, long contactId, int order, Contact.ContactType contactType) {
+            this.dbId = dbId;
+            this.contactId = contactId;
+            this.order = order;
+            this.contactType = contactType;
+        }
+
+        public void setSyncStatus(RCMDataStore.CloudFavoriteSyncStatus syncStatus) {
+            this.syncStatus = syncStatus;
+        }
+
+        public void setOrder(int order) {
+            this.order = order;
+        }
+
+        public long getDbId() {
+            return dbId;
+        }
+
+        public void setDbId(long dbId) {
+            this.dbId = dbId;
+        }
+
+        public long getContactId() {
+            return contactId;
+        }
+
+        public void setContactId(long contactId) {
+            this.contactId = contactId;
+        }
+
+        public int getOrder() {
+            return order;
+        }
+
+        public Contact.ContactType getContactType() {
+            return contactType;
+        }
+
+        public void setContactType(Contact.ContactType contactType) {
+            this.contactType = contactType;
+        }
+
+        public RCMDataStore.CloudFavoriteSyncStatus getSyncStatus() {
+            return syncStatus;
+        }
     }
 
 }

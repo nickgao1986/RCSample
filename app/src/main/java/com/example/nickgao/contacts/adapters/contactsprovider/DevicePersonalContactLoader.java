@@ -9,6 +9,7 @@ import android.provider.ContactsContract;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 
+import com.example.nickgao.contacts.PersonalFavorites;
 import com.example.nickgao.logging.MktLog;
 import com.example.nickgao.service.model.contact.Address;
 
@@ -375,4 +376,17 @@ public class DevicePersonalContactLoader extends ContactsLoader {
     protected Contact removeCacheContact(Long contactId) {
         return null;
     }
+
+    public static boolean isFavorite(Context context,long contactId) {
+        return PersonalFavorites.isCloudFavorite(contactId, Contact.ContactType.DEVICE, context);
+    }
+
+    public static boolean setFavorite(Context context,long contactId, boolean isFavorite) {
+        if(isFavorite){
+            return PersonalFavorites.addToCloudFavoriteWithLimitationChecking(contactId, Contact.ContactType.DEVICE,context);
+        }else{
+            return PersonalFavorites.markedAsDeletedInFavorites(contactId, Contact.ContactType.DEVICE);
+        }
+    }
+
 }

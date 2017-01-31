@@ -5,11 +5,7 @@
  */
 package com.example.nickgao.utils;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.nio.CharBuffer;
+import android.util.SparseArray;
 
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
@@ -17,7 +13,11 @@ import org.apache.http.HttpEntityEnclosingRequest;
 import org.apache.http.HttpRequest;
 import org.apache.http.util.EntityUtils;
 
-import android.util.SparseArray;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.nio.CharBuffer;
 
 /**
  * Helper HTTP routines and definitions.
@@ -33,7 +33,8 @@ public final class HttpUtils {
     public static final String STREAM_CONTENT_TYPE      	= "application/octet-stream";
     public static final String TRANSFER_ENCODING 			= "Transfer-Encoding";
     public static final String CHUNKED						= "chunked";
-    
+    public static final String IF_NONE_MATCH = "If-None-Match";
+
     /**
      * Return dump of a HTTP request for logging purposes.
      * 

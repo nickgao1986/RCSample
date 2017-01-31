@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
@@ -233,7 +234,9 @@ public class ContactsFragment extends BaseContactsFragment implements RCMainTitl
         MktLog.d(TAG, "onPause()...");
 
         //saveListViewPosition();
-
+        if (isFavoritesRecyclerViewManagerValidate()) {
+            mFavoritesPresenter.pause();
+        }
     }
 
 
@@ -377,6 +380,12 @@ public class ContactsFragment extends BaseContactsFragment implements RCMainTitl
         }
     }
 
+
+    private boolean isFavoritesRecyclerViewManagerValidate() {
+        return (mFavoritesHorizontalListView != null && getCurrentTab() != Tabs.FAVORITE) ? true : false;
+    }
+
+
     protected boolean getDeviceContactsPermission() {
         return !(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
                 && (mActivity.checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED));
@@ -476,6 +485,23 @@ public class ContactsFragment extends BaseContactsFragment implements RCMainTitl
 
     protected void initFavoritePresenter() {
         mFavoritesPresenter = new FavoritesInContactsPresenter(this.getContext(), mFavoritesHorizontalListView);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (isHidden()) {
+            return;
+        }
+
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+
+        MktLog.d(TAG, "onResume()...");
+        mNeedReload = true;
+
+        if (mFavoritesPresenter != null) {
+            mFavoritesPresenter.resume(false);
+        }
     }
 
 

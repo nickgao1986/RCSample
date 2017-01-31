@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.text.TextUtils;
 
+import com.example.nickgao.contacts.PersonalFavorites;
 import com.example.nickgao.database.CurrentUserSettings;
 import com.example.nickgao.database.RCMDataStore;
 import com.example.nickgao.database.RCMProvider;
@@ -1311,6 +1312,18 @@ public class CloudPersonalContactLoader extends ContactsLoader{
             result = temp;
         }
         return result;
+    }
+
+    public static boolean isFavorite(Context context, long contactId) {
+        return PersonalFavorites.isCloudFavorite(contactId, Contact.ContactType.CLOUD_PERSONAL,context);
+    }
+
+    public static boolean setFavorite(Context context, long contactId, boolean isFavorite) {
+        if(isFavorite){
+            return PersonalFavorites.addToCloudFavoriteWithLimitationChecking(contactId, Contact.ContactType.CLOUD_PERSONAL,context);
+        }else{
+            return PersonalFavorites.markedAsDeletedInFavorites(contactId, Contact.ContactType.CLOUD_PERSONAL);
+        }
     }
 
 

@@ -1,6 +1,7 @@
 package com.example.nickgao.rcfragments.presents;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.PointF;
 import android.graphics.Rect;
 import android.support.v4.app.Fragment;
@@ -11,9 +12,13 @@ import android.util.DisplayMetrics;
 import android.view.View;
 
 import com.example.nickgao.R;
+import com.example.nickgao.contacts.AddFavoritesActivity;
+import com.example.nickgao.contacts.PersonalFavorites;
 import com.example.nickgao.contacts.adapters.FavInContactsListAdapter;
 import com.example.nickgao.contacts.adapters.contactsprovider.Contact;
 import com.example.nickgao.logging.MktLog;
+import com.example.nickgao.utils.RCMConstants;
+import com.example.nickgao.utils.RcAlertDialog;
 
 /**
  * Created by nick.gao on 1/31/17.
@@ -85,17 +90,14 @@ public class FavoritesHorizontalListView implements IFavoritesView {
 
     @Override
     public void requestAddingFavorite() {
-//        if (PersonalFavorites.isCloudFavoritesAchieveServerLimitation(mFragment.getContext())) {
-//            RcAlertDialog.showOkAlertDialog(mFragment.getContext(), R.string.favorite_over_server_limitation_title, R.string.favorite_over_server_limitation_content);
-//            return;
-//        }
-//
-//        Intent intent = new Intent(mFragment.getContext(), AddFavoritesActivity.class);
-//        FlurryTypes.onEvent(FlurryTypes.TAP_ADD_FAVORITE_ICON);
-//        FlurryTypes.onEventWithOneParam(FlurryTypes.EVENT_ADD_FAVORITES,
-//                RCMConstants.MAP_KEY_ENTRIES, FlurryTypes.TAP_ADD_FAVORITE_BUTTON_IN_CONTACTS_SCREEN);
-//        intent.setAction(RCMConstants.ACTION_LIST_ALL_CONTACTS);
-//        mFragment.startActivity(intent);
+        if (PersonalFavorites.isCloudFavoritesAchieveServerLimitation(mFragment.getContext())) {
+            RcAlertDialog.showOkAlertDialog(mFragment.getContext(), R.string.favorite_over_server_limitation_title, R.string.favorite_over_server_limitation_content);
+            return;
+        }
+
+        Intent intent = new Intent(mFragment.getContext(), AddFavoritesActivity.class);
+        intent.setAction(RCMConstants.ACTION_LIST_ALL_CONTACTS);
+        mFragment.startActivity(intent);
     }
 
     @Override

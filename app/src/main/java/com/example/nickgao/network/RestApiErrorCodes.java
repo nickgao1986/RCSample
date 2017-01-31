@@ -4,9 +4,9 @@
  */
 package com.example.nickgao.network;
 
-import org.apache.http.HttpStatus;
-
 import android.util.SparseArray;
+
+import org.apache.http.HttpStatus;
 
 /**
  * Constants enumerating the status codes used across REST API implementation: 
@@ -186,8 +186,11 @@ public final class RestApiErrorCodes {
     
     //public static final int PLATFORM_RESPONSE_CODE_5XX
     public static final int CLIENT_INVALID_ERROR = 999;
-    
-    
+
+    public static final int SC_NOT_MODIFIED_304=HttpStatus.SC_NOT_MODIFIED;
+
+
+
     /****************************************REQULAR CODES****************************************************/
     /**
      * Unauthorized,Error code:TokenInvalid (5.12+) DO NOT repeat the request. Perform OAuth authentication to get new tokens.

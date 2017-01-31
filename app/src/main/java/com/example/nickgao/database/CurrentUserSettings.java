@@ -25,6 +25,8 @@ public class CurrentUserSettings extends AbstractDbSettings {
     private static final String SAVING_STATE_SHARED_PREF_PARAMETER = "isCompany";
     private static volatile long sCurrentMailboxId = MAILBOX_ID_NOT_SET;
     private static final String KEY_PERSONAL_CONTACTS_SYNC_TOKEN = "CloudPersonalContactsSyncToken";
+    private static final String KEY_CURRENT_FAVORITE_E_TAG = "current_favorite_e_tag";
+    private static final String KEY_CURRENT_FAVORITE_ORDER_CHANGED = "current_favorite_order_changed";
 
 
     private Context mContext;
@@ -110,6 +112,22 @@ public class CurrentUserSettings extends AbstractDbSettings {
 
     public String getPersonalContactsSyncToken(){
         return getString(KEY_PERSONAL_CONTACTS_SYNC_TOKEN, "");
+    }
+
+    public void setCurrentFavoriteETag(String favoriteETag) {
+        setString(KEY_CURRENT_FAVORITE_E_TAG, favoriteETag);
+    }
+
+    public String getCurrentFavoriteETag() {
+        return getString(KEY_CURRENT_FAVORITE_E_TAG, "");
+    }
+
+    public void setCurrentFavoriteOrderChanged(boolean value) {
+        setBoolean(KEY_CURRENT_FAVORITE_ORDER_CHANGED, value);
+    }
+
+    public boolean getCurrentFavoriteOrderChanged() {
+        return getBoolean(KEY_CURRENT_FAVORITE_ORDER_CHANGED, false);
     }
 
 }

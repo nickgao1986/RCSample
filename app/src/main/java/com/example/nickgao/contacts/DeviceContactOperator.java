@@ -2,9 +2,12 @@ package com.example.nickgao.contacts;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.widget.Toast;
 
+import com.example.nickgao.R;
 import com.example.nickgao.contacts.adapters.contactsprovider.Contact;
 import com.example.nickgao.contacts.adapters.contactsprovider.DeviceContact;
+import com.example.nickgao.contacts.adapters.contactsprovider.DevicePersonalContactLoader;
 import com.example.nickgao.logging.MktLog;
 import com.example.nickgao.utils.RCMConstants;
 
@@ -28,4 +31,24 @@ public class DeviceContactOperator extends ContactOperator<DeviceContact> {
         mActivity.startActivity(intent);
     }
 
+    @Override
+    public boolean toggleFavoriteFromAddFavorite(String flurryAddFrom, String flurryDeleteFrom) {
+        if(DevicePersonalContactLoader.isFavorite(mActivity, mContact.getContactId())){
+            signalError(R.string.toast_contact_already_add_to_favorite);
+            return false;
+        }else {
+            return DevicePersonalContactLoader.setFavorite(mActivity, mContact.getContactId(),true);
+        }
+    }
+
+    private Toast getToast(){
+        return Toast.makeText(mActivity, "", Toast.LENGTH_SHORT);
+    }
+
+
+    protected void signalError(int resId){
+        Toast toast = getToast();
+        toast.setText(mActivity.getString(resId));
+        toast.show();
+    }
 }

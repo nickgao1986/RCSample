@@ -88,8 +88,43 @@ public class FavInContactsListAdapter extends RecyclerView.Adapter<RecyclerView.
 
     @Override
     public void refresh(List<FavoriteEntity> list) {
+        this.mFavorites.clear();
+        this.mFavorites.addAll(list);
+        addEmptyFavoriteEntity(list);
+        mFavoriteItemPresenter.refresh();
 
+        verifySelectedContact(list);
+
+        notifyDataSetChanged();
     }
+
+    protected void addEmptyFavoriteEntity(List<FavoriteEntity> list) {
+        if (!list.isEmpty()) {
+            //append action add
+            this.mFavorites.add(new FavoriteEntity());
+        }
+    }
+
+    private void verifySelectedContact(List<FavoriteEntity> favoriteEntities) {
+        Contact selectedContact = getSelectedContact();
+        if (selectedContact != null) {
+            Contact item;
+            boolean isVerified = false;
+            for (int i = 0; i < favoriteEntities.size(); i++) {
+                item = favoriteEntities.get(i).contact;
+                if (item != null && item.getId() == selectedContact.getId()) {
+                    setSelectedContact(item);
+                    mFavoritesViewDelegate.selectedContactChanged(item);
+                    isVerified = true;
+                    break;
+                }
+            }
+            if (!isVerified) {
+                mFavoritesViewDelegate.selectedContactChanged(null);
+            }
+        }
+    }
+
 
     @Override
     public FavoriteEntity getFavoriteEntity(int position) {

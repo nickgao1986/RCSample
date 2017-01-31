@@ -1,8 +1,10 @@
 package com.example.nickgao.service;
 
 import com.example.nickgao.R;
+import com.example.nickgao.contacts.CloudFavoriteContactInfo;
 import com.example.nickgao.contacts.CreateSingleContactRequest;
 import com.example.nickgao.contacts.DeleteContactRequest;
+import com.example.nickgao.contacts.UpdateCloudFavoriteRequest;
 import com.example.nickgao.contacts.UpdateContactsRequest;
 import com.example.nickgao.contacts.adapters.contactsprovider.CloudPersonalContactInfo;
 import com.example.nickgao.network.RestRequest;
@@ -11,6 +13,7 @@ import com.example.nickgao.service.request.RcRestRequest;
 import com.example.nickgao.service.request.RestListRequest;
 import com.example.nickgao.service.request.RestPageRequest;
 import com.example.nickgao.service.response.ClientInfoResponse;
+import com.example.nickgao.service.response.RestListResponse;
 import com.example.nickgao.service.response.RestPageResponse;
 import com.google.gson.reflect.TypeToken;
 
@@ -59,7 +62,19 @@ public class RestRequestFactory implements IRequestFactory {
         return new DeleteContactRequest<>(R.string.rest_update_delete_single_contact, type, RestRequest.HttpMethod.DELETE, TAG_DELETE_CONTACT);
     }
 
+    @Override
+    public RcRestRequest<RestListResponse<CloudFavoriteContactInfo>> getCloudFavoriteList() {
+        Type type = new TypeToken<RestListResponse<CloudFavoriteContactInfo>>() {
+        }.getType();
+        return new RestListRequest<>(R.string.rest_path_cloud_favorite, type, RestRequest.HttpMethod.GET, TAG_GET_CLOUD_FAVORITE);
+    }
 
+    @Override
+    public RcRestRequest<RestListResponse<CloudFavoriteContactInfo>> updateCloudFavoriteList(String requestBody) {
+        Type type = new TypeToken<RestListResponse<CloudFavoriteContactInfo>>() {
+        }.getType();
+        return new UpdateCloudFavoriteRequest<>(R.string.rest_path_cloud_favorite, type, RestRequest.HttpMethod.PUT, TAG_UPDATE_CLOUD_FAVORITE, requestBody);
+    }
 
 
     static class DeliverMode {

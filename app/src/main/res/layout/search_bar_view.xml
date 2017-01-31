@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.example.nickgao.utils.widget.SearchBarView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/messagesSearchBar"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/bg_search"
+    android:gravity="center"
+    android:paddingLeft="@dimen/search_bar_padding_left_right"
+    android:paddingRight="@dimen/search_bar_padding_left_right"
+    android:paddingTop="@dimen/search_bar_padding_top_bottom"
+    android:paddingBottom="@dimen/search_bar_padding_top_bottom" />

@@ -30,6 +30,11 @@ public class FavoriteItemPresenter {
         isStorageAccessible = true;
     }
 
+    public void refresh() {
+        isPresenceEnabled = false;
+        isStorageAccessible = true;
+    }
+
 
     public void setPhotoView(final ImageView photoView, Contact contact) {
         switch (contact.getType()) {

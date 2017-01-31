@@ -1,9 +1,11 @@
 package com.example.nickgao.service;
 
+import com.example.nickgao.contacts.CloudFavoriteContactInfo;
 import com.example.nickgao.contacts.adapters.contactsprovider.CloudPersonalContactInfo;
 import com.example.nickgao.service.model.contact.Contact;
 import com.example.nickgao.service.request.RcRestRequest;
 import com.example.nickgao.service.response.ClientInfoResponse;
+import com.example.nickgao.service.response.RestListResponse;
 import com.example.nickgao.service.response.RestPageResponse;
 
 
@@ -56,5 +58,10 @@ public interface IRequestFactory {
     RcRestRequest<CloudPersonalContactInfo> updateContactRequest(String requestBody);
 
     RcRestRequest<CloudPersonalContactInfo> deleteContactRequest();
+
+    RcRestRequest<RestListResponse<CloudFavoriteContactInfo>> getCloudFavoriteList();
+
+    RcRestRequest<RestListResponse<CloudFavoriteContactInfo>> updateCloudFavoriteList(String requestBody);
+
 
 }
