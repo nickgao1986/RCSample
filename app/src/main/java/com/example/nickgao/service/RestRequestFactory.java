@@ -9,6 +9,8 @@ import com.example.nickgao.contacts.UpdateContactsRequest;
 import com.example.nickgao.contacts.adapters.contactsprovider.CloudPersonalContactInfo;
 import com.example.nickgao.network.RestRequest;
 import com.example.nickgao.service.model.contact.Contact;
+import com.example.nickgao.service.model.extensioninfo.ExtensionInfoResponse;
+import com.example.nickgao.service.model.i18n.LanguageRecord;
 import com.example.nickgao.service.request.RcRestRequest;
 import com.example.nickgao.service.request.RestListRequest;
 import com.example.nickgao.service.request.RestPageRequest;
@@ -74,6 +76,21 @@ public class RestRequestFactory implements IRequestFactory {
         Type type = new TypeToken<RestListResponse<CloudFavoriteContactInfo>>() {
         }.getType();
         return new UpdateCloudFavoriteRequest<>(R.string.rest_path_cloud_favorite, type, RestRequest.HttpMethod.PUT, TAG_UPDATE_CLOUD_FAVORITE, requestBody);
+    }
+
+    @Override
+    public RcRestRequest<ExtensionInfoResponse> createGetExtensionInfoRequest() {
+        Type type = new TypeToken<ExtensionInfoResponse>() {
+        }.getType();
+        return new RestListRequest<ExtensionInfoResponse>(R.string.rest_path_get_extension_info, type, RestRequest.HttpMethod.GET, TAG_EXTENSIONINFO);
+    }
+
+
+    @Override
+    public RcRestRequest<RestPageResponse<LanguageRecord>> createLanguageListRequest(int pageSize) {
+        Type type = new TypeToken<RestPageResponse<LanguageRecord>>() {
+        }.getType();
+        return new RestPageRequest<RestPageResponse<LanguageRecord>>(R.string.rest_path_get_language_list, pageSize, type, RestRequest.HttpMethod.GET, TAG_GET_LANGUAGE_LIST);
     }
 
 

@@ -2,6 +2,7 @@ package com.example.nickgao.database;
 
 import android.content.Context;
 import android.net.Uri;
+import android.text.TextUtils;
 
 import com.example.nickgao.logging.MktLog;
 import com.example.nickgao.rcproject.RingCentralApp;
@@ -104,4 +105,16 @@ public class GeneralSettings extends AbstractDbSettings {
     protected Uri getUri() {
         return UriHelper.getSettingsUri(RCMSettingsProvider.GENERAL_SETTINGS);
     }
+
+    public void setLanguageOrReminderShowedBefore(String localeCode) {
+        if (!isLanguageOrReminderShowedBefore(localeCode)) {
+            setString(localeCode, "1");
+        }
+    }
+
+    public boolean isLanguageOrReminderShowedBefore(String localeCode) {
+        String result = getString(localeCode, "0");
+        return TextUtils.equals(result, "1");
+    }
+
 }

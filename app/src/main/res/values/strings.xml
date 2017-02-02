@@ -1808,4 +1808,22 @@
     <string name="pick_up_failed_message">This call has already been picked up or has ended.</string>
     <string name="pick_up_not_available_for_ring_out_mode_content">Pickup a call is only supported when VoIP calling is turned on. Do you want to turn it on and continue?</string>
     <string name="pick_up_not_available_for_3g4g_content">Pickup a call is only supported when VoIP calling is turned on for 3G/4G/LTE network. Do you want to turn it on and continue?</string>
+
+
+    <string name="lang_unable_to_update_message">Sorry, we had trouble updating to the language you selected. Please check your network connection and try again.</string>
+
+    <string name="lang_conflict_resolving_message">The User Language set on your online account is different from that on your mobile app. Please select the language you prefer as your global user language. This will be used for your online account and for all your mobile apps.</string>
+    <string name="lang_conflict_resolving_polling_message">Your User Language was updated. Your mobile app language will now be updated to: %s</string>
+
+    <string name="lang_only_one_language_support_message">Your User Language set on your online account is %1$s. Your mobile app language will now be updated to: %2$s</string>
+
+    <string name="lang_conflict_new_language_in_server_with_new_version_message">Your User Language has been updated to: %s. To use this language, you must update this app to the latest available version.</string>
+    <string name="lang_conflict_new_language_in_server_without_new_version_message">Your User Language has been updated to: %s. To use this language, you must update this device\'s operating system version, and then update this app.</string>
+
+    <string name="lang_support_new_content">A new language is now supported. Would you like to update your global user language to: %s</string>
+    <string name="message_all">All</string>
+    <string name="message_voice">Voice</string>
+    <string name="message_fax">Fax</string>
+    <string name="message_text">Text</string>
+
 </resources>

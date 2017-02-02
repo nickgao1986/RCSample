@@ -1,0 +1,64 @@
+{
+   "tips" : [
+        {
+            "id" : "1",
+            "screen" : "MainActivity",
+            "viewId" : "photo",
+            "text" : "tip_for_profile_layout",
+            "brand": [],
+            "permission": [],
+            "hotPadding":"tutorial_tip_hot_padding_5dp",
+            "hotZoomIn": true,
+            "eventName":"Profile Icon Tutorial",
+            "isFragment":true
+         },
+         {
+             "id" : "2",
+             "screen" : "RingCentralMain",
+             "viewId" : "layout_plus",
+             "text" : "tip_for_bottom_plus_layout",
+             "brand": [],
+             "permission": [],
+             "hotPadding":"tutorial_tip_hot_padding_4dp",
+             "hotZoomIn": false,
+             "eventName":"Navigation Menu Tutorial",
+             "isFragment":false
+         },
+         {
+           "id" : "5",
+           "screen" : "RingCentralMain",
+           "viewId" : "layout_plus",
+           "text" : "tip_for_glip",
+           "brand": [],
+           "permission": ["RCTeams"],
+           "hotPadding":"tutorial_tip_hot_padding_4dp",
+           "hotZoomIn": false,
+           "eventName":"Glip Tutorial",
+           "isFragment":false
+         },
+         {
+              "id" : "3",
+              "screen" : "RingCentralMain",
+              "viewId" : "btn_drop_down_imageview",
+              "text" : "tip_for_drop_down_filter",
+              "brand": [],
+              "permission": [],
+              "hotPadding":"tutorial_tip_hot_padding_10dp",
+              "hotZoomIn": true,
+              "eventName":"Drop Down Filter Tutorial",
+              "isFragment":true
+          },
+         {
+             "id" : "4",
+             "screen" : "MeScreenActivity",
+             "viewId" : "top_photo_view",
+             "text" : "tip_for_profile_photo_setting",
+             "brand": [],
+             "permission": [],
+             "hotPadding":"tutorial_tip_hot_padding_5dp",
+             "hotZoomIn": true,
+             "eventName":"Set Photo Tutorial",
+             "isFragment":false
+         }
+    ]
+}

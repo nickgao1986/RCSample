@@ -21,4 +21,5 @@
     <dimen name="tutorial_tip_hot_padding_5dp">5dp</dimen>
     <dimen name="tutorial_tip_hot_padding_8dp">8dp</dimen>
     <dimen name="tutorial_tip_hot_padding_10dp">10dp</dimen>
+
 </resources>

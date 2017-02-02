@@ -12,4 +12,9 @@ public class DeviceUtils {
         return Build.VERSION.SDK_INT>=23;
     }
 
+    public static boolean isContainOrAboveAndroidOS5_0() {
+        return android.os.Build.VERSION.SDK_INT > 19;
+    }
+
+
 }

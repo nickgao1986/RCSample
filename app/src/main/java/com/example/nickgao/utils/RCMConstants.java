@@ -817,4 +817,7 @@ public final class RCMConstants {
 
     public static final String PAGING_SERVICE_NUMBER = "*84";
 
+    public static final String SP_LANGUAGE_EDITOR = "RC_LANGUAGE_SETTINGS";
+    public static final String SP_LANGUAGE_JUST_LOGIN = "RC_LANGUAGE_JUST_LOGIN";
+
 }

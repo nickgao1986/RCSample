@@ -667,6 +667,7 @@ public class RCMProvider extends ContentProvider {
             case OUTBOX_ATTACHMENT_ID_MATCH:
             case PHONE_NUMBERS_WITHOUT_MAILBOXID_MATCH:
             case CONTACT_PERSONAL_GROUP_MATCH:
+            case LANGUAGE_TABLE_MATCH:
 //            case FORWARDING_NUMBER_MATCH:
                 return false;
             default:

@@ -20,6 +20,12 @@ public class ContactsActivity extends android.support.v4.app.FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.contacts_list_content);
+
+//        String message = this.getString(R.string.lang_setting_message);
+//
+//        RingCentralApp.restartTopActivity(ContactsActivity.this, message);
+
+
     }
 
     @TargetApi(Build.VERSION_CODES.M)

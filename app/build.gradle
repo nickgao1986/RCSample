@@ -10,6 +10,9 @@ android {
         buildToolsVersion rootProject.ext.buildToolsVersion
         versionCode 1
         versionName "1.0"
+        def additionalLanguage = "{new com.example.nickgao.service.i18n.Language(\"en_US\", true), new com.example.nickgao.service.i18n.Language(\"fr_FR\", false), new com.example.nickgao.service.i18n.Language(\"en_GB\", false), new com.example.nickgao.service.i18n.Language(\"de-DE\", false), new com.example.nickgao.service.i18n.Language(\"fr_CA\", false)}"
+
+        buildConfigField "com.example.nickgao.service.i18n.Language[]", "LANGUAGES", additionalLanguage
     }
     signingConfigs {
         us_production {

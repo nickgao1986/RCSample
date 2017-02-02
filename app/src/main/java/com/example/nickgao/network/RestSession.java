@@ -1847,7 +1847,7 @@ public final class RestSession {
                         rest.setResult(RestApiErrorCodes.RESPONSE_PROCESSING_ERROR);
                     }
                     
-                    if (streamedLogging) {
+                    if (true ) {
                         try {
                             StringBuffer sb = new StringBuffer("> Response Body ").append(logTag).append('\n');
                             if (iReader instanceof HttpResponseLogger) {
