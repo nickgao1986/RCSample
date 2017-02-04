@@ -96,6 +96,13 @@
 
         <activity
 
+            android:name=".androidsample11.MainActivity"
+            android:theme="@style/RingCentral.Reskin.NoActionAndTitleBar"
+            ></activity>
+
+
+        <activity
+
             android:name=".androidsample11.FavoriteActivity"
             android:theme="@style/RingCentral.Reskin.NoActionAndTitleBar"
             ></activity>
