@@ -15,6 +15,7 @@ import com.example.nickgao.R;
 import com.example.nickgao.contacts.AddFavoritesActivity;
 import com.example.nickgao.contacts.PersonalFavorites;
 import com.example.nickgao.contacts.adapters.FavInContactsListAdapter;
+import com.example.nickgao.contacts.adapters.IFavoritesAdapter;
 import com.example.nickgao.contacts.adapters.contactsprovider.Contact;
 import com.example.nickgao.logging.MktLog;
 import com.example.nickgao.utils.RCMConstants;
@@ -186,4 +187,6 @@ public class FavoritesHorizontalListView implements IFavoritesView {
     public void selectedContactChanged(Contact contact) {
 
     }
+
+
 }

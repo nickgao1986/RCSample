@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.example.nickgao.R;
 import com.example.nickgao.contacts.adapters.contactsprovider.Contact;
-import com.example.nickgao.rcfragments.presents.IFavoritesAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

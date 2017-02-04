@@ -6,8 +6,8 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        compileSdkVersion rootProject.ext.compileSdkVersion
-        buildToolsVersion rootProject.ext.buildToolsVersion
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
         def additionalLanguage = "{new com.example.nickgao.service.i18n.Language(\"en_US\", true), new com.example.nickgao.service.i18n.Language(\"fr_FR\", false), new com.example.nickgao.service.i18n.Language(\"en_GB\", false), new com.example.nickgao.service.i18n.Language(\"de-DE\", false), new com.example.nickgao.service.i18n.Language(\"fr_CA\", false)}"
@@ -230,6 +230,8 @@ dependencies {
     compile 'com.android.support:multidex:1.0.0'
 
     compile 'com.google.code.gson:gson:2.2.4'
+    releaseCompile(name: 'build_simhash_android/android-debug', ext: 'aar')
+    debugCompile(name: 'build_simhash_android/android-release', ext: 'aar')
 }
 
 

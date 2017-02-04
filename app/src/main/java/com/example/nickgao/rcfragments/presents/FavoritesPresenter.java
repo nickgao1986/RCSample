@@ -16,9 +16,9 @@ import com.example.nickgao.database.CurrentUserSettings;
 import com.example.nickgao.database.RCMDataStore;
 import com.example.nickgao.database.RCMProvider;
 import com.example.nickgao.database.UriHelper;
-import com.example.nickgao.logging.LogSettings;
 import com.example.nickgao.logging.MktLog;
 import com.example.nickgao.utils.DeviceUtils;
+import com.example.nickgao.contacts.adapters.IFavoritesAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,6 +78,10 @@ public class FavoritesPresenter {
                 startQuery(false);
             }
         }
+    }
+
+    public IFavoritesAdapter getAdapter() {
+        return mFavoritesAdapter;
     }
 
     public void resume(boolean isShowLoading) {

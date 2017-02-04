@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 
@@ -31,25 +32,58 @@ public class TestActivity extends Activity {
 	public static final String PASSWORD = "Test!123";
 	RestNotificationReceiver mRestNotificationReceiver;
 	private static final String TAG = "[RC]TestActivity";
+	private Handler mHander = new Handler();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		Button btn = (Button)findViewById(R.id.btn);
-		btn.setOnClickListener(new View.OnClickListener(){
+
+		Button btn_main = (Button)findViewById(R.id.btn_main);
+		btn_main.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v) {
-//				Intent intent = new Intent();
-//				intent.setClass(TestActivity.this,ContactsActivity.class);
-//				startActivity(intent);
 
-//				changeLanguage();
-				//new DeviceLanguageDetectFlow(TestActivity.this).startFlow();
+				changeLanguage();
 				updateNotification();
+				mHander.postDelayed(new Runnable() {
+					@Override
+					public void run() {
+						Intent intent = new Intent();
+						intent.setClass(TestActivity.this,MainActivity.class);
+						startActivity(intent);
+					}
+				},2000);
+			}
+		});
+
+
+		Button btn_contacts = (Button)findViewById(R.id.btn_contacts);
+		btn_contacts.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.setClass(TestActivity.this,ContactsActivity.class);
+				startActivity(intent);
+
+				//changeLanguage();
+				//new DeviceLanguageDetectFlow(TestActivity.this).startFlow();
+				//updateNotification();
 
 			}
 		});
+
+		Button btn_favorite = (Button)findViewById(R.id.btn_favorites);
+		btn_favorite.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.setClass(TestActivity.this,FavoriteActivity.class);
+				startActivity(intent);
+
+			}
+		});
+
 		restAuthorization();
 
 		mRestNotificationReceiver = new RestNotificationReceiver();
@@ -78,11 +112,10 @@ public class TestActivity extends Activity {
 	}
 
 	private void changeLanguage() {
-		Language mLanguage = new Language("fr", "CA", false);
+	//	Language mLanguage = new Language("fr", "CA", false);
 
-	//	Language mLanguage = new Language("en", "US", false);
+		Language mLanguage = new Language("en", "US", false);
 		I18nResources.getResources().changeActivityLanguage(this, mLanguage, true);
-
 	}
 
 	private class RestNotificationReceiver extends BroadcastReceiver {

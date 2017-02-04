@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 public abstract class ContactsTabFragment extends ListFragment {
 
-    private static final String TAG = "ContactsTabFragment";
+    protected static final String TAG = "ContactsTabFragment";
     public static final int ARG_MODE_ALL = 0;
     public static final int ARG_MODE_CLOUD = 1;
 

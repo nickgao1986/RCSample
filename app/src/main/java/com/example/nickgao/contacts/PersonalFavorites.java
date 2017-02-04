@@ -423,6 +423,10 @@ public class PersonalFavorites {
         return (favorites.size() > FAVORITES_SERVER_LIMITATION) ? favorites.subList(0, FAVORITES_SERVER_LIMITATION - 1) : favorites;
     }
 
+    public static void onOrderChanges() {
+        CurrentUserSettings.getSettings().setCurrentFavoriteOrderChanged(true);
+        CloudContactSyncService.sendCommand(RingCentralApp.getContextRC(), CloudContactSyncService.FAVORITE_SYNC);
+    }
 
     public static void deleteAndInsertFavoriteListFromDatabase(List<Favorite> localFavoriteList, List<Favorite> serverFavoriteList) {
         try {
@@ -594,5 +598,7 @@ public class PersonalFavorites {
             return syncStatus;
         }
     }
+
+
 
 }

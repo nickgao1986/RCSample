@@ -2,6 +2,7 @@ package com.example.nickgao.rcfragments.presents;
 
 import com.example.nickgao.contacts.adapters.FavInContactsListAdapter;
 import com.example.nickgao.contacts.adapters.contactsprovider.Contact;
+import com.example.nickgao.contacts.adapters.IFavoritesAdapter;
 
 /**
  * Created by nick.gao on 1/31/17.
