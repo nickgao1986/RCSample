@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_holo_light">@color/us_palette_white</color>
+
+    <!-- Main -->
+    <color name="textColorWhite">@color/us_palette_white</color>
+    <color name="bgColorMain">@color/us_palette_white</color>
+    <color name="bgTitleBar">@color/us_palette_blue</color>
+    <color name="transparentColor">@android:color/transparent</color>
+    <color name="bgStatusBar">@color/us_palette_blue_dark</color>
+
+    <!-- Calls -->
+    <color name="call_screens_header_background">@color/us_palette_blue</color>
+    <color name="call_screens_header_text">@color/us_palette_black_lighter_9</color>
+    <color name="call_screens_header_text_nor">@color/us_palette_white</color>
+    <color name="call_screens_header_text_pressed">@color/us_palette_white_lighter_1</color>
+    <color name="call_screens_header_text_disabled">@color/us_palette_black_lighter_3</color>
+    <color name="call_screens_header_divider">@color/us_palette_black_lighter_1</color>
+    <color name="flip_button_background_nor">@color/us_palette_blue</color>
+    <color name="flip_button_background_pressed">@color/us_palette_blue_lighter_1</color>
+    <color name="call_screens_call_status_text">@color/us_palette_white</color>
+    <color name="dialpad_text_nor">@color/us_palette_black_lighter_8</color>
+    <color name="dialpad_text_pressed">@color/us_palette_black_lighter_4</color>
+    <color name="dialpad_text_disabled">@color/us_palette_black_lighter_3</color>
+
+    <!-- Settings-Extensions-Tabs -->
+    <color name="white_title">@color/us_palette_white</color>
+
+    <!-- Call Log -->
+    <color name="call_log_label_accept">@color/text_color_main</color>
+    <color name="call_log_label_missed">@color/us_palette_red</color>
+
+    <!-- Sliding Menu -->
+    <color name="sliding_menu_bg_color">@color/us_palette_menu_1</color>
+    <!--    <color name="sliding_menu_bg_pressed">@color/us_palette_menu_2</color>-->
+    <color name="sliding_menu_list_divider">@color/us_palette_black_lighter_4</color>
+    <!--    <color name="sliding_menu_list_divider_pressed">@color/sliding_menu_bg_pressed</color>-->
+    <color name="sliding_menu_indicator_text">@color/us_palette_white</color>
+    <color name="sliding_menu_version_text">@color/us_palette_black_lighter_4</color>
+    <color name="sliding_menu_indicator_background">@color/us_palette_red</color>
+    <color name="sliding_menu_list_item_name_color_nor">@color/us_palette_black_lighter_1</color>
+    <color name="sliding_menu_list_item_name_color_pressed">@color/us_palette_orange</color>
+
+    <!-- DialPad -->
+    <color name="back_button_delim">@color/us_palette_white</color>
+
+    <!-- Manual Refresh control -->
+    <color name="refresh_control_text_color">@color/text_secondary</color>
+    <!-- MESSAGES -->
+    <color name="messages_name_read">@color/text_color_main</color>
+    <color name="messages_name_not_read">@color/text_color_highlight</color>
+    <color name="messages_indicator">@color/us_palette_red</color>
+    <color name="more_item_indicator">@color/us_palette_red</color>
+    <color name="messages_send_bar">@color/us_palette_blue</color>
+    <color name="text_income_color">@color/us_palette_black</color>
+    <color name="text_income_pressed_color">@color/us_palette_white</color>
+    <color name="text_sendout_color">@color/us_palette_black</color>
+    <color name="text_sendout_pressed_color">@color/us_palette_white</color>
+    <color name="error_text_color">@color/us_palette_red</color>
+    <color name="error_text_color_light">@color/us_palette_red_lighter_2</color>
+    <color name="text_conference_join">@color/us_palette_blue</color>
+
+    <!-- Fax Out -->
+    <color name="fax_out_document_name_color">@color/text_color_main</color>
+    <color name="faxout_rename_color_pressed">@color/us_palette_white</color>
+    <color name="outbox_failed_color">@color/us_palette_red</color>
+    <color name="open_mode_list_select">@color/us_palette_blue_lighter_1</color>
+    <color name="open_mode_list_disable">@color/us_palette_white</color>
+    <color name="open_mode_list_divider">@color/us_palette_black_lighter_1</color>
+
+    <!-- contact -->
+    <color name="conference_copy_color">@color/us_palette_blue</color>
+    <color name="dnd_background">@color/us_palette_red_lighter_2</color>
+    <color name="offline_background">@color/us_palette_red_lighter_2</color>
+    <color name="message_bundle_link">@color/us_palette_blue</color>
+
+    <!-- pre call control -->
+    <color name="voip_call_info_option">@color/us_palette_blue</color>
+    <color name="voip_call_reply_prompt">@color/us_palette_black_lighter_1</color>
+    <color name="voip_call_reply_time">@color/us_palette_black</color>
+    <color name="voip_call_reply_item">@color/us_palette_black</color>
+    <color name="voip_call_custom_message_edit_count">@color/us_palette_red</color>
+
+    <!-- UI Reskining colors -->
+
+    <color name="launch_bar_item_bg_color_normal">@color/transparentColor</color>
+    <color name="sms_edit_text_color">@color/us_palette_white</color>
+    <color name="sms_edit_texthint_color">@color/us_palette_blue_lighter_1</color>
+    <color name="sms_edit_send_btn_normal_bg_color">@color/transparentColor</color>
+    <color name="sms_edit_chars_left_text_color">@color/us_palette_blue_lighter_1</color>
+    <color name="text_color_main">@color/us_palette_black</color>
+    <color name="text_send_labels">@color/text_secondary</color>
+    <color name="text_secondary">@color/us_palette_black_lighter_1</color>
+    <color name="text_fourth">@color/us_palette_black_lighter_9</color>
+    <color name="text_color_highlight">@color/us_palette_blue</color>
+    <color name="launch_bar_separator_color">@color/us_palette_blue</color>
+    <color name="launch_bar_bg_color">@color/us_palette_black_lighter_1</color>
+    <color name="bg_btn_action_bar_norm">@color/us_palette_white</color>
+    <color name="text_action_bar_btn_nor">@color/us_palette_white</color>
+    <color name="text_action_bar_btn_disabled">@color/us_palette_blue_lighter_3</color>
+    <color name="text_action_bar_btn_pressed">@color/us_palette_blue_lighter_1</color>
+    <color name="bg_action_bar_light_main">@color/us_palette_black_lighter_2</color>
+    <color name="tabs_main">@color/us_palette_blue</color>
+    <color name="tabs_text">@color/text_color_highlight</color>
+    <color name="notification_bg">@color/us_palette_blue</color>
+    <color name="bg_search">@color/us_palette_white</color>
+    <color name="search_text_box_bg">@color/us_palette_white</color>
+    <color name="search_text_box_border">@color/us_palette_black_lighter_3</color>
+    <color name="edittextcolor_noinput">@color/text_secondary</color>
+    <color name="list_items_divider">@color/us_palette_black_lighter_3</color>
+    <color name="section_divider">@color/us_palette_black_lighter_10</color>
+    <color name="bg_list_item_pressed">@color/us_palette_black_lighter_2</color>
+    <color name="top_menu_button_bg">@color/us_palette_white</color>
+    <color name="top_menu_button_bg_pressed">@color/us_palette_black_lighter_2</color>
+    <color name="top_menu_button_text_pressed">@color/text_color_main</color>
+    <color name="top_menu_button_text">@color/text_color_main</color>
+    <color name="top_menu_separator_bg">@color/us_palette_black_lighter_1</color>
+    <color name="bg_update">@color/us_palette_black_lighter_2</color>
+    <color name="voicemail_message_counter_text">@color/us_palette_black_lighter_9</color>
+    <color name="voicemail_message_duration_text_for_vmt">@color/us_palette_black_lighter_9</color>
+    <color name="voicemail_message_duration_text">@color/text_secondary</color>
+    <color name="bg_action_bar">@color/us_palette_white</color>
+    <color name="text_no_items">@color/us_palette_black_lighter_1</color>
+    <color name="list_view_areas_divider">@color/us_palette_black_lighter_6</color>
+
+    <color name="action_bar_title_text">@color/text_color_main</color>
+
+    <color name="whats_new_half_transparent_color">@color/us_palette_half_transparent_mask</color>
+    <color name="whats_new_panel_background">@color/us_palette_white</color>
+    <color name="whats_new_button_delim">@color/us_palette_blue</color>
+    <color name="whats_new_button_text_color">@color/us_palette_blue</color>
+    <color name="whats_new_button_text_color_pressed">@color/us_palette_blue_lighter_1</color>
+
+    <color name="compose_fax_labels">@color/text_secondary</color>
+    <color name="cover_fax_page_labels">@color/text_secondary</color>
+
+    <color name="settings_activating_labels">@color/text_color_main</color>
+    <color name="btn_mainnav_bg_pressed">@color/us_palette_blue_lighter_1</color>
+    <!--    <color name="btn_mainnav_bg_disabled">@color/us_palette_black_lighter_4</color>-->
+
+    <color name="voip_button_text_color_normal">@color/us_palette_blue</color>
+    <color name="voip_button_text_color_disabled">@color/us_palette_black_lighter_3</color>
+    <color name="voip_button_grey_background">@color/us_palette_black_lighter_3</color>
+
+    <color name="bg_contact_validation_nor">@color/us_palette_red_lighter_2</color>
+    <color name="bg_contact_validation_selected">@color/us_palette_red</color>
+    <color name="bg_chooes_nor">@color/us_palette_blue_lighter_1</color>
+    <color name="bg_chooes_pressed">@color/us_palette_blue</color>
+    <color name="unknown_btn_text_color">@color/text_color_highlight</color>
+    <color name="known_contact_phone_label_text">@color/text_color_highlight</color>
+    <color name="contact_detail_phone_related_color_nor">@color/us_palette_orange</color>
+    <color name="contact_detail_phone_related_color_pressed">@color/text_color_highlight</color>
+    <color name="drop_down_filter_menu_color_selected">@color/text_color_highlight</color>
+    <color name="cloud_storage_list_item_text">@color/text_color_main</color>
+    <color name="refresh_error">@color/us_palette_red</color>
+    <color name="contact_detail_char_color_nor">@color/us_palette_black</color>
+    <color name="contact_detail_char_color_pressed">@color/us_palette_blue</color>
+
+    <!-- new refs -->
+    <item name="dialpad_incall_bg" type="color">@color/us_palette_white</item>
+    <item name="btn_wizard_positive_text_color" type="color">@color/us_green_button_text_selector</item>
+    <item name="call_reply_message_layout_divider" type="color">@color/us_palette_black_lighter_1</item>
+    <item name="contacts_detail_separator" type="color">@color/us_palette_black_lighter_1</item>
+    <item name="mbc_indicator_counter_text_color" type="color">@color/us_palette_black_lighter_2</item>
+    <item name="ringout_status_call_state_bg" type="color">@color/us_palette_black_lighter_2</item>
+    <item name="open_mode_dialog_title_divider" type="color">@color/us_palette_blue</item>
+    <item name="debug_log_buttons_linear_layout_bg" type="color">@color/us_palette_blue</item>
+    <item name="locker_overlay_bg" type="color">@color/us_palette_half_transparent_mask</item>
+
+    <color name="whats_new_background_start">@color/us_palette_whats_new_background_start</color>
+    <color name="whats_new_background_end">@color/us_palette_whats_new_background_end</color>
+
+    <color name="text_message_title_progress_color">@color/us_palette_blue</color>
+    <color name="text_message_title_progress_bg_color">@color/us_palette_black_lighter_3</color>
+    <color name="circle_progress_lighter">@color/us_palette_black_lighter_2</color>
+    <color name="text_message_send_progress_color">@color/us_palette_blue_lighter_4</color>
+    <color name="text_message_send_progress_bg_color">@color/us_palette_green_lighter_2</color>
+
+    <color name="bg_unknown_contact_separator_color">@color/us_palette_black_lighter_1</color>
+    <color name="bt_mainnav_background_nor_stroke">@color/us_palette_black_lighter_3</color>
+    <color name="bt_navigation_bar_menu_nor_border">@color/us_palette_black_lighter_1</color>
+    <color name="login_edit_background_stroke">@color/us_palette_black_lighter_1</color>
+
+    <color name="login_edit_bg_shape_solid">@color/us_palette_white</color>
+    <!-- ExpandableEditText.java -->
+    <color name="expandable_edit_text_selected_text_color">@color/us_palette_white</color>
+    <!-- AudioSetupWizard.java -->
+    <color name="audio_setup_wizard_completed_negative_text_color">@color/us_green_button_text_selector</color>
+    <color name="audio_setup_wizard_calibrating_mask">@color/us_palette_half_transparent_mask2</color>
+
+    <color name="progress_large_end_color">@color/us_palette_black_lighter_1</color>
+    <color name="progress_small_end_color">@color/us_palette_black_lighter_1</color>
+
+    <color name="btn_delete_text_selector">@color/us_red_button_text_color</color>
+    <color name="btn_cancel_text_selector">@color/us_red_button_text_color</color>
+    <color name="btn_complete_text_selector">@color/us_complete_button_text_color</color>
+    <color name="btn_calibrate_later_text_selector">@color/us_blue_button_text_color</color>
+    <color name="btn_text_conference_invite_email">@color/us_palette_blue</color>
+    <color name="btn_text_conference_invite_text">@color/us_palette_blue</color>
+    <color name="conference_copy_text_selector">@color/us_blue_button_text_color</color>
+    <color name="btn_text_faxout_edit_cancel">@color/us_blue_button_text_color</color>
+    <color name="btn_edit_color_selector">@color/us_blue_button_text_color</color>
+
+    <color name="call_flip_bt_text_selector">@color/us_blue_button_text_color</color>
+    <color name="btn_clear_launch_as_default_text_selector">@color/us_blue_button_text_color</color>
+    <color name="btn_conference_join_text_selector">@color/us_blue_button_text_color</color>
+    <color name="btn_done_checked_documents_text_selector">@color/us_blue_button_text_color</color>
+    <color name="btn_sign_in_text_selector">@color/us_blue_button_text_color</color>
+    <color name="btn_ringout_mode_change_my_android_number_text_selector">@color/us_blue_button_text_color</color>
+    <color name="btn_ringout_mode_another_phone_add_button_text_selector">@color/us_blue_button_text_color</color>
+    <color name="btn_text_message_forward_sms_text_selector">@color/us_blue_button_text_color</color>
+    <color name="btn_launch_meeting_text_selector">@color/us_blue_button_text_color</color>
+    <color name="loginscreen_forgot_password_text_color">@color/us_palette_blue</color>
+    <color name="loginscreen_sign_up_first_text_part">@color/us_palette_black_lighter_1</color>
+    <color name="loginscreen_sign_up_second_text_part">@color/us_palette_blue</color>
+    <color name="text_separator_text_color">@color/text_color_main</color>
+    <color name="contacts_text_separator_text_color">@color/text_color_highlight</color>
+    <color name="contacts_text_type_text_color">@color/text_secondary</color>
+
+    <color name="pdf_background">@color/us_palette_white</color>
+    <color name="pdf_page_indicator_background">@color/us_palette_black_lighter_1</color>
+
+    <color name="fcc_dialog_title_background">@android:color/holo_blue_light</color>
+
+    <color name="dialpad_btn">@color/us_palette_blue</color>
+    <color name="dialpad_new_btn">@color/us_palette_blue_lighter_6</color>
+
+    <color name="dialpad_btn_hover">@color/us_palette_white</color>
+
+    <color name="text_link">@color/us_palette_blue</color>
+    <color name="report_prompt_color">@color/us_palette_black_lighter_1</color>
+
+    <item name="btn_encryption_progress_text" type="color">@color/us_blue_button_text_color</item>
+    <item name="btn_encryption_start_text" type="color">@color/us_green_button_text_selector</item>
+
+    <item name="encryption_progress" type="color">@color/us_palette_green_lighter_1</item>
+    <item name="encryption_progress_error" type="color">@color/us_palette_red</item>
+
+    <!-- reset password -->
+    <item name="reset_password_title_line" type="color">@color/us_palette_black_lighter_5</item>
+    <color name="tips_dialog_title_text_color">@color/text_color_highlight</color>
+    <color name="tips_dialog_content_text_color">@color/text_color_main</color>
+
+    <color name="transcription_wrapper_corner_color">@color/us_palette_black_lighter_3</color>
+    <!-- in-app notification-->
+    <color name="in_app_message_notification_color">@color/us_palette_blue_lighter_2</color>
+    <!--bottom bar background-->
+    <color name="bottom_bar_bg">@color/us_palette_black_lighter_6</color>
+
+    <!--crop image-->
+    <color name="crop_image_background">@color/us_palette_black</color>
+    <color name="crop_image_text_color">@color/us_palette_white</color>
+
+    <!-- tip color -->
+    <color name="tip_content_text_color">@color/us_palette_black</color>
+    <color name="tip_content_bg_color">@color/us_palette_white</color>
+    <color name="tip_bg_color">@color/us_palette_40_transparent_mask2</color>
+
+    <!--tablet status view background-->
+    <color name="tablet_status_view_background">@color/us_palette_black_lighter_7</color>
+
+    <color name="tablet_title_bar_pop_up_dialog_title_text_color">@color/us_palette_black</color>
+    <color name="account_setup_phone_number_color">@color/us_palette_orange</color>
+    <color name="listview_delete_btn_ng">@color/us_palette_listview_delete_btn_bg</color>
+    <color name="message_details_top_control_divider_color">@color/us_palette_black_lighter_12</color>
+
+    <color name="no_contact_permission_title">@color/us_palette_black</color>
+    <color name="no_contact_permission_content">@color/us_palette_black_lighter_1</color>
+    <color name="no_contact_permission_turn_on">@color/us_palette_white</color>
+    <color name="permission_intro_title">@color/us_palette_black_dark</color>
+    <color name="permission_intro_content">@color/us_palette_black</color>
+    <color name="glip_intro_color">@color/us_palette_black_lighter_1</color>
+
+    <color name="dialpad_cursor_color">@color/us_palette_blue_lighter_5</color>
+
+    <color name="btn_decline_text_selector">@color/us_complete_button_text_color</color>
+    <color name="btn_accept_text_selector">@color/us_complete_button_text_color</color>
+
+    <color name="notification_icon_bg">@color/us_palette_orange</color>
+    <color name="whatsnew_page_indicator_normal_state">@color/us_palette_black_lighter_3</color>
+
+    <!--calendar related ui color-->
+    <color name="calendar_blue_button_background">@color/us_palette_blue</color>
+    <color name="calendar_date_background">@color/us_palette_blue</color>
+    <color name="calendar_green_button_background">@color/us_palette_green</color>
+    <color name="calendar_blue_button_pressed_background">@color/us_calendar_join_button_pressed</color>
+    <color name="calendar_line_bg">@color/us_palette_line_bg</color>
+    <color name="calendar_intro_color">@color/us_palette_black_lighter_1</color>
+    <color name="calendar_no_event_color">@color/us_palette_black</color>
+    <color name="calendar_title_text_color">@color/us_palette_black_lighter_1</color>
+    <color name="calendar_grey_background_stroke_color">@color/us_palette_black_lighter_4</color>
+    <color name="calendar_white_event_background">@color/us_palette_white</color>
+    <color name="calendar_line_color">@color/us_palette_black_lighter_5</color>
+    <color name="calendar_event_accepted_press_background">@color/us_palette_black_lighter_2</color>
+    <color name="calendar_event_detail_screen_background">@color/us_palette_black_lighter_14</color>
+    <color name="calendar_free_time_color">@color/us_calendar_free_time_color</color>
+
+    <color name="sign_up_content_color">@color/us_palette_white</color>
+    <color name="sign_up_link_color">@color/us_palette_white</color>
+    <color name="add_fav_text_color">@color/us_palette_blue</color>
+    <color name="keypad_bottom_bg">@color/us_palette_blue_lighter_6</color>
+</resources>

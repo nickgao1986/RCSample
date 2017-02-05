@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="btn_bg_calibrate_later" type="drawable">@drawable/us_blue_button_selector</item>
+    <item name="btn_bg_conference_invite_email" type="drawable">@drawable/grey_button_selector</item>
+    <item name="btn_bg_conference_invite_text" type="drawable">@drawable/grey_button_selector</item>
+    <item name="btn_bg_faxout_edit_cancel" type="drawable">@drawable/us_blue_button_selector</item>
+    <item name="btn_reply_message_background" type="drawable">@drawable/grey_button_selector</item>
+    <item name="btn_conference_join_bg_selector" type="drawable">@drawable/us_blue_button_selector</item>
+    <item name="btn_launch_meeting_bg_selector" type="drawable">@drawable/us_blue_button_selector</item>
+    <item name="btn_done_checked_documents_bg_selector" type="drawable">@drawable/us_blue_button_selector</item>
+    <item name="btn_clear_launch_as_default_bg_selector" type="drawable">@drawable/us_blue_button_selector</item>
+    <item name="btn_sign_in_bg_selector" type="drawable">@drawable/us_blue_button_selector</item>
+    <item name="btn_ringout_mode_change_my_android_number_bg_selector" type="drawable">
+        @drawable/us_blue_button_selector
+    </item>
+    <item name="btn_ringout_mode_another_phone_add_button_bg_selector" type="drawable">
+        @drawable/us_blue_button_selector
+    </item>
+    <item name="btn_text_message_forward_sms_bg_selector" type="drawable">@drawable/us_blue_button_selector</item>
+    <item name="fax_out_doc_edit_item_icon_bg_selector" type="drawable">@drawable/us_blue_button_selector</item>
+    <item name="btn_delete_bg_selector" type="drawable">@drawable/us_red_button_selector</item>
+    <item name="btn_cancel_bg_selector" type="drawable">@drawable/us_ringout_button_selector</item>
+    <item name="btn_complete_bg_selector" type="drawable">@drawable/us_green_button_selector</item>
+    <item name="btn_send_to_voicemail_bg_selector" type="drawable">@drawable/us_red_button_selector</item>
+    <item name="btn_call_bg_selector" type="drawable">@drawable/us_green_button_selector</item>
+    <item name="btn_call_in_bg_dialpad_selector" type="drawable">@drawable/us_round_green_button_for_callbutton_selector</item>
+    <item name="btn_hold_bg_selector" type="drawable">@drawable/us_green_button_selector</item>
+    <item name="btn_calibrate_bg_selector" type="drawable">@drawable/us_green_button_selector</item>
+    <item name="btn_done_bg_selector" type="drawable">@drawable/us_green_button_selector</item>
+
+    <item name="btn_bg_encryption_progress" type="drawable">@drawable/us_blue_button_selector</item>
+    <item name="btn_bg_encryption_start" type="drawable">@drawable/us_green_button_selector</item>
+    <item name="btn_bg_turn_on_contact_permission" type="drawable">@drawable/us_blue_button_selector</item>
+
+    <item name="btn_decline_bg_selector" type="drawable">@drawable/us_red_button_selector</item>
+    <item name="btn_accept_bg_selector" type="drawable">@drawable/us_green_button_selector</item>
+
+    <item name="btn_voicemail_replybutton_background" type="drawable">@drawable/us_round_voicemail_text_button_selector</item>
+    <item name="btn_voicemail_replybutton_src" type="drawable">@drawable/us_btn_voicemail_text</item>
+
+    <item name="btn_voicemail_deletebutton_background" type="drawable">@drawable/us_round_voicemail_delete_button_selector</item>
+    <item name="btn_voicemail_deletebutton_src" type="drawable">@drawable/us_btn_voicemail_delete</item>
+
+    <item name="btn_send_to_voicemail_background" type="drawable">@drawable/us_round_red_button_for_voicemail_selector</item>
+
+    <item name="btn_calendar_join_button_background" type="drawable">@drawable/us_round_blue_button_selector</item>
+    <item name="voicemail_view_fax_icon" type="drawable">@drawable/us_btn_voicemail_view_fax</item>
+
+</resources>

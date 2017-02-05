@@ -1,0 +1,72 @@
+<resources>
+
+    <!-- Reskining palette colors -->
+    <!--1,1a,1b-->
+    <color name="us_palette_blue">#0684BD</color>
+    <color name="us_palette_blue_lighter_1">#9BCEE5</color>
+    <color name="us_palette_blue_lighter_2">#FA0684BD</color>
+    <color name="us_palette_blue_lighter_3">#6ab5d7</color>
+
+
+    <!--1c-->
+    <color name="us_palette_blue_dark">#046997</color>
+    <color name="us_palette_blue_lighter_4">#44A3CE</color>
+    <!--For dial pad cursor-->
+    <color name="us_palette_blue_lighter_5">#00B0FF</color>
+    <color name="us_palette_blue_lighter_6">#660684BD</color>
+
+
+    <!--2-->
+    <color name="us_palette_orange">#FF8800</color>
+    <!--3,3a,3b-->
+    <color name="us_palette_red">#FF4444</color>
+    <color name="us_palette_red_lighter_1">#FFB4B4</color>
+    <color name="us_palette_red_lighter_2">#FEE2E2</color>
+
+    <color name="us_palette_red_lighter_3">#E6413C</color>
+    <color name="us_palette_red_lighter_4">#66E6413C</color>
+
+    <!--4,4a-->
+    <color name="us_palette_green">#4CD964</color>
+    <color name="us_palette_green_lighter_1">#D6EB99</color>
+    <color name="us_palette_green_lighter_2">#4CD964</color>
+    <color name="us_palette_green_lighter_3">#664CD964</color>
+    <!--6,6a-->
+    <color name="us_palette_white">#FFFFFF</color>
+    <color name="us_palette_white_lighter_1">#66FFFFFF</color>
+    <!--7,7a,7c,7b,menu divider line-->
+    <color name="us_palette_black">#2F2F2F</color>
+    <color name="us_palette_black_lighter_1">#B3B3B3</color>
+    <color name="us_palette_black_lighter_2">#F5F5F5</color>
+    <color name="us_palette_black_lighter_3">#E2E2E2</color>
+    <color name="us_palette_black_lighter_4">#66B3B3B3</color>
+    <color name="us_palette_black_lighter_5">#e2e2e2</color>
+    <color name="us_palette_black_lighter_6">#F9F9F9</color>
+    <color name="us_palette_black_lighter_7">#F7F7F7</color>
+    <!--7d, 7e, 7f, 7g-->
+    <color name="us_palette_black_lighter_8">#555555</color>
+    <color name="us_palette_black_lighter_9">#777777</color>
+    <color name="us_palette_black_lighter_10">#C2C2C2</color>
+    <color name="us_palette_black_lighter_11">#B6E8FF</color>
+    <color name="us_palette_black_dark">#000000</color>
+    <color name="us_palette_black_lighter_12">#D9D9D9</color>
+    <color name="us_palette_black_lighter_13">#3F3F3F</color>
+    <color name="us_palette_black_lighter_14">#FCFCFC</color>
+
+    <!--8-->
+    <color name="us_palette_menu_1">#313740</color>
+    <!--whats new-->
+    <color name="us_palette_whats_new_background_start">#FFFFFF</color>
+    <color name="us_palette_whats_new_background_end">#CECED0</color>
+    <color name="us_palette_half_transparent_mask">#DD000000</color>
+    <color name="us_palette_half_transparent_mask2">#8000</color>
+    <color name="us_palette_40_transparent_mask2">#9A000000</color>
+
+    <color name="us_palette_listview_delete_btn_bg">#FAFAFA</color>
+
+    <!-- calendar line -->
+    <color name="us_palette_line_bg">#C8C7CC</color>
+    <color name="us_calendar_join_button_pressed">#80bfdb</color>
+    <color name="us_calendar_free_time_color">#888888</color>
+
+</resources>

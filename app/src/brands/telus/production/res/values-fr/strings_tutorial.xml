@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="tip_for_bottom_plus_layout">Appuyez ici pour accéder à vos Favoris et plus.</string>
+    <string name="tip_for_profile_layout">Bonjour! C\'est ici que vous pouvez modifier vos paramètres, votre photo et plus. <b>Appuyez pour en faire l\'essai.</b></string>
+    <string name="tip_for_profile_photo_setting">Ajoutez une photo de profil. C\'est facile. Vous n\'avez qu\'à appuyer sur cette icône et à choisir une photo.</string>
+    <string name="tip_for_drop_down_filter">Voir plus de filtres ici.</string>
+</resources>

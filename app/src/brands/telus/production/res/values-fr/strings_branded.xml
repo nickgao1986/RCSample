@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="brand_AppLabel">RingCentral</string>
+    <string name="brand_AppName">RingCentral</string>
+    <string name="branded_loginscreen_setup_dialog_msg">Veuillez finir l\'installation express pour profiter pleinement de votre système téléphonique RingCentral et envoyer des courriels d\'activation à vos utilisateurs.</string>
+    <string name="branded_loginscreen_trial_dlg_msg_admin_expired">Votre essai gratuit est terminé. Pour vous procurer un forfait payant et continuer à profiter des fonctions RingCentral que vous aimez, cliquez sur Mettre à niveau ci-dessous.</string>
+    <string name="branded_loginscreen_trial_dlg_msg_admin_expireinxdays">Votre essai gratuit prend fin dans %d jours. Pour vous procurer un forfait payant et continuer à profiter des fonctions RingCentral que vous aimez, cliquez sur Mettre à niveau ci-dessous.</string>
+    <string name="branded_loginscreen_trial_dlg_msg_admin_expirein1day">Votre essai gratuit prend fin demain. Pour vous procurer un forfait payant et continuer à profiter des fonctions RingCentral que vous aimez, cliquez sur Mettre à niveau ci-dessous.</string>
+    <string name="branded_loginscreen_trial_dlg_msg_admin_expiretoday">Votre essai gratuit prend fin aujourd\'hui. Pour vous procurer un forfait payant et continuer à profiter des fonctions RingCentral que vous aimez, cliquez sur Mettre à niveau ci-dessous.</string>
+    <string name="branded_loginscreen_trial_dlg_msg_user_expired">Votre essai gratuit est terminé. Pour vous procurer un forfait payant et continuer à profiter des fonctions RingCentral que vous aimez, veuillez demander à un administrateur d\'ouvrir une session et de mettre votre compte à niveau.</string>
+    <string name="branded_user_account_is_disabled">Votre compte RingCentral est désactivé. Veuillez communiquer avec le soutien à la clientèle pour le réactiver.</string>
+    <string name="branded_ringout_status_mid_label_text_2line">Pour l\'autre personne, votre \nnuméro RingCentral s\'affichera comme suit :</string>
+    <string name="branded_messages_notification_ticker">Nouveau message RingCentral.</string>
+    <string name="branded_PDF_viewer_could_not_be_detected">Aucun visionneur PDF n\'est installé sur votre appareil Android. Pour que vous puissiez afficher ses envois par fax, RingCentral vous recommande de télécharger une version gratuite d\'Adobe Reader à partir de Google Play.</string>
+    <string name="branded_settings_tell_a_friend_body_value_us">\n%1$s croit que vous devriez en apprendre davantage sur le service téléphonique RingCentral.\r\n\n\nVous obtenez un numéro sans frais ou un numéro local mis en service instantanément, qui vous offre une fonction évoluée de renvoi des appels, un service d\'auto-réception qui répond aux appels et les dirige vers des postes virtuels, un service de fax par Internet et plus encore. Transformez votre téléphone Android en bureau multifonction grâce à cette application de RingCentral.\n\nQu\'attendez-vous? Transférez vos numéros existants à RingCentral ou obtenez un nouveau numéro pour votre entreprise. Dans les deux cas, chaque appel que vous recevrez se transformera en occasion d\'affaires.\r\n\n\nPour obtenir de plus amples renseignements sur le service RingCentral, visitez le site www.ringcentral.com.</string>
+    <string name="branded_settings_tell_a_friend_body_value_uk">
+        \n<xliff:g id="user_name">%1$s</xliff:g> thought you should know about business phone service from RingCentral.
+        \n\nYou get an instantly activated free phone or local number with advanced call forwarding,
+        a professional auto-receptionist that answers and directs calls to virtual extensions,
+        Internet fax and a whole lot more. Turn your Android phone into feature-rich mobile office with this free app from RingCentral.
+        \n\nSo go ahead. Port your existing numbers to RingCentral, or get an entirely new number for your business.
+        Either way, you’ll soon be converting callers into customers.
+        \n\nTo learn more about RingCentral service, please visit: www.ringcentral.com
+	</string>
+    <string name="branded_settings_tell_a_friend_subject_value">%1$s vous a envoyé une recommandation</string>
+    <string name="branded_settings_header_about_title">À propos</string>
+    <string name="branded_settings_about_feedback_email">rcmobilefeedback@ringcentral.com</string>
+    <string name="branded_settings_noname_user_name">Utilisateur RingCentral</string>
+    <string name="branded_ringcentral_calls_place">Choisissez l\'endroit où vous souhaitez recevoir vos appels RingCentral :</string>
+    <string name="branded_settings_item_tell_a_friend_title">Dites-le à un ami</string>
+    <string name="branded_settings_feedback_subject_value">%1$s %2$s Commentaires Android %3$s , %4$s/%5$s</string>
+    <string name="branded_settings_item_privacy_policy_content_us">Pour consulter la politique de RingCentral en matière de protection de la vie privée, visitez le site http://www.ringcentral.com/legal/privacy-policy.html</string>
+    <string name="branded_settings_item_privacy_policy_content_uk">To view RingCentral\'s privacy policy, visit http://www.ringcentral.co.uk/legal/privacy-policy.html</string>
+    <string name="branded_settings_about_copyright">COPYRIGHT: © %1$s RingCentral, Inc. Tous droits réservés.</string>
+    <string name="branded_voip_call_incoming">Appel entrant</string>
+    <string name="branded_internal_permission_label">Interventions internes du service RingCentral</string>
+    <string name="branded_internal_permission_description">Permet à l\'application d\'utiliser les interventions internes du service RingCentral</string>
+    <string name="branded_conference_email_content_us">Veuillez joindre la téléconférence RingCentral. La téléconférence débutera immédiatement.\n\nNuméro à composer : %1$s\nCode d\'accès du participant : %2$s\n\nConseils d\'utilisation de la téléconférence :\n\nVous avez besoin d’un numéro d\'accès international? Veuillez visiter le http://rcconf.net/1L06Hd5\nPour activer le mode discrétion de votre ligne, faites *#6 sur votre clavier.\n\nCette téléconférence vous est offerte par RingCentral.</string>
+    <string name="branded_conference_email_content_uk">Veuillez vous joindre à ma réunion qui est en cours.\n\nNuméro à composer : %1$s\nCode d\'accès du participant : %2$s\n\nConseils d\'utilisation de la téléconférence :\n\nVous avez besoin d’un numéro d\'accès international? Veuillez visiter le http://rcconf.net/1L06Hd5\nPour activer le mode discrétion de votre ligne, faites *#6 sur votre clavier.\n\nCette téléconférence vous est offerte par RingCentral.</string>
+    <string name="brand_conference_email_content_for_muti_fcc_number">Veuillez vous joindre à ma réunion qui est en cours.\n\nNuméros à composer : \n%1$s\n\nCode d\'accès du participant :\n%2$s\n\nConseils d\'utilisation de la téléconférence :\n\nVous avez besoin d’un numéro d\'accès international? Veuillez visiter le http://rcconf.net/1L06Hd5\nPour activer le mode discrétion de votre ligne, faites *#6 sur votre clavier.\n\nCette téléconférence vous est offerte par RingCentral.</string>
+    <string name="branded_faxout_save_fax_as_draft_toast">Votre fax a été sauvegardé en tant que brouillon dans le dossier Documents.</string>
+    <string name="branded_rc_documents_dialog_content">RingCentral ne prend pas en charge la fonction d\'aperçu pour ce fichier. Voulez-vous l\'importer dans le dossier \"Documents\"?</string>
+    <string name="brand_ringout_alert_login_using_direct_number_us">Impossible d\'exécuter un appel au moyen de la fonction Appel hors réseau lorsque la session est ouverte à l\'aide d\'un numéro sans frais. Pour faire un appel au moyen de Appel hors réseau, ouvrez la session à l\'aide de votre numéro de poste ou, dans vos paramètres, changez le mode Appel hors réseau pour \"Autre téléphone\".</string>
+    <string name="brand_ringout_alert_login_using_direct_number_uk">RingOut cannot be completed when logged in using your free phone number. To complete a RingOut call, log in using your Direct Number or go to settings and change your RingOut mode to \"Another Phone\".</string>
+    <string name="brand_user_agent_name">RingCentral</string>
+    <string name="branded_conference_email_content_us_with_tap_to_join">Veuillez joindre la téléconférence RingCentral. La téléconférence débutera immédiatement.\n\nNuméro d\'accès : %1$s\nAccès du participant : %2$s\n\nPour joindre la téléconférence à partir de votre iPhone, cliquez sur ce lien :%3$s\n\nConseils d\'utilisation de la téléconférence :\n\n</string>
+</resources>

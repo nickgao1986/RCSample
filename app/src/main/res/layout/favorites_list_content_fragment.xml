@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.nickgao.utils.widget.RelativeLayoutEx xmlns:android="http://schemas.android.com/apk/res/android"
+                                                          xmlns:rcm="http://schemas.android.com/apk/res-auto"
+                                                          android:id="@+id/favoritesMainView"
+                                                          android:layout_width="match_parent"
+                                                          android:layout_height="match_parent"
+                                                          android:background="@color/bgColorMain">
+
+    <com.example.nickgao.titlebar.RCTitleBarWithDropDownFilter
+        android:id="@+id/favorites_top_tilte"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_hight"
+        rcm:title_text="@string/tab_name_favorites"
+        rcm:title_right_button_drawable="@drawable/ic_action_plus"
+        rcm:title_right_first_button_drawable="@drawable/ic_action_edit"
+        rcm:title_has_dropdown="true"/>
+
+
+    <RelativeLayout
+        android:id="@+id/favorites_list_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/favorites_top_tilte"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <LinearLayout
+            android:id="@+id/delete_controls_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"
+            android:paddingTop="@dimen/default_button_margin_top_bottom"
+            android:paddingBottom="@dimen/default_button_margin_top_bottom"
+            >
+
+            <Button
+                android:id="@+id/done_checked_documents"
+                android:layout_width="@dimen/text_message_edit_button_width"
+                android:layout_height="@dimen/default_round_button_radius"
+                android:background="@drawable/btn_done_checked_documents_bg_selector"
+                android:textColor="@color/btn_done_checked_documents_text_selector"
+                android:textSize="@dimen/font_size_medium"
+                android:gravity="center"
+                android:text="@string/save_order"
+                 />
+
+            <Button
+                android:id="@+id/delete_checked_documents"
+                android:layout_width="@dimen/text_message_edit_button_width"
+                android:layout_height="@dimen/default_round_button_radius"
+                android:background="@drawable/btn_delete_bg_selector"
+                android:layout_marginLeft="@dimen/text_message_edit_button_margin_left"
+                android:text="@string/delete"
+                android:gravity="center"
+                android:textColor="@color/btn_delete_text_selector"
+                android:textSize="@dimen/font_size_medium" />
+        </LinearLayout>
+
+        <com.mobeta.android.dslv.DragSortListView
+            android:id="@+id/dragSortListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/delete_controls_layout"
+            android:cacheColorHint="@color/transparentColor"
+            android:divider="@null"
+            android:fastScrollEnabled="true"
+            android:listSelector="@drawable/bg_list_item_selector"
+            android:visibility="gone" />
+
+        <com.example.nickgao.utils.widget.RCMListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/delete_controls_layout"
+            android:cacheColorHint="@color/transparentColor"
+            android:divider="@null"
+            android:fastScrollEnabled="true"
+            android:listSelector="@drawable/bg_list_item_selector" />
+
+        <TextView
+            android:id="@+id/emptyListText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/noContacts"
+            android:textColor="@color/text_no_items"
+            android:textSize="@dimen/font_size_xlarge" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/favorites_top_tilte"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone" >
+        <ProgressBar
+            style="@style/RCMProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+</com.example.nickgao.utils.widget.RelativeLayoutEx>
