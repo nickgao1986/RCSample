@@ -5,14 +5,18 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 
 import com.example.nickgao.R;
 import com.example.nickgao.contacts.adapters.contactsprovider.ContactsProvider;
 import com.example.nickgao.database.CurrentUserSettings;
+import com.example.nickgao.logging.LogSettings;
 import com.example.nickgao.logging.MktLog;
 import com.example.nickgao.network.RestSession;
 import com.example.nickgao.network.RestSessionState;
@@ -23,6 +27,8 @@ import com.example.nickgao.service.extensioninfo.ExtensionInfoService;
 import com.example.nickgao.service.i18n.I18nResources;
 import com.example.nickgao.service.i18n.Language;
 import com.example.nickgao.service.i18n.LanguageListService;
+import com.example.nickgao.utils.RCMConstants;
+import com.example.nickgao.utils.RCMMimeTypeMap;
 
 public class TestActivity extends Activity {
 
@@ -33,6 +39,12 @@ public class TestActivity extends Activity {
 	RestNotificationReceiver mRestNotificationReceiver;
 	private static final String TAG = "[RC]TestActivity";
 	private Handler mHander = new Handler();
+
+	private static Uri mImportingUri = null;
+	private static Uri mSchemeUri = null;
+	private static String FILE_EXT = "";
+	private static boolean isFromImporting = false;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +104,32 @@ public class TestActivity extends Activity {
 		restIntentFilterPhoneState
 				.addAction(RestSessionStateChange.REST_SESSION_STATE_CHANGE_NOTIFICATION);
 		registerReceiver(mRestNotificationReceiver, restIntentFilterPhoneState);
+
+		Intent intent = this.getIntent();
+		int flags = intent.getFlags();
+		if ((flags & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) == 0) {
+			if (intent.getAction() != null && Intent.ACTION_VIEW.equals(intent.getAction())) {
+				if (RCMConstants.SCHEME_FILE.equals(intent.getScheme())
+						|| RCMConstants.SCHEME_CONTENT.equals(intent.getScheme())) {
+
+					String i_type = getIntent().getType();
+					if (LogSettings.ENGINEERING) {
+						MktLog.d(TAG, "Intent Type: " + i_type);
+					}
+
+					FILE_EXT = MimeTypeMap.getSingleton().getExtensionFromMimeType(i_type);
+					if (TextUtils.isEmpty(FILE_EXT)) {
+						FILE_EXT = RCMMimeTypeMap.getSingleton().getExtensionFromMimeType(i_type);
+					}
+
+					intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+					isFromImporting = true;
+					mImportingUri = intent.getData();
+				}
+			}
+		}
+
+		MktLog.i(TAG,"====isFromImporting="+isFromImporting+"FILE_EXT="+FILE_EXT);
 
 	}
 

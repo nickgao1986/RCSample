@@ -28,7 +28,7 @@
     <string name="brand_AppLabel">RingCentral</string>
 
     <!-- This is the INTERNAL application name used inside the application UI -->
-    <string name="brand_AppName">RingCentral</string>
+    <string name="brand_AppName">DemoTest</string>
 
     <!-- =====================================================================-->
     <!-- ========================= Login Screen ==============================-->

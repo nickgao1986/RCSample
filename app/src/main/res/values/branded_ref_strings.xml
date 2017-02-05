@@ -11,7 +11,7 @@
     <string name="app_label">@string/brand_AppLabel</string>
 
     <!-- This is the INTERNAL application name used inside the application UI -->
-    <string name="app_name">@string/brand_AppName</string>
+    <string name="app_name">MyDemoApp</string>
 
     <!-- ===================================================================== -->
     <!-- ========================= Login Screen ============================== -->
