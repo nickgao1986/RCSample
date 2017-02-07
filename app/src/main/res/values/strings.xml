@@ -1962,5 +1962,7 @@
 
     <string name="CallReminder">Call Reminder</string>
     <string name="callRemindertext">Do you want call to <xliff:g id="dial_in_number">%1$s</xliff:g></string>
-
+    <string name="create_new_calendar">New Calendar</string>
+    <string name="add_calendar">Calendar</string>
+    <string name="save_calendar">Save</string>
 </resources>

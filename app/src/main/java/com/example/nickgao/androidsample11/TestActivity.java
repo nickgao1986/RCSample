@@ -101,7 +101,7 @@ public class TestActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent();
-				intent.setClass(TestActivity.this,CalendarActivity.class);
+				intent.setClass(TestActivity.this,CreateCalendarActivity.class);
 				startActivity(intent);
 			}
 		});

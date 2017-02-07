@@ -136,6 +136,11 @@
             android:theme="@style/RingCentral.Reskin.NoActionAndTitleBar"
             ></activity>
 
+        <activity
+            android:name=".androidsample11.CreateCalendarActivity"
+            android:theme="@style/RingCentral.Reskin.NoActionAndTitleBar"
+            ></activity>
+
         <service
             android:name=".contacts.adapters.contactsprovider.CloudContactSyncService"
             android:exported="false" />
