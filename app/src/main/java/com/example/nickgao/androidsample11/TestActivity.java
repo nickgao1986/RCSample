@@ -96,6 +96,16 @@ public class TestActivity extends Activity {
 			}
 		});
 
+		Button btn_calendar = (Button)findViewById(R.id.btn_calendar);
+		btn_calendar.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.setClass(TestActivity.this,CalendarActivity.class);
+				startActivity(intent);
+			}
+		});
+
 		restAuthorization();
 
 		mRestNotificationReceiver = new RestNotificationReceiver();

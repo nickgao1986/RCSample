@@ -132,6 +132,9 @@ public class RCMProvider extends ContentProvider {
     public static final String ACCOUNT_BADGE = "account_badge";
 
     public static final String BLF_LIST = "blf_list_table";
+    public static final String CALENDAR_INFO = "CalendarTable";
+    private static final int CALENDAR_MATCH = 860;
+    private static final int CALENDAR_ID_MATCH = 861;
 
 
     private RCMDbHelper dbHelper;
@@ -856,6 +859,11 @@ public class RCMProvider extends ContentProvider {
                 return  RCMDataStore.CalendarEventAlertTable.getInstance().getName();
             case ACCOUNT_BADGE_MATCH:
                 return RCMDataStore.AccountBadgeTable.getInstance().getName();
+
+            case CALENDAR_ID_MATCH:
+            case CALENDAR_MATCH:
+                return RCMDataStore.CalendarTable.getInstance().getName();
+
             case BLF_LIST_MATCH:
                 return RCMDataStore.BLFListTable.getInstance().getName();
             default:
@@ -1171,6 +1179,10 @@ public class RCMProvider extends ContentProvider {
         sUriMatcher.addURI(AUTHORITY, ACCOUNT_BADGE, ACCOUNT_BADGE_MATCH);
 
         sUriMatcher.addURI(AUTHORITY, BLF_LIST, BLF_LIST_MATCH);
+
+        sUriMatcher.addURI(AUTHORITY, CALENDAR_INFO + "/#", CALENDAR_ID_MATCH);
+        sUriMatcher.addURI(AUTHORITY, CALENDAR_INFO, CALENDAR_MATCH);
+
     }
 
 }

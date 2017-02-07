@@ -98,6 +98,13 @@
 
         <activity
 
+            android:name=".androidsample11.CalendarActivity"
+            android:theme="@style/RingCentral.Reskin.NoActionAndTitleBar"
+            ></activity>
+
+
+        <activity
+
             android:name=".androidsample11.MainActivity"
             android:theme="@style/RingCentral.Reskin.NoActionAndTitleBar"
             ></activity>
@@ -121,6 +128,11 @@
 
         <activity
             android:name=".contacts.AddFavoritesActivity"
+            android:theme="@style/RingCentral.Reskin.NoActionAndTitleBar"
+            ></activity>
+
+        <activity
+            android:name=".calendar.ScheduleActivity"
             android:theme="@style/RingCentral.Reskin.NoActionAndTitleBar"
             ></activity>
 

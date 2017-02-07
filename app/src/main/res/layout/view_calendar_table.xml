@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/tableViewCalendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/style_calendar_header_text"
+            android:textColor="@android:color/holo_red_light"
+            android:text="@string/calendar_sunday" />
+
+        <TextView
+            style="@style/style_calendar_header_text"
+            android:text="@string/calendar_monday" />
+
+        <TextView
+            style="@style/style_calendar_header_text"
+            android:text="@string/calendar_tuesday" />
+
+        <TextView
+            style="@style/style_calendar_header_text"
+            android:text="@string/calendar_wednesday" />
+
+        <TextView
+            style="@style/style_calendar_header_text"
+            android:text="@string/calendar_thursday" />
+
+        <TextView
+            style="@style/style_calendar_header_text"
+            android:text="@string/calendar_friday" />
+
+        <TextView
+            style="@style/style_calendar_header_text"
+            android:textColor="@android:color/holo_red_light"
+            android:text="@string/calendar_saturday" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_day"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"/>
+</LinearLayout><!--
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tableViewCalendar"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="*" >
+
+    &lt;!&ndash;
+    	这里会有一个警告，提示 TableRow 不必要，因为只有一行内容。但是，日历的其它行是动态添加的，
+    		所以这里必须保留，这样 TableHeader 和 TableBody 的列才能对齐。
+     &ndash;&gt;
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+&lt;!&ndash;        <LinearLayout
+            style="@style/style_calendar_header_container"
+            android:background="@drawable/shape_calendar_cell_weekindex" >
+
+            <TextView
+                style="@style/style_calendar_header_text"
+                android:layout_width="38dp" />
+        </LinearLayout>&ndash;&gt;
+
+        <LinearLayout
+            style="@style/style_calendar_header_container"
+            android:background="@drawable/shape_calendar_cell_weekend" >
+
+            <TextView
+                style="@style/style_calendar_header_text"
+                android:text="@string/calendar_sunday" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/style_calendar_header_container" >
+
+            <TextView
+                style="@style/style_calendar_header_text"
+                android:text="@string/calendar_monday" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/style_calendar_header_container" >
+
+            <TextView
+                style="@style/style_calendar_header_text"
+                android:text="@string/calendar_tuesday" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/style_calendar_header_container" >
+
+            <TextView
+                style="@style/style_calendar_header_text"
+                android:text="@string/calendar_wednsday" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/style_calendar_header_container" >
+
+            <TextView
+                style="@style/style_calendar_header_text"
+                android:text="@string/calendar_thursday" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/style_calendar_header_container" >
+
+            <TextView
+                style="@style/style_calendar_header_text"
+                android:text="@string/calendar_firday" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/style_calendar_header_container"
+            android:background="@drawable/shape_calendar_cell_weekend" >
+
+            <TextView
+                style="@style/style_calendar_header_text"
+                android:text="@string/calendar_saturday" />
+        </LinearLayout>
+    </TableRow>
+
+</TableLayout>-->

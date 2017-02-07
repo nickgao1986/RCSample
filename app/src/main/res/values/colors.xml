@@ -73,4 +73,40 @@
     <color name="us_palette_40_transparent_mask2">#9A000000</color>
 
     <color name="us_palette_listview_delete_btn_bg">#FAFAFA</color>
+
+    <color name="event_color_01">#59dbe0</color>
+    <color name="event_color_02">#f57f68</color>
+    <color name="event_color_03">#87d288</color>
+    <color name="event_color_04">#f8b552</color>
+    <color name="event_color_05">#a8e552</color>
+    <color name="event_color_06">#b8a5d2</color>
+    <color name="event_color_07">#c8f5a2</color>
+    <color name="event_color_08">#d8e5f2</color>
+    <color name="event_color_09">#e8d5f2</color>
+    <color name="event_color_10">#ffb5a2</color>
+
+    <color name="accent">#2789e4</color>
+
+    <color name="color_calendar_border">#3fff</color>
+    <color name="color_calendar_title_gregorian">#cfff</color>
+    <color name="color_calendar_title_lunar">#cfff</color>
+    <color name="color_calendar_title_start">#c000</color>
+    <color name="color_calendar_title_end">#6000</color>
+    <color name="color_calendar_title_addition">#f63</color>
+    <color name="color_calendar_weekindex">#3fff</color>
+    <color name="color_calendar_weekindex_background">#369f</color>
+    <color name="color_calendar_weekend">#9fff</color>
+    <color name="color_calendar_weekend_background">#3f99</color>
+    <color name="color_calendar_header">#9fff</color>
+    <color name="color_calendar_header_background">#6000</color>
+    <color name="color_calendar_normal_gregorian">#cfff</color>
+    <color name="color_calendar_normal_lunar">#9fff</color>
+    <color name="color_calendar_normal_background">#0000</color>
+    <color name="color_calendar_today_gregorian">#cfff</color>
+    <color name="color_calendar_today_lunar">#9fff</color>
+    <color name="color_calendar_today_background">#06c</color>
+    <color name="color_calendar_solarterm">#c0c3</color>
+    <color name="color_calendar_festival">#cf90</color>
+    <color name="color_calendar_pressed">#306c</color>
+    <color name="color_calendar_focused">#606c</color>
 </resources>

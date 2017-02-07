@@ -1162,6 +1162,52 @@ public final class RCMDataStore {
 		}
 	}
 
+	public static final class CalendarTable extends RCMDbTable implements RCMColumns, BaseColumns {
+
+		private CalendarTable() {
+		}
+
+		private static final CalendarTable sInstance = new CalendarTable();
+
+		static CalendarTable getInstance() {
+			return sInstance;
+		}
+
+		private static final String TABLE_NAME = "CalendarTable";
+
+		public static final String START_TIME = "start_time";            //TEXT
+		public static final String END_TIME = "end_time";            //TEXT
+		public static final String DAY = "day";            //eg,2015,08,22
+		public static final String MONTH = "month";    //eg.2015,08
+		public static final String LOCATION = "location";              //TEXT
+		public static final String MESSAGE = "message";           //TEXT
+		public static final String IS_CALL_REMINDER = "is_call_reminder";           //TEXT
+
+		private static final String CREATE_TABLE_STMT =
+				"CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " ("
+						+ _ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+						+ MAILBOX_ID + " INTEGER,"
+						+ START_TIME + " TEXT,"
+						+ END_TIME + " TEXT,"
+						+ DAY + " TEXT,"
+						+ MONTH + " TEXT,"
+						+ LOCATION + " TEXT,"
+						+ IS_CALL_REMINDER + " INTEGER DEFAULT 0,"
+						+ MESSAGE + " TEXT"
+						+ ");";
+
+		@Override
+		String getName() {
+			return TABLE_NAME;
+		}
+
+		@Override
+		void onCreate(SQLiteDatabase db) {
+			db.execSQL(CREATE_TABLE_STMT);
+		}
+	}
+
+
 
 	public static final class FavoritesTable extends RCMDbTable implements RCMColumns, BaseColumns {
 
@@ -3529,6 +3575,10 @@ public final class RCMDataStore {
 		sRCMDbTables.put(CalendarEventAlertTable.getInstance().getName(), CalendarEventAlertTable.getInstance());
 		sRCMDbTables.put(AccountBadgeTable.getInstance().getName(), AccountBadgeTable.getInstance());
 		sRCMDbTables.put(BLFListTable.getInstance().getName(), BLFListTable.getInstance());
+
+		sRCMDbTables.put(CalendarTable.getInstance().getName(), CalendarTable.getInstance());
+
+
 	}
 
 
