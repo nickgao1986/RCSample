@@ -30,6 +30,8 @@ import com.example.nickgao.service.i18n.LanguageListService;
 import com.example.nickgao.utils.RCMConstants;
 import com.example.nickgao.utils.RCMMimeTypeMap;
 
+import floatmenu.FloatWindowService;
+
 public class TestActivity extends Activity {
 
 	public static final long AUTH_MAIL_BOXID_KEY = Long.MIN_VALUE;
@@ -105,6 +107,9 @@ public class TestActivity extends Activity {
 				startActivity(intent);
 			}
 		});
+
+		Intent serviceIntent = new Intent(this, FloatWindowService.class);
+		startService(serviceIntent);
 
 		restAuthorization();
 

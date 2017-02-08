@@ -165,4 +165,8 @@
         <attr name="eventMarginVertical" format="dimension"/>
         <attr name="xScrollingSpeed" format="float"/>
     </declare-styleable>
+
+    <declare-styleable name="RoundSpinView">
+        <attr name="menuStart" format="reference" />
+    </declare-styleable>
 </resources>
