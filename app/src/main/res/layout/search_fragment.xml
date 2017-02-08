@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:rcm="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/contact_list_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgColorMain"
+    android:orientation="vertical">
+    <!--
+       <com.ringcentral.android.utils.ui.widget.HeaderViewBase
+           android:id="@+id/contacts_top_title"
+           android:layout_width="match_parent"
+           android:layout_height="@dimen/header_hight"
+           rcm:header_header_text="@string/tab_name_contacts"
+           rcm:header_menu_button_label="true"
+           rcm:header_right_button_drawable="@drawable/ic_action_filter" />
+
+      -->
+
+    <com.example.nickgao.titlebar.RCMainTitleBar
+        android:id="@+id/top_tilte"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_hight"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg_action_bar_blue"
+        rcm:title_text="@string/tab_name_search"/>
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@color/transparentColor"
+        android:descendantFocusability="afterDescendants"
+        android:divider="@null"
+        android:fastScrollEnabled="true"
+        android:listSelector="@drawable/bg_list_item_selector" />
+
+    <RelativeLayout
+        android:id="@+id/no_contact_indication"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/emptyListText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:singleLine="true"
+            android:text="@string/noSearch"
+            android:textColor="@color/text_no_items"
+            android:textSize="@dimen/font_size_xlarge" />
+
+        <ProgressBar
+            android:id="@+id/loading"
+            style="@style/RCMProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</LinearLayout>

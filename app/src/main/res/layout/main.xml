@@ -8,8 +8,6 @@
     android:orientation="vertical">
 
 
-
-
     <Button
         android:layout_width="100dp"
         android:layout_height="100dp"

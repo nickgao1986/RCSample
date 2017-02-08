@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/general_list_view_item_height"
+    android:background="@drawable/bg_list_item_divider">
+
+    <LinearLayout
+        android:layout_width="@dimen/messages_list_view_text_margin_left"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:background="@drawable/bg_list_item_selector">
+
+        <ProgressBar
+            android:id="@+id/progress"
+            style="@style/RCMSmallProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:indeterminateDrawable="@anim/item_loading"
+            android:paddingRight="9dp"
+            android:paddingBottom="2dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/presence"
+        android:layout_width="@dimen/messages_list_view_text_margin_left"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:scaleType="center"
+        android:src="@drawable/ic_voicemail_opened"
+        android:background="@drawable/bg_list_item_selector"
+        android:visibility="gone" />
+
+    <ImageButton
+        android:id="@+id/deleteButton"
+        android:layout_width="@dimen/listview_delete_btn_width"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:src="@drawable/list_item_delete_button_selector"
+        android:background="@drawable/delete_btn_bg_selector"
+        android:scaleType="center"
+        android:padding="0dp"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/message_detail_item_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="0dip"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_toLeftOf="@id/deleteButton"
+        android:layout_centerVertical="true"
+        android:cropToPadding="true"
+        android:duplicateParentState="false"
+        android:padding="@dimen/messages_list_view_image_padding"
+        android:scaleType="center"
+        android:src="@drawable/ic_info_selector" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center_vertical"
+        android:gravity="right|center_vertical"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/message_detail_item_icon"
+        android:singleLine="true"
+        android:textSize="@dimen/font_size_small"
+        android:textColor="@color/text_secondary" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="@dimen/messages_list_view_text_margin_left"
+        android:layout_toLeftOf="@+id/date"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <com.example.nickgao.utils.widget.NameTextView
+            android:id="@+id/name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dip"
+            android:gravity="center_vertical|left"
+            android:singleLine="true"
+            android:textSize="@dimen/font_size_medium"
+            android:textColor="@color/textColorWhite"
+            style="@style/list_item_text_ellipsize_style" />
+
+        <TextView
+            android:id="@+id/label"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dip"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:textSize="@dimen/font_size_small"
+            android:textColor="@color/text_secondary" />
+    </LinearLayout>
+
+
+</RelativeLayout>

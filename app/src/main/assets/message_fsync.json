@@ -1,0 +1,1648 @@
+{
+    "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-sync?syncType=FSync&dateFrom=2011-12-01T00:00:00.000Z&recordCount=50",
+    "records": [
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/713933992008",
+            "id": 713933992008,
+            "to": [
+                {
+                    "phoneNumber": "+16504924491",
+                    "extensionNumber": "101",
+                    "name": "(650) 492-4491 * 101 (XM TEST)",
+                    "location": "Los Altos, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+16505898790",
+                "location": "South San Francisco, CA"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-02-07T20:08:24.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 713933992008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/713933992008/content/713933992008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 23
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-02-07T20:08:24.126Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/713880096008",
+            "id": 713880096008,
+            "to": [
+                {
+                    "phoneNumber": "+16505674776",
+                    "extensionNumber": "101",
+                    "name": "(650) 567-4776 * 101 (XM TEST)",
+                    "location": "Mountain View, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+12034264568",
+                "location": "Newtown, CT"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-02-07T18:49:10.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 713880096008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/713880096008/content/713880096008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 12
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-02-07T18:49:10.372Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/713750085008",
+            "id": 713750085008,
+            "type": "Fax",
+            "creationTime": "2017-02-07T15:26:11.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 713750085008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/713750085008/content/713750085008",
+                    "type": "RenderedDocument",
+                    "contentType": "application/pdf"
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "subject": "+16503979407",
+            "messageStatus": "Received",
+            "faxResolution": "High",
+            "faxPageCount": 1,
+            "lastModifiedTime": "2017-02-07T15:26:11.617Z"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/713571444008",
+            "id": 713571444008,
+            "to": [
+                {
+                    "phoneNumber": "+16503280959",
+                    "extensionNumber": "101",
+                    "name": "(650) 328-0959 * 101 (XM TEST)",
+                    "location": "Palo Alto, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+18663510005"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-02-06T21:30:40.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 713571444008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/713571444008/content/713571444008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 3
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-02-06T21:30:40.221Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/713235953008",
+            "id": 713235953008,
+            "type": "Fax",
+            "creationTime": "2017-02-05T20:12:55.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 713235953008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/713235953008/content/713235953008",
+                    "type": "RenderedDocument",
+                    "contentType": "application/pdf"
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "subject": "+16507298410",
+            "messageStatus": "Received",
+            "faxResolution": "High",
+            "faxPageCount": 1,
+            "lastModifiedTime": "2017-02-05T20:12:55.970Z"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/713221601008",
+            "id": 713221601008,
+            "to": [
+                {
+                    "phoneNumber": "+16506692626",
+                    "extensionNumber": "101",
+                    "name": "(650) 669-2626 * 101 (XM TEST)",
+                    "location": "Mountain View, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+16507713720"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-02-05T17:47:56.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 713221601008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/713221601008/content/713221601008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 163
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-02-05T17:47:56.148Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/713089652009",
+            "id": 713089652009,
+            "to": [
+                {
+                    "extensionNumber": "98645",
+                    "name": "A 118"
+                },
+                {
+                    "extensionNumber": "98639",
+                    "name": "A 112"
+                },
+                {
+                    "extensionNumber": "101",
+                    "name": "XM TEST"
+                }
+            ],
+            "from": {
+                "extensionNumber": "101",
+                "name": "XM TEST"
+            },
+            "type": "Pager",
+            "creationTime": "2017-02-04T08:53:07.000Z",
+            "readStatus": "Read",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 713089652009,
+                    "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/713089652009/content/713089652009",
+                    "type": "Text",
+                    "contentType": "text/plain"
+                }
+            ],
+            "direction": "Outbound",
+            "availability": "Alive",
+            "subject": "552",
+            "messageStatus": "Sent",
+            "conversationId": 713089652009,
+            "conversation": {
+                "id": "713089652009",
+                "uri": "https://api.ringcentral.com/restapi/v1.0/conversation/713089652009"
+            },
+            "lastModifiedTime": "2017-02-04T08:53:11.536Z",
+            "pgToDepartment": false
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/713020329008",
+            "id": 713020329008,
+            "to": [
+                {
+                    "phoneNumber": "+16503280959",
+                    "extensionNumber": "101",
+                    "name": "(650) 328-0959 * 101 (XM TEST)",
+                    "location": "Palo Alto, CA"
+                }
+            ],
+            "type": "VoiceMail",
+            "creationTime": "2017-02-03T22:38:27.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 713020329008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/713020329008/content/713020329008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 8
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-02-03T22:38:27.480Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/712436695008",
+            "id": 712436695008,
+            "to": [
+                {
+                    "phoneNumber": "+16503360073",
+                    "extensionNumber": "101",
+                    "name": "(650) 336-0073 * 101 (XM TEST)",
+                    "location": "Mountain View, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+12016206929",
+                "location": "Bayonne, NJ"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-02-02T17:14:57.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 712436695008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/712436695008/content/712436695008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 1
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-02-02T17:14:57.428Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/712436042008",
+            "id": 712436042008,
+            "to": [
+                {
+                    "phoneNumber": "+16503360073",
+                    "extensionNumber": "101",
+                    "name": "(650) 336-0073 * 101 (XM TEST)",
+                    "location": "Mountain View, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+12016206929",
+                "location": "Bayonne, NJ"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-02-02T17:13:56.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 712436042008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/712436042008/content/712436042008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 29
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-02-02T17:13:56.245Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/712303914008",
+            "id": 712303914008,
+            "to": [
+                {
+                    "phoneNumber": "+16504920924",
+                    "extensionNumber": "101",
+                    "name": "(650) 492-0924 * 101 (XM TEST)",
+                    "location": "Los Altos, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+16508251715",
+                "location": "South San Francisco, CA"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-02-02T03:07:56.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 712303914008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/712303914008/content/712303914008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 58
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-02-02T03:07:56.656Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/712275785008",
+            "id": 712275785008,
+            "to": [
+                {
+                    "phoneNumber": "+16504253931",
+                    "location": "San Mateo, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+12097274685",
+                "location": "Lockeford, CA"
+            },
+            "type": "SMS",
+            "creationTime": "2017-02-02T00:05:07.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 712275785008,
+                    "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/712275785008/content/712275785008",
+                    "type": "Text",
+                    "contentType": "text/plain"
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "subject": "11",
+            "messageStatus": "Received",
+            "conversationId": 6442777177953598000,
+            "conversation": {
+                "id": "6442777177953598527",
+                "uri": "https://api.ringcentral.com/restapi/v1.0/conversation/6442777177953598527"
+            },
+            "lastModifiedTime": "2017-02-02T00:05:07.937Z"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/712275781008",
+            "id": 712275781008,
+            "to": [
+                {
+                    "phoneNumber": "+16504253931",
+                    "location": "San Mateo, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+12097274685",
+                "location": "Lockeford, CA"
+            },
+            "type": "SMS",
+            "creationTime": "2017-02-02T00:05:07.000Z",
+            "readStatus": "Read",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 712275781008,
+                    "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/712275781008/content/712275781008",
+                    "type": "Text",
+                    "contentType": "text/plain"
+                }
+            ],
+            "direction": "Outbound",
+            "availability": "Alive",
+            "subject": "11",
+            "messageStatus": "Sent",
+            "smsSendingAttemptsCount": 1,
+            "conversationId": 6442777177953598000,
+            "conversation": {
+                "id": "6442777177953598527",
+                "uri": "https://api.ringcentral.com/restapi/v1.0/conversation/6442777177953598527"
+            },
+            "lastModifiedTime": "2017-02-02T00:05:07.931Z"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/712148971008",
+            "id": 712148971008,
+            "to": [
+                {
+                    "phoneNumber": "+16505649200",
+                    "extensionNumber": "101",
+                    "name": "(650) 564-9200 * 101 (XM TEST)",
+                    "location": "Mountain View, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+12532453160",
+                "location": "Auburn, WA"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-02-01T20:04:14.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 712148971008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/712148971008/content/712148971008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 3
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-02-01T20:04:14.756Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/711647520008",
+            "id": 711647520008,
+            "type": "Fax",
+            "creationTime": "2017-01-31T17:42:55.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 711647520008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/711647520008/content/711647520008",
+                    "type": "RenderedDocument",
+                    "contentType": "application/pdf"
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "subject": "+16503976929",
+            "messageStatus": "Received",
+            "faxResolution": "High",
+            "faxPageCount": 1,
+            "lastModifiedTime": "2017-01-31T17:42:55.785Z"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/711546660008",
+            "id": 711546660008,
+            "to": [
+                {
+                    "phoneNumber": "+16504723970",
+                    "extensionNumber": "101",
+                    "name": "(650) 472-3970 * 101 (XM TEST)",
+                    "location": "Los Altos, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+16162572022",
+                "location": "Grand Rapids, MI"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-01-31T14:55:41.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 711546660008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/711546660008/content/711546660008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 80
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-01-31T14:55:41.187Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/711487574008",
+            "id": 711487574008,
+            "to": [
+                {
+                    "phoneNumber": "+16504920924",
+                    "extensionNumber": "101",
+                    "name": "(650) 492-0924 * 101 (XM TEST)",
+                    "location": "Los Altos, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+19374014804",
+                "location": "Dayton, OH"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-01-31T02:41:27.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 711487574008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/711487574008/content/711487574008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 28
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-01-31T02:41:27.387Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/711205451008",
+            "id": 711205451008,
+            "to": [
+                {
+                    "phoneNumber": "+16503360073",
+                    "extensionNumber": "101",
+                    "name": "(650) 336-0073 * 101 (XM TEST)",
+                    "location": "Mountain View, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+12016206929",
+                "location": "Bayonne, NJ"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-01-30T17:12:24.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 711205451008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/711205451008/content/711205451008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 15
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-01-30T17:12:24.449Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/711184015008",
+            "id": 711184015008,
+            "to": [
+                {
+                    "phoneNumber": "+16505649200",
+                    "extensionNumber": "101",
+                    "name": "(650) 564-9200 * 101 (XM TEST)",
+                    "location": "Mountain View, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+19493839311",
+                "location": "Irvine, CA"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-01-30T16:39:43.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 711184015008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/711184015008/content/711184015008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 39
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-01-30T16:39:43.260Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/711083509008",
+            "id": 711083509008,
+            "type": "Fax",
+            "creationTime": "2017-01-30T10:38:29.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 711083509008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/711083509008/content/711083509008",
+                    "type": "RenderedDocument",
+                    "contentType": "application/pdf"
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "subject": "+16502494342",
+            "messageStatus": "Received",
+            "faxResolution": "High",
+            "faxPageCount": 1,
+            "lastModifiedTime": "2017-01-30T10:38:29.945Z"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/711052425008",
+            "id": 711052425008,
+            "to": [
+                {
+                    "phoneNumber": "+16504891708",
+                    "extensionNumber": "101",
+                    "name": "(650) 489-1708 * 101 (XM TEST)",
+                    "location": "San Carlos-Belmont, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+14087035626",
+                "location": "San Jose, West, CA"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-01-29T22:06:02.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 711052425008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/711052425008/content/711052425008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 6
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-01-29T22:06:02.968Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/711048141008",
+            "id": 711048141008,
+            "to": [
+                {
+                    "phoneNumber": "+16504920924",
+                    "extensionNumber": "101",
+                    "name": "(650) 492-0924 * 101 (XM TEST)",
+                    "location": "Los Altos, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+19374014804",
+                "location": "Dayton, OH"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-01-29T21:14:28.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 711048141008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/711048141008/content/711048141008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 41
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-01-29T21:14:28.119Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/710469075008",
+            "id": 710469075008,
+            "to": [
+                {
+                    "phoneNumber": "+16502760755",
+                    "extensionNumber": "101",
+                    "name": "(650) 276-0755 * 101 (XM TEST)",
+                    "location": "Half Moon Bay, CA"
+                }
+            ],
+            "type": "VoiceMail",
+            "creationTime": "2017-01-26T23:01:44.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 710469075008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/710469075008/content/710469075008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 25
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-01-26T23:01:44.130Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/710377161008",
+            "id": 710377161008,
+            "to": [
+                {
+                    "phoneNumber": "+16503280959",
+                    "extensionNumber": "101",
+                    "name": "(650) 328-0959 * 101 (XM TEST)",
+                    "location": "Palo Alto, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+16503624771",
+                "location": "Redwood City, CA"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-01-26T20:14:53.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 710377161008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/710377161008/content/710377161008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 6
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-01-26T20:14:53.962Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/710326098008",
+            "id": 710326098008,
+            "to": [
+                {
+                    "phoneNumber": "+16503360073",
+                    "extensionNumber": "101",
+                    "name": "(650) 336-0073 * 101 (XM TEST)",
+                    "location": "Mountain View, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+14153138"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-01-26T18:53:27.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 710326098008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/710326098008/content/710326098008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 8
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-01-26T18:53:27.865Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/710266463008",
+            "id": 710266463008,
+            "to": [
+                {
+                    "phoneNumber": "+16503360073",
+                    "extensionNumber": "101",
+                    "name": "(650) 336-0073 * 101 (XM TEST)",
+                    "location": "Mountain View, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+12016206929",
+                "location": "Bayonne, NJ"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-01-26T17:16:57.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 710266463008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/710266463008/content/710266463008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 10
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-01-26T17:16:57.030Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/710265775008",
+            "id": 710265775008,
+            "to": [
+                {
+                    "phoneNumber": "+16503360073",
+                    "extensionNumber": "101",
+                    "name": "(650) 336-0073 * 101 (XM TEST)",
+                    "location": "Mountain View, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+12016206929",
+                "location": "Bayonne, NJ"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-01-26T17:15:46.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 710265775008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/710265775008/content/710265775008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 25
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-01-26T17:15:46.433Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/709833879008",
+            "id": 709833879008,
+            "to": [
+                {
+                    "phoneNumber": "+16504723970",
+                    "extensionNumber": "101",
+                    "name": "(650) 472-3970 * 101 (XM TEST)",
+                    "location": "Los Altos, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+16162572022",
+                "location": "Grand Rapids, MI"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-01-25T16:05:17.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 709833879008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/709833879008/content/709833879008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 83
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-01-25T16:05:17.744Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/709754346008",
+            "id": 709754346008,
+            "from": {
+                "phoneNumber": "+15063534443"
+            },
+            "type": "Fax",
+            "creationTime": "2017-01-25T07:49:04.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 709754346008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/709754346008/content/709754346008",
+                    "type": "RenderedDocument",
+                    "contentType": "application/pdf"
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "subject": "+16503979407",
+            "messageStatus": "Received",
+            "faxResolution": "High",
+            "faxPageCount": 1,
+            "lastModifiedTime": "2017-01-25T07:49:04.316Z"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/709192276008",
+            "id": 709192276008,
+            "from": {
+                "phoneNumber": "+12095237883",
+                "location": "Modesto, CA"
+            },
+            "type": "Fax",
+            "creationTime": "2017-01-23T20:36:19.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 709192276008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/709192276008/content/709192276008",
+                    "type": "RenderedDocument",
+                    "contentType": "application/pdf"
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "subject": "+16503197455",
+            "messageStatus": "Received",
+            "faxResolution": "High",
+            "faxPageCount": 5,
+            "lastModifiedTime": "2017-01-23T20:36:19.470Z"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/709138063008",
+            "id": 709138063008,
+            "to": [
+                {
+                    "phoneNumber": "+16503360073",
+                    "extensionNumber": "101",
+                    "name": "(650) 336-0073 * 101 (XM TEST)",
+                    "location": "Mountain View, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+12016206929",
+                "location": "Bayonne, NJ"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-01-23T19:18:40.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 709138063008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/709138063008/content/709138063008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 17
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-01-23T19:18:40.304Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/708931120009",
+            "id": 708931120009,
+            "type": "Fax",
+            "creationTime": "2017-01-23T10:07:45.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 708931120009,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/708931120009/content/708931120009",
+                    "type": "RenderedDocument",
+                    "contentType": "application/pdf"
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "subject": "+16503976929",
+            "messageStatus": "Received",
+            "faxResolution": "High",
+            "faxPageCount": 1,
+            "lastModifiedTime": "2017-01-23T10:07:49.440Z"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/708931115009",
+            "id": 708931115009,
+            "type": "Fax",
+            "creationTime": "2017-01-23T10:07:04.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 708931115009,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/708931115009/content/708931115009",
+                    "type": "RenderedDocument",
+                    "contentType": "application/pdf"
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "subject": "+16503976929",
+            "messageStatus": "Received",
+            "faxResolution": "High",
+            "faxPageCount": 1,
+            "lastModifiedTime": "2017-01-23T10:07:08.308Z"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/708906256008",
+            "id": 708906256008,
+            "to": [
+                {
+                    "phoneNumber": "+16504920924",
+                    "extensionNumber": "101",
+                    "name": "(650) 492-0924 * 101 (XM TEST)",
+                    "location": "Los Altos, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+13304334439",
+                "location": "North Canton, OH"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-01-22T23:07:53.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 708906256008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/708906256008/content/708906256008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 28
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-01-22T23:07:53.637Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/708245669008",
+            "id": 708245669008,
+            "to": [
+                {
+                    "phoneNumber": "+16506692626",
+                    "extensionNumber": "101",
+                    "name": "(650) 669-2626 * 101 (XM TEST)",
+                    "location": "Mountain View, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+14083145671"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-01-19T20:49:39.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 708245669008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/708245669008/content/708245669008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 23
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-01-19T20:49:39.576Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/708244437008",
+            "id": 708244437008,
+            "to": [
+                {
+                    "phoneNumber": "+16503360073",
+                    "extensionNumber": "101",
+                    "name": "(650) 336-0073 * 101 (XM TEST)",
+                    "location": "Mountain View, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+19735003849",
+                "location": "Andover, NJ"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-01-19T20:47:31.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 708244437008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/708244437008/content/708244437008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 16
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-01-19T20:47:31.835Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707899318008",
+            "id": 707899318008,
+            "to": [
+                {
+                    "phoneNumber": "+16504407685",
+                    "extensionNumber": "101",
+                    "name": "(650) 440-7685 * 101 (XM TEST)",
+                    "location": "Half Moon Bay, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+16504408829",
+                "location": "Half Moon Bay, CA"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-01-18T22:08:39.000Z",
+            "readStatus": "Read",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 707899318008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707899318008/content/707899318008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 17
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-01-19T01:36:02.894Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707894905008",
+            "id": 707894905008,
+            "from": {
+                "phoneNumber": "+13072126776",
+                "location": "Rock Springs, WY"
+            },
+            "type": "Fax",
+            "creationTime": "2017-01-18T22:00:53.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 707894905008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707894905008/content/707894905008",
+                    "type": "RenderedDocument",
+                    "contentType": "application/pdf"
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "subject": "+16507298410",
+            "messageStatus": "Received",
+            "faxResolution": "High",
+            "faxPageCount": 1,
+            "lastModifiedTime": "2017-01-18T22:00:53.702Z"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707698206008",
+            "id": 707698206008,
+            "from": {
+                "phoneNumber": "+13072126776",
+                "location": "Rock Springs, WY"
+            },
+            "type": "Fax",
+            "creationTime": "2017-01-18T17:01:57.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 707698206008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707698206008/content/707698206008",
+                    "type": "RenderedDocument",
+                    "contentType": "application/pdf"
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "subject": "+16503979407",
+            "messageStatus": "Received",
+            "faxResolution": "High",
+            "faxPageCount": 1,
+            "lastModifiedTime": "2017-01-18T17:01:57.360Z"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707697319008",
+            "id": 707697319008,
+            "from": {
+                "phoneNumber": "+13072126776",
+                "location": "Rock Springs, WY"
+            },
+            "type": "Fax",
+            "creationTime": "2017-01-18T17:00:31.000Z",
+            "readStatus": "Read",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 707697319008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707697319008/content/707697319008",
+                    "type": "RenderedDocument",
+                    "contentType": "application/pdf"
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "subject": "+16503976929",
+            "messageStatus": "Received",
+            "faxResolution": "High",
+            "faxPageCount": 1,
+            "lastModifiedTime": "2017-02-08T06:18:03.436Z"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707583937008",
+            "id": 707583937008,
+            "to": [
+                {
+                    "phoneNumber": "+12052675116",
+                    "location": "Bessemer, AL",
+                    "messageStatus": "SendingFailed",
+                    "faxErrorCode": "Undefined"
+                }
+            ],
+            "type": "Fax",
+            "creationTime": "2017-01-18T08:54:15.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 707583937008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707583937008/content/707583937008",
+                    "type": "RenderedDocument",
+                    "contentType": "application/pdf"
+                }
+            ],
+            "direction": "Outbound",
+            "availability": "Alive",
+            "messageStatus": "SendingFailed",
+            "faxResolution": "High",
+            "faxPageCount": 2,
+            "lastModifiedTime": "2017-01-18T09:03:34.778Z",
+            "coverIndex": 7
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707583830008",
+            "id": 707583830008,
+            "to": [
+                {
+                    "phoneNumber": "+12052675116",
+                    "location": "Bessemer, AL",
+                    "messageStatus": "SendingFailed",
+                    "faxErrorCode": "Undefined"
+                }
+            ],
+            "type": "Fax",
+            "creationTime": "2017-01-18T08:47:38.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 707583830008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707583830008/content/707583830008",
+                    "type": "RenderedDocument",
+                    "contentType": "application/pdf"
+                }
+            ],
+            "direction": "Outbound",
+            "availability": "Alive",
+            "messageStatus": "SendingFailed",
+            "faxResolution": "High",
+            "faxPageCount": 2,
+            "lastModifiedTime": "2017-01-18T08:57:35.928Z",
+            "coverIndex": 7
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707583641008",
+            "id": 707583641008,
+            "to": [
+                {
+                    "extensionNumber": "5803",
+                    "name": "Zora Zheng"
+                },
+                {
+                    "extensionNumber": "5807",
+                    "name": "Allen Lian"
+                },
+                {
+                    "extensionNumber": "101",
+                    "name": "XM TEST"
+                },
+                {
+                    "extensionNumber": "5836",
+                    "name": "Iris Chen"
+                }
+            ],
+            "from": {
+                "extensionNumber": "5803",
+                "name": "Zora Zheng"
+            },
+            "type": "Pager",
+            "creationTime": "2017-01-18T08:36:49.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 707583641008,
+                    "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707583641008/content/707583641008",
+                    "type": "Text",
+                    "contentType": "text/plain"
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "subject": "by ",
+            "messageStatus": "Received",
+            "conversationId": 707583621008,
+            "conversation": {
+                "id": "707583621008",
+                "uri": "https://api.ringcentral.com/restapi/v1.0/conversation/707583621008"
+            },
+            "lastModifiedTime": "2017-01-18T08:36:49.103Z",
+            "pgToDepartment": false
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707583625008",
+            "id": 707583625008,
+            "to": [
+                {
+                    "extensionNumber": "5803",
+                    "name": "Zora Zheng"
+                },
+                {
+                    "extensionNumber": "5807",
+                    "name": "Allen Lian"
+                },
+                {
+                    "extensionNumber": "101",
+                    "name": "XM TEST"
+                },
+                {
+                    "extensionNumber": "5836",
+                    "name": "Iris Chen"
+                }
+            ],
+            "from": {
+                "extensionNumber": "5836",
+                "name": "Iris Chen"
+            },
+            "type": "Pager",
+            "creationTime": "2017-01-18T08:36:25.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 707583625008,
+                    "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707583625008/content/707583625008",
+                    "type": "Text",
+                    "contentType": "text/plain"
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "subject": "Find",
+            "messageStatus": "Received",
+            "conversationId": 707583621008,
+            "conversation": {
+                "id": "707583621008",
+                "uri": "https://api.ringcentral.com/restapi/v1.0/conversation/707583621008"
+            },
+            "lastModifiedTime": "2017-01-18T08:36:25.598Z",
+            "pgToDepartment": false
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707583483008",
+            "id": 707583483008,
+            "to": [
+                {
+                    "phoneNumber": "+16504253931",
+                    "extensionNumber": "101",
+                    "name": "(650) 425-3931 * 101 (XM TEST)",
+                    "location": "San Mateo, CA"
+                }
+            ],
+            "from": {
+                "extensionNumber": "101",
+                "name": "XM TEST"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-01-18T08:30:58.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 707583483008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707583483008/content/707583483008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 47
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-01-18T08:30:58.203Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707582659008",
+            "id": 707582659008,
+            "to": [
+                {
+                    "phoneNumber": "+16504253931",
+                    "extensionNumber": "101",
+                    "name": "(650) 425-3931 * 101 (XM TEST)",
+                    "location": "San Mateo, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+12052675116",
+                "name": "Zora Zheng",
+                "location": "Bessemer, AL"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-01-18T07:53:58.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 707582659008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707582659008/content/707582659008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 5
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-01-18T07:53:58.168Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707582630008",
+            "id": 707582630008,
+            "to": [
+                {
+                    "phoneNumber": "+16504253931",
+                    "extensionNumber": "101",
+                    "name": "(650) 425-3931 * 101 (XM TEST)",
+                    "location": "San Mateo, CA"
+                }
+            ],
+            "from": {
+                "phoneNumber": "+12052675116",
+                "name": "Zora Zheng",
+                "location": "Bessemer, AL"
+            },
+            "type": "VoiceMail",
+            "creationTime": "2017-01-18T07:52:15.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 707582630008,
+                    "uri": "https://media.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707582630008/content/707582630008",
+                    "type": "AudioRecording",
+                    "contentType": "audio/mpeg",
+                    "vmDuration": 5
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "messageStatus": "Received",
+            "lastModifiedTime": "2017-01-18T07:52:15.287Z",
+            "vmTranscriptionStatus": "NotAvailable"
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707582620008",
+            "id": 707582620008,
+            "to": [
+                {
+                    "extensionNumber": "5803",
+                    "name": "Zora Zheng"
+                }
+            ],
+            "from": {
+                "extensionNumber": "101",
+                "name": "XM TEST"
+            },
+            "type": "Pager",
+            "creationTime": "2017-01-18T07:51:38.000Z",
+            "readStatus": "Read",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 707582620008,
+                    "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707582620008/content/707582620008",
+                    "type": "Text",
+                    "contentType": "text/plain"
+                }
+            ],
+            "direction": "Outbound",
+            "availability": "Alive",
+            "subject": "what",
+            "messageStatus": "Sent",
+            "conversationId": 4699394791731116000,
+            "conversation": {
+                "id": "4699394791731116321",
+                "uri": "https://api.ringcentral.com/restapi/v1.0/conversation/4699394791731116321"
+            },
+            "lastModifiedTime": "2017-01-18T07:51:38.942Z",
+            "pgToDepartment": false
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707582613008",
+            "id": 707582613008,
+            "to": [
+                {
+                    "extensionNumber": "101",
+                    "name": "XM TEST"
+                }
+            ],
+            "from": {
+                "extensionNumber": "5803",
+                "name": "Zora Zheng"
+            },
+            "type": "Pager",
+            "creationTime": "2017-01-18T07:51:15.000Z",
+            "readStatus": "Read",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 707582613008,
+                    "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707582613008/content/707582613008",
+                    "type": "Text",
+                    "contentType": "text/plain"
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "subject": "the ",
+            "messageStatus": "Received",
+            "conversationId": 4699394791731116000,
+            "conversation": {
+                "id": "4699394791731116321",
+                "uri": "https://api.ringcentral.com/restapi/v1.0/conversation/4699394791731116321"
+            },
+            "lastModifiedTime": "2017-01-18T07:51:32.042Z",
+            "pgToDepartment": false
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707582570008",
+            "id": 707582570008,
+            "to": [
+                {
+                    "extensionNumber": "101",
+                    "name": "XM TEST"
+                }
+            ],
+            "from": {
+                "extensionNumber": "5803",
+                "name": "Zora Zheng"
+            },
+            "type": "Pager",
+            "creationTime": "2017-01-18T07:49:22.000Z",
+            "readStatus": "Read",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 707582570008,
+                    "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/707582570008/content/707582570008",
+                    "type": "Text",
+                    "contentType": "text/plain"
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "subject": "ringcentral ",
+            "messageStatus": "Received",
+            "conversationId": 4699394791731116000,
+            "conversation": {
+                "id": "4699394791731116321",
+                "uri": "https://api.ringcentral.com/restapi/v1.0/conversation/4699394791731116321"
+            },
+            "lastModifiedTime": "2017-01-18T07:49:37.254Z",
+            "pgToDepartment": false
+        }
+    ],
+    "syncInfo": {
+        "syncType": "FSync",
+        "syncToken": "AQEAAAAAAwAAAVmwjTfQBgAAADIFAAABWhxxP8gTAAgAAAAAfrQ70AkBCgNxZuw5",
+        "syncTime": "2017-02-08T06:37:48.360Z",
+        "olderRecordsExist": true
+    }
+}

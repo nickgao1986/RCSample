@@ -1,0 +1,71 @@
+{
+    "uri" : "https://api.ringcentral.com/restapi/v1.0/account/2125741008",
+    "id" : 2125741008,
+    "serviceInfo" : {
+        "uri" : "https://api.ringcentral.com/restapi/v1.0/account/2125741008/service-info",
+        "brand" : {
+            "id" : "1210",
+            "name" : "RingCentral",
+            "homeCountry" : {
+                "id" : "1",
+                "uri" : "https://api.ringcentral.com/restapi/v1.0/dictionary/country/1",
+                "name" : "United States",
+                "isoCode" : "US",
+                "callingCode" : "1"
+            }
+        },
+        "servicePlan" : {
+            "id" : "4462",
+            "name" : "Office 2 line",
+            "edition" : "Standard"
+        },
+        "billingPlan" : {
+            "id" : "2918",
+            "name" : "Annual - 599.76 - Office 2 Line",
+            "durationUnit" : "Month",
+            "duration" : 12,
+            "type" : "Regular"
+        }
+    },
+    "operator" : {
+        "uri" : "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008",
+        "id" : 2125741008,
+        "extensionNumber" : "101"
+    },
+    "mainNumber" : "+16504253931",
+    "status" : "Confirmed",
+    "signupInfo" : {
+        "tosAccepted" : true
+    },
+    "setupWizardState" : "Completed",
+    "regionalSettings" : {
+        "timezone" : {
+            "uri" : "https://api.ringcentral.com/restapi/v1.0/dictionary/timezone/58",
+            "id" : "58",
+            "name" : "US/Pacific",
+            "description" : "Pacific Time (US & Canada)",
+            "bias" : "-480"
+        },
+        "homeCountry" : {
+            "uri" : "https://api.ringcentral.com/restapi/v1.0/dictionary/country/1",
+            "id" : "1",
+            "name" : "United States"
+        },
+        "language" : {
+            "id" : "1033",
+            "name" : "English (United States)",
+            "localeCode" : "en-US"
+        },
+        "greetingLanguage" : {
+            "id" : "1033",
+            "name" : "English (United States)",
+            "localeCode" : "en-US"
+        },
+        "formattingLocale" : {
+            "id" : "1033",
+            "name" : "English (United States)",
+            "localeCode" : "en-US"
+        },
+        "timeFormat" : "12h"
+    }
+}

@@ -1,0 +1,65 @@
+{
+    "uri" : "https://api.ringcentral.com/restapi/v1.0/dictionary/language?page=1&perPage=1000",
+    "records" : [ {
+        "uri" : "https://api.ringcentral.com/restapi/v1.0/dictionary/language/1031",
+        "id" : "1031",
+        "name" : "German (Standard)",
+        "isoCode" : "de",
+        "localeCode" : "de-DE",
+        "ui" : true,
+        "greeting" : true,
+        "formattingLocale" : true
+    }, {
+        "uri" : "https://api.ringcentral.com/restapi/v1.0/dictionary/language/2057",
+        "id" : "2057",
+        "name" : "English (United Kingdom)",
+        "isoCode" : "en",
+        "localeCode" : "en-GB",
+        "ui" : true,
+        "greeting" : true,
+        "formattingLocale" : true
+    }, {
+        "uri" : "https://api.ringcentral.com/restapi/v1.0/dictionary/language/1033",
+        "id" : "1033",
+        "name" : "English (United States)",
+        "isoCode" : "en",
+        "localeCode" : "en-US",
+        "ui" : true,
+        "greeting" : true,
+        "formattingLocale" : true
+    }, {
+        "uri" : "https://api.ringcentral.com/restapi/v1.0/dictionary/language/3084",
+        "id" : "3084",
+        "name" : "French (Canadian)",
+        "isoCode" : "fr",
+        "localeCode" : "fr-CA",
+        "ui" : true,
+        "greeting" : true,
+        "formattingLocale" : true
+    }, {
+        "uri" : "https://api.ringcentral.com/restapi/v1.0/dictionary/language/1036",
+        "id" : "1036",
+        "name" : "French (Standard)",
+        "isoCode" : "fr",
+        "localeCode" : "fr-FR",
+        "ui" : true,
+        "greeting" : true,
+        "formattingLocale" : true
+    } ],
+    "paging" : {
+        "page" : 1,
+        "totalPages" : 1,
+        "perPage" : 1000,
+        "totalElements" : 5,
+        "pageStart" : 0,
+        "pageEnd" : 4
+    },
+    "navigation" : {
+        "firstPage" : {
+            "uri" : "https://api.ringcentral.com/restapi/v1.0/dictionary/language?page=1&perPage=1000"
+        },
+        "lastPage" : {
+            "uri" : "https://api.ringcentral.com/restapi/v1.0/dictionary/language?page=1&perPage=1000"
+        }
+    }
+}

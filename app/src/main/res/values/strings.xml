@@ -1965,4 +1965,7 @@
     <string name="create_new_calendar">New Calendar</string>
     <string name="add_calendar">Calendar</string>
     <string name="save_calendar">Save</string>
+    <string name="tab_name_search">Search</string>
+    <string name="noSearch">No Search</string>
+
 </resources>

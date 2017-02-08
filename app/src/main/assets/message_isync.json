@@ -1,0 +1,84 @@
+{
+    "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-sync?syncType=ISync&syncToken=AQEAAAAAAwAAAVmwjTfQBgAAADIFAAABWhxySz4TAAgAAAAAfrQ70AkBCgNcVu_u",
+    "records": [
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/714104376008",
+            "id": 714104376008,
+            "to": [
+                {
+                    "extensionNumber": "101",
+                    "name": "XM TEST"
+                }
+            ],
+            "from": {
+                "extensionNumber": "101",
+                "name": "XM TEST"
+            },
+            "type": "Pager",
+            "creationTime": "2017-02-08T06:40:19.000Z",
+            "readStatus": "Unread",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 714104376008,
+                    "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/714104376008/content/714104376008",
+                    "type": "Text",
+                    "contentType": "text/plain"
+                }
+            ],
+            "direction": "Inbound",
+            "availability": "Alive",
+            "subject": "Fff",
+            "messageStatus": "Received",
+            "conversationId": 4699394667945689000,
+            "conversation": {
+                "id": "4699394667945688577",
+                "uri": "https://api.ringcentral.com/restapi/v1.0/conversation/4699394667945688577"
+            },
+            "lastModifiedTime": "2017-02-08T06:40:19.573Z",
+            "pgToDepartment": false
+        },
+        {
+            "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/714104374008",
+            "id": 714104374008,
+            "to": [
+                {
+                    "extensionNumber": "101",
+                    "name": "XM TEST"
+                }
+            ],
+            "from": {
+                "extensionNumber": "101",
+                "name": "XM TEST"
+            },
+            "type": "Pager",
+            "creationTime": "2017-02-08T06:40:19.000Z",
+            "readStatus": "Read",
+            "priority": "Normal",
+            "attachments": [
+                {
+                    "id": 714104374008,
+                    "uri": "https://api.ringcentral.com/restapi/v1.0/account/2125741008/extension/2125741008/message-store/714104374008/content/714104374008",
+                    "type": "Text",
+                    "contentType": "text/plain"
+                }
+            ],
+            "direction": "Outbound",
+            "availability": "Alive",
+            "subject": "Fff",
+            "messageStatus": "Sent",
+            "conversationId": 4699394667945689000,
+            "conversation": {
+                "id": "4699394667945688577",
+                "uri": "https://api.ringcentral.com/restapi/v1.0/conversation/4699394667945688577"
+            },
+            "lastModifiedTime": "2017-02-08T06:40:19.541Z",
+            "pgToDepartment": false
+        }
+    ],
+    "syncInfo": {
+        "syncType": "ISync",
+        "syncToken": "AQEAAAAAAwAAAVmwjTfQBgAAADIFAAABWhxzkeETAAgAAAAAfrQ70AkBCgNr_fOd",
+        "syncTime": "2017-02-08T06:40:19.573Z"
+    }
+}
